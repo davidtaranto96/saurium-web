@@ -211,6 +211,7 @@ class Component extends DCLogic {
     if (this.tickRaf) cancelAnimationFrame(this.tickRaf);
     if (this.io) this.io.disconnect();
     if (this.onReveal) { window.removeEventListener('scroll', this.onReveal); window.removeEventListener('resize', this.onReveal); }
+    if (this.revTimer) clearInterval(this.revTimer);
   }
   q(s){ return document.querySelector(s); }
   qa(s){ return Array.from(document.querySelectorAll(s)); }
@@ -301,7 +302,14 @@ class Component extends DCLogic {
     this.onReveal = ()=>{ if (this.revRaf) return; this.revRaf = requestAnimationFrame(()=>{ this.revRaf = null; barrer(); }); };
     window.addEventListener('scroll', this.onReveal, { passive:true });
     window.addEventListener('resize', this.onReveal);
-    requestAnimationFrame(barrer);
+    // Ultimo respaldo con temporizador: hay motores que no corren rAF ni el observer.
+    // Cuesta nada (20 rects cada 400 ms) y se apaga solo cuando ya no queda nada oculto.
+    let vueltas = 0;
+    this.revTimer = setInterval(()=>{
+      barrer();
+      if (!pend.size || ++vueltas > 150) clearInterval(this.revTimer);
+    }, 400);
+    barrer();
   }
   tick() {
     if (this.dead) return;
