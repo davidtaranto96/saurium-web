@@ -440,6 +440,12 @@ class Component extends DCLogic {
       });
     }, { threshold: 0.14 });
     els.forEach(el=>this.io.observe(el));
+    // red de seguridad: si el observer o la transicion no llegan a correr
+    // (pestana en segundo plano, motor sin animaciones, JS lento), nada puede
+    // quedarse invisible. Lo que ya esta en pantalla se muestra igual.
+    const mostrar = (el)=>{ el.style.opacity='1'; el.style.transform='none'; };
+    requestAnimationFrame(()=>{ els.forEach(el=>{ const r=el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) mostrar(el); }); });
+    setTimeout(()=>{ els.forEach(el=>{ const r=el.getBoundingClientRect(); if (r.top < window.innerHeight * 1.2) mostrar(el); }); }, 2600);
   }
   setupScroll() {
     const nav = this.q('[data-nav]');

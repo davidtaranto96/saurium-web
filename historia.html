@@ -279,6 +279,12 @@ class Component extends DCLogic {
     if (!this.reduce) els.forEach(el=>{ el.style.opacity='0'; el.style.transform='translateY(26px)'; el.style.transition='opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1)'; });
     this.io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(!e.isIntersecting) return; e.target.style.opacity='1'; e.target.style.transform='none'; this.io.unobserve(e.target); }); }, { threshold:0.15 });
     els.forEach(el=>this.io.observe(el));
+    // red de seguridad: si el observer o la transicion no llegan a correr
+    // (pestana en segundo plano, motor sin animaciones, JS lento), nada puede
+    // quedarse invisible. Lo que ya esta en pantalla se muestra igual.
+    const mostrar = (el)=>{ el.style.opacity='1'; el.style.transform='none'; };
+    requestAnimationFrame(()=>{ els.forEach(el=>{ const r=el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) mostrar(el); }); });
+    setTimeout(()=>{ els.forEach(el=>{ const r=el.getBoundingClientRect(); if (r.top < window.innerHeight * 1.2) mostrar(el); }); }, 2600);
   }
   tick() {
     if (this.dead) return;
