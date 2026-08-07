@@ -210,6 +210,7 @@ class Component extends DCLogic {
     window.removeEventListener('resize', this.onScroll);
     if (this.tickRaf) cancelAnimationFrame(this.tickRaf);
     if (this.io) this.io.disconnect();
+    if (this.onReveal) { window.removeEventListener('scroll', this.onReveal); window.removeEventListener('resize', this.onReveal); }
   }
   q(s){ return document.querySelector(s); }
   qa(s){ return Array.from(document.querySelectorAll(s)); }
@@ -285,9 +286,22 @@ class Component extends DCLogic {
     // red de seguridad: si el observer o la transicion no llegan a correr
     // (pestana en segundo plano, motor sin animaciones, JS lento), nada puede
     // quedarse invisible. Lo que ya esta en pantalla se muestra igual.
-    const mostrar = (el)=>{ el.style.opacity='1'; el.style.transform='none'; };
-    requestAnimationFrame(()=>{ els.forEach(el=>{ const r=el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) mostrar(el); }); });
-    setTimeout(()=>{ els.forEach(el=>{ const r=el.getBoundingClientRect(); if (r.top < window.innerHeight * 1.2) mostrar(el); }); }, 2600);
+    // El observer es el camino rapido. Este respaldo por scroll cubre los motores
+    // donde no dispara (pestana en segundo plano, capturas, previews sociales):
+    // ahi el contenido tiene que aparecer igual, aunque sea sin animacion.
+    const pend = new Set(els);
+    const mostrar = (el)=>{
+      el.style.opacity='1'; el.style.transform='none';
+      setTimeout(()=>{ if (parseFloat(getComputedStyle(el).opacity) < 0.95) { el.style.transition='none'; el.style.opacity='1'; el.style.transform='none'; } }, 1400);
+    };
+    const barrer = ()=>{
+      if (!pend.size) return;
+      pend.forEach(el=>{ const r = el.getBoundingClientRect(); if (r.top < window.innerHeight * 0.95 && r.bottom > 0) { mostrar(el); pend.delete(el); } });
+    };
+    this.onReveal = ()=>{ if (this.revRaf) return; this.revRaf = requestAnimationFrame(()=>{ this.revRaf = null; barrer(); }); };
+    window.addEventListener('scroll', this.onReveal, { passive:true });
+    window.addEventListener('resize', this.onReveal);
+    requestAnimationFrame(barrer);
   }
   tick() {
     if (this.dead) return;
