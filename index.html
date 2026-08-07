@@ -435,8 +435,11 @@ class Component extends DCLogic {
     this.io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if (!e.isIntersecting) return;
-        e.target.style.opacity='1'; e.target.style.transform='none';
-        this.io.unobserve(e.target);
+        const el = e.target;
+        el.style.opacity='1'; el.style.transform='none';
+        this.io.unobserve(el);
+        // si la transicion no llega a correr, cerrarla de una: nada se queda a medias
+        setTimeout(()=>{ if (parseFloat(getComputedStyle(el).opacity) < 0.95) { el.style.transition='none'; el.style.opacity='1'; el.style.transform='none'; } }, 1400);
       });
     }, { threshold: 0.14 });
     els.forEach(el=>this.io.observe(el));

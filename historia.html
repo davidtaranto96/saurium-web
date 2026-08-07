@@ -277,7 +277,10 @@ class Component extends DCLogic {
   setupReveal() {
     const els = this.qa('[data-reveal]');
     if (!this.reduce) els.forEach(el=>{ el.style.opacity='0'; el.style.transform='translateY(26px)'; el.style.transition='opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1)'; });
-    this.io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(!e.isIntersecting) return; e.target.style.opacity='1'; e.target.style.transform='none'; this.io.unobserve(e.target); }); }, { threshold:0.15 });
+    this.io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(!e.isIntersecting) return; const el=e.target; el.style.opacity='1'; el.style.transform='none'; this.io.unobserve(el);
+      // si la transicion no llega a correr, cerrarla de una: nada se queda a medias
+      setTimeout(()=>{ if (parseFloat(getComputedStyle(el).opacity) < 0.95) { el.style.transition='none'; el.style.opacity='1'; el.style.transform='none'; } }, 1400);
+    }); }, { threshold:0.15 });
     els.forEach(el=>this.io.observe(el));
     // red de seguridad: si el observer o la transicion no llegan a correr
     // (pestana en segundo plano, motor sin animaciones, JS lento), nada puede
