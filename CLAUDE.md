@@ -12,10 +12,8 @@ Sitio estático (HTML/CSS/JS, sin build) para SAURIUM, marca de chukum de Yucat�
 ## Deploy
 GitHub Pages desde `main` (repo `saurium-web`). Iterar = commit + push.
 
-## Estado actual (2026-08-07, segunda pasada)
-- Assets reales extraídos del brochure PDF (pdftoppm + PIL): logo transparente (nav/footer), hero aéreo Yucatán, sacos 20 kg, 6 placas, casa terracota, living, logo 3D en muro. Ver FOTOS.md.
-- Comparador antes/después (obra gris ↔ chukum) con input range accesible sobre la casa terracota.
-- De-slop aplicado: sin eyebrows por sección, producto en split asimétrico con <dl> (antes cards numeradas), hero con strip de swatches (eco del mockup tablet del brochure, visible ≥768px).
-- PRODUCT.md creado (registro brand, skill impeccable).
-- Verificado en 375 / 768 / desktop sin overflow.
-- Falta: fotos de obra real (piscina y mobiliario hoy son recortes de las mismas fotos), dominio saurium.com, montos del presupuesto (en presupuesto/ del directorio padre).
+## Estado actual (2026-08-07, v3 publicada)
+- v3 final generada en Claude Design e integrada al repo: `index.html` (home) + `historia.html` (scrollytelling del meteorito), con runtime `support.js`/`image-slot.js` e imágenes en `img/` (casa en los 6 acabados para el comparador de color real, saco 3D, hero luminoso).
+- v2 (styles.css/app.js/assets) eliminada del working tree; queda en historial git.
+- Live: https://davidtaranto96.github.io/saurium-web/ y /historia.html — verificado sin imágenes rotas.
+- Pendiente: montos del presupuesto (../presupuesto/), dominio propio, 2 fotos de obra real para los slots de aplicaciones.
