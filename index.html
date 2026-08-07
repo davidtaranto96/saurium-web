@@ -18,8 +18,7 @@
 
 <header class="nav" id="nav">
   <a class="nav-logo" href="#inicio" aria-label="SAURIUM">
-    <svg class="nav-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M20 2h6v4h-4v4h-4v4h-4v4h-4v4H6v6h4v-2h4v-4h4v-4h4v-4h4V10h4V2h-10z" fill="currentColor"/></svg>
-    <span>SAURIUM</span>
+    <img class="logo-img" src="assets/img/logo-dark.png" alt="Chukum Saurium">
   </a>
   <nav class="nav-links">
     <a href="#historia" data-i18n="nav.story">Historia</a>
@@ -56,6 +55,9 @@
       <a class="btn btn-ghost" href="#contacto" data-i18n="hero.cta2">Hablar con ventas</a>
     </div>
   </div>
+  <div class="hero-swatches" aria-hidden="true">
+    <span style="--sw:#cbb99b"></span><span style="--sw:#e2d5bd"></span><span style="--sw:#9b9894"></span><span style="--sw:#4a4643"></span><span style="--sw:#8a8f6a"></span><span style="--sw:#c88166"></span>
+  </div>
   <div class="hero-scroll" aria-hidden="true"><span data-i18n="hero.scroll">Deslizar</span><i></i></div>
 </section>
 
@@ -75,43 +77,45 @@
 
 <!-- PRODUCTO -->
 <section class="product" id="producto">
+  <div class="product-split">
+    <figure class="product-photo reveal">
+      <img src="assets/img/producto-saco.jpg" alt="Dos sacos de chukum SAURIUM de 20 kg sobre fondo negro" loading="lazy">
+    </figure>
+    <div class="product-copy reveal">
+      <h2 data-i18n="product.title">Chukum con huella histórica</h2>
+      <p class="section-sub" data-i18n="product.sub">Resina natural del árbol de chukum combinada con cal y minerales de la península. Un acabado continuo, noble y resistente al tiempo y al salitre.</p>
+      <dl class="product-specs">
+        <div><dt data-i18n="product.f1t">Origen natural</dt><dd data-i18n="product.f1d">Elaborado en la Península de Yucatán con materia prima local y procesos de bajo impacto.</dd></div>
+        <div><dt data-i18n="product.f2t">Resistencia real</dt><dd data-i18n="product.f2d">Alta adherencia, repelencia al agua y comportamiento probado en clima tropical extremo.</dd></div>
+        <div><dt data-i18n="product.f3t">Acabado atemporal</dt><dd data-i18n="product.f3d">Textura pétrea continua que envejece con carácter, sin juntas ni repeticiones.</dd></div>
+        <div><dt data-i18n="product.f4t">Listo para exportar</dt><dd data-i18n="product.f4d">Presentación en saco de 20 kg, ficha técnica y soporte para proyectos internacionales.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ANTES / DESPUÉS -->
+<section class="compare" id="comparar">
   <div class="section-head reveal">
-    <p class="eyebrow" data-i18n="product.eyebrow">El material</p>
-    <h2 data-i18n="product.title">Chukum con huella histórica</h2>
-    <p class="section-sub" data-i18n="product.sub">Resina natural del árbol de chukum combinada con cal y minerales de la península. Un acabado continuo, noble y resistente al tiempo y al salitre.</p>
+    <h2 data-i18n="compare.title">De obra gris a obra terminada</h2>
+    <p class="section-sub" data-i18n="compare.sub">Arrastrá la barra para ver la misma casa antes y después del chukum.</p>
   </div>
-  <div class="product-grid">
-    <article class="p-card reveal">
-      <div class="p-num">01</div>
-      <h3 data-i18n="product.f1t">Origen natural</h3>
-      <p data-i18n="product.f1d">Elaborado en la Península de Yucatán con materia prima local y procesos de bajo impacto.</p>
-    </article>
-    <article class="p-card reveal">
-      <div class="p-num">02</div>
-      <h3 data-i18n="product.f2t">Resistencia real</h3>
-      <p data-i18n="product.f2d">Alta adherencia, repelencia al agua y comportamiento probado en clima tropical extremo.</p>
-    </article>
-    <article class="p-card reveal">
-      <div class="p-num">03</div>
-      <h3 data-i18n="product.f3t">Acabado atemporal</h3>
-      <p data-i18n="product.f3d">Textura pétrea continua que envejece con carácter, sin juntas ni repeticiones.</p>
-    </article>
-    <article class="p-card reveal">
-      <div class="p-num">04</div>
-      <h3 data-i18n="product.f4t">Listo para exportar</h3>
-      <p data-i18n="product.f4d">Presentación en saco de 20 kg, ficha técnica y soporte para proyectos internacionales.</p>
-    </article>
+  <div class="ba reveal" id="baWrap" style="--pos: 50%">
+    <img class="ba-img ba-before" src="assets/img/casa-terracota.jpg" alt="Casa en obra gris, sin acabado" draggable="false">
+    <img class="ba-img ba-after" src="assets/img/casa-terracota.jpg" alt="La misma casa terminada con chukum SAURIUM terracota" draggable="false">
+    <span class="ba-label ba-label-l" data-i18n="compare.before">Obra gris</span>
+    <span class="ba-label ba-label-r" data-i18n="compare.after">Con SAURIUM</span>
+    <div class="ba-handle" aria-hidden="true"><i></i></div>
+    <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" step="0.1" aria-label="Comparar antes y después">
   </div>
-  <figure class="product-visual reveal">
-    <img src="assets/img/producto-saco.png" alt="Saco de chukum SAURIUM 20 kg" loading="lazy">
-    <figcaption data-i18n="product.caption">Saco 20 kg — elaborado en la Península de Yucatán, México.</figcaption>
-  </figure>
 </section>
 
 <!-- COLORES -->
 <section class="colors" id="colores">
+  <figure class="colors-hero reveal">
+    <img src="assets/img/placas-colores.jpg" alt="Seis placas de chukum SAURIUM: arena, crema, gris, carbón, oliva y terracota" loading="lazy">
+  </figure>
   <div class="section-head reveal">
-    <p class="eyebrow" data-i18n="colors.eyebrow">Paleta</p>
     <h2 data-i18n="colors.title">Seis acabados, una misma tierra</h2>
     <p class="section-sub" data-i18n="colors.sub">Tocá cada muestra para ver el acabado aplicado.</p>
   </div>
@@ -133,21 +137,19 @@
 <!-- APLICACIONES -->
 <section class="apps" id="aplicaciones">
   <div class="section-head reveal">
-    <p class="eyebrow" data-i18n="apps.eyebrow">Aplicaciones</p>
     <h2 data-i18n="apps.title">Donde la historia se vuelve arquitectura</h2>
   </div>
   <div class="apps-grid">
-    <figure class="app-card reveal"><img src="assets/img/app-muros.png" alt="" loading="lazy"><figcaption data-i18n="apps.a1">Muros y fachadas</figcaption></figure>
-    <figure class="app-card reveal"><img src="assets/img/app-piscinas.png" alt="" loading="lazy"><figcaption data-i18n="apps.a2">Piscinas y espejos de agua</figcaption></figure>
-    <figure class="app-card reveal"><img src="assets/img/app-interiores.png" alt="" loading="lazy"><figcaption data-i18n="apps.a3">Interiores y baños</figcaption></figure>
-    <figure class="app-card reveal"><img src="assets/img/app-mobiliario.png" alt="" loading="lazy"><figcaption data-i18n="apps.a4">Mobiliario y detalles</figcaption></figure>
+    <figure class="app-card reveal"><img src="assets/img/app-muros.jpg" alt="" loading="lazy"><figcaption data-i18n="apps.a1">Muros y fachadas</figcaption></figure>
+    <figure class="app-card reveal"><img src="assets/img/app-piscinas.jpg" alt="" loading="lazy"><figcaption data-i18n="apps.a2">Piscinas y espejos de agua</figcaption></figure>
+    <figure class="app-card reveal"><img src="assets/img/app-interiores.jpg" alt="" loading="lazy"><figcaption data-i18n="apps.a3">Interiores y baños</figcaption></figure>
+    <figure class="app-card reveal"><img src="assets/img/app-mobiliario.jpg" alt="" loading="lazy"><figcaption data-i18n="apps.a4">Mobiliario y detalles</figcaption></figure>
   </div>
 </section>
 
 <!-- CALCULADORA -->
 <section class="calc" id="calculadora">
   <div class="section-head reveal">
-    <p class="eyebrow" data-i18n="calc.eyebrow">Calculadora</p>
     <h2 data-i18n="calc.title">¿Cuánto chukum necesita tu obra?</h2>
     <p class="section-sub" data-i18n="calc.sub">Ingresá los metros cuadrados y calculamos los sacos de 20 kg.</p>
   </div>
@@ -166,6 +168,7 @@
 
 <!-- MUNDO -->
 <section class="world reveal">
+  <img class="world-logo" src="assets/img/logo-muro.jpg" alt="Logo CHUKUM SAURIUM en relieve sobre muro de piedra" loading="lazy">
   <p class="world-line" data-i18n="world.line">Desde Yucatán para el mundo.</p>
   <p class="world-sub" data-i18n="world.sub">Exportamos chukum auténtico a proyectos que buscan materiales con origen y verdad.</p>
 </section>
@@ -173,7 +176,6 @@
 <!-- CONTACTO -->
 <section class="contact" id="contacto">
   <div class="contact-inner reveal">
-    <p class="eyebrow" data-i18n="contact.eyebrow">Contacto</p>
     <h2 data-i18n="contact.title">Llevá SAURIUM a tu próximo proyecto</h2>
     <p class="section-sub" data-i18n="contact.sub">Escribinos y coordinamos muestras, fichas técnicas y logística de exportación.</p>
     <div class="contact-ctas">
@@ -191,8 +193,7 @@
 
 <footer class="footer">
   <div class="footer-brand">
-    <svg class="nav-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M20 2h6v4h-4v4h-4v4h-4v4h-4v4H6v6h4v-2h4v-4h4v-4h4v-4h4V10h4V2h-10z" fill="currentColor"/></svg>
-    <span>CHUKUM SAURIUM</span>
+    <img class="logo-img logo-light" src="assets/img/logo-light.png" alt="Chukum Saurium">
   </div>
   <p data-i18n="footer.line">Elaborado en la Península de Yucatán, México.</p>
   <p class="footer-legal">© 2026 SAURIUM · <span data-i18n="footer.rights">Todos los derechos reservados</span></p>

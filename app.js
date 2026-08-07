@@ -29,6 +29,9 @@ const I18N = {
     'calc.label': 'Superficie a cubrir (m²)', 'calc.bags': 'sacos de 20 kg',
     'calc.note': 'Estimación con rendimiento promedio de 4 m² por saco a dos manos. Confirmamos cantidades exactas según superficie y acabado.',
     'calc.cta': 'Cotizar esta cantidad',
+    'compare.title': 'De obra gris a obra terminada',
+    'compare.sub': 'Arrastrá la barra para ver la misma casa antes y después del chukum.',
+    'compare.before': 'Obra gris', 'compare.after': 'Con SAURIUM',
     'world.line': 'Desde Yucatán para el mundo.',
     'world.sub': 'Exportamos chukum auténtico a proyectos que buscan materiales con origen y verdad.',
     'contact.eyebrow': 'Contacto', 'contact.title': 'Llevá SAURIUM a tu próximo proyecto',
@@ -66,6 +69,9 @@ const I18N = {
     'calc.label': 'Surface to cover (m²)', 'calc.bags': '20 kg bags',
     'calc.note': 'Estimate based on an average coverage of 4 m² per bag, two coats. Exact quantities confirmed per surface and finish.',
     'calc.cta': 'Quote this amount',
+    'compare.title': 'From gray shell to finished build',
+    'compare.sub': 'Drag the bar to see the same house before and after chukum.',
+    'compare.before': 'Gray shell', 'compare.after': 'With SAURIUM',
     'world.line': 'From Yucatán to the world.',
     'world.sub': 'We export authentic chukum to projects that value materials with origin and truth.',
     'contact.eyebrow': 'Contact', 'contact.title': 'Bring SAURIUM to your next project',
@@ -154,3 +160,12 @@ function updateCalc() {
 }
 calcM2.addEventListener('input', updateCalc);
 updateCalc();
+
+/* Antes / después: range 1:1 (accesible por teclado) */
+const baWrap = document.getElementById('baWrap');
+const baRange = document.getElementById('baRange');
+if (baWrap && baRange) {
+  const setPos = (v) => baWrap.style.setProperty('--pos', `${v}%`);
+  baRange.addEventListener('input', () => setPos(baRange.value));
+  setPos(baRange.value);
+}

@@ -12,7 +12,10 @@ Sitio estático (HTML/CSS/JS, sin build) para SAURIUM, marca de chukum de Yucat�
 ## Deploy
 GitHub Pages desde `main` (repo `saurium-web`). Iterar = commit + push.
 
-## Estado actual (2026-08-07)
-- Demo one-page completa: hero, storytelling (3 pasos), producto, 6 colores interactivos, aplicaciones, calculadora de rendimiento (4 m²/saco), export, contacto.
-- Falta: fotos reales (FOTOS.md), dominio saurium.com, presupuesto aprobado por cliente.
-- Investigación de competencia hecha (chukum.com.mx es el benchmark; nadie del nicho de chukum auténtico tiene bilingüe + precios públicos + testimonios).
+## Estado actual (2026-08-07, segunda pasada)
+- Assets reales extraídos del brochure PDF (pdftoppm + PIL): logo transparente (nav/footer), hero aéreo Yucatán, sacos 20 kg, 6 placas, casa terracota, living, logo 3D en muro. Ver FOTOS.md.
+- Comparador antes/después (obra gris ↔ chukum) con input range accesible sobre la casa terracota.
+- De-slop aplicado: sin eyebrows por sección, producto en split asimétrico con <dl> (antes cards numeradas), hero con strip de swatches (eco del mockup tablet del brochure, visible ≥768px).
+- PRODUCT.md creado (registro brand, skill impeccable).
+- Verificado en 375 / 768 / desktop sin overflow.
+- Falta: fotos de obra real (piscina y mobiliario hoy son recortes de las mismas fotos), dominio saurium.com, montos del presupuesto (en presupuesto/ del directorio padre).
