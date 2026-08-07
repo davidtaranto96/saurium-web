@@ -21,7 +21,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit}
 img{max-width:100%;display:block}
 h1,h2,p{margin:0}
 ::selection{background:var(--terracota);color:var(--crema)}
-@keyframes drift{0%{transform:translate3d(0,0,0);opacity:0}12%{opacity:.55}100%{transform:translate3d(22px,-160px,0);opacity:0}}
+@keyframes drift{0%{transform:translate3d(0,0,0) scale(1);opacity:0}10%{opacity:.7}46%{transform:translate3d(14px,-46vh,0) scale(.86)}100%{transform:translate3d(-10px,-104vh,0) scale(.6);opacity:0}}
 @keyframes breathe{0%{transform:scale(1.04)}100%{transform:scale(1.14)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-ember],[data-kb]{animation:none !important}}
 </style>
@@ -59,50 +59,56 @@ h1,h2,p{margin:0}
   <div style="position:relative">
     <div style="position:sticky;top:0;height:100svh;overflow:hidden">
       <div data-layer="0" style="position:absolute;inset:0;opacity:1;transition:opacity 1.1s ease">
-        <img data-img="0" src="img/story-selva.jpg" alt="Selva baja de la península de Yucatán" style="position:absolute;inset:-8%;width:116%;height:116%;object-fit:cover;will-change:transform">
+        <img data-img="0" src="img/story-selva.jpg" alt="Selva baja de la península de Yucatán" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform">
       </div>
       <div data-layer="1" style="position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease">
-        <img data-img="1" src="img/story-dino.jpg" alt="El meteorito sobre la península en el Cretácico" style="position:absolute;inset:-8%;width:116%;height:116%;object-fit:cover;will-change:transform">
+        <img data-img="1" src="img/story-dino.jpg" alt="El meteorito sobre la península en el Cretácico" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform">
       </div>
       <div data-layer="2" style="position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease">
-        <img data-img="2" src="img/story-huella.jpg" alt="Huella fósil sobre la tierra caliza" style="position:absolute;inset:-8%;width:116%;height:116%;object-fit:cover;will-change:transform">
+        <img data-img="2" src="img/story-huella.jpg" alt="Huella fósil sobre la tierra caliza" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform">
       </div>
 
-      <div data-meteor aria-hidden="true" style="position:absolute;left:0;top:0;width:0;height:0;opacity:0;z-index:2;will-change:transform">
-        <span style="position:absolute;right:0;top:-1.5px;width:260px;height:3px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(255,196,128,0.15) 30%,rgba(255,225,180,0.95));transform-origin:100% 50%;display:block"></span>
-        <span style="position:absolute;right:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#fff4e2;box-shadow:0 0 26px 10px rgba(255,180,110,0.6),0 0 70px 26px rgba(255,140,60,0.3);display:block"></span>
-      </div>
-      <div data-flash aria-hidden="true" style="position:absolute;inset:0;z-index:3;opacity:0;background:radial-gradient(circle at 62% 42%,rgba(255,232,200,0.95),rgba(255,170,90,0.35) 28%,transparent 62%);pointer-events:none"></div>
-      <div data-shock aria-hidden="true" style="position:absolute;left:62%;top:42%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;border:2px solid rgba(255,214,170,0.85);opacity:0;z-index:3;pointer-events:none"></div>
-
-      <div data-embers aria-hidden="true" style="position:absolute;inset:0;z-index:2;opacity:0;transition:opacity 1.4s ease;pointer-events:none">
-        <i style="position:absolute;left:12%;bottom:8%;width:3px;height:3px;border-radius:50%;background:rgba(255,196,140,0.9);display:block;animation:drift 9s linear infinite"></i>
-        <i style="position:absolute;left:26%;bottom:4%;width:2px;height:2px;border-radius:50%;background:rgba(255,214,170,0.8);display:block;animation:drift 11s linear infinite 1.4s"></i>
-        <i style="position:absolute;left:41%;bottom:12%;width:3px;height:3px;border-radius:50%;background:rgba(255,180,110,0.85);display:block;animation:drift 8s linear infinite 2.6s"></i>
-        <i style="position:absolute;left:57%;bottom:6%;width:2px;height:2px;border-radius:50%;background:rgba(255,226,190,0.8);display:block;animation:drift 12s linear infinite 0.7s"></i>
-        <i style="position:absolute;left:69%;bottom:14%;width:3px;height:3px;border-radius:50%;background:rgba(255,196,140,0.85);display:block;animation:drift 10s linear infinite 3.4s"></i>
-        <i style="position:absolute;left:82%;bottom:5%;width:2px;height:2px;border-radius:50%;background:rgba(255,214,170,0.75);display:block;animation:drift 13s linear infinite 2s"></i>
-        <i style="position:absolute;left:91%;bottom:11%;width:3px;height:3px;border-radius:50%;background:rgba(255,180,110,0.8);display:block;animation:drift 9.5s linear infinite 4.2s"></i>
+      <div data-bloom aria-hidden="true" style="position:absolute;inset:0;z-index:3;opacity:0;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(circle at 62% 40%,rgba(255,206,140,0.9),rgba(255,140,60,0.26) 24%,transparent 56%)"></div>
+      <div data-flash aria-hidden="true" style="position:absolute;inset:0;z-index:4;opacity:0;pointer-events:none;background:radial-gradient(circle at 62% 40%,rgba(255,248,236,0.98),rgba(255,198,124,0.55) 18%,rgba(255,150,70,0.14) 42%,transparent 68%)"></div>
+      <div data-rings aria-hidden="true" style="position:absolute;left:62%;top:40%;width:0;height:0;z-index:4;pointer-events:none">
+        <i data-ring="0" style="position:absolute;left:0;top:0;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;border:1.5px solid rgba(255,228,192,0.9);opacity:0;display:block;will-change:transform,opacity"></i>
+        <i data-ring="1" style="position:absolute;left:0;top:0;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;border:1px solid rgba(255,206,158,0.7);opacity:0;display:block;will-change:transform,opacity"></i>
+        <i data-ring="2" style="position:absolute;left:0;top:0;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;border:1px solid rgba(255,190,140,0.45);opacity:0;display:block;will-change:transform,opacity"></i>
       </div>
 
-      <div data-print aria-hidden="true" style="position:absolute;left:76%;top:64%;width:30vmin;height:30vmin;transform:translate(-50%,-50%) scale(0.55);opacity:0;z-index:2;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(74,50,26,0.42),rgba(74,50,26,0.16) 46%,transparent 68%)"></div>
-      <div data-print-ring aria-hidden="true" style="position:absolute;left:76%;top:64%;width:14vmin;height:14vmin;margin:0;transform:translate(-50%,-50%) scale(0.4);opacity:0;z-index:2;border-radius:50%;border:1.5px solid rgba(226,196,150,0.55);pointer-events:none"></div>
+      <div data-embers aria-hidden="true" style="position:absolute;inset:0;z-index:2;opacity:0;transition:opacity 1.6s ease;pointer-events:none;filter:blur(0.4px)"></div>
+
+      <div data-sweep aria-hidden="true" style="position:absolute;inset:-20% -60%;z-index:2;opacity:0;pointer-events:none;mix-blend-mode:soft-light;background:linear-gradient(102deg,transparent 34%,rgba(255,242,220,0.9) 50%,transparent 66%);will-change:transform"></div>
       <div data-scrim aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,16,0.58) 0%,rgba(20,17,16,0.16) 32%,rgba(20,17,16,0.26) 58%,rgba(20,17,16,0.58) 100%)"></div>
       <div data-vignette aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 38%,rgba(12,10,9,0.62) 100%);opacity:0.5"></div>
 
-      <nav aria-hidden="true" style="position:absolute;left:clamp(16px,4vw,44px);top:50%;transform:translateY(-50%);z-index:4;display:grid;gap:16px">
-        <span data-rail="0" style="display:grid;grid-template-columns:26px auto;align-items:center;gap:10px;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;opacity:1;transition:opacity 0.5s"><i style="height:1px;background:currentColor;display:block"></i><b data-i18n="rail.1" style="font-weight:600">Origen</b></span>
-        <span data-rail="1" style="display:grid;grid-template-columns:26px auto;align-items:center;gap:10px;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;opacity:0.3;transition:opacity 0.5s"><i style="height:1px;background:currentColor;display:block"></i><b data-i18n="rail.2" style="font-weight:600">Impacto</b></span>
-        <span data-rail="2" style="display:grid;grid-template-columns:26px auto;align-items:center;gap:10px;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;opacity:0.3;transition:opacity 0.5s"><i style="height:1px;background:currentColor;display:block"></i><b data-i18n="rail.3" style="font-weight:600">Huella</b></span>
+      <nav data-railnav aria-hidden="true" style="position:absolute;left:clamp(14px,3.2vw,42px);top:50%;transform:translateY(-50%);z-index:5;color:var(--crema);display:grid;gap:clamp(20px,3.4vh,30px)">
+        <i aria-hidden="true" style="position:absolute;left:3px;top:5px;bottom:5px;width:1px;background:rgba(243,235,222,0.2);display:block"></i>
+        <i data-railfill aria-hidden="true" style="position:absolute;left:3px;top:5px;width:1px;height:0;background:rgba(243,235,222,0.9);display:block;transition:height 0.6s cubic-bezier(0.22,1,0.36,1)"></i>
+        <span data-rail="0" style="position:relative;display:grid;grid-template-columns:7px auto;align-items:center;gap:14px;opacity:1;transition:opacity 0.55s ease">
+          <i data-raildot style="width:7px;height:7px;border-radius:50%;background:currentColor;display:block;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),box-shadow 0.5s ease"></i>
+          <b data-i18n="rail.1" style="font-size:9.5px;letter-spacing:0.26em;text-transform:uppercase;font-weight:600;white-space:nowrap">Origen</b>
+        </span>
+        <span data-rail="1" style="position:relative;display:grid;grid-template-columns:7px auto;align-items:center;gap:14px;opacity:0.34;transition:opacity 0.55s ease">
+          <i data-raildot style="width:7px;height:7px;border-radius:50%;background:currentColor;display:block;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),box-shadow 0.5s ease"></i>
+          <b data-i18n="rail.2" style="font-size:9.5px;letter-spacing:0.26em;text-transform:uppercase;font-weight:600;white-space:nowrap">Impacto</b>
+        </span>
+        <span data-rail="2" style="position:relative;display:grid;grid-template-columns:7px auto;align-items:center;gap:14px;opacity:0.34;transition:opacity 0.55s ease">
+          <i data-raildot style="width:7px;height:7px;border-radius:50%;background:currentColor;display:block;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),box-shadow 0.5s ease"></i>
+          <b data-i18n="rail.3" style="font-size:9.5px;letter-spacing:0.26em;text-transform:uppercase;font-weight:600;white-space:nowrap">Huella</b>
+        </span>
       </nav>
     </div>
 
     <div style="position:relative;margin-top:-100svh">
       <article data-beat="0" data-screen-label="Cap 1" style="height:170svh;position:relative">
         <div style="position:sticky;top:0;height:100svh;display:grid;place-items:center;padding:0 clamp(20px,8vw,140px)">
-          <div style="max-width:940px;text-align:center">
-            <p data-kicker="0" style="font-size:clamp(1rem,2.1vw,1.5rem);letter-spacing:0.3em;text-transform:uppercase;font-weight:600;margin-bottom:clamp(22px,3vh,34px);color:var(--arena);overflow:hidden">
-              <span data-kicker-in style="display:inline-block;transform:translateY(110%)">01 — Antes de todo</span>
+          <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 62% 46% at 50% 50%,rgba(12,10,9,0.58),rgba(12,10,9,0.26) 56%,transparent 78%)"></div>
+          <div style="position:relative;z-index:1;max-width:940px;text-align:center">
+            <p data-kicker="0" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:clamp(20px,3vh,32px);color:rgba(243,235,222,0.94)">
+              <i data-krule aria-hidden="true" style="width:0;height:1px;background:currentColor;opacity:0.5;display:block;transition:width 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
+              <span style="display:inline-block;overflow:hidden;padding-bottom:3px"><span data-kicker-in style="display:inline-block;transform:translateY(125%);font-size:clamp(0.66rem,1.05vw,0.76rem);letter-spacing:0.36em;text-transform:uppercase;font-weight:600;white-space:nowrap">01 — Antes de todo</span></span>
+              <i data-krule aria-hidden="true" style="width:0;height:1px;background:currentColor;opacity:0.5;display:block;transition:width 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
             </p>
             <p data-words="0" data-i18n-src="story.s1" style="font-size:clamp(1.5rem,3.6vw,2.9rem);line-height:1.28;font-weight:300;letter-spacing:-0.015em;text-wrap:pretty;text-shadow:0 4px 40px rgba(0,0,0,0.55)"></p>
           </div>
@@ -110,9 +116,12 @@ h1,h2,p{margin:0}
       </article>
       <article data-beat="1" data-screen-label="Cap 2" style="height:190svh;position:relative">
         <div style="position:sticky;top:0;height:100svh;display:grid;place-items:center;padding:0 clamp(20px,8vw,140px)">
-          <div style="max-width:940px;text-align:center">
-            <p data-kicker="1" style="font-size:clamp(1rem,2.1vw,1.5rem);letter-spacing:0.3em;text-transform:uppercase;font-weight:600;margin-bottom:clamp(22px,3vh,34px);color:var(--terracota);overflow:hidden">
-              <span data-kicker-in style="display:inline-block;transform:translateY(110%)">02 — El impacto</span>
+          <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 62% 46% at 50% 50%,rgba(12,10,9,0.58),rgba(12,10,9,0.26) 56%,transparent 78%)"></div>
+          <div style="position:relative;z-index:1;max-width:940px;text-align:center">
+            <p data-kicker="1" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:clamp(20px,3vh,32px);color:rgba(243,235,222,0.94)">
+              <i data-krule aria-hidden="true" style="width:0;height:1px;background:currentColor;opacity:0.5;display:block;transition:width 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
+              <span style="display:inline-block;overflow:hidden;padding-bottom:3px"><span data-kicker-in style="display:inline-block;transform:translateY(125%);font-size:clamp(0.66rem,1.05vw,0.76rem);letter-spacing:0.36em;text-transform:uppercase;font-weight:600;white-space:nowrap">02 — El impacto</span></span>
+              <i data-krule aria-hidden="true" style="width:0;height:1px;background:currentColor;opacity:0.5;display:block;transition:width 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
             </p>
             <p data-words="1" data-i18n-src="story.s2" style="font-size:clamp(1.5rem,3.6vw,2.9rem);line-height:1.28;font-weight:300;letter-spacing:-0.015em;text-wrap:pretty;text-shadow:0 4px 40px rgba(0,0,0,0.55)"></p>
           </div>
@@ -120,9 +129,12 @@ h1,h2,p{margin:0}
       </article>
       <article data-beat="2" data-screen-label="Cap 3" style="height:170svh;position:relative">
         <div style="position:sticky;top:0;height:100svh;display:grid;place-items:center;padding:0 clamp(20px,8vw,140px)">
-          <div style="max-width:940px;text-align:center">
-            <p data-kicker="2" style="font-size:clamp(1rem,2.1vw,1.5rem);letter-spacing:0.3em;text-transform:uppercase;font-weight:600;margin-bottom:clamp(22px,3vh,34px);color:var(--arena);overflow:hidden">
-              <span data-kicker-in style="display:inline-block;transform:translateY(110%)">03 — La huella</span>
+          <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 62% 46% at 50% 50%,rgba(12,10,9,0.58),rgba(12,10,9,0.26) 56%,transparent 78%)"></div>
+          <div style="position:relative;z-index:1;max-width:940px;text-align:center">
+            <p data-kicker="2" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:clamp(20px,3vh,32px);color:rgba(243,235,222,0.94)">
+              <i data-krule aria-hidden="true" style="width:0;height:1px;background:currentColor;opacity:0.5;display:block;transition:width 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
+              <span style="display:inline-block;overflow:hidden;padding-bottom:3px"><span data-kicker-in style="display:inline-block;transform:translateY(125%);font-size:clamp(0.66rem,1.05vw,0.76rem);letter-spacing:0.36em;text-transform:uppercase;font-weight:600;white-space:nowrap">03 — La huella</span></span>
+              <i data-krule aria-hidden="true" style="width:0;height:1px;background:currentColor;opacity:0.5;display:block;transition:width 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
             </p>
             <p data-words="2" data-i18n-src="story.s3" style="font-size:clamp(1.5rem,3.6vw,2.9rem);line-height:1.28;font-weight:300;letter-spacing:-0.015em;text-wrap:pretty;text-shadow:0 4px 40px rgba(0,0,0,0.55)"></p>
           </div>
@@ -186,6 +198,7 @@ class Component extends DCLogic {
     const t = this.q('[data-lang-toggle]');
     if (t) t.addEventListener('click', ()=>{ localStorage.setItem('saurium-lang-set','1'); this.applyLang(this.lang==='es'?'en':'es', true); });
     this.setupReveal();
+    this.buildEmbers();
     this.onScroll = this.tick.bind(this);
     window.addEventListener('scroll', this.onScroll, { passive:true });
     window.addEventListener('resize', this.onScroll);
@@ -245,6 +258,22 @@ class Component extends DCLogic {
       setTimeout(()=>{ this.langBusy = false; els.forEach(el=>{ el.style.filter=''; }); if(this.tick) this.tick(); }, 480);
     }, 250);
   }
+  buildEmbers() {
+    const box = this.q('[data-embers]');
+    if (!box || this.reduce) return;
+    // campo de ceniza: 30 particulas con tamano, altura, ritmo y opacidad propios
+    let html = '';
+    for (let i = 0; i < 30; i++) {
+      const x = (i * 37 + (i * i * 13) % 41) % 100;
+      const sz = 1 + ((i * 7) % 5) * 0.7;
+      const dur = 9 + ((i * 11) % 9);
+      const del = ((i * 17) % 90) / 6;
+      const op = 0.35 + ((i * 5) % 6) / 10;
+      const hue = i % 3 === 0 ? '255,206,150' : (i % 3 === 1 ? '255,228,196' : '255,176,110');
+      html += '<i data-ember style="position:absolute;left:' + x + '%;bottom:-4%;width:' + sz.toFixed(1) + 'px;height:' + sz.toFixed(1) + 'px;border-radius:50%;background:rgba(' + hue + ',' + op.toFixed(2) + ');display:block;animation:drift ' + dur + 's linear infinite ' + del.toFixed(1) + 's"></i>';
+    }
+    box.innerHTML = html;
+  }
   setupReveal() {
     const els = this.qa('[data-reveal]');
     if (!this.reduce) els.forEach(el=>{ el.style.opacity='0'; el.style.transform='translateY(26px)'; el.style.transition='opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1)'; });
@@ -289,49 +318,73 @@ class Component extends DCLogic {
           if (p > 0.02) { kin.style.transition='transform 0.9s cubic-bezier(0.22,1,0.36,1)'; kin.style.transform='none'; }
           else { kin.style.transform='translateY(110%)'; }
         }
-        // background parallax + scale
+        // reglas del kicker: se dibujan hacia afuera cuando entra el capitulo
+        this.qa(`[data-kicker="${i}"] [data-krule]`).forEach(r=>{ r.style.width = p > 0.02 ? '42px' : '0px'; });
+        // parallax: cada capitulo empuja hacia su punto de interes
         const im = this.q(`[data-img="${i}"]`);
-        if (im && !this.reduce) im.style.transform = `translate3d(0,${(p-0.5)*-52}px,0) scale(${1.02 + p*0.10})`;
+        if (im && !this.reduce) {
+          im.style.transformOrigin = i===1 ? '62% 40%' : (i===2 ? '76% 64%' : '50% 46%');
+          const base = `translate3d(0,${(p-0.5)*-52}px,0) scale(${1.02 + p*0.10})`;
+          this.imBase = this.imBase || {};
+          this.imBase[i] = base;
+          im.style.transform = base;
+        }
       });
       if (active < 0) active = this.lastActive ?? 0;
       if (active !== this.lastActive) {
         this.lastActive = active;
         this.qa('[data-layer]').forEach((l,k)=>{ l.style.opacity = k===active ? '1':'0'; });
-        this.qa('[data-rail]').forEach((r,k)=>{ r.style.opacity = k===active ? '1':'0.3'; });
+        this.qa('[data-rail]').forEach((r,k)=>{
+          r.style.opacity = k===active ? '1':'0.34';
+          const dot = r.querySelector('[data-raildot]');
+          if (dot) { dot.style.transform = k===active ? 'scale(1.5)' : 'scale(1)'; dot.style.boxShadow = k===active ? '0 0 0 4px rgba(243,235,222,0.15)' : '0 0 0 0 rgba(243,235,222,0)'; }
+        });
         const emb = this.q('[data-embers]');
         if (emb) emb.style.opacity = active >= 1 ? '1':'0';
       }
       const vig = this.q('[data-vignette]');
       if (vig) vig.style.opacity = String(0.42 + (active>=0 ? activeP*0.3 : 0));
-      // chapter 2 — meteor, flash, shockwave
-      const met = this.q('[data-meteor]'), fl = this.q('[data-flash]'), sh = this.q('[data-shock]');
-      if (met && fl && sh) {
+      const rfill = this.q('[data-railfill]'), rnav = this.q('[data-railnav]');
+      if (rfill && rnav) rfill.style.height = ((rnav.offsetHeight - 10) * Math.min(1, Math.max(0, (Math.max(0,active) + activeP) / 3))) + 'px';
+      // cap 2 — el impacto: solo luz. El meteorito ya esta en la fotografia.
+      const bl = this.q('[data-bloom]'), fl = this.q('[data-flash]'), rings = this.qa('[data-ring]');
+      let flash = 0;
+      if (bl && fl) {
         if (active === 1 && !this.reduce) {
-          const mp = Math.min(1, Math.max(0, (activeP - 0.06) / 0.62));
-          const x = -8 + mp * 78, y = 4 + mp * 40;
-          met.style.opacity = mp > 0 && mp < 1 ? String(Math.min(1, Math.sin(mp*Math.PI)*1.8)) : '0';
-          met.style.transform = `translate3d(${x}vw, ${y}vh, 0) rotate(26deg) scale(${0.8 + mp*0.5})`;
-          const ip = Math.min(1, Math.max(0, (activeP - 0.62) / 0.18));
-          fl.style.opacity = String(Math.sin(ip*Math.PI) * 0.85);
-          sh.style.opacity = String(Math.max(0, (1-ip) * (ip>0?0.8:0)));
-          sh.style.transform = `scale(${1 + ip*26})`;
-          sh.style.borderWidth = `${Math.max(0.5, 2 - ip*1.6)}px`;
+          const pre = Math.min(1, Math.max(0, (activeP - 0.08) / 0.38));
+          const ip  = Math.min(1, Math.max(0, (activeP - 0.46) / 0.22));
+          flash = Math.pow(Math.max(0, Math.sin(ip * Math.PI)), 2.2);
+          bl.style.opacity = String(pre * 0.5 + flash * 0.45);
+          fl.style.opacity = String(flash * 0.9);
+          rings.forEach((r, k) => {
+            const rp = Math.min(1, Math.max(0, (ip - k * 0.09) / (1 - k * 0.09)));
+            if (rp <= 0) { r.style.opacity = '0'; return; }
+            const e = 1 - Math.pow(1 - rp, 3);
+            r.style.transform = 'scale(' + (0.4 + e * (15 + k * 6)) + ')';
+            r.style.opacity = String(Math.max(0, (1 - rp) * (0.9 - k * 0.22)));
+            r.style.filter = 'blur(' + (rp * (1.4 + k * 0.9)).toFixed(2) + 'px)';
+          });
         } else {
-          met.style.opacity = '0'; fl.style.opacity = '0'; sh.style.opacity = '0';
+          bl.style.opacity = '0'; fl.style.opacity = '0';
+          rings.forEach(r => { r.style.opacity = '0'; });
         }
       }
-      // chapter 3 — the imprint pressing into the ground
-      const pr = this.q('[data-print]'), ring = this.q('[data-print-ring]');
-      if (pr && ring) {
+      // sacudida de camara sobre la capa activa, solo en el pico del destello
+      const imShake = this.q('[data-img="1"]');
+      if (imShake && this.imBase && this.imBase[1]) {
+        const amp = flash * 8;
+        imShake.style.transform = amp > 0.3
+          ? this.imBase[1] + ' translate3d(' + ((Math.random()-0.5)*amp).toFixed(2) + 'px,' + ((Math.random()-0.5)*amp).toFixed(2) + 'px,0)'
+          : this.imBase[1];
+      }
+      // cap 3 — una luz rasante recorre la huella que ya esta en la foto
+      const sw = this.q('[data-sweep]');
+      if (sw) {
         if (active === 2 && !this.reduce) {
-          const pp = Math.min(1, Math.max(0, (activeP - 0.18) / 0.5));
-          const ease = pp*pp*(3-2*pp);
-          pr.style.opacity = String(ease * 0.9);
-          pr.style.transform = `translate(-50%,-50%) scale(${0.55 + ease*0.7})`;
-          const rp = Math.min(1, Math.max(0, (activeP - 0.26) / 0.44));
-          ring.style.opacity = String(Math.sin(rp*Math.PI) * 0.7);
-          ring.style.transform = `translate(-50%,-50%) scale(${0.4 + rp*3.2})`;
-        } else { pr.style.opacity = '0'; ring.style.opacity = '0'; }
+          const sp = Math.min(1, Math.max(0, (activeP - 0.10) / 0.64));
+          sw.style.opacity = String(Math.sin(Math.min(1, sp) * Math.PI) * 0.95);
+          sw.style.transform = 'translate3d(' + (-44 + sp * 88) + '%,0,0)';
+        } else { sw.style.opacity = '0'; }
       }
       const hint = this.q('[data-scrollhint]');
       if (hint) hint.style.opacity = window.scrollY > 60 ? '0' : '1';

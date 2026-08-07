@@ -219,21 +219,17 @@ h1,h2,h3,p,dl,dt,dd,figure{margin:0}
       </figcaption>
     </figure>
     <figure data-reveal style="margin:0;display:grid;gap:14px">
-      <div style="position:relative;aspect-ratio:4/5;border-radius:16px;overflow:hidden;background:rgba(71,67,65,0.07)">
-        <image-slot id="uso-piscina" shape="rect" placeholder="Foto de obra: piscina o cenote"></image-slot>
-      </div>
+      <img src="img/uso-piscina.jpg" alt="Alberca con borde y muros de acabado continuo en tono arena" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:16px;background:var(--arena)">
       <figcaption style="display:grid;gap:4px">
         <b data-i18n="apps.a2" style="font-size:15px;font-weight:600">Piscinas y espejos de agua</b>
-        <span data-i18n="apps.d2" style="font-size:13px;opacity:0.82">Soltá acá una foto de obra real</span>
+        <span data-i18n="apps.d2" style="font-size:13px;opacity:0.82">Alberca con acabado continuo</span>
       </figcaption>
     </figure>
     <figure data-reveal style="margin:0;display:grid;gap:14px">
-      <div style="position:relative;aspect-ratio:4/5;border-radius:16px;overflow:hidden;background:rgba(71,67,65,0.07)">
-        <image-slot id="uso-bano" shape="rect" placeholder="Foto de obra: baño o mobiliario"></image-slot>
-      </div>
+      <img src="img/uso-bano.jpg" alt="Ducha de bronce sobre muro continuo de estuco natural" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:16px;background:var(--arena)">
       <figcaption style="display:grid;gap:4px">
         <b data-i18n="apps.a4" style="font-size:15px;font-weight:600">Baños y mobiliario</b>
-        <span data-i18n="apps.d4" style="font-size:13px;opacity:0.82">Soltá acá una foto de obra real</span>
+        <span data-i18n="apps.d4" style="font-size:13px;opacity:0.82">Ducha sobre muro continuo</span>
       </figcaption>
     </figure>
   </div>
@@ -312,26 +308,26 @@ class Component extends DCLogic {
         'tease.sub':'Del impacto que marcó la península al material que hoy recubre sus muros. Sesenta y seis millones de años en tres capítulos.',
         'tease.cta':'Recorrer la historia','tease.c1':'01 Origen','tease.c2':'02 Impacto','tease.c3':'03 Huella',
         'material.kicker':'El material','material.title':'Qué es el chukum',
-        'material.sub':'Un estuco natural de origen maya: resina del árbol de chukum mezclada con cal de la península. Mil años de uso continuo, del estuco de las ciudades mayas a la arquitectura de Tulum y la Riviera Maya. Alta adherencia, repelencia al agua y comportamiento probado en clima tropical extremo.',
+        'material.sub':'Un estuco natural de origen maya: resina del árbol de chukum mezclada con cal de la península. Los mayas lo usaron en sus ciudades y hoy recubre buena parte de la arquitectura de Tulum y la Riviera Maya. Se adhiere fuerte, repele el agua y aguanta el clima tropical.',
         'material.bag':'Saco de 20 kg','material.hint3d':'Arrastrá para rotar',
-        'material.r1t':'El árbol','material.r1d':'Havardia albicans, un árbol espinoso de la selva baja de Yucatán. Los mayas lo llamaron chukum y aprovecharon su corteza durante siglos, extrayéndola sin dañar el árbol.',
+        'material.r1t':'El árbol','material.r1d':'Havardia albicans, un árbol espinoso de la selva baja de Yucatán. Los mayas lo llamaron chukum y durante siglos le sacaron la corteza sin talar el árbol.',
         'material.r2t':'La técnica','material.r2d':'La corteza se hierve para liberar sus taninos y el extracto se mezcla con cal hidratada. El resultado es una pasta que se aplica como estuco fino, capa sobre capa, sin pintura ni selladores.',
         'material.r3t':'Hidrófugo natural','material.r3d':'Los mayas lo usaban para impermeabilizar cisternas y depósitos de agua. Por eso hoy recubre piscinas, cenotes artificiales y baños: repele el agua y deja respirar el muro.',
-        'material.r4t':'Auténtico, no imitación','material.r4d':'El chukum auténtico lleva resina real del árbol. Las imitaciones acrílicas copian el color, no el comportamiento: no envejecen igual, no respiran igual y no vienen de Yucatán.',
+        'material.r4t':'Auténtico, no imitación','material.r4d':'El chukum auténtico lleva resina real del árbol. Las imitaciones acrílicas copian el color, pero no respiran ni envejecen como la cal.',
         'material.r5t':'Listo para exportar','material.r5d':'Presentación en saco de 20 kg, elaborado en la Península de Yucatán, con ficha técnica y soporte para proyectos internacionales.',
-        'compare.before':'Obra gris','compare.hint':'Movés el mouse sobre la casa o arrastrás la barra para comparar.',
+        'compare.before':'Obra gris','compare.hint':'Arrastrá la barra para ver la misma casa antes y después.',
         'colors.kicker':'Acabados','colors.title':'Seis acabados, una misma tierra',
         'colors.sub':'Pigmentos minerales sobre la misma base de resina y cal. Sin pintura: el color es el material. Elegí uno y mirá la misma casa antes y después.',
         'colors.c1':'Arena','colors.c2':'Crema','colors.c3':'Gris','colors.c4':'Carbón','colors.c5':'Oliva','colors.c6':'Terracota',
         'apps.title':'Donde la historia se vuelve arquitectura',
         'apps.sub':'Muros y fachadas, piscinas y cenotes, interiores, baños y mobiliario. Una sola pasta, aplicada capa sobre capa.',
         'apps.a1':'Muros y fachadas','apps.a2':'Piscinas y espejos de agua','apps.a3':'Interiores','apps.a4':'Baños y mobiliario',
-        'apps.d1':'Casa privada, Yucatán','apps.d2':'Soltá acá una foto de obra real','apps.d3':'Sala con muros continuos','apps.d4':'Soltá acá una foto de obra real',
+        'apps.d1':'Casa privada, Yucatán','apps.d2':'Alberca con acabado continuo','apps.d3':'Sala con muros continuos','apps.d4':'Ducha sobre muro continuo',
         'calc.title':'¿Cuánto chukum necesita tu obra?','calc.sub':'Ingresá los metros cuadrados y calculamos los sacos de 20 kg.',
         'calc.label':'Superficie a cubrir (m²)','calc.bags':'sacos de 20 kg',
         'calc.note':'Estimación con rendimiento promedio de 4 m² por saco a dos manos. Confirmamos cantidades exactas según superficie y acabado.',
         'calc.cta':'Cotizar esta cantidad',
-        'world.line':'Desde Yucatán para el mundo.','world.sub':'Exportamos chukum auténtico a proyectos que buscan materiales con origen y verdad.',
+        'world.line':'Desde Yucatán para el mundo.','world.sub':'Elaboramos el chukum en la península y lo enviamos a obras de México y del exterior.',
         'contact.title':'Llevá SAURIUM a tu próximo proyecto','contact.sub':'Escribinos y coordinamos muestras, fichas técnicas y logística de exportación.',
         'contact.wa':'Escribir por WhatsApp','contact.mail':'ventas@saurium.com',
         'contact.agent':'Rodrigo López Alam — Ventas y exportación · +52 999 369 9488',
@@ -348,26 +344,26 @@ class Component extends DCLogic {
         'tease.sub':'From the impact that marked the peninsula to the material that now covers its walls. Sixty-six million years in three chapters.',
         'tease.cta':'Walk through the story','tease.c1':'01 Origin','tease.c2':'02 Impact','tease.c3':'03 Imprint',
         'material.kicker':'The material','material.title':'What is chukum',
-        'material.sub':'A natural stucco of Maya origin: resin from the chukum tree blended with lime from the peninsula. A thousand years of continuous use, from the stucco of Maya cities to the architecture of Tulum and the Riviera Maya. High adhesion, water repellency and proven performance in extreme tropical climate.',
+        'material.sub':'A natural stucco of Maya origin: resin from the chukum tree blended with lime from the peninsula. The Maya used it in their cities and today it covers much of the architecture of Tulum and the Riviera Maya. It grips hard, repels water and holds up in tropical weather.',
         'material.bag':'20 kg bag','material.hint3d':'Drag to rotate',
-        'material.r1t':'The tree','material.r1d':'Havardia albicans, a thorny tree of the Yucatán lowland forest. The Maya named it chukum and harvested its bark for centuries without harming the tree.',
+        'material.r1t':'The tree','material.r1d':'Havardia albicans, a thorny tree of the Yucatán lowland forest. The Maya named it chukum and took its bark for centuries without felling the tree.',
         'material.r2t':'The technique','material.r2d':'The bark is boiled to release its tannins and the extract is blended with hydrated lime. The result is a paste applied as fine stucco, layer over layer, with no paint or sealers.',
         'material.r3t':'Naturally water-repellent','material.r3d':'The Maya used it to waterproof cisterns and reservoirs. That is why it now lines pools, artificial cenotes and bathrooms: it repels water and lets the wall breathe.',
-        'material.r4t':'Authentic, not imitation','material.r4d':'Authentic chukum carries real tree resin. Acrylic imitations copy the color, not the behavior: they do not age the same, do not breathe the same, and do not come from Yucatán.',
+        'material.r4t':'Authentic, not imitation','material.r4d':'Authentic chukum carries real tree resin. Acrylic imitations copy the color, but they never breathe or age the way lime does.',
         'material.r5t':'Export ready','material.r5d':'20 kg bag format, made in the Yucatán Peninsula, with technical data sheets and support for international projects.',
-        'compare.before':'Gray shell','compare.hint':'Move the pointer over the house, or drag the bar to compare.',
+        'compare.before':'Gray shell','compare.hint':'Drag the bar to see the same house before and after.',
         'colors.kicker':'Finishes','colors.title':'Six finishes, one land',
         'colors.sub':'Mineral pigments over the same resin-and-lime base. No paint: the color is the material. Pick one and see the same house before and after.',
         'colors.c1':'Sand','colors.c2':'Cream','colors.c3':'Gray','colors.c4':'Charcoal','colors.c5':'Olive','colors.c6':'Terracotta',
         'apps.title':'Where history becomes architecture',
         'apps.sub':'Walls and facades, pools and cenotes, interiors, bathrooms and furniture. One paste, applied layer over layer.',
         'apps.a1':'Walls and facades','apps.a2':'Pools and water features','apps.a3':'Interiors','apps.a4':'Bathrooms and furniture',
-        'apps.d1':'Private house, Yucatán','apps.d2':'Drop a real project photo here','apps.d3':'Living room, seamless walls','apps.d4':'Drop a real project photo here',
+        'apps.d1':'Private house, Yucatán','apps.d2':'Pool with a seamless finish','apps.d3':'Living room, seamless walls','apps.d4':'Shower on a seamless wall',
         'calc.title':'How much chukum does your project need?','calc.sub':'Enter the square meters and we calculate the 20 kg bags.',
         'calc.label':'Surface to cover (m²)','calc.bags':'20 kg bags',
         'calc.note':'Estimate based on an average coverage of 4 m² per bag, two coats. Exact quantities confirmed per surface and finish.',
         'calc.cta':'Quote this amount',
-        'world.line':'From Yucatán to the world.','world.sub':'We export authentic chukum to projects that value materials with origin and truth.',
+        'world.line':'From Yucatán to the world.','world.sub':'We make the chukum in the peninsula and ship it to projects in Mexico and abroad.',
         'contact.title':'Bring SAURIUM to your next project','contact.sub':'Write to us and we will coordinate samples, technical sheets and export logistics.',
         'contact.wa':'Chat on WhatsApp','contact.mail':'ventas@saurium.com',
         'contact.agent':'Rodrigo López Alam — Sales and export · +52 999 369 9488',
