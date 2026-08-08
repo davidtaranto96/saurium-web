@@ -12,14 +12,22 @@ Sitio estático (HTML/CSS/JS, sin build) para SAURIUM, marca de chukum de Yucat�
 ## Deploy
 GitHub Pages desde `main` (repo `saurium-web`). Iterar = commit + push.
 
-## Estado actual (2026-08-07, v3.1 publicada)
+## Estado actual (2026-08-08, v3.2 publicada)
 
 Live: https://davidtaranto96.github.io/saurium-web/ · historia en `/historia.html`
 
-- **Estructura**: `index.html` (home) + `historia.html` (scrollytelling), runtime `support.js` / `image-slot.js` de Claude Design, imágenes en `img/`. Sin build.
-- **Comparador de acabados**: 7 renders de la MISMA casa (obra gris + 6 acabados), generados con el MCP de imagen a 1920px desde una base común, así la geometría queda alineada. Reemplazaron el upscale pixelado de la miniatura del brochure.
-- **Efectos de historia**: se sacaron el meteorito y la huella dibujados en CSS, que se superponían a fotos que ya los tenían. Quedaron destello, ondas expansivas, sacudida de cámara, campo de ceniza generado en JS y un barrido de luz rasante sobre la huella. Rail de capítulos con pista de progreso.
-- **Bug corregido**: `img{max-width:100%}` recortaba el `width:116%` de las capas del parallax y dejaba 8% de fondo negro a la derecha en las tres. Fix: `max-width:none` en `[data-img]`. Verificado por medición (la imagen pasó de 1425px a 1653px sobre un stage de 1425px).
-- **Fotos**: los dos slots vacíos de aplicaciones ahora tienen fotos de Unsplash verificadas. No son chukum SAURIUM: ver la advertencia en `FOTOS.md` antes de presentar.
-- **Precio**: USD 500 el sitio, 250 al inicio y 250 contra publicación. Mantenimiento opcional USD 40/mes. Presupuesto en `../presupuesto/`.
-- **Pendiente**: dominio propio, fotos de obra real, y los hallazgos de la auditoría de producción.
+### Arreglado en esta vuelta
+- **Pixelado en móvil**: el fondo del scrollytelling era de 1600×900 y en un teléfono vertical se ampliaba 2,7×. Ahora hay versiones verticales (`story-*-v.jpg`, 1240×2222) servidas con `<picture media="(max-aspect-ratio:4/5)">`. Medido: pasó de ampliar 2,7× a reducir 0,70×.
+- **"Deslizar" pisaba "Hablar con ventas"** a partir de 720px de alto (56px de solape a 375×640). El hint se oculta por debajo de ese umbral.
+- **Saco 3D**: relieve de papel kraft por bump map procedural, panza de polvo por desplazamiento de vértices, luz en tres puntos con contraluz, tone mapping ACES y sombra de contacto pintada. Antes la sombra proyectada dejaba un polígono negro flotando y la cara impresa se hundía en el cuerpo dejando un óvalo.
+- **Open Graph, Twitter Card y canonical** en las dos páginas: compartir el link ya muestra imagen y texto.
+- **Contradicción temporal**: la portada dice 66 millones de años y el capítulo 3 decía "Siglos después". Ahora dice "Millones de años después".
+- **Voz de marca**: el copy estaba en voseo argentino y la marca es yucateca. Pasó a tuteo mexicano, y "piscina" a "alberca".
+- `title` y `description` acompañan el cambio de idioma. CTA de WhatsApp al cierre de historia.
+- El contenido con reveal ya no depende de que corran el observer, rAF ni las transiciones: hay respaldo por scroll y por temporizador.
+
+### Pendiente
+- **ventas@saurium.com no recibe correo**: `dig MX saurium.com` no devuelve nada y el dominio está aparcado en NameBright. Hay que dar de alta el MX o poner un correo que exista. Es el único canal de contacto que no es WhatsApp.
+- Dominio propio y fotos de obra real (ver `FOTOS.md`).
+- La versión en inglés no tiene URL propia ni hreflang, así que Google no la indexa.
+- Precio: USD 500 el sitio, 250 al inicio y 250 contra publicación. Mantenimiento opcional USD 40/mes.

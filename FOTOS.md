@@ -32,6 +32,10 @@ Renders generados con IA a partir de un prompt de arquitectura yucateca. Las sie
 Candidatas verificadas que quedaron afuera, por si hacen falta:
 `photo-1760260511330-c7cf02e1fd9b` (arcos en tierra arena, muy fuerte para un hero) · `photo-1680363046184-a8546fc77d49` (nicho y banco de obra en estuco crema) · `photo-1737032959204-23dbb1e5462c` (textura de muro, tileable).
 
+## Fondos del scrollytelling en vertical
+
+`story-selva-v.jpg`, `story-dino-v.jpg` y `story-huella-v.jpg` (1240×2222) son la misma escena que las horizontales, recompuesta en vertical para teléfonos. Se sirven con `<picture>` solo cuando la pantalla es más alta que ancha. Si se cambia una horizontal, hay que regenerar su vertical o el móvil queda desincronizado.
+
 ## Marca y narrativa
 
 | Archivo | Uso | Origen |
