@@ -355,7 +355,7 @@ class Component extends DCLogic {
         const wp = this.qa(`[data-words="${i}"] span`);
         if (wp.length && !this.reduce) {
           const inP = Math.min(1, p/0.34);
-            const outP = Math.max(0, (p-0.9)/0.1);
+            const outP = Math.max(0, (p-0.93)/0.2);
           wp.forEach((s,k)=>{
             const at = k/(wp.length+1);
             const on = inP > at;
