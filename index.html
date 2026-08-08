@@ -670,7 +670,21 @@ class Component extends DCLogic {
       const body = new THREE.Mesh(bodyGeo, bodyMat);
       bag.add(body);
       const faceMat = new THREE.MeshStandardMaterial({ map: frontTex, roughness: 0.88, metalness: 0, bumpMap: grano, bumpScale: 0.012 });
-      const caraGeo = ()=>{ const g = new THREE.PlaneGeometry(1.40, 1.98, 40, 48); abultar(g, 0.088 + 0.238); return g; };
+      // la cara impresa va montada por fuera del cuerpo en TODO su borde, no solo en el centro:
+      // si el borde queda en z=0 se hunde en la caja y solo asoma una lente ovalada
+      const caraGeo = ()=>{
+        const g = new THREE.PlaneGeometry(1.40, 1.98, 40, 48);
+        const pos = g.attributes.position;
+        for (let i=0;i<pos.count;i++){
+          const x=pos.getX(i), y=pos.getY(i);
+          const fx = Math.cos(Math.min(1, Math.abs(x)/0.74) * Math.PI/2);
+          const fy = Math.cos(Math.min(1, Math.abs(y)/1.05) * Math.PI/2);
+          const k = Math.pow(Math.max(0, fx*fy), 0.75);
+          pos.setZ(i, 0.237 + 0.088 * k);
+        }
+        pos.needsUpdate = true; g.computeVertexNormals();
+        return g;
+      };
       const front = new THREE.Mesh(caraGeo(), faceMat);
       bag.add(front);
       const back = new THREE.Mesh(caraGeo(), faceMat);
