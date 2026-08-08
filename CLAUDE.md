@@ -27,7 +27,8 @@ Live: https://davidtaranto96.github.io/saurium-web/ · historia en `/historia.ht
 - El contenido con reveal ya no depende de que corran el observer, rAF ni las transiciones: hay respaldo por scroll y por temporizador.
 
 ### Pendiente
-- **ventas@saurium.com no recibe correo**: `dig MX saurium.com` no devuelve nada y el dominio está aparcado en NameBright. Hay que dar de alta el MX o poner un correo que exista. Es el único canal de contacto que no es WhatsApp.
-- Dominio propio y fotos de obra real (ver `FOTOS.md`).
+- **ventas@saurium.com no recibe correo** y el dominio no es del cliente: `saurium.com` lo tiene HugeDomains (revendedor) desde 2022 y lo publica en venta. `saurium.mx` y `saurium.com.mx` están libres. El saco impreso ya lleva saurium.com, así que hay que resolverlo con Rodrigo.
+- Fotos de obra real (ver `FOTOS.md`).
 - La versión en inglés no tiene URL propia ni hreflang, así que Google no la indexa.
-- Precio: USD 500 el sitio, 250 al inicio y 250 contra publicación. Mantenimiento opcional USD 40/mes.
+- A futuro: cookies propias de seguimiento de leads conectadas al CRM de Berni. Requiere aviso de cookies y aviso de privacidad (LFPDPPP en México, consentimiento previo si hay tráfico europeo). Va cotizado aparte en la propuesta.
+- Precio: USD 500 el sitio (250 + 250), mantenimiento opcional USD 40/mes, alta de dominio USD 40 aparte.
