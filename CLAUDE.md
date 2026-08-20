@@ -12,23 +12,21 @@ Sitio estático (HTML/CSS/JS, sin build) para SAURIUM, marca de chukum de Yucat�
 ## Deploy
 GitHub Pages desde `main` (repo `saurium-web`). Iterar = commit + push.
 
-## Estado actual (2026-08-08, v3.2 publicada)
+## Estado actual (2026-08-20, 2.0 en curso)
 
-Live: https://davidtaranto96.github.io/saurium-web/ · historia en `/historia.html`
+Presupuesto aprobado (USD 500). Live: https://davidtaranto96.github.io/saurium-web/
 
-### Arreglado en esta vuelta
-- **Pixelado en móvil**: el fondo del scrollytelling era de 1600×900 y en un teléfono vertical se ampliaba 2,7×. Ahora hay versiones verticales (`story-*-v.jpg`, 1240×2222) servidas con `<picture media="(max-aspect-ratio:4/5)">`. Medido: pasó de ampliar 2,7× a reducir 0,70×.
-- **"Deslizar" pisaba "Hablar con ventas"** a partir de 720px de alto (56px de solape a 375×640). El hint se oculta por debajo de ese umbral.
-- **Saco 3D**: relieve de papel kraft por bump map procedural, panza de polvo por desplazamiento de vértices, luz en tres puntos con contraluz, tone mapping ACES y sombra de contacto pintada. Antes la sombra proyectada dejaba un polígono negro flotando y la cara impresa se hundía en el cuerpo dejando un óvalo.
-- **Open Graph, Twitter Card y canonical** en las dos páginas: compartir el link ya muestra imagen y texto.
-- **Contradicción temporal**: la portada dice 66 millones de años y el capítulo 3 decía "Siglos después". Ahora dice "Millones de años después".
-- **Voz de marca**: el copy estaba en voseo argentino y la marca es yucateca. Pasó a tuteo mexicano, y "piscina" a "alberca".
-- `title` y `description` acompañan el cambio de idioma. CTA de WhatsApp al cierre de historia.
-- El contenido con reveal ya no depende de que corran el observer, rAF ni las transiciones: hay respaldo por scroll y por temporizador.
+### Rediseño 2.0 aplicado
+- **Tokens en OKLCH** con fallback hex, y `--terracota-tinta` #97543a (oklch 0.52 0.097 41.6) para texto: la terracota original daba 2.6:1 sobre crema y fallaba AA. Sombras en capas como tokens (`--sombra-1/2`).
+- **Interacción**: foco visible global con la tinta, press scale .96 en botones, hover-lift en tarjetas de aplicaciones, escalonado de reveals por grupo (70ms). Trampa resuelta: el shorthand `transition` resetea `transition-delay`, el delay va DESPUÉS; y el failsafe suma el delay a su timeout para no pisar el escalonado.
+- **A11y**: skip link, aria-pressed en swatches, grupo con nombre bilingüe, saco 3D con foco y flechas para girar, toggle idioma a 44px, reduced-motion verificado con agent-browser (0 contenido oculto, 0 animaciones).
+- **Imágenes**: lazy + decoding async (hero eager fetchpriority=high).
+
+### Editable (etapa 1 lista, etapa 2 pendiente)
+- `contenido/sitio.json` = fuente única de whatsapp, correo, vendedor, rendimiento y hero ES/EN.
+- 8 regiones marcadas (`<!--cms:x-->` / `/*cms:x*/`) y `server/contenido.js` con los generadores. `cd server && npm test` = prueba de idempotencia (verde). `npm run aplicar` aplica el JSON a mano.
+- **Etapa 2 (panel)**: adaptar panel.js/github.js de melou, crear fine-grained token (solo este repo, Contents RW), servicio en Railway y PANEL_CLAVE. Lo tiene que crear David.
 
 ### Pendiente
-- **ventas@saurium.com no recibe correo** y el dominio no es del cliente: `saurium.com` lo tiene HugeDomains (revendedor) desde 2022 y lo publica en venta. `saurium.mx` y `saurium.com.mx` están libres. El saco impreso ya lleva saurium.com, así que hay que resolverlo con Rodrigo.
-- Fotos de obra real (ver `FOTOS.md`).
-- La versión en inglés no tiene URL propia ni hreflang, así que Google no la indexa.
-- A futuro: cookies propias de seguimiento de leads conectadas al CRM de Berni. Requiere aviso de cookies y aviso de privacidad (LFPDPPP en México, consentimiento previo si hay tráfico europeo). Va cotizado aparte en la propuesta.
-- Precio: USD 500 el sitio (250 + 250), mantenimiento opcional USD 40/mes, alta de dominio USD 40 aparte.
+- David corre `/review-animations` (skill de invocación manual) para el veredicto de poda.
+- Fotos de obra real, dominio (saurium.mx libre; saurium.com es de HugeDomains), hreflang para EN.

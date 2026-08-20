@@ -1,0 +1,17 @@
+{
+  "whatsapp": "529993699488",
+  "correo": "david_taranto@outlook.es",
+  "vendedor": "Rodrigo López Alam",
+  "cargo_es": "Ventas y exportación",
+  "cargo_en": "Sales and export",
+  "telefono_legible": "+52 999 369 9488",
+  "rendimiento_m2_por_saco": 4,
+  "hero_es": {
+    "linea1": "Desde el origen.",
+    "linea2": "Diseñado para perdurar."
+  },
+  "hero_en": {
+    "linea1": "From the origin.",
+    "linea2": "Designed to endure."
+  }
+}

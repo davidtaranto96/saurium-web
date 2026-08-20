@@ -1,0 +1,6 @@
+{
+  "name": "saurium-contenido",
+  "private": true,
+  "description": "Capa de contenido editable de saurium-web. El panel (etapa 2) usara estos mismos generadores.",
+  "scripts": { "test": "node prueba-contenido.js", "aplicar": "node aplicar.js" }
+}
