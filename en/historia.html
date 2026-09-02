@@ -86,11 +86,12 @@ header.hd-s{background:rgba(20,17,16,.55)!important;backdrop-filter:blur(14px);-
 .cta-lleno{transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s}
 .cta-texto{display:inline-flex;align-items:center;gap:12px;padding:15px 4px;font-weight:600;font-size:15px;color:var(--marron);border-bottom:1px solid currentColor;line-height:1.3;min-height:44px;box-sizing:border-box}
 .cta-texto .raya{display:inline-block;width:16px;height:1px;background:currentColor;transition:transform .22s cubic-bezier(.22,1,.36,1)}
-@media(hover:hover) and (pointer:fine){.cta-lleno:hover{background:var(--negro) !important;transform:translateY(-2px)}.cta-texto:hover .raya{transform:translateX(6px)}}
+@media(hover:hover){.cta-lleno:hover{background:var(--negro) !important;transform:translateY(-2px)}.cta-texto:hover .raya{transform:translateX(6px)}}
 .cta-lleno:active{transform:scale(.96)}
 [data-vignette]{transition:opacity .9s ease}
 @media(max-width:767px){[data-beat="0"],[data-beat="2"]{height:130svh !important}[data-beat="1"]{height:150svh !important}}
 @media(max-height:520px){[data-beat]{height:240svh !important}[data-words]{font-size:clamp(1.15rem,4.6vh,1.7rem) !important}}
+@media(max-height:520px){[data-screen-label="Cierre"]>div{padding-top:110px !important}}
 </style>
 </helmet>
 
@@ -124,13 +125,13 @@ header.hd-s{background:rgba(20,17,16,.55)!important;backdrop-filter:blur(14px);-
     <div data-stage style="position:sticky;top:0;height:100svh;overflow:hidden">
       <div data-cine>
       <div data-layer="0" style="position:absolute;inset:0;opacity:1;transform:scale(1)">
-        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-selva-v-720.webp 720w, ../img/story-selva-v-1200.webp 1200w, ../img/story-selva-v.webp 1240w" sizes="116vw"><img data-img="0" fetchpriority="high" src="../img/story-selva.webp" srcset="../img/story-selva-720.webp 720w, ../img/story-selva-1200.webp 1200w, ../img/story-selva.webp 1600w" sizes="116vw" alt="Selva baja de la península de Yucatán" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
+        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-selva-v-720.webp 720w, ../img/story-selva-v-1200.webp 1200w, ../img/story-selva-v.webp 1240w" sizes="116vw"><img data-img="0" fetchpriority="high" src="../img/story-selva.webp" srcset="../img/story-selva-720.webp 720w, ../img/story-selva-1200.webp 1200w, ../img/story-selva.webp 1600w" sizes="116vw" alt="Lowland forest of the Yucatán Peninsula" data-i18n-alt="alt.h1" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
       </div>
       <div data-layer="1" style="position:absolute;inset:0;opacity:0;transform:scale(1.02)">
-        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-dino-v-720.webp 720w, ../img/story-dino-v-1200.webp 1200w, ../img/story-dino-v.webp 1240w" sizes="116vw"><img data-img="1" src="../img/story-dino.webp" srcset="../img/story-dino-720.webp 720w, ../img/story-dino-1200.webp 1200w, ../img/story-dino.webp 1600w" sizes="116vw" alt="El meteorito sobre la península en el Cretácico" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
+        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-dino-v-720.webp 720w, ../img/story-dino-v-1200.webp 1200w, ../img/story-dino-v.webp 1240w" sizes="116vw"><img data-img="1" src="../img/story-dino.webp" srcset="../img/story-dino-720.webp 720w, ../img/story-dino-1200.webp 1200w, ../img/story-dino.webp 1600w" sizes="116vw" alt="The meteorite over the peninsula in the Cretaceous" data-i18n-alt="alt.h2" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
       </div>
       <div data-layer="2" style="position:absolute;inset:0;opacity:0;transform:scale(1.02)">
-        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-huella-v-720.webp 720w, ../img/story-huella-v-1200.webp 1200w, ../img/story-huella-v.webp 1240w" sizes="116vw"><img data-img="2" src="../img/story-huella.webp" srcset="../img/story-huella-720.webp 720w, ../img/story-huella-1200.webp 1200w, ../img/story-huella.webp 1600w" sizes="116vw" alt="Huella fósil sobre la tierra caliza" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
+        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-huella-v-720.webp 720w, ../img/story-huella-v-1200.webp 1200w, ../img/story-huella-v.webp 1240w" sizes="116vw"><img data-img="2" src="../img/story-huella.webp" srcset="../img/story-huella-720.webp 720w, ../img/story-huella-1200.webp 1200w, ../img/story-huella.webp 1600w" sizes="116vw" alt="Fossil footprint on the limestone ground" data-i18n-alt="alt.h3" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
       </div>
 
       <div data-bloom aria-hidden="true" style="position:absolute;inset:0;z-index:3;opacity:0;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(circle at 62% 40%,rgba(255,206,140,0.9),rgba(255,140,60,0.26) 24%,transparent 56%)"></div>
@@ -198,10 +199,11 @@ header.hd-s{background:rgba(20,17,16,.55)!important;backdrop-filter:blur(14px);-
       <article data-beat="0" data-screen-label="Cap 1" aria-hidden="true" style="height:170svh;position:relative"></article>
       <article data-beat="1" data-screen-label="Cap 2" aria-hidden="true" style="height:190svh;position:relative"></article>
       <article data-beat="2" data-screen-label="Cap 3" aria-hidden="true" style="height:170svh;position:relative"></article>
+      <div aria-hidden="true" style="height:95svh"></div>
     </div>
   </div>
 
-  <section data-screen-label="Cierre" style="position:relative;overflow:hidden;background:var(--arena);color:var(--marron)">
+  <section data-screen-label="Cierre" style="position:relative;overflow:hidden;background:var(--arena);color:var(--marron);min-height:100svh;display:grid;align-content:center">
     <img loading="lazy" decoding="async" src="../img/textura.webp" srcset="../img/textura-720.webp 720w, ../img/textura-1200.webp 1200w, ../img/textura.webp 1400w" sizes="100vw" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,16,0.55) 0%,rgba(20,17,16,0) 26%)"></div>
     <div data-reveal style="position:relative;max-width:var(--ancho);margin:0 auto;padding:clamp(110px,20vh,200px) clamp(20px,6vw,96px) clamp(90px,14vh,150px);text-align:left">
@@ -233,7 +235,7 @@ class Component extends DCLogic {
     this.I18N = {
       es: {
         'meta.title':'SAURIUM — La historia del chukum','meta.desc':'Sesenta y seis millones de años entre un impacto y un muro. El origen del chukum en la Península de Yucatán.',
-        'nav.back':'Volver al sitio','a11y.lang':'Cambiar a inglés',acabados:{arena:'Arena',crema:'Crema',gris:'Gris',carbon:'Carbón',oliva:'Oliva',terracota:'Terracota'},waCtx:(g,n)=> g.sacos ? `Hola, quiero cotizar ${g.sacos} ${g.sacos===1?'saco':'sacos'} de chukum SAURIUM (${g.m2} m²)${n?', acabado '+n:''}.` : (n ? `Hola, me interesa el acabado ${n} de SAURIUM. ¿Me pasan precio y muestras?` : null),
+        'nav.back':'Volver al sitio','a11y.lang':'Cambiar a inglés','alt.h1':'Selva baja de la península de Yucatán','alt.h2':'El meteorito sobre la península en el Cretácico','alt.h3':'Huella fósil sobre la tierra caliza',acabados:{arena:'Arena',crema:'Crema',gris:'Gris',carbon:'Carbón',oliva:'Oliva',terracota:'Terracota'},waCtx:(g,n)=> g.sacos ? `Hola, quiero cotizar ${g.sacos} ${g.sacos===1?'saco':'sacos'} de chukum SAURIUM (${g.m2} m²)${n?', acabado '+n:''}.` : (n ? `Hola, me interesa el acabado ${n} de SAURIUM. ¿Me pasan precio y muestras?` : null),
         'cover.kicker':'La historia del chukum','cover.title':'Una tierra que guarda lo que pasa por ella.',
         'cover.sub':'Sesenta y seis millones de años entre un impacto y un muro. Desliza para recorrerlos.','cover.scroll':'Deslizar',
         'rail.1':'Origen','rail.2':'Impacto','rail.3':'Huella',
@@ -248,7 +250,7 @@ class Component extends DCLogic {
       },
       en: {
         'meta.title':'SAURIUM — The story of chukum','meta.desc':'Sixty-six million years between an impact and a wall. The origin of chukum in the Yucatán Peninsula.',
-        'nav.back':'Back to the site','a11y.lang':'Switch to Spanish',acabados:{arena:'Sand',crema:'Cream',gris:'Gray',carbon:'Charcoal',oliva:'Olive',terracota:'Terracotta'},waCtx:(g,n)=> g.sacos ? `Hi, I would like a quote for ${g.sacos} ${g.sacos===1?'bag':'bags'} of SAURIUM chukum (${g.m2} m²)${n?', '+n+' finish':''}.` : (n ? `Hi, I am interested in the ${n} SAURIUM finish. Could you send pricing and samples?` : null),
+        'nav.back':'Back to the site','a11y.lang':'Switch to Spanish','alt.h1':'Lowland forest of the Yucatán Peninsula','alt.h2':'The meteorite over the peninsula in the Cretaceous','alt.h3':'Fossil footprint on the limestone ground',acabados:{arena:'Sand',crema:'Cream',gris:'Gray',carbon:'Charcoal',oliva:'Olive',terracota:'Terracotta'},waCtx:(g,n)=> g.sacos ? `Hi, I would like a quote for ${g.sacos} ${g.sacos===1?'bag':'bags'} of SAURIUM chukum (${g.m2} m²)${n?', '+n+' finish':''}.` : (n ? `Hi, I am interested in the ${n} SAURIUM finish. Could you send pricing and samples?` : null),
         'cover.kicker':'The story of chukum','cover.title':'A land that keeps whatever passes through it.',
         'cover.sub':'Sixty-six million years between an impact and a wall. Scroll to travel through them.','cover.scroll':'Scroll',
         'rail.1':'Origin','rail.2':'Impact','rail.3':'Footprint',
@@ -305,6 +307,7 @@ class Component extends DCLogic {
     const d = this.I18N[next];
     this.qa('[data-i18n]').forEach(el=>{ const k=el.getAttribute('data-i18n'); if(d[k]) el.textContent=d[k]; });
     this.qa('[data-i18n-arialabel]').forEach(el=>{ const k=el.getAttribute('data-i18n-arialabel'); if(d[k]) el.setAttribute('aria-label', d[k]); });
+    this.qa('[data-i18n-alt]').forEach(el=>{ const k=el.getAttribute('data-i18n-alt'); if(d[k]) el.setAttribute('alt', d[k]); });
     this.qa('[data-lang-opt]').forEach(el=>{ el.style.opacity = el.getAttribute('data-lang-opt')===next ? '1':'0.4'; });
     if (d['meta.title']) { document.title = d['meta.title']; setTimeout(()=>{ if (!this.dead && this.lang === next) document.title = d['meta.title']; }, 80); }
     const md = document.querySelector('meta[name="description"]'); if (md && d['meta.desc']) md.setAttribute('content', d['meta.desc']);
