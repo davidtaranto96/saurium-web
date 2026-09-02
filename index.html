@@ -115,7 +115,8 @@ h1,h2,h3{text-wrap:balance}
 /* estante de placas 3.0 */
 .estante{position:relative;display:flex;gap:clamp(10px,2vw,26px);justify-content:center;max-width:var(--ancho);overflow-x:auto;scroll-snap-type:x proximity;padding:24px 20px 8px;scrollbar-width:none;perspective:900px}
 .estante::-webkit-scrollbar{display:none}
-@media(max-width:700px){.estante{justify-content:flex-start;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}}
+/* en el telefono las seis entran en dos filas: nada de estante a medio deslizar con la activa afuera */
+@media(max-width:700px){.estante{display:grid;grid-template-columns:repeat(3,1fr);justify-items:stretch;gap:20px 8px;overflow-x:visible;padding:24px 6px 8px}.estante .placa{width:100%;max-width:118px;justify-self:center}}
 .placa{display:block;width:clamp(78px,9.5vw,118px);aspect-ratio:3/4;border-radius:9px;background:var(--sw) center/cover;transform:rotateX(7deg);transform-origin:bottom;box-shadow:inset -4px -5px 8px oklch(0 0 0/.28),inset 3px 3px 5px oklch(1 0 0/.16),0 1px 0 oklch(1 0 0/.1),0 18px 30px -8px oklch(0 0 0/.6);transition:transform .35s cubic-bezier(.2,0,0,1),box-shadow .35s cubic-bezier(.2,0,0,1)}
 .placa::after{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(160deg,oklch(1 0 0/.14),transparent 45%,oklch(0 0 0/.18));pointer-events:none}
 .placa-btn{position:relative}
@@ -203,7 +204,7 @@ html,body{overflow-x:clip}
 .tease-visual{display:grid;gap:12px;max-width:480px}
 .tease-visual figure{margin:0;display:grid;gap:8px}
 .tease-visual img{width:100%;object-fit:cover;border-radius:12px;transition:opacity .35s,transform .5s cubic-bezier(.22,1,.36,1)}
-.tease-visual .tease-grande{aspect-ratio:3/4}
+.tease-visual .tease-grande{aspect-ratio:3/4;object-position:96% 50%}/* la huella esta abajo a la derecha del render: centrado se recorta afuera */
 .tease-visual .tease-chica{aspect-ratio:4/3}
 .tease-visual .tease-fila{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .tease-visual figcaption{font-size:var(--t-xs);letter-spacing:var(--track-caps);text-transform:uppercase;opacity:.75}
@@ -730,7 +731,7 @@ class Component extends DCLogic {
         'a11y.skip':'Skip to content','a11y.lang':'Switch to Spanish','a11y.menu':'Menu','a11y.galeria':'Applications gallery','a11y.cerrar':'Close','a11y.anterior':'Previous','a11y.siguiente':'Next','a11y.comparar':'Compare before and after','a11y.secciones':'Sections','idx.inicio':'Home','idx.historia':'Story','idx.material':'About chukum','idx.colores':'Finishes','idx.aplicaciones':'Applications','idx.preguntas':'FAQ','idx.calculadora':'Calculator','idx.contacto':'Contact','alt.hero':'Coast and jungle of the Yucatán Peninsula from the air','alt.t1':'Yucatán lowland forest','alt.t2':'The impact on the peninsula','alt.t3':'Fossil footprint in the limestone','alt.saco':'SAURIUM 20 kg chukum bag','alt.antes':'The house unfinished, bare render','alt.despues':'The same house finished with SAURIUM chukum','alt.costa':'Coast of the Yucatán Peninsula from the air','uso.1':'Chukum walls on a patio with a pool','uso.2':'Interior with chukum walls','uso.3':'Pool with coping and walls in a seamless sand-tone finish','uso.4':'Brass shower on a seamless natural-stucco wall','colors.group':'Choose a finish','material.bag3d':'SAURIUM 20\u00a0kg chukum bag in 3D. Drag it or use the arrow keys to rotate it.',
         'nav.story':'Story','nav.chukum':'About chukum','nav.colors':'Finishes','nav.apps':'Applications','nav.contact':'Contact','nav.cta':'Get a quote',
         'hero.kicker':'Authentic chukum from the Yucatán Peninsula',/*cms:hero-en*/'hero.l1':'From the origin.','hero.l2':'Designed to endure.',/*/cms:hero-en*/
-        'hero.sub':'A natural finish with a historic footprint. Chukum tree resin and peninsula lime, applied layer over layer.',
+        'hero.sub':'A natural finish with a historic footprint. Chukum tree resin and lime from the peninsula, applied layer over layer.',
         'hero.cta1':'See the material','hero.cta2':'Talk to sales','hero.scroll':'Scroll','hero.pie':'Coast of the Yucatán Peninsula',
         'tease.kicker':'The story','tease.title':'A land that keeps whatever passes through it.',
         'tease.sub':'From the impact that marked the peninsula to the material that now covers its walls. Sixty-six million years in three chapters.',
@@ -751,15 +752,15 @@ class Component extends DCLogic {
         'apps.sub':'Walls and facades, pools and cenotes, interiors, bathrooms and furniture. One paste, applied layer over layer.',
         'apps.a1':'Walls and facades','apps.a2':'Pools and water features','apps.a3':'Interiors','apps.a4':'Bathrooms and furniture',
         'apps.d1':'Private house, Yucatán','apps.d2':'Chukum-lined pool','apps.d3':'Living room with chukum walls','apps.d4':'Bathroom with a chukum wall',
-        'faq.title':'Frequently asked questions','lb.ayuda':'Swipe for the next one · Tap outside to close','faq.q1':"How much does one bag cover?",'faq.a1':"A 20\u00a0kg (44\u00a0lb) bag covers about 4\u00a0m\u00b2 (43\u00a0sq\u00a0ft) with two coats on a smooth wall. Rough or very absorbent surfaces lower the yield, so we confirm the quantity with your measurements.",'faq.q2':"Does it work outdoors, with sun and rain?",'faq.a2':"Yes. Chukum was born for the Yucat\u00e1n climate: it repels water and lets the wall breathe, so it withstands direct sun, humidity and salt air without peeling.",'faq.q3':"Can it be used in pools and cenotes?",'faq.a3':"That is one of its original uses: the Maya waterproofed cisterns with it. Today it is applied in pools, water features and artificial cenotes, with the right base preparation.",'faq.q4':"How is it different from an acrylic chukum-style finish?",'faq.a4':"Authentic chukum carries real tree resin and lime. Acrylic imitations copy the color, but they never breathe or age the way lime does: it shows over time.",'faq.q5':"Do you ship outside Mexico?",'faq.a5':"Yes. We make it in the peninsula and export. Write to us with the destination and the square meters and we will send lead times and shipping costs.",'faq.q6':"Can I order samples before deciding?",'faq.a6':"Yes. We send physical samples of the finishes you are interested in so you can see them in the light of your own project.",
+        'faq.title':'Frequently asked questions','lb.ayuda':'Swipe for more · Tap outside to close','faq.q1':"How much does one bag cover?",'faq.a1':"A 20\u00a0kg (44\u00a0lb) bag covers about 4\u00a0m\u00b2 (43\u00a0sq\u00a0ft) with two coats on a smooth wall. Rough or very absorbent surfaces reduce coverage, so we confirm the quantity from your measurements.",'faq.q2':"Does it work outdoors, with sun and rain?",'faq.a2':"Yes. Chukum was born for the Yucat\u00e1n climate: it repels water and lets the wall breathe, so it withstands direct sun, humidity and salt air without peeling.",'faq.q3':"Can it be used in pools and cenotes?",'faq.a3':"That is one of its original uses: the Maya waterproofed cisterns with it. Today it is applied in pools, water features and artificial cenotes, with the right base preparation.",'faq.q4':"How is it different from an acrylic chukum-style finish?",'faq.a4':"Authentic chukum carries real tree resin and lime. Acrylic imitations copy the color, but they never breathe or age the way lime does: it shows over time.",'faq.q5':"Do you ship outside Mexico?",'faq.a5':"Yes. We make it in the peninsula and export. Message us with the destination and the area, and we'll send lead times and shipping costs.",'faq.q6':"Can I order samples before deciding?",'faq.a6':"Yes. We send physical samples of the finishes you are interested in so you can see them in the light of your own project.",
         'calc.necesitas':'You need',calcEquiv:(m)=>`About ${m} walls of 3\u00a0×\u00a02.5\u00a0m (10\u00a0×\u00a08\u00a0ft)`,
-        'calc.title':'How much chukum does your project need?','calc.sub':'Enter the square meters and we calculate the 20\u00a0kg bags.',
-        'calc.label':'Surface to cover (m²)','calc.bags':'20\u00a0kg bags','calc.bag1':'20\u00a0kg bag',
+        'calc.title':'How much chukum does your project need?','calc.sub':'Enter the area and we\u2019ll calculate how many 20\u00a0kg bags you need.',
+        'calc.label':'Area to cover (m²)','calc.bags':'bags of 20\u00a0kg','calc.bag1':'bag of 20\u00a0kg',
         'calc.note':'Estimate based on an average coverage of {r}\u00a0m² (43\u00a0sq\u00a0ft) per bag, two coats. Exact quantities confirmed per surface and finish.',
         'calc.cta':'Request a quote for this amount',
         'world.line':'From Yucatán to the world.','world.sub':'We make the chukum in the peninsula and ship it to projects in Mexico and abroad.',
-        'contact.title':'Bring SAURIUM to your next project','contact.sub':'Write to us and we will arrange samples, the data sheet and delivery to your site, in Mexico or abroad.',
-        'contact.wa':'Chat on WhatsApp','contact.vcard':'Save contact','faq.sub':'What architects and applicators ask us before ordering samples.','a11y.zoom1':'Enlarge: Chukum walls on a patio with a pool','a11y.zoom2':'Enlarge: Interior with chukum walls','a11y.zoom3':'Enlarge: Pool with coping and walls in a seamless sand-tone finish','a11y.zoom4':'Enlarge: Brass shower on a seamless natural-stucco wall','compare.muestra0':'Request a Terracotta sample',muestraTxt:(n)=>`Request ${/^[aeiou]/i.test(n) ? 'an' : 'a'} ${n} sample`,
+        'contact.title':'Bring SAURIUM to your next project','contact.sub':'Send us a message and we\u2019ll arrange samples, the data sheet and delivery to your site, in Mexico or abroad.',
+        'contact.wa':'Chat on WhatsApp','contact.vcard':'Save contact','faq.sub':'What architects and installers ask us before ordering samples.','a11y.zoom1':'Enlarge: Chukum walls on a patio with a pool','a11y.zoom2':'Enlarge: Interior with chukum walls','a11y.zoom3':'Enlarge: Pool with coping and walls in a seamless sand-tone finish','a11y.zoom4':'Enlarge: Brass shower on a seamless natural-stucco wall','compare.muestra0':'Request a Terracotta sample',muestraTxt:(n)=>`Request ${/^[aeiou]/i.test(n) ? 'an' : 'a'} ${n} sample`,
         /*cms:contacto-en*/'contact.agent':'Rodrigo López Alam — Sales and export','contact.tel':'+52 999 369 9488','contact.mail':'david_taranto@outlook.es',/*/cms:contacto-en*/
         'footer.line':'Made in the Yucatán Peninsula, Mexico.','footer.rights':'All rights reserved',
         waText:'Hi, I would like a quote for SAURIUM chukum.',
@@ -1073,7 +1074,8 @@ class Component extends DCLogic {
     this.baSeq = 0;
     if (after) poner(after, this.finish);
     setActive(); this.updateFinishLabel();
-    centrar(buttons.find(b=>b.getAttribute('data-finish')===this.finish), true);
+    // solo se centra si el acabado lo eligio el visitante: con el de fabrica el estante arranca en la primera placa
+    if (this.finishTocado) centrar(buttons.find(b=>b.getAttribute('data-finish')===this.finish), true);
     // precarga de los acabados en el formato y tamano reales, solo cuando la seccion se acerca
     this.preIO = new IntersectionObserver((es)=>{
       if (!es.some(e=>e.isIntersecting)) return;
@@ -1147,7 +1149,14 @@ class Component extends DCLogic {
     const contar = ()=>{ if (cont && pista.clientWidth) cont.textContent = `${Math.round(pista.scrollLeft / pista.clientWidth) + 1} / ${total}`; };
     pista.addEventListener('scroll', contar, { passive: true }); dlg.addEventListener('close', ()=>{ setTimeout(contar, 0); });
     this.lbContar = contar;
-    dlg.addEventListener('click', (e)=>{ if (e.target === dlg || e.target === pista) dlg.close(); });
+    // "tocá afuera para cerrar": el slide ocupa toda la pantalla, asi que afuera se mide contra la foto, no contra el elemento
+    dlg.addEventListener('click', (e)=>{
+      if (e.target.closest('button')) return;
+      const im = e.target.closest('.lb-slide') && e.target.closest('.lb-slide').querySelector('img');
+      if (!im) { dlg.close(); return; }
+      const r = im.getBoundingClientRect();
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dlg.close();
+    });
     dlg.addEventListener('close', ()=>{ if (this.lbOrigen) this.lbOrigen.focus(); });
     dlg.addEventListener('keydown', (e)=>{
       if (e.key === 'ArrowRight') pista.scrollBy({ left: pista.clientWidth, behavior: this.reduce ? 'instant' : 'smooth' });
