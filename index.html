@@ -88,11 +88,11 @@ h1,h2,h3{text-wrap:balance}
 @media(min-width:901px){.hero-ed{box-sizing:border-box;padding-bottom:clamp(90px,12vh,140px) !important;min-height:100svh;max-height:100svh}}
 .hero-ed-marca{position:absolute;bottom:-0.22em;font-size:clamp(5.5rem,22vw,22rem);line-height:1;font-weight:800;letter-spacing:-0.04em;color:var(--marron);opacity:.085;white-space:nowrap;pointer-events:none;user-select:none;z-index:1}
 @media(max-width:900px){.hero-ed-grid{grid-template-columns:1fr !important}.hero-ed{padding-top:100px !important}.hero-ed-marca{opacity:.07}}
-.cinta{background:var(--marron);color:var(--crema);overflow:hidden;padding:14px 0;border-block:1px solid oklch(0.224 0.004 48.6/.25)}
+.cinta{background:var(--negro);color:var(--crema);overflow:hidden;padding:14px 0;border-block:1px solid oklch(0.224 0.004 48.6/.25)}/* negro y no marron: --fin-carbon es casi igual a --marron y su muestra se leia vacia */
 .cinta-pista{display:flex;gap:clamp(28px,5vw,64px);width:max-content;animation:cinta 42s linear infinite;will-change:transform}
 .cinta:hover .cinta-pista{animation-play-state:paused}
 .cinta span{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:var(--track-caps);text-transform:uppercase;font-weight:600;white-space:nowrap}
-.cinta i{width:14px;height:14px;border-radius:4px;background:var(--c);display:block;box-shadow:0 0 0 1px oklch(1 0 0/.18)}
+.cinta i{width:14px;height:14px;border-radius:4px;background:var(--c);display:block;box-shadow:0 0 0 2px var(--crema)}/* marco crema: sin el, Carbon es el mismo tono que la cinta y el chip se lee vacio */
 @keyframes cinta{to{transform:translateX(-50%)}}
 .indice{position:fixed;left:clamp(14px,2.4vw,34px);top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column;gap:10px;padding:8px}
 @media(min-width:1180px){.indice{display:flex}}
@@ -146,6 +146,7 @@ h1,h2,h3{text-wrap:balance}
 .lb-cerrar:hover{background:oklch(1 0 0/.2)}
 .lb-ayuda{text-align:center;font-size:12px;letter-spacing:var(--track-caps);text-transform:uppercase;opacity:.5;padding:0 0 22px}
 @media(hover:hover){.lb-ayuda{display:none}}
+.lb-abrir:focus-visible{outline:2px solid var(--terracota-tinta) !important;outline-offset:3px !important}
 .lb-abrir img{transition:transform .35s cubic-bezier(.2,0,0,1)}
 @media(hover:hover){.lb-abrir:hover img{transform:scale(1.02)}}
 /* preguntas frecuentes */
@@ -200,7 +201,7 @@ html,body{overflow-x:clip}
 @media(prefers-reduced-motion:reduce){.hero-ent{animation:none;opacity:1}.hero-ed-cuadro{clip-path:none;animation:none}.hero-ed-img{transform:none;animation:none}}
 /* teaser: visual a la izquierda con jerarquía, texto a la derecha */
 .tease-grid{position:relative;z-index:2;max-width:var(--ancho);margin:0 auto;padding:clamp(76px,13vh,130px) clamp(20px,6vw,96px);display:grid;grid-template-columns:1fr;gap:clamp(32px,5vw,72px);align-items:center}
-@media(min-width:901px){.tease-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}.tease-texto{grid-column:2;grid-row:1}.tease-visual{grid-column:1;grid-row:1}}
+@media(min-width:901px){.tease-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-rows:auto auto;row-gap:30px}.tease-texto{grid-column:2;grid-row:1;align-self:end}.tease-visual{grid-column:1;grid-row:1/3}.tease-grid>.cta-tease{grid-column:2;grid-row:2;align-self:start}}
 .tease-visual{display:grid;gap:12px;max-width:480px}
 .tease-visual figure{margin:0;display:grid;gap:8px}
 .tease-visual img{width:100%;object-fit:cover;border-radius:12px;transition:opacity .35s,transform .5s cubic-bezier(.22,1,.36,1)}
@@ -273,8 +274,9 @@ html,body{overflow-x:clip}
 @media(prefers-reduced-motion:reduce){.faq .faq-cuerpo>p{transition:none}}
 
 /* ===== 4.0: WhatsApp flotante, lightbox con fundido, fotos que se acercan con el scroll ===== */
-.wa-flotante{position:fixed;right:16px;bottom:16px;z-index:45;width:56px;height:56px;border-radius:50%;background:#25623f;color:#f3ebde;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.28);opacity:0;transform:scale(.6);pointer-events:none;transition:opacity .22s cubic-bezier(.2,0,0,1),transform .22s cubic-bezier(.2,0,0,1)}
+.wa-flotante{position:fixed;right:12px;bottom:12px;z-index:45;width:56px;height:56px;border-radius:50%;background:#25623f;color:#f3ebde;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.28);opacity:0;transform:scale(.6);pointer-events:none;transition:opacity .22s cubic-bezier(.2,0,0,1),transform .22s cubic-bezier(.2,0,0,1)}
 .wa-flotante.visible{opacity:1;transform:none;pointer-events:auto}
+@media(max-width:700px){.wa-flotante{width:50px;height:50px}}
 @media(min-width:1180px){.wa-flotante{right:28px;bottom:28px}}
 @media(hover:hover){.wa-flotante.visible:hover{transform:translateY(-2px)}}
 .lb{opacity:0;transform:scale(.98);transition:opacity .26s cubic-bezier(.2,0,0,1),transform .26s cubic-bezier(.2,0,0,1),display .26s allow-discrete,overlay .26s allow-discrete}
@@ -305,7 +307,7 @@ html:has(dialog[open]){overflow:hidden}
 @supports(height:100dvh){.lb{height:100dvh;max-height:100dvh}}
 [data-lang-toggle] span{pointer-events:none}
 @media(max-width:480px){.hero-ed a.cta-lleno{width:100%;justify-content:center;box-sizing:border-box}.hero-ed{padding-top:88px !important}}
-@media(max-width:900px) and (orientation:landscape) and (max-height:520px){.hero-ed{padding-top:80px !important;padding-bottom:36px !important;min-height:auto}.hero-ed-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) !important;gap:28px}.hero-ed-cuadro{aspect-ratio:auto;height:calc(100svh - 140px);max-height:none}h1{font-size:clamp(1.7rem,7vh,2.4rem) !important}.hero-ed p[data-i18n="hero.sub"]{margin:12px 0 18px !important}.hero-ed-marca{display:none}}
+@media(max-width:900px) and (orientation:landscape) and (max-height:520px){.hero-ed{padding-top:64px !important;padding-bottom:20px !important;min-height:auto}.hero-ed-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) !important;gap:24px;align-items:center}.hero-ed-cuadro{aspect-ratio:auto;height:calc(100svh - 104px);max-height:none}h1{font-size:clamp(1.55rem,6.4vh,2.2rem) !important}.hero-ed .hero-kicker{display:none}.hero-ed p[data-i18n="hero.sub"]{margin:10px 0 14px !important;font-size:13px !important;line-height:1.45 !important;max-width:50ch}.hero-ed .hero-ctas{gap:10px !important}.hero-ed .hero-ctas a{padding:11px 20px !important;font-size:14px !important}.hero-ed-pie{display:none}.hero-ed-marca{display:none}}
 @media(max-height:520px) and (min-width:700px){.ba{aspect-ratio:auto !important;height:calc(100svh - 96px);width:min(100%,calc((100svh - 96px) * 1.6));margin-inline:auto;border-radius:12px}[data-nav]{height:56px !important}[data-nav] img{height:26px !important}}
 
 /* ===== 4.0: menú de secciones en celular ===== */
@@ -325,12 +327,13 @@ html:has(dialog[open]){overflow:hidden}
 /* ===== 4.0: qa ronda 1 ===== */
 .visualmente-oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media(max-width:700px){.faq summary{padding-right:64px}}
-.cinta i{box-shadow:0 0 0 1px oklch(1 0 0/.4)}
+.cinta i{box-shadow:0 0 0 2px var(--crema)}
 @media(max-width:480px){.hero-ed-marca{font-size:clamp(4rem,21vw,22rem)}}
 @media(max-width:900px){.mundo{min-height:auto;padding-top:clamp(140px,26vh,240px)}}
 #aplicaciones{padding-bottom:clamp(56px,8vh,96px) !important}
 #preguntas{padding-top:24px !important}
 [data-saco3d]:focus-visible{outline:2px solid var(--terracota-tinta);outline-offset:4px}
+@media(max-width:700px){.cap-saco{justify-content:flex-start !important;gap:18px}}
 [data-saco3d] canvas{touch-action:pan-y}
 .indice a::before{inset:-13px 0}
 </style>
@@ -360,13 +363,13 @@ html:has(dialog[open]){overflow:hidden}
 <section id="inicio" data-screen-label="Hero" class="hero-ed" style="position:relative;min-height:100svh;overflow:hidden;background:var(--crema);color:var(--marron);display:grid;align-items:center;padding:112px clamp(20px,6vw,96px) clamp(120px,16vh,180px)">
   <div class="hero-ed-grid" style="max-width:1180px;width:100%;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center">
     <div style="position:relative;z-index:2">
-      <p class="hero-ent" data-i18n="hero.kicker" style="font-size:15px;letter-spacing:0;text-transform:none;color:var(--terracota-tinta);font-weight:500;margin-bottom:22px">Chukum auténtico de la Península de Yucatán</p>
+      <p class="hero-ent hero-kicker" data-i18n="hero.kicker" style="font-size:15px;letter-spacing:0;text-transform:none;color:var(--terracota-tinta);font-weight:500;margin-bottom:22px">Chukum auténtico de la Península de Yucatán</p>
       <h1 style="font-size:var(--t-h1);line-height:1;letter-spacing:-0.015em;color:var(--negro)">
         <span style="display:block;overflow:hidden"><span data-i18n="hero.l1" style="display:inline-block;transform:translateY(110%);animation:rise 1.1s cubic-bezier(0.22,1,0.36,1) 0.12s forwards">Desde el origen.</span></span>
         <span style="display:block;overflow:hidden"><span data-i18n="hero.l2" style="display:inline-block;font-weight:500;transform:translateY(110%);animation:rise 1.1s cubic-bezier(0.22,1,0.36,1) 0.26s forwards">Diseñado para perdurar.</span></span>
       </h1>
       <p class="hero-ent" data-i18n="hero.sub" style="animation-delay:.52s;margin:28px 0 36px;max-width:44ch;font-size:var(--t-lead);line-height:1.55;text-wrap:pretty">Un recubrimiento natural con huella histórica. Resina del árbol de chukum y cal de la península, aplicado capa sobre capa.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <div class="hero-ctas" style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="#contacto" data-wa-link="hero" class="hero-ent cta-lleno" style="animation-delay:.66s;display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:600;font-size:15px;background:var(--marron);color:var(--crema);box-shadow:var(--sombra-2)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c0 .2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.4 2.6 1.6.3.1.5.1.7-.1l1.1-1.3c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.3 1.6Z"></path></svg><span data-i18n="hero.cta2">Hablar con ventas</span></a>
         <a href="#material" class="hero-ent cta-texto" style="animation-delay:.74s"><span data-i18n="hero.cta1">Ver el material</span><span aria-hidden="true" class="raya"></span></a>
       </div>
@@ -413,16 +416,8 @@ html:has(dialog[open]){overflow:hidden}
     <div class="tease-texto" data-reveal>
       <h2 data-reveal data-reveal-desde="cortina" data-i18n="tease.title" style="font-size:var(--t-h2);line-height:1.05;letter-spacing:-0.01em;max-width:15ch;text-wrap:balance">Una tierra que guarda lo que pasa por ella.</h2>
       <p data-i18n="tease.sub" style="margin-top:18px;font-size:var(--t-lead);opacity:0.75;max-width:46ch;text-wrap:pretty">Del impacto que marcó la península al material que hoy recubre sus muros. Sesenta y seis millones de años en tres capítulos.</p>
-      <a href="historia.html" class="cta-claro cta-tease" style="display:inline-flex;align-items:center;gap:12px;margin-top:30px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;background:var(--crema);color:var(--marron)">
-        <span data-i18n="tease.cta">Recorrer la historia</span>
-        <span aria-hidden="true" class="raya"></span>
-      </a>
     </div>
     <a class="tease-visual" href="historia.html" data-reveal data-reveal-desde="izq" aria-label="Recorrer la historia del chukum" data-i18n-arialabel="tease.cta">
-      <figure>
-        <img class="tease-grande" src="img/story-huella.webp" srcset="img/story-huella-720.webp 720w, img/story-huella-1200.webp 1200w, img/story-huella.webp 1600w" sizes="(max-width:900px) 100vw, 40vw" alt="Huella fósil en la caliza" data-i18n-alt="alt.t3" loading="lazy">
-        <figcaption data-i18n="tease.c3">Huella</figcaption>
-      </figure>
       <div class="tease-fila">
         <figure>
           <img class="tease-chica" src="img/story-selva.webp" srcset="img/story-selva-720.webp 720w, img/story-selva-1200.webp 1200w" sizes="(max-width:900px) 50vw, 20vw" alt="Selva baja de Yucatán" data-i18n-alt="alt.t1" loading="lazy">
@@ -433,6 +428,14 @@ html:has(dialog[open]){overflow:hidden}
           <figcaption data-i18n="tease.c2">Impacto</figcaption>
         </figure>
       </div>
+      <figure>
+        <img class="tease-grande" src="img/story-huella.webp" srcset="img/story-huella-720.webp 720w, img/story-huella-1200.webp 1200w, img/story-huella.webp 1600w" sizes="(max-width:900px) 100vw, 40vw" alt="Huella fósil en la caliza" data-i18n-alt="alt.t3" loading="lazy">
+        <figcaption data-i18n="tease.c3">Huella</figcaption>
+      </figure>
+    </a>
+    <a href="historia.html" data-reveal class="cta-claro cta-tease" style="display:inline-flex;align-items:center;gap:12px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;background:var(--crema);color:var(--marron);justify-self:start">
+      <span data-i18n="tease.cta">Recorrer la historia</span>
+      <span aria-hidden="true" class="raya"></span>
     </a>
   </div>
 </section>
@@ -447,7 +450,7 @@ html:has(dialog[open]){overflow:hidden}
       <div data-saco3d tabindex="0" role="img" aria-label="Saco de chukum SAURIUM de 20&nbsp;kg en tres dimensiones. Arrástralo o usa las flechas para girarlo." data-i18n-arialabel="material.bag3d" style="position:relative;aspect-ratio:4/5;border-radius:24px;background:radial-gradient(ellipse at 50% 34%,#2a2624,#161413 76%);box-shadow:0 24px 60px rgba(29,27,26,0.28);overflow:hidden;touch-action:pan-y;cursor:grab">
         <img data-saco src="img/producto-saco.webp" srcset="img/producto-saco-720.webp 720w, img/producto-saco-1200.webp 1200w, img/producto-saco.webp 1500w" sizes="(max-width:768px) 100vw, 50vw" alt="Saco de chukum SAURIUM de 20 kg" data-i18n-alt="alt.saco" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
       </div>
-      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px;font-size:12px;letter-spacing:var(--track-caps);text-transform:uppercase;opacity:0.85">
+      <figcaption class="cap-saco" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px;font-size:12px;letter-spacing:var(--track-caps);text-transform:uppercase;opacity:0.85">
         <span data-i18n="material.bag">Saco de 20&nbsp;kg</span>
         <span data-i18n="material.hint3d">Arrastra para rotar</span>
       </figcaption>
@@ -590,7 +593,7 @@ html:has(dialog[open]){overflow:hidden}
       <div data-reveal class="calc">
         <label for="calc-m2" data-i18n="calc.label" style="display:block;font-weight:600;font-size:14px;letter-spacing:.02em;margin-bottom:14px">Superficie a cubrir (m²)</label>
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
-          <input id="calc-m2" data-calc-m2 type="number" min="1" max="100000" inputmode="numeric" style="font-family:inherit;font-size:clamp(2.4rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em;padding:6px 0;min-height:44px;box-sizing:border-box;border:0;border-bottom:2px solid rgba(71,67,65,0.25);background:transparent;color:var(--negro);width:6.5ch;font-variant-numeric:tabular-nums;transition:border-color .2s" style-focus="outline:none;border-color:var(--terracota-tinta)">
+          <input id="calc-m2" data-calc-m2 type="number" min="1" max="20000" inputmode="numeric" style="font-family:inherit;font-size:clamp(2.4rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em;padding:6px 0;min-height:44px;box-sizing:border-box;border:0;border-bottom:2px solid rgba(71,67,65,0.25);background:transparent;color:var(--negro);width:6.5ch;font-variant-numeric:tabular-nums;transition:border-color .2s" style-focus="border-color:var(--terracota-tinta)">
           <span style="font-size:1.1rem;font-weight:600;opacity:.6">m²</span>
           <span data-calc-sqft hidden style="font-size:13px;opacity:.6;font-variant-numeric:tabular-nums"></span>
         </div>
@@ -675,13 +678,13 @@ class Component extends DCLogic {
     this.WA = this.props.whatsapp ?? CONTENIDO.whatsapp;
     this.finish = this.props.acabadoInicial ?? 'terracota';
     const fallbackLang = (this.props.idiomaInicial === 'en' || this.props.idiomaInicial === 'es') ? this.props.idiomaInicial : 'es';
-    const stored = localStorage.getItem('saurium-lang');
-    const chosen = localStorage.getItem('saurium-lang-set') === '1' && (stored === 'es' || stored === 'en');
-    this.lang = chosen ? stored : (document.documentElement.getAttribute('data-lang-default') || fallbackLang);
+    // la ruta manda: /en/ es ingles y la raiz es espanol. Antes la preferencia guardada le ganaba
+    // y el link /en/ que manda el vendedor abria en espanol en el telefono del cliente.
+    this.lang = document.documentElement.getAttribute('data-lang-default') || fallbackLang;
     this.m2 = 120;
     this.IMG = document.documentElement.getAttribute('data-img-base') || 'img/';
     this.ACABADOS = ['arena','crema','gris','carbon','oliva','terracota'];
-    try { const g = JSON.parse(sessionStorage.getItem('saurium-estado') || '{}'); if (this.ACABADOS.includes(g.finish)) { this.finish = g.finish; this.finishTocado = true; } if (Number(g.m2) > 0) { this.m2 = Math.min(100000, Math.round(Number(g.m2))); this.calcTocada = true; } } catch (e) {}
+    try { const g = JSON.parse(sessionStorage.getItem('saurium-estado') || '{}'); if (this.ACABADOS.includes(g.finish)) { this.finish = g.finish; this.finishTocado = true; } if (Number(g.m2) > 0) { this.m2 = Math.min(20000, Math.round(Number(g.m2))); this.calcTocada = true; } } catch (e) {}
     const qs = new URLSearchParams(location.search); const EN_MAP = { sand:'arena', cream:'crema', gray:'gris', charcoal:'carbon', olive:'oliva', terracotta:'terracota' };
     const qAcabado = qs.get('acabado') || EN_MAP[(qs.get('finish') || '').toLowerCase()] || qs.get('finish');
     if (this.ACABADOS.includes(qAcabado)) { this.finish = qAcabado; this.finishTocado = true; }
@@ -771,6 +774,19 @@ class Component extends DCLogic {
     this.setupLang(); this.setupReveals(); this.setupScroll();
     const irAlHash = ()=>{ const h = location.hash && location.hash.length > 1 ? document.getElementById(location.hash.slice(1)) : null; if (h && !h.hidden) h.scrollIntoView({ block: 'start', behavior: 'instant' }); };
     if (location.hash) { irAlHash(); setTimeout(irAlHash, 250); setTimeout(irAlHash, 900); }
+    // vuelta del cambio de idioma: se retoma la lectura donde estaba (el remount de React resetea el scroll)
+    else try {
+      const g = JSON.parse(sessionStorage.getItem('saurium-scroll') || 'null');
+      if (g && g.p === location.pathname && g.y > 0) {
+        sessionStorage.removeItem('saurium-scroll');
+        const ir = ()=> scrollTo(0, g.y);
+        ir(); setTimeout(ir, 250); setTimeout(ir, 900);
+      }
+    } catch (e) {}
+    // al irse a la historia se guarda el punto de lectura: "Volver al sitio" devuelve ahi y no al tope
+    this.qa('a[href^="historia.html"]').forEach(a=> a.addEventListener('click', ()=>{
+      try { sessionStorage.setItem('saurium-scroll', JSON.stringify({ p: location.pathname, y: Math.round(scrollY) })); } catch (e) {}
+    }));
     this.setupCompare(); this.setupCalc(); this.setupSaco3D(); this.setupLightbox(); this.setupFlotante(); this.setupMenu();
   }
   componentWillUnmount() {
@@ -832,7 +848,16 @@ class Component extends DCLogic {
     this.qa('[data-lang-opt]').forEach(el=>{ el.style.opacity = el.getAttribute('data-lang-opt')===next ? '1':'0.4'; });
     const tel = this.q('[data-tel]'); if (tel) tel.href = 'tel:+' + this.WA;
     const vc = this.q('[data-vcard]');
-    if (vc) { const correo = ((this.q('[data-i18n="contact.mail"]') || {}).textContent || '').trim(); const [nombre, cargo] = (d['contact.agent'] || '').split(' — '); vc.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(`BEGIN:VCARD\nVERSION:3.0\nFN:${nombre || ''}\nORG:SAURIUM\nTITLE:${cargo || ''}\nTEL;TYPE=CELL:+${this.WA}\nEMAIL:${correo}\nEND:VCARD`); }
+    if (vc) {
+      const correo = ((this.q('[data-i18n="contact.mail"]') || {}).textContent || '').trim();
+      const [nombre, cargo] = (d['contact.agent'] || '').split(' — ');
+      const partes = (nombre || '').trim().split(/\s+/), pila = partes.slice(1).join(' ');
+      // vCard 3.0 pide N ademas de FN, y separa lineas con CRLF: sin eso algunas agendas guardan el contacto sin nombre
+      const l = ['BEGIN:VCARD', 'VERSION:3.0', `N:${pila};${partes[0] || ''};;;`, `FN:${nombre || ''}`, 'ORG:SAURIUM', `TITLE:${cargo || ''}`, `TEL;TYPE=CELL:+${this.WA}`];
+      if (correo && correo.includes('@')) l.push(`EMAIL;TYPE=INTERNET:${correo}`);
+      l.push('END:VCARD');
+      vc.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(l.join('\r\n') + '\r\n');
+    }
     this.updateCalc(); this.updateFinishLabel();
   }
   applyLang(next, animate) {
@@ -865,9 +890,16 @@ class Component extends DCLogic {
       }, 440);
     }, 190);
   }
+  /** La misma pagina en el otro idioma: /x.html <-> /en/x.html, conservando query, ancla y lugar de lectura. */
+  irAIdioma(next) {
+    const p = location.pathname, enEn = /\/en\//.test(p);
+    const np = next === 'en' ? (enEn ? p : p.replace(/\/([^/]*)$/, '/en/$1')) : (enEn ? p.replace('/en/', '/') : p);
+    try { localStorage.setItem('saurium-lang', next); sessionStorage.setItem('saurium-scroll', JSON.stringify({ p: np, y: Math.round(scrollY) })); } catch (e) {}
+    location.href = np + location.search + location.hash;
+  }
   setupLang() {
     const t = this.q('[data-lang-toggle]');
-    if (t) t.addEventListener('click', ()=>{ localStorage.setItem('saurium-lang-set','1'); this.applyLang((this.langNext || this.lang)==='es'?'en':'es', true); });
+    if (t) t.addEventListener('click', ()=>{ this.irAIdioma(this.lang === 'es' ? 'en' : 'es'); });
     this.applyLang(this.lang);
   }
   setupReveals() {
@@ -1134,8 +1166,9 @@ class Component extends DCLogic {
     const pista = dlg.querySelector('[data-lb-pista]');
     const abrir = (k, origen)=>{
       this.lbOrigen = origen; dlg.querySelectorAll('img[data-src]').forEach(im=>{ im.src = im.getAttribute('data-src'); im.removeAttribute('data-src'); }); dlg.showModal();
-      const slide = dlg.querySelector(`[data-lb-slide="${k}"]`);
-      if (slide) slide.scrollIntoView({ block:'nearest', inline:'center', behavior:'instant' });
+      // scrollIntoView tambien movia el documento de fondo: la pagina saltaba ~600 px al cerrar
+      const slides = [...dlg.querySelectorAll('.lb-slide')], i = slides.findIndex(s=> s.getAttribute('data-lb-slide') === k);
+      if (i >= 0) pista.scrollLeft = i * pista.clientWidth;
       if (this.lbContar) setTimeout(this.lbContar, 0);
       dlg.querySelector('[data-lb-cerrar]').focus();
     };
@@ -1188,7 +1221,7 @@ class Component extends DCLogic {
     if (!inp) return;
     inp.value = this.m2;
     const r0 = this.q('[data-calc-rango]'); if (r0) r0.value = Math.min(1000, Math.max(10, this.m2));
-    inp.addEventListener('input', ()=>{ this.m2 = Math.min(100000, Math.max(0, Math.round(Number(inp.value)||0))); this.calcTocada = true; this.guardar(); this.updateCalc(); });
+    inp.addEventListener('input', ()=>{ this.m2 = Math.min(20000, Math.max(0, Math.round(Number(inp.value)||0))); this.calcTocada = true; this.guardar(); this.updateCalc(); });
     inp.addEventListener('change', ()=>{ if (Number(inp.value) !== this.m2) inp.value = this.m2; });
     const rango = this.q('[data-calc-rango]');
     if (rango) rango.addEventListener('input', ()=>{ this.m2 = Number(rango.value); inp.value = this.m2; this.calcTocada = true; this.guardar(); this.updateCalc(); });

@@ -87,7 +87,7 @@ header.hd-s{background:rgba(20,17,16,.55)!important;backdrop-filter:blur(14px);-
 .cta-lleno:active{transform:scale(.96)}
 [data-vignette]{transition:opacity .9s ease}
 @media(max-width:767px){[data-beat="0"],[data-beat="2"]{height:130svh !important}[data-beat="1"]{height:150svh !important}}
-@media(max-height:520px){[data-beat]{height:240svh !important}[data-words]{font-size:clamp(1.15rem,4.6vh,1.7rem) !important}}
+@media(max-height:520px){[data-beat]{height:240svh !important}[data-words]{font-size:clamp(1.15rem,4.6vh,1.7rem) !important;max-width:52ch !important}}
 @media(max-height:520px){[data-screen-label="Cierre"]>div{padding-top:110px !important}}
 </style>
 </helmet>
@@ -196,14 +196,14 @@ header.hd-s{background:rgba(20,17,16,.55)!important;backdrop-filter:blur(14px);-
       <article data-beat="0" data-screen-label="Cap 1" aria-hidden="true" style="height:170svh;position:relative"></article>
       <article data-beat="1" data-screen-label="Cap 2" aria-hidden="true" style="height:190svh;position:relative"></article>
       <article data-beat="2" data-screen-label="Cap 3" aria-hidden="true" style="height:170svh;position:relative"></article>
-      <div aria-hidden="true" style="height:95svh"></div>
+      <div aria-hidden="true" style="height:40svh"></div><!-- solo lo que tarda en salir el texto del capitulo 3: con 95svh quedaban ~400 px de pantalla sin una palabra -->
     </div>
   </div>
 
   <section data-screen-label="Cierre" style="position:relative;overflow:hidden;background:var(--arena);color:var(--marron);min-height:100svh;display:grid;align-content:center">
     <img loading="lazy" decoding="async" src="../img/textura.webp" srcset="../img/textura-720.webp 720w, ../img/textura-1200.webp 1200w, ../img/textura.webp 1400w" sizes="100vw" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,16,0.55) 0%,rgba(20,17,16,0) 26%)"></div>
-    <div data-reveal style="position:relative;max-width:var(--ancho);margin:0 auto;padding:clamp(110px,20vh,200px) clamp(20px,6vw,96px) clamp(90px,14vh,150px);text-align:left">
+    <div data-reveal style="position:relative;max-width:var(--ancho);margin:0 auto;padding:clamp(78px,14vh,200px) clamp(20px,6vw,96px) clamp(90px,14vh,150px);text-align:left">
       <div style="border-top:var(--hair);padding-top:clamp(30px,4.5vh,48px)">
       <p data-i18n="story.s4" style="font-size:clamp(1rem,1.8vw,1.24rem);line-height:1.5;color:var(--marron);opacity:1;max-width:52ch;margin:0;text-wrap:pretty">True architecture is not measured by how it looks on day one. It is measured by how it withstands time.</p>
       <p data-i18n="story.s5" style="margin-top:10px;font-size:clamp(1rem,1.8vw,1.24rem);line-height:1.5;color:var(--marron);max-width:52ch;text-wrap:pretty">The most important works are not built for the present.</p>
@@ -226,9 +226,8 @@ class Component extends DCLogic {
     this.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.mob = window.matchMedia('(max-width:768px)').matches;
     this.blurIn = this.mob ? 3 : 6; this.blurOut = this.mob ? 2.5 : 5;
-    const stored = localStorage.getItem('saurium-lang');
-    const chosen = localStorage.getItem('saurium-lang-set') === '1' && (stored === 'es' || stored === 'en');
-    this.lang = chosen ? stored : (document.documentElement.getAttribute('data-lang-default') || 'es');
+    // la ruta manda: /en/ es ingles y la raiz es espanol (antes la preferencia guardada le ganaba a la URL)
+    this.lang = document.documentElement.getAttribute('data-lang-default') || 'es';
     this.I18N = {
       es: {
         'meta.title':'SAURIUM — La historia del chukum','meta.desc':'Sesenta y seis millones de años entre un impacto y un muro. El origen del chukum en la Península de Yucatán.',
@@ -238,7 +237,7 @@ class Component extends DCLogic {
         'rail.1':'Origen','rail.2':'Impacto','rail.3':'Huella',
         'k.0':'Antes de todo','k.1':'El impacto','k.2':'La huella',
         'story.s1':'Mucho antes de las ciudades. Mucho antes de los estilos arquitectónicos. Mucho antes de que existieran las fronteras.',
-        'story.s2':'La Tierra ya estaba escribiendo su historia, con un acontecimiento que cambió para siempre la del planeta.',
+        'story.s2':'La Tierra ya estaba escribiendo su historia. Entonces llegó el impacto que la cambió para siempre.',
         'story.s3':'En el corazón de Yucatán quedó una marca imborrable. Millones de años después, esa misma tierra daría origen a un material que trasciende generaciones: el chukum.',
         'story.s4':'La verdadera arquitectura no se mide por cómo luce el primer día. Se mide por cómo resiste el paso del tiempo.',
         'story.s5':'Las obras más importantes no se construyen para el presente.','story.s5b':'Se construyen para permanecer.',
@@ -253,7 +252,7 @@ class Component extends DCLogic {
         'rail.1':'Origin','rail.2':'Impact','rail.3':'Footprint',
         'k.0':'Before anything else','k.1':'The impact','k.2':'The footprint',
         'story.s1':'Long before cities. Long before architectural styles. Long before borders existed.',
-        'story.s2':'The Earth was already writing its history, with an event that changed the story of the planet forever.',
+        'story.s2':'The Earth was already writing its history. Then came the impact that changed it forever.',
         'story.s3':'An indelible mark was left in the heart of Yucatán. Millions of years later, that same land would give rise to a material that transcends generations: chukum.',
         'story.s4':'True architecture is not measured by how it looks on day one. It is measured by how it withstands time.',
         'story.s5':'The most important works are not built for the present.','story.s5b':'They are built to last.',
@@ -263,7 +262,12 @@ class Component extends DCLogic {
     };
     this.applyLang(this.lang);
     const t = this.q('[data-lang-toggle]');
-    if (t) t.addEventListener('click', ()=>{ if (this.langBusy) return; localStorage.setItem('saurium-lang-set','1'); this.applyLang(this.lang==='es'?'en':'es', true); });
+    if (t) t.addEventListener('click', ()=>{
+      const next = this.lang === 'es' ? 'en' : 'es', p = location.pathname, enEn = /\/en\//.test(p);
+      const np = next === 'en' ? (enEn ? p : p.replace(/\/([^/]*)$/, '/en/$1')) : (enEn ? p.replace('/en/', '/') : p);
+      try { localStorage.setItem('saurium-lang', next); } catch (e) {}
+      location.href = np + location.search + location.hash;
+    });
     this.setupReveal();
     this.onScroll = this.tick.bind(this);
     window.addEventListener('scroll', this.onScroll, { passive:true });
@@ -309,9 +313,14 @@ class Component extends DCLogic {
     if (d['meta.title']) { document.title = d['meta.title']; setTimeout(()=>{ if (!this.dead && this.lang === next) document.title = d['meta.title']; }, 80); }
     const md = document.querySelector('meta[name="description"]'); if (md && d['meta.desc']) md.setAttribute('content', d['meta.desc']);
     this.qa('[data-kicker]').forEach(el=>{ const i=el.getAttribute('data-kicker'); const inner=el.querySelector('[data-kicker-in]'); if(inner&&d['k.'+i]) inner.textContent=d['k.'+i]; });
+    // el mensaje arrastra el acabado y los m2 que el visitante ya eligio en la home; el generico es el respaldo
     const wa = this.q('[data-wa-historia]');
-    try { const g = JSON.parse(sessionStorage.getItem('saurium-estado') || '{}'); const nom = g.finish && d.acabados ? d.acabados[g.finish] : null; const txt = d.waCtx ? d.waCtx(g, nom) : null; const wa2 = this.q('[data-wa-historia]'); if (wa2 && txt) { const num = (wa2.href.match(/wa\.me\/(\d+)/) || [])[1]; if (num) wa2.href = `https://wa.me/${num}?text=${encodeURIComponent(txt)}`; } } catch (e) {}
-    if (wa && d.waText) { const m = /wa\.me\/(\d+)/.exec(wa.getAttribute('href') || ''); if (m) wa.setAttribute('href', 'https://wa.me/' + m[1] + '?text=' + encodeURIComponent(d.waText)); }
+    if (wa) {
+      const num = (String(wa.getAttribute('href') || '').match(/wa\.me\/(\d+)/) || [])[1];
+      let txt = d.waText;
+      try { const g = JSON.parse(sessionStorage.getItem('saurium-estado') || '{}'); const nom = g.finish && d.acabados ? d.acabados[g.finish] : null; txt = (d.waCtx && d.waCtx(g, nom)) || txt; } catch (e) {}
+      if (num && txt) wa.setAttribute('href', 'https://wa.me/' + num + '?text=' + encodeURIComponent(txt));
+    }
     this.buildWords();
     if (this.tick) this.tick();
   }
