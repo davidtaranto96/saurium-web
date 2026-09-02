@@ -21,6 +21,32 @@ Renders generados con IA a partir de un prompt de arquitectura yucateca. Las sie
 
 **Para la versión final**: lo ideal es una obra real de SAURIUM fotografiada antes y después, o la misma fachada terminada en cada acabado. Si el cliente manda una foto de obra, hay que generar las siete variantes desde esa foto para que sigan alineadas entre sí.
 
+## Aplicaciones: tres fotos por uso, y de dónde salen (2026-09-02)
+
+Cada figura de Aplicaciones es una **pila** de tres fotos que van pasando solas. Todas las nuevas
+son de Unsplash y **son provisorias**: se eligieron con un criterio explícito de David —*"que
+tengan este acabado que ofrece el chukum"*—, o sea muro continuo de estuco mineral en tono tierra,
+sin juntas. Se descartaron las que tenían sillares o juntas de piedra aunque la foto fuera linda.
+
+| Archivo | Unsplash | Qué muestra |
+|---|---|---|
+| `uso-exterior-b` | `photo-1777823811065-90e02265a1c6` | fachada terracota, esquina viva, sombra de alero |
+| `uso-exterior-c` | `photo-1783685157642-ec5a1b54b922` | muro arena con banca continua del mismo acabado |
+| `uso-interior-b` | `photo-1601993957728-1e56ab70c5a8` | escalera con muros, huellas y umbral en un solo acabado |
+| `uso-interior-c` | `photo-1638580380493-021e2a3533c2` | recámara Riviera Maya, muros y plafón continuos |
+| `uso-piscina-b` | `photo-1756671069656-f12acde10ddd` | patio: muro, borde y piso de alberca en un acabado |
+| `uso-piscina-c` | `photo-1755998490639-17d148e7c09f` | alberca en patio de muros terracota, con agaves |
+| `uso-bano-a` | `photo-1768383057775-dba5997c13a8` | regadera de latón sobre muro continuo crema |
+| `uso-bano-b` | `photo-1783040016976-dca83dc5155e` | baño con banca de obra y nicho |
+| `uso-bano-c` | `photo-1754512782152-eeb23c039a84` | ducha de muro curvo con luz natural |
+
+> **`uso-bano` (la vieja) salió del sitio.** David: *"la foto del baño, mejorémosla, no me gusta
+> cómo se ve"*. Ya no está en la pila ni en el lightbox; el archivo queda en el repo por si acaso.
+
+**Cuando lleguen fotos de obra real de SAURIUM**, reemplazan a estas una por una: se genera el
+`.webp` a 1600 y su variante `-720`, se cambia el `src`/`srcset` en la pila y en el `.lb-slide`
+del mismo nombre, y se corrige el texto en los dos diccionarios (`uso.ext2`, `uso.int2`, etc.).
+
 ## Aplicaciones (`img/uso-*.jpg`, 900×1125)
 
 | Archivo | Origen | Licencia |
