@@ -49,6 +49,30 @@ Candidatas verificadas que quedaron afuera, por si hacen falta:
 | `placas.jpg`, `swatch-*.jpg` | Muestras de acabado | Brochure p.23 |
 | `story-selva.jpg`, `story-dino.jpg`, `story-huella.jpg`, `story-costa.jpg` | Capítulos de `historia.html` | Brochure p.2 a p.5 |
 | `textura.jpg`, `textura-muro.jpg` | Fondos de sección | Brochure |
+| `swatch-*-hd.webp` (448×448) | Solo la lupa de acabados | Generados: `python3 server/swatch-hd.py` |
+
+### Las texturas de la lupa (`swatch-*-hd.webp`)
+
+La lupa de la sección Acabados dibuja la muestra a 150 % de 190 px. Con los `swatch-*.webp`
+originales, que son **220×220**, eso era un upscale de casi 4× en una pantalla Retina, y encima
+terracota casi no tiene textura que ampliar (desvío estándar 5,6 contra 20-40 de los otros): se
+veía una mancha blanda. Los cinco restantes traen además el canto de la placa en diagonal, que
+dentro del círculo se leía como un defecto.
+
+`server/swatch-hd.py` los genera desde `textura.jpg` (1400×788, macro de muro real, plano y sin
+aristas): toma un recorte distinto por acabado, le divide la iluminación de gran escala para
+quedarse con el relieve, y lo multiplica por el color medio del swatch original — así la lupa
+no miente sobre el color (medido en producción: +4 por canal contra la placa). Pesan ~18 KB cada
+uno y se precargan recién cuando el estante se acerca al viewport.
+
+Que los seis compartan el relieve no es una licencia: es lo que dice el propio copy de la
+sección —*"Pigmentos minerales sobre la misma base de resina y cal. Sin pintura: el color es el
+material"*—. **Si algún día llegan macros reales de cada acabado**, reemplazan a `textura.jpg`
+como fuente y se vuelve a correr el script.
+
+> Intento descartado: recortar el muro de `casa-<acabado>.jpg`. No hay 300 px de muro limpio en
+> esas fotos, y una métrica que premiaba "más detalle" eligió las aristas y una palmera, que es
+> justo lo que más alta frecuencia tiene en la foto de una casa.
 
 **Pendiente de foto (2026-09-02):** la costa (`story-costa`) es 16:9 y en el celular cubre una pantalla 9:16 estirada casi 5×; en el cierre de la home se ve blanda. Hace falta un render vertical (`story-costa-v`, 1240×2222 como las otras `-v`) o pedirle al cliente una foto vertical de la península. El mismo tratamiento sirve para el fondo del teaser de la historia, que ya usa `story-dino-v`.
 

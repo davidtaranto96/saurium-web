@@ -123,8 +123,16 @@ h1,h2,h3{text-wrap:balance}
 .placa-btn i{position:relative}
 .placa-btn[aria-pressed="true"] .placa{transform:rotateX(0deg) translateY(-8px);box-shadow:inset -4px -5px 8px oklch(0 0 0/.28),inset 3px 3px 5px oklch(1 0 0/.16),0 0 0 2px var(--crema),0 26px 40px -10px oklch(0 0 0/.7)}
 @media(hover:hover){.placa-btn:hover .placa{transform:rotateX(0deg) translateY(-5px)}}
-.macro{position:fixed;width:170px;height:170px;border-radius:50%;pointer-events:none;z-index:45;opacity:0;transform:translate(-50%,-50%) scale(.6);background-size:240%;background-position:center;box-shadow:0 0 0 3px var(--crema),0 24px 50px oklch(0 0 0/.5);transition:opacity .18s ease,transform .22s cubic-bezier(.2,0,0,1);will-change:transform}
-.macro.visible{opacity:1;transform:translate(-50%,-50%) scale(1)}
+/* Lupa de acabados. Dos capas a proposito: el contenedor sigue al puntero con
+   inercia (sin transicion, la suaviza el lerp del rAF) y la lente hace la entrada.
+   La textura es swatch-<x>-hd.webp (448px, grano real del muro): el swatch de 220
+   ampliado a 240% se veia blando, y terracota casi no tenia textura que ampliar. */
+.macro{position:fixed;left:0;top:0;width:190px;height:190px;pointer-events:none;z-index:45;will-change:transform}
+.macro i{position:absolute;inset:0;border-radius:50%;opacity:0;transform:scale(.84);filter:blur(4px);background-size:150%;background-position:center;background-repeat:no-repeat;box-shadow:0 0 0 1px oklch(1 0 0/.55),0 0 0 5px oklch(.2 .012 60/.5),0 26px 60px -14px oklch(0 0 0/.72),inset 0 0 30px oklch(0 0 0/.42),inset 0 2px 3px oklch(1 0 0/.2);transition:opacity .2s ease,transform .36s cubic-bezier(.2,0,0,1),filter .36s ease}
+/* el brillo de la lente va bajo a proposito: a .2 aclaraba el acabado 8 puntos por
+   canal y carbon se leia gris medio. La lupa no puede mentir sobre el color. */
+.macro i::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(120% 100% at 30% 20%,oklch(1 0 0/.12),transparent 40%),radial-gradient(100% 100% at 50% 50%,transparent 54%,oklch(0 0 0/.34))}
+.macro.visible i{opacity:1;transform:scale(1);filter:blur(0)}
 @media(hover:none){.macro{display:none}}
 
 /* lightbox con swipe nativo (scroll-snap), sin JS de gestos */
@@ -487,31 +495,31 @@ html:has(dialog[open]){overflow:hidden}
   </div>
   <div data-swrow="compare" role="group" aria-label="Choose a finish" data-i18n-arialabel="colors.group" class="estante" style="margin:clamp(34px,6vh,60px) auto clamp(26px,4vh,38px)">
     <button data-finish="arena" class="placa-btn" aria-pressed="false" style="font-family:inherit;display:grid;justify-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:0.06em;opacity:0.55;background:none;border:none;cursor:pointer;color:inherit;padding:8px 4px;scroll-snap-align:center;transition:opacity .3s" style-hover="opacity:1">
-      <i class="placa" data-tex="../img/swatch-arena.webp" style="--sw:url(../img/swatch-arena.webp)" aria-hidden="true"></i>
+      <i class="placa" data-tex="../img/swatch-arena-hd.webp" style="--sw:url(../img/swatch-arena.webp)" aria-hidden="true"></i>
       <span data-i18n="colors.c1">Sand</span>
     </button>
     <button data-finish="crema" class="placa-btn" aria-pressed="false" style="font-family:inherit;display:grid;justify-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:0.06em;opacity:0.55;background:none;border:none;cursor:pointer;color:inherit;padding:8px 4px;scroll-snap-align:center;transition:opacity .3s" style-hover="opacity:1">
-      <i class="placa" data-tex="../img/swatch-crema.webp" style="--sw:url(../img/swatch-crema.webp)" aria-hidden="true"></i>
+      <i class="placa" data-tex="../img/swatch-crema-hd.webp" style="--sw:url(../img/swatch-crema.webp)" aria-hidden="true"></i>
       <span data-i18n="colors.c2">Cream</span>
     </button>
     <button data-finish="gris" class="placa-btn" aria-pressed="false" style="font-family:inherit;display:grid;justify-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:0.06em;opacity:0.55;background:none;border:none;cursor:pointer;color:inherit;padding:8px 4px;scroll-snap-align:center;transition:opacity .3s" style-hover="opacity:1">
-      <i class="placa" data-tex="../img/swatch-gris.webp" style="--sw:url(../img/swatch-gris.webp)" aria-hidden="true"></i>
+      <i class="placa" data-tex="../img/swatch-gris-hd.webp" style="--sw:url(../img/swatch-gris.webp)" aria-hidden="true"></i>
       <span data-i18n="colors.c3">Gray</span>
     </button>
     <button data-finish="carbon" class="placa-btn" aria-pressed="false" style="font-family:inherit;display:grid;justify-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:0.06em;opacity:0.55;background:none;border:none;cursor:pointer;color:inherit;padding:8px 4px;scroll-snap-align:center;transition:opacity .3s" style-hover="opacity:1">
-      <i class="placa" data-tex="../img/swatch-carbon.webp" style="--sw:url(../img/swatch-carbon.webp)" aria-hidden="true"></i>
+      <i class="placa" data-tex="../img/swatch-carbon-hd.webp" style="--sw:url(../img/swatch-carbon.webp)" aria-hidden="true"></i>
       <span data-i18n="colors.c4">Charcoal</span>
     </button>
     <button data-finish="oliva" class="placa-btn" aria-pressed="false" style="font-family:inherit;display:grid;justify-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:0.06em;opacity:0.55;background:none;border:none;cursor:pointer;color:inherit;padding:8px 4px;scroll-snap-align:center;transition:opacity .3s" style-hover="opacity:1">
-      <i class="placa" data-tex="../img/swatch-oliva.webp" style="--sw:url(../img/swatch-oliva.webp)" aria-hidden="true"></i>
+      <i class="placa" data-tex="../img/swatch-oliva-hd.webp" style="--sw:url(../img/swatch-oliva.webp)" aria-hidden="true"></i>
       <span data-i18n="colors.c5">Olive</span>
     </button>
     <button data-finish="terracota" class="placa-btn" aria-pressed="false" style="font-family:inherit;display:grid;justify-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:0.06em;opacity:0.55;background:none;border:none;cursor:pointer;color:inherit;padding:8px 4px;scroll-snap-align:center;transition:opacity .3s" style-hover="opacity:1">
-      <i class="placa" data-tex="../img/swatch-terracota.webp" style="--sw:url(../img/swatch-terracota.webp)" aria-hidden="true"></i>
+      <i class="placa" data-tex="../img/swatch-terracota-hd.webp" style="--sw:url(../img/swatch-terracota.webp)" aria-hidden="true"></i>
       <span data-i18n="colors.c6">Terracotta</span>
     </button>
   </div>
-  <div data-macro aria-hidden="true" class="macro"></div>
+  <div data-macro aria-hidden="true" class="macro"><i data-macro-lente></i></div>
   <div class="ba-marco">
     <div data-reveal data-ba class="ba">
     <img loading="lazy" decoding="async" data-ba-before src="../img/casa-obra.webp" srcset="../img/casa-obra-720.webp 720w, ../img/casa-obra-1200.webp 1200w, ../img/casa-obra.webp 1500w" sizes="(max-width:768px) 100vw, 50vw" alt="The house unfinished, bare render" data-i18n-alt="alt.antes" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none">
@@ -1054,18 +1062,47 @@ class Component extends DCLogic {
     });
     const buttons = this.qa('[data-swrow="compare"] [data-finish]');
     const macro = this.q('[data-macro]');
-    if (macro && matchMedia('(hover:hover)').matches && !this.reduce) {
+    const lente = macro && macro.querySelector('[data-macro-lente]');
+    if (macro && lente && matchMedia('(hover:hover)').matches && !this.reduce) {
+      let px = 0, py = 0, tx = 0, ty = 0, raf = 0, dentro = false, saltar = true;
+      const seguir = ()=>{
+        px += (tx - px) * 0.2; py += (ty - py) * 0.2;
+        macro.style.transform = `translate3d(${px.toFixed(1)}px,${py.toFixed(1)}px,0)`;
+        raf = (dentro || Math.abs(tx - px) > 0.4 || Math.abs(ty - py) > 0.4)
+          ? requestAnimationFrame(seguir) : 0;
+      };
+      const mover = (e, pl)=>{
+        const r = pl.getBoundingClientRect(), m = macro.offsetWidth / 2;
+        tx = e.clientX + 26 - m; ty = e.clientY - 26 - m;
+        if (saltar) { px = tx; py = ty; saltar = false; }   // aparece bajo el cursor, no viene volando
+        lente.style.backgroundPosition =
+          `${((e.clientX - r.left) / r.width * 100).toFixed(1)}% ${((e.clientY - r.top) / r.height * 100).toFixed(1)}%`;
+        if (!raf) raf = requestAnimationFrame(seguir);
+      };
+      const ocultar = ()=>{ dentro = false; macro.classList.remove('visible'); };
       buttons.forEach(b=>{
         const pl = b.querySelector('.placa'); if (!pl) return;
-        b.addEventListener('pointerenter', ()=>{ macro.style.backgroundImage = `url(${pl.getAttribute('data-tex')})`; macro.classList.add('visible'); });
-        b.addEventListener('pointermove', (e)=>{
-          const r = pl.getBoundingClientRect();
-          macro.style.left = (e.clientX + 24) + 'px'; macro.style.top = (e.clientY - 24) + 'px';
-          macro.style.backgroundPosition = `${((e.clientX - r.left) / r.width * 100).toFixed(1)}% ${((e.clientY - r.top) / r.height * 100).toFixed(1)}%`;
+        b.addEventListener('pointerenter', (e)=>{
+          lente.style.backgroundImage = `url(${pl.getAttribute('data-tex')})`;
+          dentro = true; saltar = true; mover(e, pl); macro.classList.add('visible');
         });
-        b.addEventListener('pointerleave', ()=> macro.classList.remove('visible'));
+        b.addEventListener('pointermove', (e)=> mover(e, pl));
+        b.addEventListener('pointerleave', ocultar);
       });
-      window.addEventListener('scroll', ()=> macro.classList.remove('visible'), { passive: true });
+      window.addEventListener('scroll', ocultar, { passive: true });
+      // las seis texturas pesan ~49 KB cada una: se traen al acercarse el estante, no antes
+      const estante = this.q('[data-swrow="compare"]');
+      if (estante && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((ent)=>{
+          if (!ent[0].isIntersecting) return;
+          io.disconnect();
+          buttons.forEach(b=>{
+            const pl = b.querySelector('.placa');
+            if (pl) { const i = new Image(); i.src = pl.getAttribute('data-tex'); }
+          });
+        }, { rootMargin: '400px' });
+        io.observe(estante);
+      }
     }
     const setActive = ()=>{
       buttons.forEach(b=>{

@@ -58,6 +58,16 @@ Presupuesto **aprobado**. Dominio elegido por el cliente: **sauriumchukum.com** 
 - **Correo de contacto sacado** (decisión de David, 2026-09-02): `contenido/sitio.json` → `correo: ""`
   y el generador `correo` no dibuja el botón si está vacío. Vuelve solo cuando se cargue el del dominio.
 
+### La lupa de acabados (2026-09-02)
+Al pasar el cursor por una placa aparece un círculo que muestra el material de cerca. Estaba
+ampliando el swatch de 220 px casi 4× y se veía blando. Ahora usa `swatch-<x>-hd.webp` (448 px,
+grano real de muro sacado de `textura.jpg`, generados con `server/swatch-hd.py` — ver `FOTOS.md`),
+y la lente son dos capas: el contenedor sigue al puntero con inercia (lerp 0,2 en rAF, sin
+transición) y el círculo hace la entrada (escala 0,84→1 con blur 4px→0). Aro de vidrio, viñeta
+interior y brillo especular bajo a propósito: a `.2` aclaraba el acabado 8 puntos por canal y
+carbón se leía gris medio. Las texturas se precargan con un IO de 400 px sobre el estante, y
+nada de esto se arma en táctil (`hover:none`) ni con movimiento reducido.
+
 ### Pendientes
 - Registrar sauriumchukum.com y conectarlo; cargar el correo del dominio en `contenido/sitio.json`
   (hoy vacío a propósito: el bloque de contacto va sin botón de mail).
