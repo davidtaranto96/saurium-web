@@ -127,9 +127,29 @@ nada. Lo que salió, agrupado por causa:
   montan por abajo. En escritorio va abajo, del lado que la lámina siguiente no pisa.
 - `font-size: 16px` en los campos, o iOS Safari hace zoom al enfocarlos.
 
+### El dominio: qué queda hecho y qué falta
+
+El sitio ya trae **`robots.txt` y `sitemap.xml`** (4 URL con `hreflang` es/en), generados desde la
+misma constante que el resto. Y el cambio de dominio es **un comando**, no una búsqueda a mano de
+48 URL sueltas:
+
+```bash
+node server/dominio.js https://sauriumchukum.com/   # 48 URL + BASE + robots + sitemap
+cd server && npm test                                # regenera /en/ y verifica
+```
+
+Sin argumento, el script sólo informa el estado. **El `CNAME` no lo toca a propósito**: lo crea
+GitHub desde Settings → Pages, y crearlo a mano antes de que resuelva el DNS deja el sitio caído
+(patrón `conectar-dominio-propio-a-github-pages` en el vault).
+
+Orden de la mudanza: registrar el dominio a nombre del cliente → cargar los DNS (4 A al apex +
+CNAME `www`, **todos en gris, sin proxy**) → Settings → Pages → Custom domain → esperar el
+certificado → Enforce HTTPS → recién ahí correr el comando de arriba → commit y push.
+
 ### Pendientes
 - Registrar sauriumchukum.com y conectarlo; cargar el correo del dominio en `contenido/sitio.json`
   (hoy vacío a propósito: el bloque de contacto va sin botón de mail).
+- Cargar `web3forms_key` en `contenido/sitio.json` para que el formulario mande también por correo.
 - Fotos de obra real → `#obras` (región `cms:obras`); reemplazar las de Unsplash en Aplicaciones.
 - Renders más grandes: los de la casa del comparador topean en 1500×1006 y en Retina se amplían
   1,45×; falta también un `story-costa-v` vertical. Detalle en `FOTOS.md`.

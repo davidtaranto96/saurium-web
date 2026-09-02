@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://davidtaranto96.github.io/saurium-web/sitemap.xml
