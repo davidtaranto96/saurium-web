@@ -254,18 +254,22 @@ html,body{overflow-x:clip}
 @media(prefers-reduced-motion:reduce){.apps-pila img{transition:none}}
 
 /* ===== formulario de contacto sobre la foto ===== */
-.mundo-form{margin-top:clamp(20px,3vh,30px);max-width:520px;display:grid;gap:12px}
-.mundo-form .form-fila{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mundo-form{margin-top:clamp(20px,3vh,30px);max-width:540px;display:grid;gap:16px}
+.mundo-form .form-fila{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:620px){.mundo-form .form-fila{grid-template-columns:1fr}}
-.mundo-form label{display:grid;gap:6px;font-size:var(--t-xs);letter-spacing:var(--track-caps);text-transform:uppercase;opacity:.82}
-.mundo-form input,.mundo-form textarea{font:inherit;font-size:15px;text-transform:none;letter-spacing:0;color:var(--crema);background:oklch(1 0 0/.09);border:1px solid oklch(1 0 0/.22);border-radius:12px;padding:12px 14px;min-height:46px;width:100%;transition:border-color .2s,background .2s;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.mundo-form label{display:grid;gap:7px;font-size:var(--t-xs);letter-spacing:var(--track-caps);text-transform:uppercase;opacity:.96;text-shadow:0 1px 8px oklch(0 0 0/.5)}
+.mundo-form input,.mundo-form textarea{font:inherit;font-size:15px;text-transform:none;letter-spacing:0;color:var(--crema);background:oklch(0.18 0.008 48.6/.55);border:1px solid oklch(1 0 0/.34);border-radius:12px;padding:12px 14px;min-height:46px;width:100%;transition:border-color .2s,background .2s;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .mundo-form textarea{resize:vertical;min-height:76px;line-height:1.5}
-.mundo-form input::placeholder,.mundo-form textarea::placeholder{color:oklch(1 0 0/.45)}
-@media(hover:hover){.mundo-form input:hover,.mundo-form textarea:hover{border-color:oklch(1 0 0/.34)}}
-.mundo-form input:focus-visible,.mundo-form textarea:focus-visible{outline:2px solid var(--crema);outline-offset:2px;border-color:transparent;background:oklch(1 0 0/.14)}
-.form-resumen{font-size:var(--t-xs);letter-spacing:.02em;opacity:.9;background:oklch(1 0 0/.1);border:1px solid oklch(1 0 0/.2);border-radius:999px;padding:8px 14px;justify-self:start;min-height:32px}
+.mundo-form input::placeholder,.mundo-form textarea::placeholder{color:oklch(1 0 0/.6)}
+@media(hover:hover){.mundo-form input:hover,.mundo-form textarea:hover{border-color:oklch(1 0 0/.5)}}
+.mundo-form input:focus-visible,.mundo-form textarea:focus-visible{outline:2px solid var(--crema);outline-offset:2px;border-color:transparent;background:oklch(0.18 0.008 48.6/.72)}
+.form-resumen{font-size:var(--t-xs);letter-spacing:.02em;background:oklch(0.18 0.008 48.6/.55);border:1px solid oklch(1 0 0/.3);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;padding:8px 14px;justify-self:start;min-height:32px}
 .form-resumen b{font-weight:600}
+/* la pildora existe solo si tiene algo que decir: atarlo al contenido y no a un
+   atributo evita que quede una capsula vacia flotando sobre la foto */
+.form-resumen:empty,.form-resumen[hidden]{display:none}
 .form-botones{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.form-enviar[hidden]{display:none}
 .form-enviar{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-weight:600;font-size:15px;background:var(--crema);color:var(--marron);border:0;cursor:pointer;box-shadow:var(--sombra-2);font-family:inherit;min-height:46px}
 .form-wa{font-size:14px;opacity:.85;text-decoration:underline;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
 .form-estado{font-size:var(--t-sm);min-height:20px;opacity:.9}
