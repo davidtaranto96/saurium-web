@@ -99,6 +99,34 @@ nada de esto se arma en táctil (`hover:none`) ni con movimiento reducido.
   cross-fade de 900 ms cada 4,8 s, se para al pasar el cursor y fuera de pantalla, y el lightbox
   abre la foto que se está viendo (el carrusel reescribe `data-lb`).
 
+### Ronda 3 de QA: 20 defectos, todos con medición (2026-09-02)
+
+Seis testers en navegador real, cada hallazgo reproducido por un segundo agente antes de tocar
+nada. Lo que salió, agrupado por causa:
+
+- **`box-sizing: content-box` es el enemigo de este archivo.** Apareció tres veces: los campos del
+  formulario medían 100 % + 30 px y se pisaban 12 px entre sí (era lo que David veía), los mismos
+  campos se cortaban contra el borde en celular, y el `max-width` del pie de Aplicaciones limitaba
+  el contenido y el padding sumaba 48 px encima. **Cualquier bloque nuevo lleva `box-sizing:
+  border-box` explícito.**
+- **El autocompletado del formulario borraba lo que el visitante estaba escribiendo.** Ahora el
+  tipeo se retira solo si detecta que alguien tocó el campo.
+- **El hero no llegaba a pantalla completa**: el JS interpolaba el `round` del `clip-path` pero
+  nunca el `border-radius` del elemento, así que quedaban dos muescas cremas abajo. Y el
+  `padding-bottom` de `.hero-ed` dejaba una banda muerta de 108 px antes de la cinta.
+- **Los CTA del hero seguían en el orden de tabulación cuando ya no se ven**: Enter abría WhatsApp
+  a ciegas. Se les pone `inert` junto con el `pointer-events:none`.
+- **El comparador**: el `input[type=range]` invisible reposicionaba con su propio cálculo de thumb
+  y el clic caía hasta 7 px corrido; ahora va con `pointer-events:none` y queda solo para teclado
+  (con anillo de foco propio en `.ba:has(input:focus-visible)`, antes invisible). El botón derecho
+  también movía la barra.
+- **Los puntos del carrusel** eran un blanco de 18×2 px, `aria-hidden` y sin teclado: ahora son
+  botones de 26×44 con foco visible. Y el hover se escucha en la figura, no en la pila: apoyar el
+  cursor sobre los puntos **reanudaba** la rotación en vez de pausarla.
+- En celular **el pie va arriba de la foto**: las láminas son casi de ancho completo y siempre se
+  montan por abajo. En escritorio va abajo, del lado que la lámina siguiente no pisa.
+- `font-size: 16px` en los campos, o iOS Safari hace zoom al enfocarlos.
+
 ### Pendientes
 - Registrar sauriumchukum.com y conectarlo; cargar el correo del dominio en `contenido/sitio.json`
   (hoy vacío a propósito: el bloque de contacto va sin botón de mail).

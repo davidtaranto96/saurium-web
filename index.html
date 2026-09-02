@@ -171,6 +171,8 @@ h1,h2,h3{text-wrap:balance}
 
 /* comparador 3.0: borde de llana, fundido, barrido */
 .ba-capa{-webkit-mask-image:linear-gradient(90deg,transparent calc(var(--pos,50%) - 7px),#000 calc(var(--pos,50%) + 7px));mask-image:linear-gradient(90deg,transparent calc(var(--pos,50%) - 7px),#000 calc(var(--pos,50%) + 7px));transition:opacity .4s cubic-bezier(.2,0,0,1)}
+.ba:has(input:focus-visible){outline:3px solid var(--crema);outline-offset:3px}
+.ba:has(input:focus-visible) [data-ba-knob]{box-shadow:0 0 0 3px var(--marron),0 8px 26px rgba(0,0,0,.45)}
 .ba-canto{position:absolute;top:0;bottom:0;left:-11px;width:22px;display:block;pointer-events:none;
   background:linear-gradient(90deg,transparent,oklch(0.943 0.019 80.1/.55) 45%,oklch(0.943 0.019 80.1/.95) 50%,oklch(0.943 0.019 80.1/.55) 55%,transparent);
   -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9 0.04' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.8 -0.35'/%3E%3C/filter%3E%3Crect width='22' height='400' filter='url(%23n)'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9 0.04' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.8 -0.35'/%3E%3C/filter%3E%3Crect width='22' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -212,7 +214,7 @@ html,body{overflow-x:clip}
   #aplicaciones .apps-grid .apps-1{width:84%;margin-left:-5%;z-index:1}
   #aplicaciones .apps-grid .apps-2{width:56%;margin-left:auto;margin-right:-5%;margin-top:-14%;z-index:2}
   #aplicaciones .apps-grid .apps-3{width:64%;margin-left:-4%;margin-top:-24%;z-index:3}
-  #aplicaciones .apps-grid .apps-4{width:74%;margin-left:auto;margin-right:-4%;margin-top:-19%;z-index:4}
+  #aplicaciones .apps-grid .apps-4{width:70%;margin-left:auto;margin-right:-4%;margin-top:-11%;z-index:4}
 }
 @media(max-width:900px){
   #aplicaciones .apps-grid .apps-1{width:100%;z-index:1}
@@ -222,7 +224,7 @@ html,body{overflow-x:clip}
   #aplicaciones .apps-grid .apps-4{width:90%;margin-left:auto;margin-top:-7%;z-index:4}
 }
 /* el pie, adentro de la lamina */
-.apps-pie{position:absolute;left:0;right:0;bottom:0;max-width:min(100%,29rem);z-index:2;display:grid;gap:2px;border:0;padding:clamp(30px,4vw,52px) clamp(14px,2vw,24px) clamp(12px,1.6vw,18px);border-radius:0 0 6px 6px;pointer-events:none}
+.apps-pie{box-sizing:border-box;position:absolute;left:0;right:0;bottom:0;max-width:min(100%,420px);z-index:2;display:grid;gap:2px;border:0;padding:clamp(30px,4vw,52px) clamp(14px,2vw,24px) clamp(12px,1.6vw,18px);border-radius:0 0 6px 6px;pointer-events:none}
 .apps-pie::before{content:'';position:absolute;inset:0;border-radius:inherit;z-index:-1}
 #aplicaciones .apps-grid figure[data-tono="oscuro"] .apps-pie{color:var(--crema);text-shadow:0 1px 10px oklch(0 0 0/.45)}
 #aplicaciones .apps-grid figure[data-tono="oscuro"] .apps-pie::before{background:linear-gradient(to top,oklch(0.13 0.004 48.6/.86),oklch(0.13 0.004 48.6/.52) 46%,transparent)}
@@ -230,8 +232,14 @@ html,body{overflow-x:clip}
 #aplicaciones .apps-grid figure[data-tono="claro"] .apps-pie::before{background:linear-gradient(to top,oklch(0.94 0.008 75/.9),oklch(0.94 0.008 75/.56) 46%,transparent)}
 .apps-pie b{font-size:clamp(15px,1.5vw,18px);font-weight:600}
 .apps-pie>span:not(.apps-puntos){font-size:var(--t-sm);opacity:.9}
-.apps-pie .apps-puntos{margin-top:8px;pointer-events:auto}
-@media(max-width:900px){.apps-pie{max-width:82%}}
+.apps-pie .apps-puntos{margin-top:2px;margin-left:-4px;pointer-events:auto}
+/* en celular las laminas son casi de ancho completo: el pie va ARRIBA, que es el
+   lado que la lamina siguiente no pisa (se monta siempre por abajo) */
+@media(max-width:900px){
+  .apps-pie{max-width:86%;top:0;bottom:auto;border-radius:6px 6px 0 0;padding:clamp(12px,3vw,18px) clamp(14px,4vw,20px) clamp(30px,8vw,46px)}
+  #aplicaciones .apps-grid figure[data-tono="oscuro"] .apps-pie::before{background:linear-gradient(to bottom,oklch(0.13 0.004 48.6/.88),oklch(0.13 0.004 48.6/.54) 48%,transparent)}
+  #aplicaciones .apps-grid figure[data-tono="claro"] .apps-pie::before{background:linear-gradient(to bottom,oklch(0.94 0.008 75/.92),oklch(0.94 0.008 75/.58) 48%,transparent)}
+}
 /* el pie va del lado que la lamina siguiente NO pisa: las de la derecha lo llevan
    a la derecha, si no el bloque de abajo les tapa el texto al solaparse */
 @media(min-width:901px){
@@ -249,8 +257,11 @@ html,body{overflow-x:clip}
 .apps-4 .apps-pila{aspect-ratio:16/9}
 @media(max-width:700px){.apps-1 .apps-pila{aspect-ratio:4/3}.apps-2 .apps-pila,.apps-3 .apps-pila{aspect-ratio:4/5}.apps-4 .apps-pila{aspect-ratio:16/9}}
 .apps-puntos{display:flex;gap:6px;margin-top:2px}
-.apps-puntos i{width:18px;height:2px;border-radius:2px;background:currentColor;opacity:.2;transition:opacity .35s}
-.apps-puntos i.on{opacity:.7}
+.apps-puntos button{width:26px;height:44px;padding:21px 0;border:0;background:none;cursor:pointer;position:relative;-webkit-appearance:none;appearance:none}
+.apps-puntos button::before{content:'';display:block;width:26px;height:2px;border-radius:2px;background:currentColor;opacity:.28;transition:opacity .35s}
+.apps-puntos button.on::before{opacity:.85}
+.apps-puntos button:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:4px}
+@media(hover:hover){.apps-puntos button:hover::before{opacity:.6}}
 @media(prefers-reduced-motion:reduce){.apps-pila img{transition:none}}
 
 /* ===== formulario de contacto sobre la foto ===== */
@@ -258,7 +269,7 @@ html,body{overflow-x:clip}
 .mundo-form .form-fila{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:620px){.mundo-form .form-fila{grid-template-columns:1fr}}
 .mundo-form label{display:grid;gap:7px;font-size:var(--t-xs);letter-spacing:var(--track-caps);text-transform:uppercase;opacity:.96;text-shadow:0 1px 8px oklch(0 0 0/.5)}
-.mundo-form input,.mundo-form textarea{font:inherit;font-size:15px;text-transform:none;letter-spacing:0;color:var(--crema);background:oklch(0.18 0.008 48.6/.55);border:1px solid oklch(1 0 0/.34);border-radius:12px;padding:12px 14px;min-height:46px;width:100%;transition:border-color .2s,background .2s;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.mundo-form input,.mundo-form textarea{box-sizing:border-box;font:inherit;font-size:16px;text-transform:none;letter-spacing:0;color:var(--crema);background:oklch(0.18 0.008 48.6/.55);border:1px solid oklch(1 0 0/.34);border-radius:12px;padding:12px 14px;min-height:46px;width:100%;transition:border-color .2s,background .2s;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .mundo-form textarea{resize:vertical;min-height:76px;line-height:1.5}
 .mundo-form input::placeholder,.mundo-form textarea::placeholder{color:oklch(1 0 0/.6)}
 @media(hover:hover){.mundo-form input:hover,.mundo-form textarea:hover{border-color:oklch(1 0 0/.5)}}
@@ -271,8 +282,9 @@ html,body{overflow-x:clip}
 .form-botones{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:4px}
 .form-enviar[hidden]{display:none}
 .form-enviar{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-weight:600;font-size:15px;background:var(--crema);color:var(--marron);border:0;cursor:pointer;box-shadow:var(--sombra-2);font-family:inherit;min-height:46px}
-.form-wa{font-size:14px;opacity:.85;text-decoration:underline;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+.form-wa{font-size:14px;opacity:.92;border-radius:6px;text-decoration:underline;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
 .form-estado{font-size:var(--t-sm);min-height:20px;opacity:.9}
+.mundo-form .form-wa:focus-visible,.mundo-form .form-enviar:focus-visible{outline:2px solid var(--crema);outline-offset:3px}
 .form-estado[data-ok]{color:#bfe3c6}
 .form-estado[data-mal]{color:#f0b9a6}
 /* el cursor del tipeo del autocompletado */
@@ -293,12 +305,12 @@ html,body{overflow-x:clip}
 /* el stage solo se pega donde el efecto corre: en celular el contenido mide mas que
    la pantalla y un sticky mas alto que el viewport esconde la mitad de abajo */
 .hero-ed.hero-crece .hero-stage{position:sticky;top:0;height:100svh;min-height:0}
-.hero-ed.hero-crece{min-height:215svh}
+.hero-ed.hero-crece{min-height:215svh;padding-bottom:0 !important;padding-top:0 !important}
 @media(max-width:900px){.hero-stage{--pt:100px}.hero-expande{clip-path:inset(52% 0 8% 0 round 22px)}}
 @media(prefers-reduced-motion:reduce){.hero-ed.hero-crece{min-height:100svh}}
 .hero-ent{opacity:0;animation:heroIn .7s cubic-bezier(.22,1,.36,1) forwards}
 @keyframes heroIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.hero-ed-cuadro{clip-path:inset(0 0 100% 0 round 22px);animation:heroCuadro 1.2s cubic-bezier(.16,1,.3,1) .2s forwards}
+.hero-ed-cuadro{clip-path:inset(0 0 100% 0 round 22px);}
 @keyframes heroCuadro{to{clip-path:inset(0 0 0 0 round 22px)}}
 .hero-ed-img{transform:scale(1.08);animation:heroFoto 1.6s cubic-bezier(.16,1,.3,1) .2s forwards}
 @keyframes heroFoto{to{transform:scale(1)}}
@@ -341,7 +353,7 @@ html,body{overflow-x:clip}
 @supports(animation-timeline:view()){[data-kb]{animation:kenburns linear both;animation-timeline:view();animation-range:cover 0% cover 100%}}
 .cabecera{max-width:var(--ancho);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,60px);align-items:end}
 .ba-marco{max-width:var(--ancho);margin:clamp(30px,5vh,52px) auto calc(-1*var(--solape));position:relative;z-index:2}
-.ba{position:relative;border-radius:18px;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;background:#0f0d0c;box-shadow:0 30px 70px rgba(0,0,0,.45);aspect-ratio:4/5}
+.ba{cursor:ew-resize;position:relative;border-radius:18px;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;background:#0f0d0c;box-shadow:0 30px 70px rgba(0,0,0,.45);aspect-ratio:4/5}
 @media(min-width:768px){.ba{aspect-ratio:1.43}}
 @media(min-width:901px){.ba{aspect-ratio:1.9}}
 @media(max-width:900px){.ba{margin-inline:calc(-1*clamp(20px,6vw,96px));border-radius:0}}
@@ -632,7 +644,7 @@ html:has(dialog[open]){overflow:hidden}
         <span style="width:0;height:0;border:6px solid transparent;border-left-color:var(--marron);position:absolute;right:11px;top:50%;transform:translateY(-50%)"></span>
       </span>
     </div>
-    <input data-ba-range type="range" min="0" max="100" step="0.1" aria-label="Comparar antes y después" data-i18n-arialabel="a11y.comparar" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:4;WebkitAppearance:none;appearance:none">
+    <input data-ba-range type="range" min="0" max="100" step="0.1" aria-label="Comparar antes y después" data-i18n-arialabel="a11y.comparar" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;pointer-events:none;margin:0;z-index:4;WebkitAppearance:none;appearance:none">
     </div>
 
   </div>
@@ -649,16 +661,16 @@ html:has(dialog[open]){overflow:hidden}
   </div>
   <div data-mq-apps class="apps-grid">
     <figure data-reveal class="apps-1">
-      <button type="button" class="lb-abrir" data-lb="uso-exterior" aria-label="Ampliar: Muros de chukum en un patio con alberca" data-i18n-arialabel="a11y.zoom1" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="img/uso-exterior.webp" srcset="img/uso-exterior-720.webp 720w, img/uso-exterior.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Muros de chukum en un patio con alberca" data-i18n-alt="uso.1" data-lb-clave="uso-exterior" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-exterior-b.webp" srcset="img/uso-exterior-b-720.webp 720w, img/uso-exterior-b.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Fachada en terracota con esquina viva y sombra de alero" data-i18n-alt="uso.ext2" data-lb-clave="uso-exterior-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-exterior-c.webp" srcset="img/uso-exterior-c-720.webp 720w, img/uso-exterior-c.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Muro en arena con banca continua del mismo acabado" data-i18n-alt="uso.ext3" data-lb-clave="uso-exterior-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a1" style="font-size:15px;font-weight:600">Muros y fachadas</b><span data-i18n="apps.d1" style="font-size:var(--t-sm);opacity:0.82">Casa privada, Yucatán</span><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span></figcaption>
+      <button type="button" class="lb-abrir" data-lb="uso-exterior" aria-label="Ampliar: Muros de chukum en un patio con alberca" data-i18n-arialabel="a11y.zoom1" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="img/uso-exterior.webp" srcset="img/uso-exterior-720.webp 720w, img/uso-exterior.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Muros de chukum en un patio con alberca" data-i18n-alt="uso.1" data-lb-clave="uso-exterior" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-exterior-b.webp" srcset="img/uso-exterior-b-720.webp 720w, img/uso-exterior-b.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Fachada en terracota con esquina viva y sombra de alero" data-i18n-alt="uso.ext2" data-lb-clave="uso-exterior-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-exterior-c.webp" srcset="img/uso-exterior-c-720.webp 720w, img/uso-exterior-c.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Muro en arena con banca continua del mismo acabado" data-i18n-alt="uso.ext3" data-lb-clave="uso-exterior-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a1" style="font-size:15px;font-weight:600">Muros y fachadas</b><span data-i18n="apps.d1" style="font-size:var(--t-sm);opacity:0.82">Casa privada, Yucatán</span><span class="apps-puntos" data-pila-puntos><button type="button" data-pila-punto aria-label="Foto 1 de 3"></button><button type="button" data-pila-punto aria-label="Foto 2 de 3"></button><button type="button" data-pila-punto aria-label="Foto 3 de 3"></button></span></figcaption>
     </figure>
     <figure data-reveal class="apps-2">
-      <button type="button" class="lb-abrir" data-lb="uso-interior" aria-label="Ampliar: Interior con muros de chukum" data-i18n-arialabel="a11y.zoom2" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="img/uso-interior.webp" srcset="img/uso-interior-720.webp 720w, img/uso-interior.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Interior con muros de chukum" data-i18n-alt="uso.2" data-lb-clave="uso-interior" loading="lazy" decoding="async"><img data-tono="claro" src="img/uso-interior-b.webp" srcset="img/uso-interior-b-720.webp 720w, img/uso-interior-b.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Escalera con muros, huellas y umbral del mismo acabado" data-i18n-alt="uso.int2" data-lb-clave="uso-interior-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-interior-c.webp" srcset="img/uso-interior-c-720.webp 720w, img/uso-interior-c.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Recámara con muros y plafón continuos, Riviera Maya" data-i18n-alt="uso.int3" data-lb-clave="uso-interior-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a3" style="font-size:15px;font-weight:600">Interiores</b><span data-i18n="apps.d3" style="font-size:var(--t-sm);opacity:0.82">Sala con muros de chukum</span><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span></figcaption>
+      <button type="button" class="lb-abrir" data-lb="uso-interior" aria-label="Ampliar: Interior con muros de chukum" data-i18n-arialabel="a11y.zoom2" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="img/uso-interior.webp" srcset="img/uso-interior-720.webp 720w, img/uso-interior.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Interior con muros de chukum" data-i18n-alt="uso.2" data-lb-clave="uso-interior" loading="lazy" decoding="async"><img data-tono="claro" src="img/uso-interior-b.webp" srcset="img/uso-interior-b-720.webp 720w, img/uso-interior-b.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Escalera con muros, huellas y umbral del mismo acabado" data-i18n-alt="uso.int2" data-lb-clave="uso-interior-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-interior-c.webp" srcset="img/uso-interior-c-720.webp 720w, img/uso-interior-c.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Recámara con muros y plafón continuos, Riviera Maya" data-i18n-alt="uso.int3" data-lb-clave="uso-interior-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a3" style="font-size:15px;font-weight:600">Interiores</b><span data-i18n="apps.d3" style="font-size:var(--t-sm);opacity:0.82">Sala con muros de chukum</span><span class="apps-puntos" data-pila-puntos><button type="button" data-pila-punto aria-label="Foto 1 de 3"></button><button type="button" data-pila-punto aria-label="Foto 2 de 3"></button><button type="button" data-pila-punto aria-label="Foto 3 de 3"></button></span></figcaption>
     </figure>
     <figure data-reveal class="apps-3">
-      <button type="button" class="lb-abrir" data-lb="uso-piscina" aria-label="Ampliar: Alberca con borde y muros de acabado continuo en tono arena" data-i18n-arialabel="a11y.zoom3" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="img/uso-piscina.webp" srcset="img/uso-piscina-720.webp 720w, img/uso-piscina.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Alberca con borde y muros de acabado continuo en tono arena" data-i18n-alt="uso.3" data-lb-clave="uso-piscina" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-piscina-b.webp" srcset="img/uso-piscina-b-720.webp 720w, img/uso-piscina-b.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Patio con alberca: muro, borde y piso en un solo acabado" data-i18n-alt="uso.alb2" data-lb-clave="uso-piscina-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-piscina-c.webp" srcset="img/uso-piscina-c-720.webp 720w, img/uso-piscina-c.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Alberca en patio de muros terracota, con agaves" data-i18n-alt="uso.alb3" data-lb-clave="uso-piscina-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a2" style="font-size:15px;font-weight:600">Albercas y espejos de agua</b><span data-i18n="apps.d2" style="font-size:var(--t-sm);opacity:0.82">Alberca revestida de chukum</span><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span></figcaption>
+      <button type="button" class="lb-abrir" data-lb="uso-piscina" aria-label="Ampliar: Alberca con borde y muros de acabado continuo en tono arena" data-i18n-arialabel="a11y.zoom3" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="img/uso-piscina.webp" srcset="img/uso-piscina-720.webp 720w, img/uso-piscina.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Alberca con borde y muros de acabado continuo en tono arena" data-i18n-alt="uso.3" data-lb-clave="uso-piscina" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-piscina-b.webp" srcset="img/uso-piscina-b-720.webp 720w, img/uso-piscina-b.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Patio con alberca: muro, borde y piso en un solo acabado" data-i18n-alt="uso.alb2" data-lb-clave="uso-piscina-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-piscina-c.webp" srcset="img/uso-piscina-c-720.webp 720w, img/uso-piscina-c.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Alberca en patio de muros terracota, con agaves" data-i18n-alt="uso.alb3" data-lb-clave="uso-piscina-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a2" style="font-size:15px;font-weight:600">Albercas y espejos de agua</b><span data-i18n="apps.d2" style="font-size:var(--t-sm);opacity:0.82">Alberca revestida de chukum</span><span class="apps-puntos" data-pila-puntos><button type="button" data-pila-punto aria-label="Foto 1 de 3"></button><button type="button" data-pila-punto aria-label="Foto 2 de 3"></button><button type="button" data-pila-punto aria-label="Foto 3 de 3"></button></span></figcaption>
     </figure>
     <figure data-reveal class="apps-4">
-      <button type="button" class="lb-abrir" data-lb="uso-bano" aria-label="Ampliar: Regadera de bronce sobre muro continuo de estuco natural" data-i18n-arialabel="a11y.zoom4" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="img/uso-bano-a.webp" srcset="img/uso-bano-a-720.webp 720w, img/uso-bano-a.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Regadera de latón sobre muro continuo en crema" data-i18n-alt="uso.ban1" data-lb-clave="uso-bano-a" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-bano-b.webp" srcset="img/uso-bano-b-720.webp 720w, img/uso-bano-b.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Baño con banca de obra y nicho, sin una sola junta" data-i18n-alt="uso.ban2" data-lb-clave="uso-bano-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-bano-c.webp" srcset="img/uso-bano-c-720.webp 720w, img/uso-bano-c.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Ducha de muro curvo con luz natural" data-i18n-alt="uso.ban3" data-lb-clave="uso-bano-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a4" style="font-size:15px;font-weight:600">Baños y mobiliario</b><span data-i18n="apps.d4" style="font-size:var(--t-sm);opacity:0.82">Baño con muro de chukum</span><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span></figcaption>
+      <button type="button" class="lb-abrir" data-lb="uso-bano" aria-label="Ampliar: Regadera de bronce sobre muro continuo de estuco natural" data-i18n-arialabel="a11y.zoom4" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="img/uso-bano-a.webp" srcset="img/uso-bano-a-720.webp 720w, img/uso-bano-a.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Regadera de latón sobre muro continuo en crema" data-i18n-alt="uso.ban1" data-lb-clave="uso-bano-a" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-bano-b.webp" srcset="img/uso-bano-b-720.webp 720w, img/uso-bano-b.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Baño con banca de obra y nicho, sin una sola junta" data-i18n-alt="uso.ban2" data-lb-clave="uso-bano-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="img/uso-bano-c.webp" srcset="img/uso-bano-c-720.webp 720w, img/uso-bano-c.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Ducha de muro curvo con luz natural" data-i18n-alt="uso.ban3" data-lb-clave="uso-bano-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a4" style="font-size:15px;font-weight:600">Baños y mobiliario</b><span data-i18n="apps.d4" style="font-size:var(--t-sm);opacity:0.82">Baño con muro de chukum</span><span class="apps-puntos" data-pila-puntos><button type="button" data-pila-punto aria-label="Foto 1 de 3"></button><button type="button" data-pila-punto aria-label="Foto 2 de 3"></button><button type="button" data-pila-punto aria-label="Foto 3 de 3"></button></span></figcaption>
     </figure>
   </div>
 </section>
@@ -767,7 +779,7 @@ html:has(dialog[open]){overflow:hidden}
   <span class="lb-contador" data-lb-contador aria-live="polite">1 / 4</span>
   <button type="button" class="lb-flecha" data-lb-prev aria-label="Anterior" data-i18n-arialabel="a11y.anterior">&#x2190;</button>
   <button type="button" class="lb-flecha" data-lb-next aria-label="Siguiente" data-i18n-arialabel="a11y.siguiente">&#x2192;</button>
-  <div class="lb-pista" data-lb-pista><figure class="lb-slide" data-lb-slide="uso-exterior"><img data-src="img/uso-exterior.webp" alt="Muros de chukum en un patio con alberca" data-i18n-alt="uso.1" decoding="async"><figcaption data-i18n="uso.1">Muros de chukum en un patio con alberca</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-interior"><img data-src="img/uso-interior.webp" alt="Interior con muros de chukum" data-i18n-alt="uso.2" decoding="async"><figcaption data-i18n="uso.2">Interior con muros de chukum</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-piscina"><img data-src="img/uso-piscina.webp" alt="Alberca con borde y muros de acabado continuo en tono arena" data-i18n-alt="uso.3" decoding="async"><figcaption data-i18n="uso.3">Alberca con borde y muros de acabado continuo en tono arena</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-exterior-b"><img data-src="img/uso-exterior-b.webp" alt="Fachada en terracota con esquina viva y sombra de alero" data-i18n-alt="uso.ext2" decoding="async"><figcaption data-i18n="uso.ext2">Fachada en terracota con esquina viva y sombra de alero</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-exterior-c"><img data-src="img/uso-exterior-c.webp" alt="Muro en arena con banca continua del mismo acabado" data-i18n-alt="uso.ext3" decoding="async"><figcaption data-i18n="uso.ext3">Muro en arena con banca continua del mismo acabado</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-interior-b"><img data-src="img/uso-interior-b.webp" alt="Escalera con muros, huellas y umbral del mismo acabado" data-i18n-alt="uso.int2" decoding="async"><figcaption data-i18n="uso.int2">Escalera con muros, huellas y umbral del mismo acabado</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-interior-c"><img data-src="img/uso-interior-c.webp" alt="Recámara con muros y plafón continuos, Riviera Maya" data-i18n-alt="uso.int3" decoding="async"><figcaption data-i18n="uso.int3">Recámara con muros y plafón continuos, Riviera Maya</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-piscina-b"><img data-src="img/uso-piscina-b.webp" alt="Patio con alberca: muro, borde y piso en un solo acabado" data-i18n-alt="uso.alb2" decoding="async"><figcaption data-i18n="uso.alb2">Patio con alberca: muro, borde y piso en un solo acabado</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-piscina-c"><img data-src="img/uso-piscina-c.webp" alt="Alberca en patio de muros terracota, con agaves" data-i18n-alt="uso.alb3" decoding="async"><figcaption data-i18n="uso.alb3">Alberca en patio de muros terracota, con agaves</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-bano-a"><img data-src="img/uso-bano-a.webp" alt="Regadera de latón sobre muro continuo en crema" data-i18n-alt="uso.ban1" decoding="async"><figcaption data-i18n="uso.ban1">Regadera de latón sobre muro continuo en crema</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-bano-b"><img data-src="img/uso-bano-b.webp" alt="Baño con banca de obra y nicho, sin una sola junta" data-i18n-alt="uso.ban2" decoding="async"><figcaption data-i18n="uso.ban2">Baño con banca de obra y nicho, sin una sola junta</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-bano-c"><img data-src="img/uso-bano-c.webp" alt="Ducha de muro curvo con luz natural" data-i18n-alt="uso.ban3" decoding="async"><figcaption data-i18n="uso.ban3">Ducha de muro curvo con luz natural</figcaption></figure></div>
+  <div class="lb-pista" data-lb-pista><figure class="lb-slide" data-lb-slide="uso-exterior"><img data-src="img/uso-exterior.webp" alt="Muros de chukum en un patio con alberca" data-i18n-alt="uso.1" decoding="async"><figcaption data-i18n="uso.1">Muros de chukum en un patio con alberca</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-exterior-b"><img data-src="img/uso-exterior-b.webp" alt="Fachada en terracota con esquina viva y sombra de alero" data-i18n-alt="uso.ext2" decoding="async"><figcaption data-i18n="uso.ext2">Fachada en terracota con esquina viva y sombra de alero</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-exterior-c"><img data-src="img/uso-exterior-c.webp" alt="Muro en arena con banca continua del mismo acabado" data-i18n-alt="uso.ext3" decoding="async"><figcaption data-i18n="uso.ext3">Muro en arena con banca continua del mismo acabado</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-interior"><img data-src="img/uso-interior.webp" alt="Interior con muros de chukum" data-i18n-alt="uso.2" decoding="async"><figcaption data-i18n="uso.2">Interior con muros de chukum</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-interior-b"><img data-src="img/uso-interior-b.webp" alt="Escalera con muros, huellas y umbral del mismo acabado" data-i18n-alt="uso.int2" decoding="async"><figcaption data-i18n="uso.int2">Escalera con muros, huellas y umbral del mismo acabado</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-interior-c"><img data-src="img/uso-interior-c.webp" alt="Recámara con muros y plafón continuos, Riviera Maya" data-i18n-alt="uso.int3" decoding="async"><figcaption data-i18n="uso.int3">Recámara con muros y plafón continuos, Riviera Maya</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-piscina"><img data-src="img/uso-piscina.webp" alt="Alberca con borde y muros de acabado continuo en tono arena" data-i18n-alt="uso.3" decoding="async"><figcaption data-i18n="uso.3">Alberca con borde y muros de acabado continuo en tono arena</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-piscina-b"><img data-src="img/uso-piscina-b.webp" alt="Patio con alberca: muro, borde y piso en un solo acabado" data-i18n-alt="uso.alb2" decoding="async"><figcaption data-i18n="uso.alb2">Patio con alberca: muro, borde y piso en un solo acabado</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-piscina-c"><img data-src="img/uso-piscina-c.webp" alt="Alberca en patio de muros terracota, con agaves" data-i18n-alt="uso.alb3" decoding="async"><figcaption data-i18n="uso.alb3">Alberca en patio de muros terracota, con agaves</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-bano-a"><img data-src="img/uso-bano-a.webp" alt="Regadera de latón sobre muro continuo en crema" data-i18n-alt="uso.ban1" decoding="async"><figcaption data-i18n="uso.ban1">Regadera de latón sobre muro continuo en crema</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-bano-b"><img data-src="img/uso-bano-b.webp" alt="Baño con banca de obra y nicho, sin una sola junta" data-i18n-alt="uso.ban2" decoding="async"><figcaption data-i18n="uso.ban2">Baño con banca de obra y nicho, sin una sola junta</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-bano-c"><img data-src="img/uso-bano-c.webp" alt="Ducha de muro curvo con luz natural" data-i18n-alt="uso.ban3" decoding="async"><figcaption data-i18n="uso.ban3">Ducha de muro curvo con luz natural</figcaption></figure></div>
   <p class="lb-ayuda" data-i18n="lb.ayuda">Desliza para ver la siguiente · Toca fuera para cerrar</p>
 </dialog>
 <a data-wa-flotante class="wa-flotante" href="https://wa.me/529993699488" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-i18n-arialabel="contact.wa"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c0 .2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.4 2.6 1.6.3.1.5.1.7-.1l1.1-1.3c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.3 1.6Z"></path></svg></a>
@@ -1087,7 +1099,7 @@ class Component extends DCLogic {
       if (!hero || !stage || !hueco || !foto) return;
       const rh = hueco.getBoundingClientRect(), rs = stage.getBoundingClientRect();
       // p=0 la foto ocupa el hueco; p=1 ocupa el stage entero (que es la pantalla)
-      const corrida = hero.offsetHeight - window.innerHeight;
+      const corrida = hero.offsetHeight - stage.offsetHeight;   // recorrido real del sticky
       const crece = hero.classList.contains('hero-crece') && corrida > 0;
       const bruto = crece ? (window.scrollY - hero.offsetTop) / corrida : 0;
       // llega a pantalla completa al 82% del recorrido: deja un tramo con la foto
@@ -1105,7 +1117,9 @@ class Component extends DCLogic {
       const k = 1 - e;
       const t = Math.max(0, rh.top - rs.top) * k, l = Math.max(0, rh.left - rs.left) * k;
       const d = Math.max(0, rs.right - rh.right) * k, b = Math.max(0, rs.bottom - rh.bottom) * k;
-      foto.style.clipPath = `inset(${t.toFixed(1)}px ${d.toFixed(1)}px ${b.toFixed(1)}px ${l.toFixed(1)}px round ${(22 * k).toFixed(1)}px)`;
+      const radio = (22 * k).toFixed(1);
+      foto.style.clipPath = `inset(${t.toFixed(1)}px ${d.toFixed(1)}px ${b.toFixed(1)}px ${l.toFixed(1)}px round ${radio}px)`;
+      foto.style.borderRadius = radio + 'px';
       foto.style.boxShadow = k < 0.05 ? 'none' : 'var(--sombra-2)';
       const img = foto.querySelector('img');
       if (img) img.style.transform = `scale(${(1 + 0.08 * e).toFixed(4)})`;
@@ -1115,6 +1129,8 @@ class Component extends DCLogic {
         heroTxt.style.opacity = o.toFixed(3);
         heroTxt.style.transform = `translateY(${(-16 * e).toFixed(1)}px)`;
         heroTxt.style.pointerEvents = o < 0.05 ? 'none' : '';
+        // fuera del orden de tabulacion cuando es invisible, o el foco cae en enlaces que no se ven
+        if (o < 0.05) heroTxt.setAttribute('inert', ''); else heroTxt.removeAttribute('inert');
       }
       if (heroPie) heroPie.style.opacity = Math.max(0, 1 - e * 2).toFixed(3);
     };
@@ -1199,6 +1215,7 @@ class Component extends DCLogic {
     });
     const soltar = ()=>{ presionado = false; lastX = null; vel = 0; };
     wrap.addEventListener('pointerdown', (e)=>{
+      if (e.button && e.button !== 0) return;   // solo el boton principal
       presionado = true; lastX = null; vel = 0;
       try { wrap.setPointerCapture(e.pointerId); } catch (_) {}
       this.setBaPos(posDe(e), true);      // el clic tambien posiciona, sin arrastrar
@@ -1421,9 +1438,10 @@ class Component extends DCLogic {
         new IntersectionObserver((e)=>{ visible = e[0].isIntersecting; visible ? arrancar() : parar(); }, { threshold: 0.25 }).observe(pila);
       } else { visible = true; arrancar(); }
       // al pasar el cursor se queda quieta: si alguien la esta mirando, no se la cambiamos
-      pila.addEventListener('pointerenter', ()=>{ quieto = true; parar(); });
-      pila.addEventListener('pointerleave', ()=>{ quieto = false; arrancar(); });
-      if (puntos) [...puntos.children].forEach((p, n)=> p.addEventListener('click', (ev)=>{ ev.preventDefault(); ev.stopPropagation(); i = n; pintar(); }));
+      const zona = pila.closest('figure') || pila;
+      zona.addEventListener('pointerenter', ()=>{ quieto = true; parar(); });
+      zona.addEventListener('pointerleave', ()=>{ quieto = false; arrancar(); });
+      if (puntos) [...puntos.children].forEach((p, n)=> p.addEventListener('click', (ev)=>{ ev.preventDefault(); ev.stopPropagation(); i = n; pintar(); parar(); arrancar(); }));
       pintar();
     });
   }
@@ -1432,21 +1450,28 @@ class Component extends DCLogic {
     const resumen = this.q('[data-form-resumen]'), msg = this.q('[data-form-msg]');
     const estado = this.q('[data-form-estado]'), waBtn = this.q('[data-form-wa]');
     const enviar = this.q('[data-form-enviar]');
-    let tocado = false, yaEscrito = false;
+    let tocado = false, yaEscrito = false, refrescarWA = ()=>{};
     form.querySelectorAll('[data-form-campo]').forEach(c=> c.addEventListener('input', ()=>{ tocado = true; if (c === msg) yaEscrito = true; }));
 
     // escribe un texto letra por letra; sin animacion con movimiento reducido
     const tipear = (el, texto, ms, esHTML)=>{
-      if (this.reduce) { if (esHTML) el.innerHTML = texto; else el.value = texto; return Promise.resolve(); }
+      const fin = ()=>{ if (esHTML) el.innerHTML = texto; else el.value = texto; };
+      if (this.reduce) { fin(); return Promise.resolve(); }
       return new Promise(res=>{
         el.classList.add('form-tipeando');
         let i = 0;
         const paso = ()=>{
+          // si el visitante empezo a escribir, el autocompletado se retira sin pisarlo
+          if (yaEscrito && el === msg) { el.classList.remove('form-tipeando'); res(); return; }
           i += Math.max(1, Math.round(texto.length / 90));
-          const trozo = texto.slice(0, i);
-          if (esHTML) el.innerHTML = trozo; else el.value = trozo;
+          if (esHTML) {
+            // el texto lleva <b>: se tipea el texto plano y las etiquetas se cierran
+            // al final, si no se ven '<' y '</' sueltos mientras escribe
+            const sinHTML = texto.replace(/<[^>]+>/g, '');
+            el.textContent = sinHTML.slice(0, Math.round(i * sinHTML.length / texto.length));
+          } else { el.value = texto.slice(0, i); }
           if (i < texto.length) this.formTipeo = setTimeout(paso, ms);
-          else { el.classList.remove('form-tipeando'); res(); }
+          else { fin(); el.classList.remove('form-tipeando'); res(); }
         };
         paso();
       });
@@ -1468,9 +1493,12 @@ class Component extends DCLogic {
         resumen.hidden = false;
         const d = this.I18N[this.lang];
         tipear(resumen, (d.formResumen || 'Tu selección:') + ' ' + partes.join(' · '), 16, true)
-          .then(()=>{ if (msg && !yaEscrito && !msg.value) tipear(msg, this.waTexto('contacto'), 12, false); });
+          .then(()=>{
+            if (msg && !yaEscrito && !msg.value) return tipear(msg, this.waTexto('contacto'), 12, false);
+          })
+          .then(refrescarWA);
       } else if (msg && !yaEscrito && !msg.value) {
-        tipear(msg, this.waTexto('contacto'), 12, false);
+        tipear(msg, this.waTexto('contacto'), 12, false).then(refrescarWA);
       }
     };
     // se dispara al entrar la seccion en pantalla, no antes: el efecto se tiene que ver
@@ -1490,7 +1518,7 @@ class Component extends DCLogic {
       if (c.length) l.push(`${es ? 'Selección' : 'Selection'}: ${c.join(' · ')}`);
       return l.join('\n') || this.waTexto('contacto');
     };
-    const refrescarWA = ()=>{ if (waBtn) waBtn.href = `https://wa.me/${this.WA}?text=${encodeURIComponent(armarTexto())}`; };
+    refrescarWA = ()=>{ if (waBtn) waBtn.href = `https://wa.me/${this.WA}?text=${encodeURIComponent(armarTexto())}`; };
     refrescarWA(); form.addEventListener('input', refrescarWA);
 
     // Sin clave de Web3Forms no hay a donde mandar el correo: queda solo WhatsApp.
