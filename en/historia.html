@@ -233,7 +233,7 @@ class Component extends DCLogic {
     this.I18N = {
       es: {
         'meta.title':'SAURIUM — La historia del chukum','meta.desc':'Sesenta y seis millones de años entre un impacto y un muro. El origen del chukum en la Península de Yucatán.',
-        'nav.back':'Volver al sitio','a11y.lang':'Cambiar a inglés',
+        'nav.back':'Volver al sitio','a11y.lang':'Cambiar a inglés',acabados:{arena:'Arena',crema:'Crema',gris:'Gris',carbon:'Carbón',oliva:'Oliva',terracota:'Terracota'},waCtx:(g,n)=> g.sacos ? `Hola, quiero cotizar ${g.sacos} ${g.sacos===1?'saco':'sacos'} de chukum SAURIUM (${g.m2} m²)${n?', acabado '+n:''}.` : (n ? `Hola, me interesa el acabado ${n} de SAURIUM. ¿Me pasan precio y muestras?` : null),
         'cover.kicker':'La historia del chukum','cover.title':'Una tierra que guarda lo que pasa por ella.',
         'cover.sub':'Sesenta y seis millones de años entre un impacto y un muro. Desliza para recorrerlos.','cover.scroll':'Deslizar',
         'rail.1':'Origen','rail.2':'Impacto','rail.3':'Huella',
@@ -248,7 +248,7 @@ class Component extends DCLogic {
       },
       en: {
         'meta.title':'SAURIUM — The story of chukum','meta.desc':'Sixty-six million years between an impact and a wall. The origin of chukum in the Yucatán Peninsula.',
-        'nav.back':'Back to the site','a11y.lang':'Switch to Spanish',
+        'nav.back':'Back to the site','a11y.lang':'Switch to Spanish',acabados:{arena:'Sand',crema:'Cream',gris:'Gray',carbon:'Charcoal',oliva:'Olive',terracota:'Terracotta'},waCtx:(g,n)=> g.sacos ? `Hi, I would like a quote for ${g.sacos} ${g.sacos===1?'bag':'bags'} of SAURIUM chukum (${g.m2} m²)${n?', '+n+' finish':''}.` : (n ? `Hi, I am interested in the ${n} SAURIUM finish. Could you send pricing and samples?` : null),
         'cover.kicker':'The story of chukum','cover.title':'A land that keeps whatever passes through it.',
         'cover.sub':'Sixty-six million years between an impact and a wall. Scroll to travel through them.','cover.scroll':'Scroll',
         'rail.1':'Origin','rail.2':'Impact','rail.3':'Footprint',
@@ -306,10 +306,11 @@ class Component extends DCLogic {
     this.qa('[data-i18n]').forEach(el=>{ const k=el.getAttribute('data-i18n'); if(d[k]) el.textContent=d[k]; });
     this.qa('[data-i18n-arialabel]').forEach(el=>{ const k=el.getAttribute('data-i18n-arialabel'); if(d[k]) el.setAttribute('aria-label', d[k]); });
     this.qa('[data-lang-opt]').forEach(el=>{ el.style.opacity = el.getAttribute('data-lang-opt')===next ? '1':'0.4'; });
-    if (d['meta.title']) document.title = d['meta.title'];
+    if (d['meta.title']) { document.title = d['meta.title']; setTimeout(()=>{ if (!this.dead && this.lang === next) document.title = d['meta.title']; }, 80); }
     const md = document.querySelector('meta[name="description"]'); if (md && d['meta.desc']) md.setAttribute('content', d['meta.desc']);
     this.qa('[data-kicker]').forEach(el=>{ const i=el.getAttribute('data-kicker'); const inner=el.querySelector('[data-kicker-in]'); if(inner&&d['k.'+i]) inner.textContent=d['k.'+i]; });
     const wa = this.q('[data-wa-historia]');
+    try { const g = JSON.parse(sessionStorage.getItem('saurium-estado') || '{}'); const nom = g.finish && d.acabados ? d.acabados[g.finish] : null; const txt = d.waCtx ? d.waCtx(g, nom) : null; const wa2 = this.q('[data-wa-historia]'); if (wa2 && txt) { const num = (wa2.href.match(/wa\.me\/(\d+)/) || [])[1]; if (num) wa2.href = `https://wa.me/${num}?text=${encodeURIComponent(txt)}`; } } catch (e) {}
     if (wa && d.waText) { const m = /wa\.me\/(\d+)/.exec(wa.getAttribute('href') || ''); if (m) wa.setAttribute('href', 'https://wa.me/' + m[1] + '?text=' + encodeURIComponent(d.waText)); }
     this.buildWords();
     if (this.tick) this.tick();
