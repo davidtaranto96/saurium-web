@@ -1,5 +1,8 @@
 # FOTOS.md — imágenes del sitio
 
+**Formato (desde 2026-09-01):** el sitio sirve WebP con variantes por ancho (`x-720.webp`, `x-1200.webp`, `x.webp`) y `srcset`. Los JPG/PNG originales quedan como fuente: al reemplazar una foto, reemplazar el original y regenerar las WebP con el bloque de PIL del commit "rediseño 3.0" (calidad 80, anchos 720/1200/1600). Las dos imágenes de Open Graph (`casa-terracota.jpg`, `story-huella.jpg`) se quedan en JPG a propósito: WhatsApp y Facebook las previsualizan mejor.
+
+
 Para reemplazar cualquier imagen por la definitiva, usar el MISMO nombre de archivo. Nada de código cambia.
 
 ## Comparador de acabados (`img/casa-*.jpg`, 1920×1288)

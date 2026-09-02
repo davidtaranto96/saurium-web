@@ -34,6 +34,8 @@ const generadores = {
   'hero-en': (c) => `'hero.l1':'${j(c.hero_en.linea1)}','hero.l2':'${j(c.hero_en.linea2)}',`,
   'correo': (c) => `<a href="mailto:${esc(c.correo)}" data-i18n="contact.mail" style="display:inline-flex;align-items:center;padding:18px 34px;border-radius:999px;font-weight:600;font-size:16px;border:1.5px solid rgba(71,67,65,0.35);transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),border-color 0.2s" style-hover="border-color:var(--marron);transform:translateY(-2px)" style-active="transform:scale(0.96)">${esc(c.correo)}</a>`,
   'wa-historia': (c) => `<a data-wa-historia-href href="https://wa.me/${esc(c.whatsapp)}?text=Hola%2C%20quiero%20cotizar%20chukum%20SAURIUM." target="_blank" rel="noopener" data-wa-historia data-i18n="story.cta3" style="display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:999px;font-weight:600;font-size:15px;background:#25623f;color:#f3ebde;box-shadow:0 12px 32px rgba(29,27,26,0.2);transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),background 0.2s">Escribir por WhatsApp</a>`,
+  /* casos reales: hasta que Rodrigo mande fotos, la region queda vacia y la seccion oculta */
+  'obras': (c) => (c.obras && c.obras.length) ? '\n  <div class="obras-grid">' + c.obras.map(o => `<figure><img src="${esc(o.foto)}" alt="${esc(o.nombre)}" loading="lazy"><figcaption><b>${esc(o.nombre)}</b> · ${esc(o.lugar)} · ${esc(o.acabado)}</figcaption></figure>`).join('') + '</div>\n  ' : '',
   'rendimiento': (c) => String(Number(c.rendimiento_m2_por_saco)),
 };
 

@@ -12,21 +12,22 @@ Sitio estático (HTML/CSS/JS, sin build) para SAURIUM, marca de chukum de Yucat�
 ## Deploy
 GitHub Pages desde `main` (repo `saurium-web`). Iterar = commit + push.
 
-## Estado actual (2026-08-20, 2.0 en curso)
+## Estado actual (2026-09-01, 3.0 en curso)
 
-Presupuesto aprobado (USD 500). Live: https://davidtaranto96.github.io/saurium-web/
+Presupuesto **aprobado**. Dominio elegido por el cliente: **sauriumchukum.com** (libre al 2026-09-01; lo registra David, USD 40 cotizados). Patrón del vault: `conectar-dominio-propio-a-github-pages`.
 
-### Rediseño 2.0 aplicado
-- **Tokens en OKLCH** con fallback hex, y `--terracota-tinta` #97543a (oklch 0.52 0.097 41.6) para texto: la terracota original daba 2.6:1 sobre crema y fallaba AA. Sombras en capas como tokens (`--sombra-1/2`).
-- **Interacción**: foco visible global con la tinta, press scale .96 en botones, hover-lift en tarjetas de aplicaciones, escalonado de reveals por grupo (70ms). Trampa resuelta: el shorthand `transition` resetea `transition-delay`, el delay va DESPUÉS; y el failsafe suma el delay a su timeout para no pisar el escalonado.
-- **A11y**: skip link, aria-pressed en swatches, grupo con nombre bilingüe, saco 3D con foco y flechas para girar, toggle idioma a 44px, reduced-motion verificado con agent-browser (0 contenido oculto, 0 animaciones).
-- **Imágenes**: lazy + decoding async (hero eager fetchpriority=high).
+### Rediseño 3.0 (menú de `subir-nivel`, 16/16 tildadas)
+- **Hero editorial**: texto a la izquierda en columna de lectura, foto contenida con margen (de Clou Architects); wordmark SAURIUM gigante recortado al pie (de Postevand); cinta marquee de acabados (reusa `cintaSpecs` de Aires); índice lateral fijo de secciones (de Stripe Press), visible desde 1180px.
+- **Comparador**: borde con feather de 14px y canto de llana texturizado (mask con feTurbulence en vez de clip-path); al soltar, la barra sigue con la velocidad del dedo y frena con resorte crítico; cambio de acabado con fundido cruzado sobre una segunda capa (`data-ba-after2`) más barrido de luz, sin cuadro en negro.
+- **Calculadora**: deslizador de m² sincronizado con el número, resultado grande en tarjeta oscura, equivalencia en muros de 3 × 2,5 m, cifra que cuenta (220ms, tabular) y el saco 3D recibe un impulso al cambiar (`this.sacoImpulso`).
+- **Estante de placas**: los seis acabados como placas con canto y sombra (textura real `swatch-*.webp`), activa por `aria-pressed`; macro de textura al 5x siguiendo el cursor (solo `hover:hover`).
+- **Lightbox** con scroll-snap nativo (patrón `galeria-con-swipe-nativo`), `<dialog>`, teclado y foco de vuelta al origen.
+- **FAQ** de seis preguntas con `<details>` animado por `grid-template-rows` y JSON-LD `FAQPage`.
+- **Obras**: sección `#obras` oculta con región `cms:obras`; se destapa cuando `contenido/sitio.json` tenga casos.
+- **Reveals** con dirección por sección (`data-reveal-desde="izq|der|escala"`).
+- **WebP** con variantes 720/1200/1600 y `srcset`; las dos imágenes OG quedan en JPG a propósito.
+- **SEO**: JSON-LD Organization/Product/WebSite/Article, hreflang es-MX/en/x-default, y páginas `/en/` generadas con `cd server && npm run en` (correr después de cada cambio).
+- **Bloqueante del auditor resuelto**: las 8 transiciones sobre width/height/top pasaron a transform.
 
-### Editable (etapa 1 lista, etapa 2 pendiente)
-- `contenido/sitio.json` = fuente única de whatsapp, correo, vendedor, rendimiento y hero ES/EN.
-- 8 regiones marcadas (`<!--cms:x-->` / `/*cms:x*/`) y `server/contenido.js` con los generadores. `cd server && npm test` = prueba de idempotencia (verde). `npm run aplicar` aplica el JSON a mano.
-- **Etapa 2 (panel)**: adaptar panel.js/github.js de melou, crear fine-grained token (solo este repo, Contents RW), servicio en Railway y PANEL_CLAVE. Lo tiene que crear David.
-
-### Pendiente
-- David corre `/review-animations` (skill de invocación manual) para el veredicto de poda.
-- Fotos de obra real, dominio (saurium.mx libre; saurium.com es de HugeDomains), hreflang para EN.
+### Cómo se trabaja ahora
+`cd server && npm test` (idempotencia) → `npm run en` (regenera /en/) → commit → push.
