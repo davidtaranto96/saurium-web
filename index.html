@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es-MX" data-lang-default="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,8 +9,8 @@
 <a href="#material" class="saltar" data-i18n="a11y.skip">Saltar al contenido</a>
 <x-dc>
 <helmet>
-<title>SAURIUM — Chukum de Yucatán. Desde el origen, diseñado para perdurar.</title>
-<meta name="description" content="SAURIUM es chukum auténtico de la Península de Yucatán. Recubrimiento natural con huella histórica, listo para exportar al mundo.">
+<title>SAURIUM — Chukum auténtico de Yucatán. Desde el origen, diseñado para perdurar.</title>
+<meta name="description" content="Recubrimiento natural de chukum, elaborado en la Península de Yucatán. Seis acabados, comparador antes y después, y envíos a México y el exterior.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SAURIUM">
 <meta property="og:url" content="https://davidtaranto96.github.io/saurium-web/">
@@ -26,6 +26,7 @@
 <meta name="twitter:title" content="SAURIUM — Chukum auténtico de Yucatán">
 <meta name="twitter:description" content="Recubrimiento natural de chukum, elaborado en la Península de Yucatán. Seis acabados, comparador antes y después, y envíos a México y el exterior.">
 <meta name="twitter:image" content="https://davidtaranto96.github.io/saurium-web/img/casa-terracota.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://davidtaranto96.github.io/saurium-web/">
 <link rel="alternate" hreflang="es-MX" href="https://davidtaranto96.github.io/saurium-web/index.html">
 <link rel="alternate" hreflang="en" href="https://davidtaranto96.github.io/saurium-web/en/index.html">
@@ -39,9 +40,13 @@
 ]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="preconnect" href="https://esm.sh">
+<link rel="preload" as="image" imagesrcset="img/hero-luminoso-720.webp 720w, img/hero-luminoso-1200.webp 1200w, img/hero-luminoso-1600.webp 1600w, img/hero-luminoso.webp 1800w" imagesizes="(max-width:900px) 100vw, 50vw" fetchpriority="high">
+<script type="speculationrules">{"prerender":[{"urls":["historia.html"],"eagerness":"moderate"}]}</script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..500&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 :root{--crema:#f3ebde;--arena:#dccab2;--marron:#474341;--terracota:#c88166;--negro:#1d1b1a;--blanco:#fdfbf7;
 --fin-arena:#c3ae8c;--fin-crema:#dccdb2;--fin-gris:#94918b;--fin-carbon:#46423f;--fin-oliva:#7f8760;--fin-terracota:#ab6752;}
@@ -58,14 +63,9 @@ h1,h2,h3,p,dl,dt,dd,figure{margin:0}
 @media (max-width:860px){[data-mq-navlinks]{display:none !important}}
 @media (max-width:600px){[data-mq-navcta]{display:none !important}}
 @media (min-width:768px){
- [data-mq-scroll]{left:clamp(20px,5vw,56px) !important;transform:none !important}
- [data-mq-ba]{aspect-ratio:1.43 !important}
-}
-@media (min-width:1040px){
- [data-mq-swatches]{display:flex !important}
+ [data-mq-scroll]{transform:none !important}
 }
 @media (min-width:1180px){
- [data-mq-apps]{grid-template-columns:repeat(4,1fr) !important}
  [data-mq-sticky]{position:sticky !important;top:104px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-kb]{animation:none !important}h1 span{animation:none !important;transform:none !important}}
@@ -90,13 +90,13 @@ h1,h2,h3{text-wrap:balance}
 [data-lang-toggle]{min-height:44px}
 
 /* ===== 3.0: hero editorial, wordmark, cinta, indice ===== */
-@media(min-width:901px){.hero-ed{box-sizing:border-box;padding-bottom:clamp(90px,12vh,140px) !important;min-height:100svh;max-height:100svh}.hero-ed-foto{max-height:calc(100svh - 260px);width:100%;justify-self:end;aspect-ratio:auto !important;height:calc(100svh - 260px)}}
-.hero-ed-marca{position:absolute;left:50%;bottom:-0.22em;transform:translateX(-50%);font-size:clamp(5.5rem,22vw,22rem);line-height:1;font-weight:800;letter-spacing:-0.04em;color:var(--marron);opacity:.085;white-space:nowrap;pointer-events:none;user-select:none;z-index:1}
-@media(max-width:900px){.hero-ed-grid{grid-template-columns:1fr !important}.hero-ed{padding-top:100px !important}.hero-ed-foto{aspect-ratio:4/3 !important;max-height:46svh}.hero-ed-marca{opacity:.07}}
+@media(min-width:901px){.hero-ed{box-sizing:border-box;padding-bottom:clamp(90px,12vh,140px) !important;min-height:100svh;max-height:100svh}}
+.hero-ed-marca{position:absolute;bottom:-0.22em;font-size:clamp(5.5rem,22vw,22rem);line-height:1;font-weight:800;letter-spacing:-0.04em;color:var(--marron);opacity:.085;white-space:nowrap;pointer-events:none;user-select:none;z-index:1}
+@media(max-width:900px){.hero-ed-grid{grid-template-columns:1fr !important}.hero-ed{padding-top:100px !important}.hero-ed-marca{opacity:.07}}
 .cinta{background:var(--marron);color:var(--crema);overflow:hidden;padding:14px 0;border-block:1px solid oklch(0.224 0.004 48.6/.25)}
 .cinta-pista{display:flex;gap:clamp(28px,5vw,64px);width:max-content;animation:cinta 42s linear infinite;will-change:transform}
 .cinta:hover .cinta-pista{animation-play-state:paused}
-.cinta span{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+.cinta span{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:var(--track-caps);text-transform:uppercase;font-weight:600;white-space:nowrap}
 .cinta i{width:14px;height:14px;border-radius:4px;background:var(--c);display:block;box-shadow:0 0 0 1px oklch(1 0 0/.18)}
 @keyframes cinta{to{transform:translateX(-50%)}}
 .indice{position:fixed;left:clamp(14px,2.4vw,34px);top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column;gap:10px;padding:8px}
@@ -109,23 +109,25 @@ h1,h2,h3{text-wrap:balance}
 
 /* calculadora 3.0 */
 @media(max-width:760px){.calc{grid-template-columns:1fr !important}}
-.calc-rango{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--terracota-tinta) var(--p,11%),rgba(71,67,65,.18) var(--p,11%));outline:none}
-.calc-rango::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--crema);border:2px solid var(--terracota-tinta);box-shadow:var(--sombra-1);cursor:grab;transition:transform .12s cubic-bezier(.2,0,0,1)}
+.calc-rango{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:none;outline:none;margin:0;cursor:pointer}
+.calc-rango::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--terracota-tinta) var(--p,11%),rgba(71,67,65,.18) var(--p,11%))}
+.calc-rango::-moz-range-track{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--terracota-tinta) var(--p,11%),rgba(71,67,65,.18) var(--p,11%))}
+.calc-rango::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-11px;border-radius:50%;background:var(--crema);border:2px solid var(--terracota-tinta);box-shadow:var(--sombra-1);cursor:grab;transition:transform .12s cubic-bezier(.2,0,0,1)}
 .calc-rango::-webkit-slider-thumb:active{transform:scale(1.12);cursor:grabbing}
 .calc-rango::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--crema);border:2px solid var(--terracota-tinta);box-shadow:var(--sombra-1);cursor:grab}
 .calc-rango:focus-visible{outline:2px solid var(--terracota-tinta);outline-offset:6px;border-radius:2px}
 
 /* estante de placas 3.0 */
-.estante{display:flex;gap:clamp(10px,2vw,26px);justify-content:center;max-width:1180px;overflow-x:auto;scroll-snap-type:x proximity;padding:24px 20px 8px;scrollbar-width:none;perspective:900px}
+.estante{position:relative;display:flex;gap:clamp(10px,2vw,26px);justify-content:center;max-width:var(--ancho);overflow-x:auto;scroll-snap-type:x proximity;padding:24px 20px 8px;scrollbar-width:none;perspective:900px}
 .estante::-webkit-scrollbar{display:none}
-@media(max-width:700px){.estante{justify-content:flex-start}}
+@media(max-width:700px){.estante{justify-content:flex-start;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}}
 .placa{display:block;width:clamp(78px,9.5vw,118px);aspect-ratio:3/4;border-radius:9px;background:var(--sw) center/cover;transform:rotateX(7deg);transform-origin:bottom;box-shadow:inset -4px -5px 8px oklch(0 0 0/.28),inset 3px 3px 5px oklch(1 0 0/.16),0 1px 0 oklch(1 0 0/.1),0 18px 30px -8px oklch(0 0 0/.6);transition:transform .35s cubic-bezier(.2,0,0,1),box-shadow .35s cubic-bezier(.2,0,0,1)}
 .placa::after{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(160deg,oklch(1 0 0/.14),transparent 45%,oklch(0 0 0/.18));pointer-events:none}
 .placa-btn{position:relative}
 .placa-btn i{position:relative}
 .placa-btn[aria-pressed="true"] .placa{transform:rotateX(0deg) translateY(-8px);box-shadow:inset -4px -5px 8px oklch(0 0 0/.28),inset 3px 3px 5px oklch(1 0 0/.16),0 0 0 2px var(--crema),0 26px 40px -10px oklch(0 0 0/.7)}
 @media(hover:hover){.placa-btn:hover .placa{transform:rotateX(0deg) translateY(-5px)}}
-.macro{position:fixed;width:170px;height:170px;border-radius:50%;pointer-events:none;z-index:45;opacity:0;transform:translate(-50%,-50%) scale(.6);background-size:520%;background-position:center;box-shadow:0 0 0 3px var(--crema),0 24px 50px oklch(0 0 0/.5);transition:opacity .18s ease,transform .22s cubic-bezier(.2,0,0,1);will-change:transform}
+.macro{position:fixed;width:170px;height:170px;border-radius:50%;pointer-events:none;z-index:45;opacity:0;transform:translate(-50%,-50%) scale(.6);background-size:240%;background-position:center;box-shadow:0 0 0 3px var(--crema),0 24px 50px oklch(0 0 0/.5);transition:opacity .18s ease,transform .22s cubic-bezier(.2,0,0,1);will-change:transform}
 .macro.visible{opacity:1;transform:translate(-50%,-50%) scale(1)}
 @media(hover:none){.macro{display:none}}
 
@@ -140,7 +142,7 @@ h1,h2,h3{text-wrap:balance}
 .lb-slide figcaption{font-size:13px;letter-spacing:.06em;opacity:.75;margin-top:14px}
 .lb-cerrar{position:fixed;top:18px;right:18px;width:48px;height:48px;border-radius:50%;border:0;background:oklch(1 0 0/.1);color:var(--crema);font-size:18px;cursor:pointer;z-index:2;transition:background .15s}
 .lb-cerrar:hover{background:oklch(1 0 0/.2)}
-.lb-ayuda{text-align:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.5;padding:0 0 22px}
+.lb-ayuda{text-align:center;font-size:12px;letter-spacing:var(--track-caps);text-transform:uppercase;opacity:.5;padding:0 0 22px}
 @media(hover:hover){.lb-ayuda{display:none}}
 .lb-abrir img{transition:transform .35s cubic-bezier(.2,0,0,1)}
 @media(hover:hover){.lb-abrir:hover img{transform:scale(1.02)}}
@@ -166,158 +168,292 @@ h1,h2,h3{text-wrap:balance}
 .ba-brillo.corre{animation:baBarrido .55s cubic-bezier(.2,0,0,1) forwards}
 @keyframes baBarrido{0%{opacity:0;transform:translateX(-60%)}20%{opacity:1}100%{opacity:0;transform:translateX(60%)}}
 @media(prefers-reduced-motion:reduce){.ba-brillo{display:none}}
+
+/* ===== 4.0: tokens tipográficos, serif editorial, sistema ===== */
+:root{--f-display:'Newsreader',Georgia,'Times New Roman',serif;--f-ui:'Sora','Sora Fallback',system-ui,sans-serif;--t-xs:.75rem;--t-sm:.875rem;--t-base:clamp(1rem, .95rem + .25vw, 1.0625rem);--t-lead:clamp(1.0625rem, 1rem + .4vw, 1.1875rem);--t-h3:1.0625rem;--t-h2:clamp(2rem, 1.4rem + 3vw, 3.4rem);--t-h1:clamp(2.5rem, 1.4rem + 3.4vw, 4.6rem);--t-display:clamp(1.7rem, 1.1rem + 2.8vw, 3.1rem);--track-caps:.12em;--track-kicker:.18em;--ancho:1180px;--hair:1px solid rgba(71,67,65,.18);--hair-claro:1px solid rgba(243,235,222,.2)}
+@font-face{font-family:'Sora Fallback';src:local('Arial');size-adjust:94%;ascent-override:96%;descent-override:24%;line-gap-override:0%}
+html{overflow-x:clip}
+body{font-family:var(--f-ui);font-kerning:normal;font-feature-settings:"kern","liga";line-height:1.55}
+h1,h2{font-family:var(--f-display);font-optical-sizing:auto;font-weight:400}
+p{text-wrap:pretty}
+.cinta b{font-weight:inherit}
+.faq summary{text-wrap:balance}
+@media(prefers-reduced-motion:reduce){[data-mq-scroll] i{animation:none !important}}
+
+/* ===== 4.0: hero coreografiado, teaser, nav sobre oscuro, CTAs ===== */
+html,body{overflow-x:clip}
+.hero-ed-foto{margin:0;position:relative;width:100%;justify-self:end}
+.hero-ed-cuadro{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;box-shadow:var(--sombra-2);background:var(--arena)}
+.hero-ed-pie{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;font-size:var(--t-xs);letter-spacing:.02em;opacity:.8}
+.hero-ed-muestras{display:flex;gap:4px}
+.hero-ed-muestras img{width:18px;height:18px;border-radius:4px;object-fit:cover;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+@media(min-width:901px){.hero-ed-cuadro{height:calc(100svh - 300px);max-height:calc(100svh - 300px);aspect-ratio:auto}}
+@media(max-width:900px){.hero-ed-cuadro{aspect-ratio:4/3;max-height:46svh}}
+.hero-ent{opacity:0;animation:heroIn .7s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes heroIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.hero-ed-cuadro{clip-path:inset(0 0 100% 0 round 22px);animation:heroCuadro 1.2s cubic-bezier(.16,1,.3,1) .2s forwards}
+@keyframes heroCuadro{to{clip-path:inset(0 0 0 0 round 22px)}}
+.hero-ed-img{transform:scale(1.08);animation:heroFoto 1.6s cubic-bezier(.16,1,.3,1) .2s forwards}
+@keyframes heroFoto{to{transform:scale(1)}}
+.hero-ed-marca{font-size:clamp(5.5rem,19.4vw,22rem);left:0;right:0;transform:none;text-align:center}
+[data-mq-scroll]{left:auto !important;right:clamp(20px,6vw,96px) !important}
+@media(prefers-reduced-motion:reduce){.hero-ent{animation:none;opacity:1}.hero-ed-cuadro{clip-path:none;animation:none}.hero-ed-img{transform:none;animation:none}}
+/* teaser: visual a la izquierda con jerarquía, texto a la derecha */
+.tease-grid{position:relative;z-index:2;max-width:var(--ancho);margin:0 auto;padding:clamp(76px,13vh,130px) clamp(20px,6vw,96px);display:grid;grid-template-columns:1fr;gap:clamp(32px,5vw,72px);align-items:center}
+@media(min-width:901px){.tease-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}.tease-texto{grid-column:2;grid-row:1}.tease-visual{grid-column:1;grid-row:1}}
+.tease-visual{display:grid;gap:12px;max-width:480px}
+.tease-visual figure{margin:0;display:grid;gap:8px}
+.tease-visual img{width:100%;object-fit:cover;border-radius:12px;transition:opacity .35s,transform .5s cubic-bezier(.22,1,.36,1)}
+.tease-visual .tease-grande{aspect-ratio:3/4}
+.tease-visual .tease-chica{aspect-ratio:4/3}
+.tease-visual .tease-fila{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tease-visual figcaption{font-size:var(--t-xs);letter-spacing:var(--track-caps);text-transform:uppercase;opacity:.75}
+@media(hover:hover) and (pointer:fine){.tease-visual:hover img{transform:translateY(-3px)}}
+.tease-visual .tease-grande{view-transition-name:portada}
+/* nav sobre secciones oscuras */
+[data-nav]{transition:box-shadow .4s ease,background .4s ease,color .4s ease}
+[data-nav].nav-oscura{background:rgba(29,27,26,.55) !important;color:var(--crema)}
+[data-nav].nav-oscura [data-mq-navcta]{background:var(--crema) !important;color:var(--marron) !important}
+@media(max-width:768px){[data-nav]{backdrop-filter:blur(10px) !important;-webkit-backdrop-filter:blur(10px) !important;background:rgba(243,235,222,.86) !important}[data-nav].nav-oscura{background:rgba(29,27,26,.7) !important}}
+/* CTAs con hover gateado (en táctil no queda pegado) */
+.cta-lleno,.cta-linea,.cta-claro{transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s,border-color .2s,color .2s}
+@media(hover:hover) and (pointer:fine){.cta-lleno:hover{background:var(--negro) !important;color:var(--crema);transform:translateY(-2px)}.cta-linea:hover{border-color:var(--marron) !important;transform:translateY(-2px)}.cta-linea-claro:hover{border-color:var(--crema) !important;background:rgba(243,235,222,.1);transform:translateY(-2px)}.cta-claro:hover{background:var(--blanco) !important;transform:translateY(-2px)}[data-lang-toggle]:hover{background:rgba(71,67,65,.08)}[data-nav].nav-oscura [data-lang-toggle]:hover{background:rgba(243,235,222,.12)}}
+.cta-lleno:active,.cta-linea:active,.cta-claro:active{transform:scale(.96)}
+.cta-tease .raya{display:inline-block;width:16px;height:1px;background:currentColor;transition:transform .22s cubic-bezier(.22,1,.36,1)}
+@media(hover:hover) and (pointer:fine){.cta-tease:hover .raya{transform:translateX(6px)}}
+@media(max-width:700px){.cinta-pista{animation-duration:26s}}
+
+/* ===== 4.0: ritmo, cortina, grilla única, comparador cruzando el corte ===== */
+:root{--solape:clamp(80px,12vh,140px)}
+@media(max-width:900px){:root{--solape:96px}}
+.cortina-fondo{position:sticky !important;top:0;z-index:0}
+.cortina-tapa{position:relative;z-index:1;border-radius:28px 28px 0 0;box-shadow:0 -24px 60px oklch(0 0 0/.35)}
+@media(max-width:900px){.cortina-tapa{border-radius:18px 18px 0 0}}
+.grano-vineta{position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at 50% 50%,transparent 42%,rgba(12,10,9,.5) 100%)}
+.grano-vineta::after{content:'';position:absolute;inset:0;mix-blend-mode:overlay;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");background-size:180px 180px}
+[data-kb]{animation:kenburns 34s ease-in-out infinite alternate}
+@supports(animation-timeline:view()){[data-kb]{animation:kenburns linear both;animation-timeline:view();animation-range:cover 0% cover 100%}}
+.cabecera{max-width:var(--ancho);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,60px);align-items:end}
+.ba-marco{max-width:var(--ancho);margin:clamp(30px,5vh,52px) auto calc(-1*var(--solape));position:relative;z-index:2}
+.ba{position:relative;border-radius:18px;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;background:#0f0d0c;box-shadow:0 30px 70px rgba(0,0,0,.45);aspect-ratio:4/5}
+@media(min-width:768px){.ba{aspect-ratio:1.43}}
+@media(min-width:901px){.ba{aspect-ratio:1.9}}
+@media(max-width:900px){.ba{margin-inline:calc(-1*clamp(20px,6vw,96px));border-radius:0}}
+.ba-pie{display:flex;justify-content:space-between;align-items:center;gap:12px 20px;flex-wrap:wrap;margin-top:16px;color:var(--marron)}
+.ba-pie p{margin:0;font-size:13px;opacity:.7;text-wrap:pretty}
+.ba-muestra{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;background:var(--marron);color:var(--crema);min-height:44px}
+.apps-grid{max-width:var(--ancho);margin:clamp(34px,6vh,60px) auto 0;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,2.4vw,28px)}
+.apps-grid figure{margin:0;display:grid;gap:12px;align-content:start}
+.apps-grid img{width:100%;object-fit:cover;border-radius:6px;background:var(--arena)}
+.apps-grid figcaption{border-top:var(--hair);padding-top:10px;display:grid;gap:3px}
+.apps-1{grid-column:1/8}.apps-1 img{aspect-ratio:3/2}
+.apps-2{grid-column:8/13}.apps-2 img{aspect-ratio:4/5}
+.apps-3{grid-column:1/6}.apps-3 img{aspect-ratio:4/5}
+.apps-4{grid-column:6/13}.apps-4 img{aspect-ratio:16/9}
+@media(max-width:700px){.apps-grid{grid-template-columns:1fr 1fr;gap:14px 12px}.apps-1{grid-column:1/-1}.apps-1 img{aspect-ratio:4/3}.apps-2,.apps-3{grid-column:span 1}.apps-2 img,.apps-3 img{aspect-ratio:4/5}.apps-4{grid-column:1/-1}.apps-4 img{aspect-ratio:16/9}}
+.faq-grid{max-width:var(--ancho);margin:0 auto;border-top:var(--hair);padding-top:clamp(40px,6vh,64px);display:grid;grid-template-columns:1fr;gap:clamp(24px,4vw,64px)}
+@media(min-width:901px){.faq-grid{grid-template-columns:4fr 8fr}.faq-cab{position:sticky;top:104px;align-self:start}}
+.faq{max-width:none;margin:0;gap:0}
+.faq details{background:none;border-radius:0;box-shadow:none;border-top:var(--hair)}
+.faq details:last-child{border-bottom:var(--hair)}
+.faq summary{padding:22px 0;font-size:17px;font-weight:600}
+.faq .faq-cuerpo>p{padding:0 0 4px;max-width:56ch;opacity:1;font-size:var(--t-base);transition:opacity .2s ease .06s,transform .2s cubic-bezier(.2,0,0,1) .06s;transform:translateY(-4px)}
+.faq details:not([open]) .faq-cuerpo>p{opacity:0}
+.faq details[open] .faq-cuerpo>p{opacity:1;transform:none}
+.calc-grid{max-width:var(--ancho);margin:0 auto;border-top:var(--hair);padding-top:clamp(40px,6vh,64px);display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px)}
+@media(min-width:901px){.calc-grid{grid-template-columns:7fr 5fr;align-items:end}}
+.calc{margin-top:clamp(28px,5vh,44px);border-top:var(--hair);padding-top:20px;max-width:520px}
+.calc-nota{margin-top:22px;font-size:13px;opacity:.9;line-height:1.5;text-wrap:pretty}
+.calc-res{background:var(--negro);color:var(--crema);border-radius:18px;padding:clamp(24px,3vw,36px);display:grid;gap:8px}
+.mundo{position:relative;min-height:100svh;display:grid;align-content:end;overflow:hidden;color:var(--crema);background:var(--negro);padding:clamp(120px,18vh,200px) clamp(20px,6vw,96px) clamp(60px,10vh,110px)}
+.mundo-grid{position:relative;z-index:2;max-width:var(--ancho);margin:0 auto;width:100%;display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px);align-items:end}
+@media(min-width:901px){.mundo-grid{grid-template-columns:7fr 5fr}}
+.mundo-agente a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;white-space:nowrap}
+.mundo-cta{display:grid;gap:8px}
+@media(prefers-reduced-motion:reduce){.faq .faq-cuerpo>p{transition:none}}
+
+/* ===== 4.0: WhatsApp flotante, lightbox con fundido, fotos que se acercan con el scroll ===== */
+.wa-flotante{position:fixed;right:16px;bottom:16px;z-index:45;width:56px;height:56px;border-radius:50%;background:#25623f;color:#f3ebde;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.28);opacity:0;transform:scale(.6);pointer-events:none;transition:opacity .22s cubic-bezier(.2,0,0,1),transform .22s cubic-bezier(.2,0,0,1)}
+.wa-flotante.visible{opacity:1;transform:none;pointer-events:auto}
+@media(min-width:1180px){.wa-flotante{right:28px;bottom:28px}}
+@media(hover:hover) and (pointer:fine){.wa-flotante.visible:hover{transform:translateY(-2px)}}
+.lb{opacity:0;transform:scale(.98);transition:opacity .26s cubic-bezier(.2,0,0,1),transform .26s cubic-bezier(.2,0,0,1),display .26s allow-discrete,overlay .26s allow-discrete}
+.lb[open]{opacity:1;transform:none}
+@starting-style{.lb[open]{opacity:0;transform:scale(.98)}}
+.lb::backdrop{opacity:0;transition:opacity .26s,display .26s allow-discrete,overlay .26s allow-discrete}
+.lb[open]::backdrop{opacity:1}
+@starting-style{.lb[open]::backdrop{opacity:0}}
+.lb:not([open]){transition-duration:.18s}
+@supports(animation-timeline:view()){.apps-grid .lb-abrir{overflow:hidden !important}.apps-grid img{animation:acercar linear both;animation-timeline:view();animation-range:entry 0% entry 70%}}
+@keyframes acercar{from{transform:scale(1.06)}to{transform:none}}
+@media(prefers-reduced-motion:reduce){.wa-flotante{transition:opacity .2s;transform:none}.lb{transform:none}.apps-grid img{animation:none}}
+
+/* ===== 4.0: detalles ===== */
+html:has(dialog[open]){overflow:hidden}
+.indice a::after{content:attr(aria-label);position:absolute;left:44px;top:-7px;font-size:11px;letter-spacing:.04em;white-space:nowrap;color:var(--marron);opacity:0;transform:translateX(-4px);transition:opacity .2s,transform .2s cubic-bezier(.2,0,0,1);pointer-events:none}
+.indice.sobre-oscuro a::after{color:var(--crema)}
+.indice:hover a::after,.indice a:focus-visible::after{opacity:.75;transform:none}
+.indice a.activo::after{opacity:.9;transform:none}
+@media(prefers-reduced-motion:reduce){.indice a::after{transition:none}}
+
+/* ===== 4.0: lote 4 ===== */
+.cta-texto{display:inline-flex;align-items:center;gap:12px;padding:15px 4px;font-weight:600;font-size:15px;color:var(--marron);border-bottom:1px solid currentColor;line-height:1.3}
+.cta-texto .raya{display:inline-block;width:16px;height:1px;background:currentColor;transition:transform .22s cubic-bezier(.22,1,.36,1)}
+@media(hover:hover) and (pointer:fine){.cta-texto:hover .raya{transform:translateX(6px)}}
+.lb-slide{box-sizing:border-box}
+.lb{height:100vh;max-height:100vh}
+@supports(height:100dvh){.lb{height:100dvh;max-height:100dvh}}
+[data-lang-toggle] span{pointer-events:none}
+@media(max-width:480px){.hero-ed a.cta-lleno{width:100%;justify-content:center;box-sizing:border-box}.hero-ed{padding-top:88px !important}}
+@media(max-width:900px) and (orientation:landscape) and (max-height:520px){.hero-ed{padding-top:80px !important;padding-bottom:36px !important;min-height:auto}.hero-ed-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) !important;gap:28px}.hero-ed-cuadro{aspect-ratio:auto;height:calc(100svh - 140px);max-height:none}h1{font-size:clamp(1.7rem,7vh,2.4rem) !important}.hero-ed p[data-i18n="hero.sub"]{margin:12px 0 18px !important}.hero-ed-marca{display:none}}
+@media(max-height:520px) and (min-width:700px){.ba{aspect-ratio:auto !important;height:calc(100svh - 96px);width:min(100%,calc((100svh - 96px) * 1.6));margin-inline:auto;border-radius:12px}[data-nav]{height:56px !important}[data-nav] img{height:26px !important}}
 </style>
 </helmet>
 
 <header data-nav data-screen-label="Nav" style="position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 clamp(16px,4vw,48px);background:rgba(243,235,222,0.72);backdrop-filter:blur(18px) saturate(160%);WebkitBackdropFilter:blur(18px) saturate(160%);transition:box-shadow 0.4s ease">
-  <a href="#inicio" aria-label="SAURIUM" style="display:flex;align-items:center"><img loading="eager" fetchpriority="high" decoding="async" src="img/logo-dark.webp" alt="Chukum Saurium" style="height:34px;width:auto"></a>
+  <a href="#inicio" aria-label="SAURIUM" style="display:flex;align-items:center;min-height:44px"><img data-logo-nav loading="eager" fetchpriority="high" decoding="async" src="img/logo-dark.webp" data-src-claro="logo-dark.webp" data-src-oscuro="logo-light.webp" alt="Chukum Saurium" style="height:34px;width:auto"></a>
   <nav data-mq-navlinks style="display:flex;gap:clamp(14px,2.5vw,32px);font-size:14px;font-weight:500">
     <a href="historia.html" data-i18n="nav.story" style="opacity:0.82;padding-bottom:4px;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:opacity 0.25s ease,background-size 0.4s cubic-bezier(0.22,1,0.36,1)" style-hover="opacity:1;background-size:100% 1px">Historia</a>
     <a href="#material" data-i18n="nav.chukum" style="opacity:0.82;padding-bottom:4px;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:opacity 0.25s ease,background-size 0.4s cubic-bezier(0.22,1,0.36,1)" style-hover="opacity:1;background-size:100% 1px">El chukum</a>
-    <a href="#colores" data-i18n="nav.colors" style="opacity:0.82;padding-bottom:4px;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:opacity 0.25s ease,background-size 0.4s cubic-bezier(0.22,1,0.36,1)" style-hover="opacity:1;background-size:100% 1px">Colores</a>
+    <a href="#colores" data-i18n="nav.colors" style="opacity:0.82;padding-bottom:4px;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:opacity 0.25s ease,background-size 0.4s cubic-bezier(0.22,1,0.36,1)" style-hover="opacity:1;background-size:100% 1px">Acabados</a>
     <a href="#aplicaciones" data-i18n="nav.apps" style="opacity:0.82;padding-bottom:4px;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:opacity 0.25s ease,background-size 0.4s cubic-bezier(0.22,1,0.36,1)" style-hover="opacity:1;background-size:100% 1px">Aplicaciones</a>
     <a href="#contacto" data-i18n="nav.contact" style="opacity:0.82;padding-bottom:4px;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:opacity 0.25s ease,background-size 0.4s cubic-bezier(0.22,1,0.36,1)" style-hover="opacity:1;background-size:100% 1px">Contacto</a>
   </nav>
   <div style="display:flex;align-items:center;gap:16px">
-    <button data-lang-toggle aria-label="Switch language" style="font-family:inherit;font-size:13px;font-weight:600;letter-spacing:0.04em;display:flex;gap:4px;padding:13px 12px;border-radius:999px;background:none;border:none;cursor:pointer;color:inherit;transition:background 0.2s" style-hover="background:rgba(71,67,65,0.08)">
+    <button data-lang-toggle aria-label="Cambiar a inglés" data-i18n-arialabel="a11y.lang" style="font-family:inherit;font-size:13px;font-weight:600;letter-spacing:0.04em;display:flex;gap:4px;padding:13px 12px;border-radius:999px;background:none;border:none;cursor:pointer;color:inherit;transition:background 0.2s">
       <span data-lang-opt="es" style="opacity:1;transition:opacity 0.25s">ES</span>
       <span style="opacity:0.3">/</span>
       <span data-lang-opt="en" style="opacity:0.4;transition:opacity 0.25s">EN</span>
     </button>
-    <a data-mq-navcta href="#contacto" data-i18n="nav.cta" style="background:var(--marron);color:var(--crema);padding:10px 20px;border-radius:999px;font-size:14px;font-weight:600;transition:transform 0.25s cubic-bezier(0.22,1,0.36,1),background 0.2s" style-hover="background:var(--negro);color:var(--crema)" style-active="transform:scale(0.96)">Cotizar</a>
+    <a data-mq-navcta href="#contacto" class="cta-lleno" data-i18n="nav.cta" style="background:var(--marron);color:var(--crema);padding:10px 20px;border-radius:999px;font-size:14px;font-weight:600">Cotizar</a>
   </div>
 </header>
 
 <main>
 <section id="inicio" data-screen-label="Hero" class="hero-ed" style="position:relative;min-height:100svh;overflow:hidden;background:var(--crema);color:var(--marron);display:grid;align-items:center;padding:112px clamp(20px,6vw,96px) clamp(120px,16vh,180px)">
-  <div class="hero-ed-grid" style="max-width:1180px;width:100%;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center">
+  <div class="hero-ed-grid" style="max-width:1180px;width:100%;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center">
     <div style="position:relative;z-index:2">
-      <p data-reveal data-i18n="hero.kicker" style="font-size:12px;letter-spacing:0.26em;text-transform:uppercase;color:var(--terracota-tinta);font-weight:600;margin-bottom:26px">Chukum auténtico de la Península de Yucatán</p>
-      <h1 style="font-size:clamp(2.5rem,5.6vw,4.4rem);line-height:1.02;letter-spacing:-0.03em;font-weight:300;max-width:12ch;color:var(--negro)">
-        <span style="display:block;overflow:hidden"><span data-i18n="hero.l1" style="display:inline-block;transform:translateY(110%);animation:rise 1.1s cubic-bezier(0.22,1,0.36,1) forwards">Desde el origen.</span></span>
-        <span style="display:block;overflow:hidden"><span data-i18n="hero.l2" style="display:inline-block;font-weight:800;transform:translateY(110%);animation:rise 1.1s cubic-bezier(0.22,1,0.36,1) 0.15s forwards">Diseñado para perdurar.</span></span>
+      <p class="hero-ent" data-i18n="hero.kicker" style="font-size:15px;letter-spacing:0;text-transform:none;color:var(--terracota-tinta);font-weight:500;margin-bottom:22px">Chukum auténtico de la Península de Yucatán</p>
+      <h1 style="font-size:var(--t-h1);line-height:1;letter-spacing:-0.015em;color:var(--negro)">
+        <span style="display:block;overflow:hidden"><span data-i18n="hero.l1" style="display:inline-block;transform:translateY(110%);animation:rise 1.1s cubic-bezier(0.22,1,0.36,1) 0.12s forwards">Desde el origen.</span></span>
+        <span style="display:block;overflow:hidden"><span data-i18n="hero.l2" style="display:inline-block;font-weight:500;transform:translateY(110%);animation:rise 1.1s cubic-bezier(0.22,1,0.36,1) 0.26s forwards">Diseñado para perdurar.</span></span>
       </h1>
-      <p data-reveal data-i18n="hero.sub" style="margin:28px 0 36px;max-width:44ch;font-size:clamp(1.02rem,1.5vw,1.18rem);line-height:1.55;text-wrap:pretty">Un recubrimiento natural con huella histórica. Nacido en Yucatán, listo para el mundo.</p>
-      <div data-reveal style="display:flex;gap:14px;flex-wrap:wrap">
-        <a href="#material" data-i18n="hero.cta1" style="display:inline-flex;align-items:center;padding:15px 30px;border-radius:999px;font-weight:600;font-size:15px;background:var(--marron);color:var(--crema);box-shadow:var(--sombra-2);transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),background 0.2s" style-hover="background:var(--negro);transform:translateY(-2px)" style-active="transform:scale(0.96)">Descubrir el material</a>
-        <a href="#contacto" data-i18n="hero.cta2" style="display:inline-flex;align-items:center;padding:15px 30px;border-radius:999px;font-weight:600;font-size:15px;border:1.5px solid rgba(71,67,65,0.35);color:var(--marron);transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),border-color 0.2s" style-hover="border-color:var(--marron);transform:translateY(-2px)" style-active="transform:scale(0.96)">Hablar con ventas</a>
+      <p class="hero-ent" data-i18n="hero.sub" style="animation-delay:.52s;margin:28px 0 36px;max-width:44ch;font-size:var(--t-lead);line-height:1.55;text-wrap:pretty">Un recubrimiento natural con huella histórica. Resina del árbol de chukum y cal de la península, aplicado capa sobre capa.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="#contacto" data-wa-link="hero" class="hero-ent cta-lleno" style="animation-delay:.66s;display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:600;font-size:15px;background:var(--marron);color:var(--crema);box-shadow:var(--sombra-2)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c0 .2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.4 2.6 1.6.3.1.5.1.7-.1l1.1-1.3c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.3 1.6Z"></path></svg><span data-i18n="hero.cta2">Hablar con ventas</span></a>
+        <a href="#material" class="hero-ent cta-texto" style="animation-delay:.74s"><span data-i18n="hero.cta1">Ver el material</span><span aria-hidden="true" class="raya"></span></a>
       </div>
     </div>
-    <figure data-reveal data-reveal-desde="escala" class="hero-ed-foto" style="margin:0;position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;box-shadow:var(--sombra-2)">
-      <img data-parallax="0.12" src="img/hero-luminoso.webp" srcset="img/hero-luminoso-720.webp 720w, img/hero-luminoso-1200.webp 1200w, img/hero-luminoso.webp 1800w" sizes="(max-width:900px) 100vw, 50vw" loading="eager" fetchpriority="high" decoding="async" alt="Costa y selva de la Península de Yucatán desde el aire" style="position:absolute;inset:-8%;width:116%;height:116%;max-width:none;object-fit:cover">
-      <div data-mq-swatches aria-hidden="true" style="position:absolute;right:16px;bottom:16px;z-index:2;display:flex;gap:5px">
-        <img loading="lazy" decoding="async" src="img/swatch-arena.webp" alt="" style="width:30px;height:30px;border-radius:5px;object-fit:cover;box-shadow:0 2px 10px rgba(0,0,0,0.35)">
-        <img loading="lazy" decoding="async" src="img/swatch-crema.webp" alt="" style="width:30px;height:30px;border-radius:5px;object-fit:cover;box-shadow:0 2px 10px rgba(0,0,0,0.35)">
-        <img loading="lazy" decoding="async" src="img/swatch-gris.webp" alt="" style="width:30px;height:30px;border-radius:5px;object-fit:cover;box-shadow:0 2px 10px rgba(0,0,0,0.35)">
-        <img loading="lazy" decoding="async" src="img/swatch-carbon.webp" alt="" style="width:30px;height:30px;border-radius:5px;object-fit:cover;box-shadow:0 2px 10px rgba(0,0,0,0.35)">
-        <img loading="lazy" decoding="async" src="img/swatch-oliva.webp" alt="" style="width:30px;height:30px;border-radius:5px;object-fit:cover;box-shadow:0 2px 10px rgba(0,0,0,0.35)">
-        <img loading="lazy" decoding="async" src="img/swatch-terracota.webp" alt="" style="width:30px;height:30px;border-radius:5px;object-fit:cover;box-shadow:0 2px 10px rgba(0,0,0,0.35)">
+    <figure class="hero-ed-foto">
+      <div class="hero-ed-cuadro">
+        <div data-parallax="0.12" style="position:absolute;inset:-8%;width:116%;height:116%">
+          <img class="hero-ed-img" src="img/hero-luminoso.webp" srcset="img/hero-luminoso-720.webp 720w, img/hero-luminoso-1200.webp 1200w, img/hero-luminoso-1600.webp 1600w, img/hero-luminoso.webp 1800w" sizes="(max-width:900px) 100vw, 50vw" loading="eager" fetchpriority="high" decoding="async" alt="Costa y selva de la Península de Yucatán desde el aire" data-i18n-alt="alt.hero" style="width:100%;height:100%;max-width:none;object-fit:cover;display:block">
+        </div>
       </div>
+      <figcaption class="hero-ed-pie hero-ent" style="animation-delay:.9s">
+        <span data-i18n="hero.pie">Costa de la Península de Yucatán</span>
+        <span class="hero-ed-muestras" aria-hidden="true"><img loading="lazy" decoding="async" src="img/swatch-arena.webp" alt=""><img loading="lazy" decoding="async" src="img/swatch-crema.webp" alt=""><img loading="lazy" decoding="async" src="img/swatch-gris.webp" alt=""><img loading="lazy" decoding="async" src="img/swatch-carbon.webp" alt=""><img loading="lazy" decoding="async" src="img/swatch-oliva.webp" alt=""><img loading="lazy" decoding="async" src="img/swatch-terracota.webp" alt=""></span>
+      </figcaption>
     </figure>
   </div>
-  <div class="hero-ed-marca" aria-hidden="true">SAURIUM</div>
-  <div data-mq-scroll aria-hidden="true" style="position:absolute;bottom:28px;left:clamp(20px,6vw,96px);font-size:11px;letter-spacing:0.25em;text-transform:uppercase;opacity:0.6;display:grid;justify-items:center;gap:10px">
-    <span data-i18n="hero.scroll">Deslizar</span>
-    <i style="width:1px;height:44px;background:currentColor;display:block;animation:drop 2s cubic-bezier(0.22,1,0.36,1) infinite"></i>
-  </div>
+  <div class="hero-ed-marca" data-parallax="-0.06" aria-hidden="true">SAURIUM</div>
+  
 </section>
 
 <div class="cinta" aria-hidden="true">
   <div class="cinta-pista">
     <span><i style="--c:var(--fin-arena)"></i><b data-i18n="colors.c1">Arena</b></span><span><i style="--c:var(--fin-crema)"></i><b data-i18n="colors.c2">Crema</b></span><span><i style="--c:var(--fin-gris)"></i><b data-i18n="colors.c3">Gris</b></span><span><i style="--c:var(--fin-carbon)"></i><b data-i18n="colors.c4">Carbón</b></span><span><i style="--c:var(--fin-oliva)"></i><b data-i18n="colors.c5">Oliva</b></span><span><i style="--c:var(--fin-terracota)"></i><b data-i18n="colors.c6">Terracota</b></span>
-    <span><i style="--c:var(--fin-arena)"></i><b>Arena</b></span><span><i style="--c:var(--fin-crema)"></i><b>Crema</b></span><span><i style="--c:var(--fin-gris)"></i><b>Gris</b></span><span><i style="--c:var(--fin-carbon)"></i><b>Carbón</b></span><span><i style="--c:var(--fin-oliva)"></i><b>Oliva</b></span><span><i style="--c:var(--fin-terracota)"></i><b>Terracota</b></span>
+    <span><i style="--c:var(--fin-arena)"></i><b data-i18n="colors.c1">Arena</b></span><span><i style="--c:var(--fin-crema)"></i><b data-i18n="colors.c2">Crema</b></span><span><i style="--c:var(--fin-gris)"></i><b data-i18n="colors.c3">Gris</b></span><span><i style="--c:var(--fin-carbon)"></i><b data-i18n="colors.c4">Carbón</b></span><span><i style="--c:var(--fin-oliva)"></i><b data-i18n="colors.c5">Oliva</b></span><span><i style="--c:var(--fin-terracota)"></i><b data-i18n="colors.c6">Terracota</b></span>
   </div>
 </div>
 
-<nav class="indice" aria-label="Secciones">
-  <a href="#inicio" data-indice="inicio" aria-label="Inicio"></a>
-  <a href="#historia" data-indice="historia" aria-label="Historia"></a>
-  <a href="#material" data-indice="material" aria-label="El chukum"></a>
-  <a href="#colores" data-indice="colores" aria-label="Acabados"></a>
-  <a href="#aplicaciones" data-indice="aplicaciones" aria-label="Aplicaciones"></a>
-  <a href="#calculadora" data-indice="calculadora" aria-label="Calculadora"></a>
-  <a href="#preguntas" data-indice="preguntas" aria-label="Preguntas"></a>
-  <a href="#contacto" data-indice="contacto" aria-label="Contacto"></a>
+<nav class="indice" aria-label="Secciones" data-i18n-arialabel="a11y.secciones">
+  <a href="#inicio" data-indice="inicio" aria-label="Inicio" data-i18n-arialabel="idx.inicio"></a>
+  <a href="#historia" data-indice="historia" aria-label="Historia" data-i18n-arialabel="idx.historia"></a>
+  <a href="#material" data-indice="material" aria-label="El chukum" data-i18n-arialabel="idx.material"></a>
+  <a href="#colores" data-indice="colores" aria-label="Acabados" data-i18n-arialabel="idx.colores"></a>
+  <a href="#aplicaciones" data-indice="aplicaciones" aria-label="Aplicaciones" data-i18n-arialabel="idx.aplicaciones"></a>
+  <a href="#preguntas" data-indice="preguntas" aria-label="Preguntas" data-i18n-arialabel="idx.preguntas"></a>
+  <a href="#calculadora" data-indice="calculadora" aria-label="Calculadora" data-i18n-arialabel="idx.calculadora"></a>
+  <a href="#contacto" data-indice="contacto" aria-label="Contacto" data-i18n-arialabel="idx.contacto"></a>
 </nav>
 
-<section id="historia" data-screen-label="Historia" style="position:relative;overflow:hidden;background:var(--negro);color:var(--crema)">
-  <img data-kb src="img/story-dino.webp" srcset="img/story-dino-720.webp 720w, img/story-dino-1200.webp 1200w, img/story-dino.webp 1600w" sizes="100vw" alt="" aria-hidden="true" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.62;animation:kenburns 34s ease-in-out infinite alternate">
+<section id="historia" data-screen-label="Historia" data-tema="oscuro" class="cortina-fondo" style="position:relative;overflow:hidden;background:var(--negro);color:var(--crema)">
+  <img data-kb src="img/story-dino.webp" srcset="img/story-dino-720.webp 720w, img/story-dino-1200.webp 1200w, img/story-dino.webp 1600w" sizes="100vw" alt="" aria-hidden="true" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.62">
   <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(20,17,15,0.9) 0%,rgba(20,17,15,0.6) 46%,rgba(20,17,15,0.35) 100%)"></div>
-  <div style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:clamp(76px,13vh,130px) clamp(20px,6vw,96px) clamp(96px,16vh,170px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,5vw,72px);align-items:center;padding-bottom:clamp(76px,13vh,130px)">
-    <div data-reveal>
-      <p data-i18n="tease.kicker" style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;opacity:0.6;margin-bottom:18px">La historia</p>
-      <h2 data-i18n="tease.title" style="font-size:clamp(1.8rem,4.2vw,2.9rem);line-height:1.1;letter-spacing:-0.025em;font-weight:700;max-width:15ch;text-wrap:balance">Una tierra que guarda lo que pasa por ella.</h2>
-      <p data-i18n="tease.sub" style="margin-top:18px;font-size:clamp(0.98rem,1.5vw,1.1rem);opacity:0.75;max-width:46ch;text-wrap:pretty">Del impacto que marcó la península al material que hoy recubre sus muros. Sesenta y seis millones de años en tres capítulos.</p>
-      <a href="historia.html" style="display:inline-flex;align-items:center;gap:12px;margin-top:30px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;background:var(--crema);color:var(--marron);transition:transform 0.22s cubic-bezier(0.22,1,0.36,1),gap 0.22s" style-hover="background:#fff;color:var(--marron);transform:translateY(-2px);gap:18px" style-active="transform:scale(0.97)">
+  <div aria-hidden="true" class="grano-vineta"></div>
+  <div class="tease-grid">
+    <div class="tease-texto" data-reveal>
+      <h2 data-reveal data-reveal-desde="cortina" data-i18n="tease.title" style="font-size:var(--t-h2);line-height:1.05;letter-spacing:-0.01em;max-width:15ch;text-wrap:balance">Una tierra que guarda lo que pasa por ella.</h2>
+      <p data-i18n="tease.sub" style="margin-top:18px;font-size:var(--t-lead);opacity:0.75;max-width:46ch;text-wrap:pretty">Del impacto que marcó la península al material que hoy recubre sus muros. Sesenta y seis millones de años en tres capítulos.</p>
+      <a href="historia.html" class="cta-claro cta-tease" style="display:inline-flex;align-items:center;gap:12px;margin-top:30px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;background:var(--crema);color:var(--marron)">
         <span data-i18n="tease.cta">Recorrer la historia</span>
-        <span aria-hidden="true" style="display:inline-block;width:16px;height:1px;background:currentColor"></span>
+        <span aria-hidden="true" class="raya"></span>
       </a>
     </div>
-    <a data-reveal href="historia.html" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-      <figure style="margin:0;display:grid;gap:10px">
-        <img src="img/story-selva.webp" srcset="img/story-selva-720.webp 720w, img/story-selva-1200.webp 1200w, img/story-selva.webp 1600w" sizes="100vw" alt="Selva baja de Yucatán" loading="lazy" style="aspect-ratio:3/4;object-fit:cover;width:100%;border-radius:14px;opacity:0.9;transition:opacity 0.35s,transform 0.5s cubic-bezier(0.22,1,0.36,1)" style-hover="opacity:1;transform:translateY(-4px)">
-        <figcaption data-i18n="tease.c1" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.6">01 Origen</figcaption>
+    <a class="tease-visual" href="historia.html" data-reveal data-reveal-desde="izq" aria-label="Recorrer la historia del chukum" data-i18n-arialabel="tease.cta">
+      <figure>
+        <img class="tease-grande" src="img/story-huella.webp" srcset="img/story-huella-720.webp 720w, img/story-huella-1200.webp 1200w, img/story-huella.webp 1600w" sizes="(max-width:900px) 100vw, 40vw" alt="Huella fósil en la caliza" data-i18n-alt="alt.t3" loading="lazy">
+        <figcaption data-i18n="tease.c3">Huella</figcaption>
       </figure>
-      <figure style="margin:0;display:grid;gap:10px">
-        <img src="img/story-dino.webp" srcset="img/story-dino-720.webp 720w, img/story-dino-1200.webp 1200w, img/story-dino.webp 1600w" sizes="100vw" alt="El impacto en la península" loading="lazy" style="aspect-ratio:3/4;object-fit:cover;width:100%;border-radius:14px;opacity:0.9;transition:opacity 0.35s,transform 0.5s cubic-bezier(0.22,1,0.36,1)" style-hover="opacity:1;transform:translateY(-4px)">
-        <figcaption data-i18n="tease.c2" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.6">02 Impacto</figcaption>
-      </figure>
-      <figure style="margin:0;display:grid;gap:10px">
-        <img src="img/story-huella.webp" srcset="img/story-huella-720.webp 720w, img/story-huella-1200.webp 1200w, img/story-huella.webp 1600w" sizes="100vw" alt="Huella fósil en la caliza" loading="lazy" style="aspect-ratio:3/4;object-fit:cover;width:100%;border-radius:14px;opacity:0.9;transition:opacity 0.35s,transform 0.5s cubic-bezier(0.22,1,0.36,1)" style-hover="opacity:1;transform:translateY(-4px)">
-        <figcaption data-i18n="tease.c3" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.6">03 Huella</figcaption>
-      </figure>
+      <div class="tease-fila">
+        <figure>
+          <img class="tease-chica" src="img/story-selva.webp" srcset="img/story-selva-720.webp 720w, img/story-selva-1200.webp 1200w" sizes="(max-width:900px) 50vw, 20vw" alt="Selva baja de Yucatán" data-i18n-alt="alt.t1" loading="lazy">
+          <figcaption data-i18n="tease.c1">Origen</figcaption>
+        </figure>
+        <figure>
+          <img class="tease-chica" src="img/story-dino.webp" srcset="img/story-dino-720.webp 720w, img/story-dino-1200.webp 1200w" sizes="(max-width:900px) 50vw, 20vw" alt="El impacto en la península" data-i18n-alt="alt.t2" loading="lazy">
+          <figcaption data-i18n="tease.c2">Impacto</figcaption>
+        </figure>
+      </div>
     </a>
   </div>
 </section>
 
-<section id="material" data-reveal-desde="izq" data-screen-label="El material" style="position:relative;padding:clamp(190px,30vh,340px) clamp(20px,6vw,96px);background-image:linear-gradient(180deg,rgb(29,27,26) 0%,rgba(29,27,26,0.985) 10%,rgba(29,27,26,0.94) 20%,rgba(29,27,26,0.845) 30%,rgba(29,27,26,0.71) 40%,rgba(29,27,26,0.55) 50%,rgba(29,27,26,0.39) 60%,rgba(29,27,26,0.245) 70%,rgba(29,27,26,0.13) 80%,rgba(29,27,26,0.045) 90%,rgba(29,27,26,0) 100%),linear-gradient(0deg,rgb(29,27,26) 0%,rgba(29,27,26,0.985) 10%,rgba(29,27,26,0.94) 20%,rgba(29,27,26,0.845) 30%,rgba(29,27,26,0.71) 40%,rgba(29,27,26,0.55) 50%,rgba(29,27,26,0.39) 60%,rgba(29,27,26,0.245) 70%,rgba(29,27,26,0.13) 80%,rgba(29,27,26,0.045) 90%,rgba(29,27,26,0) 100%);background-size:100% 170px,100% 170px;background-position:0 0,0 100%;background-repeat:no-repeat,no-repeat">
-  <div data-reveal style="max-width:1180px;margin:0 auto clamp(44px,7vh,72px)">
-    <p data-i18n="material.kicker" style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;opacity:0.82;margin-bottom:18px">El material</p>
-    <h2 data-i18n="material.title" style="font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.1;letter-spacing:-0.02em;font-weight:700;max-width:16ch;text-wrap:balance">Qué es el chukum</h2>
-    <p data-i18n="material.sub" style="margin-top:20px;font-size:clamp(1rem,1.5vw,1.14rem);opacity:0.82;max-width:60ch;text-wrap:pretty">Un estuco natural de origen maya: resina del árbol de chukum mezclada con cal de la península. Mil años de uso continuo, del estuco de las ciudades mayas a la arquitectura de Tulum y la Riviera Maya. Alta adherencia, repelencia al agua y comportamiento probado en clima tropical extremo.</p>
+<section id="material" data-tema="claro" data-reveal-desde="izq" data-screen-label="El material" class="cortina-tapa" style="padding:clamp(88px,12vh,150px) clamp(20px,6vw,96px);background:var(--crema)">
+  <div data-reveal style="max-width:var(--ancho);margin:0 auto clamp(44px,7vh,72px)">
+    <h2 data-reveal data-reveal-desde="cortina" data-i18n="material.title" style="font-size:var(--t-h2);line-height:1.05;letter-spacing:-0.01em;max-width:16ch;text-wrap:balance">Qué es el chukum</h2>
+    <p data-i18n="material.sub" style="margin-top:20px;font-size:var(--t-lead);opacity:0.82;max-width:60ch;text-wrap:pretty">Un estuco natural de origen maya: resina del árbol de chukum mezclada con cal de la península. Los mayas lo usaron en sus ciudades y hoy recubre buena parte de la arquitectura de Tulum y la Riviera Maya. Se adhiere fuerte, repele el agua y aguanta el clima tropical.</p>
   </div>
   <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(32px,5vw,72px);align-items:start">
     <figure data-mq-sticky data-reveal style="margin:0">
-      <div data-saco3d tabindex="0" role="img" aria-label="Saco de chukum SAURIUM de 20 kg en tres dimensiones. Usa las flechas para girarlo." data-i18n-arialabel="material.bag3d" style="position:relative;aspect-ratio:4/5;border-radius:24px;background:radial-gradient(ellipse at 50% 34%,#2a2624,#161413 76%);box-shadow:0 24px 60px rgba(29,27,26,0.28);overflow:hidden;touch-action:pan-y;cursor:grab">
-        <img data-saco src="img/producto-saco.webp" srcset="img/producto-saco-720.webp 720w, img/producto-saco-1200.webp 1200w, img/producto-saco.webp 1500w" sizes="(max-width:768px) 100vw, 50vw" alt="Saco de chukum SAURIUM de 20 kg" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <div data-saco3d tabindex="0" role="img" aria-label="Saco de chukum SAURIUM de 20&nbsp;kg en tres dimensiones. Usa las flechas para girarlo." data-i18n-arialabel="material.bag3d" style="position:relative;aspect-ratio:4/5;border-radius:24px;background:radial-gradient(ellipse at 50% 34%,#2a2624,#161413 76%);box-shadow:0 24px 60px rgba(29,27,26,0.28);overflow:hidden;touch-action:pan-y;cursor:grab">
+        <img data-saco src="img/producto-saco.webp" srcset="img/producto-saco-720.webp 720w, img/producto-saco-1200.webp 1200w, img/producto-saco.webp 1500w" sizes="(max-width:768px) 100vw, 50vw" alt="Saco de chukum SAURIUM de 20 kg" data-i18n-alt="alt.saco" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
       </div>
-      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.55">
-        <span data-i18n="material.bag">Saco de 20 kg</span>
+      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px;font-size:12px;letter-spacing:var(--track-caps);text-transform:uppercase;opacity:0.85">
+        <span data-i18n="material.bag">Saco de 20&nbsp;kg</span>
         <span data-i18n="material.hint3d">Arrastra para rotar</span>
       </figcaption>
     </figure>
     <dl data-reveal style="display:grid;gap:24px">
       <div style="display:grid;gap:6px;padding-top:20px;border-top:1px solid rgba(71,67,65,0.18)">
-        <dt data-i18n="material.r1t" style="font-weight:700;font-size:1.02rem">El árbol</dt>
-        <dd data-i18n="material.r1d" style="margin:0;font-size:0.95rem;opacity:0.82;max-width:56ch;text-wrap:pretty">Havardia albicans, un árbol espinoso de la selva baja de Yucatán. Los mayas lo llamaron chukum y aprovecharon su corteza durante siglos, extrayéndola sin dañar el árbol.</dd>
+        <dt data-i18n="material.r1t" style="font-weight:700;font-size:var(--t-h3)">El árbol</dt>
+        <dd style="margin:0;font-size:var(--t-base);opacity:0.82;max-width:56ch;text-wrap:pretty"><i lang="la">Havardia albicans</i><span data-i18n="material.r1d">, un árbol espinoso de la selva baja de Yucatán. Los mayas lo llamaron chukum y durante siglos le sacaron la corteza sin talar el árbol.</span></dd>
       </div>
       <div style="display:grid;gap:6px;padding-top:20px;border-top:1px solid rgba(71,67,65,0.18)">
-        <dt data-i18n="material.r2t" style="font-weight:700;font-size:1.02rem">La técnica</dt>
-        <dd data-i18n="material.r2d" style="margin:0;font-size:0.95rem;opacity:0.82;max-width:56ch;text-wrap:pretty">La corteza se hierve para liberar sus taninos y el extracto se mezcla con cal hidratada. El resultado es una pasta que se aplica como estuco fino, capa sobre capa, sin pintura ni selladores.</dd>
+        <dt data-i18n="material.r2t" style="font-weight:700;font-size:var(--t-h3)">La técnica</dt>
+        <dd data-i18n="material.r2d" style="margin:0;font-size:var(--t-base);opacity:0.82;max-width:56ch;text-wrap:pretty">La corteza se hierve para liberar sus taninos y el extracto se mezcla con cal hidratada. El resultado es una pasta que se aplica como estuco fino, capa sobre capa, sin pintura ni selladores.</dd>
       </div>
       <div style="display:grid;gap:6px;padding-top:20px;border-top:1px solid rgba(71,67,65,0.18)">
-        <dt data-i18n="material.r3t" style="font-weight:700;font-size:1.02rem">Hidrófugo natural</dt>
-        <dd data-i18n="material.r3d" style="margin:0;font-size:0.95rem;opacity:0.82;max-width:56ch;text-wrap:pretty">Los mayas lo usaban para impermeabilizar cisternas y depósitos de agua. Por eso hoy recubre albercas, cenotes artificiales y baños: repele el agua y deja respirar el muro.</dd>
+        <dt data-i18n="material.r3t" style="font-weight:700;font-size:var(--t-h3)">Hidrófugo natural</dt>
+        <dd data-i18n="material.r3d" style="margin:0;font-size:var(--t-base);opacity:0.82;max-width:56ch;text-wrap:pretty">Los mayas lo usaban para impermeabilizar cisternas y depósitos de agua. Por eso hoy recubre albercas, cenotes artificiales y baños: repele el agua y deja respirar el muro.</dd>
       </div>
       <div style="display:grid;gap:6px;padding-top:20px;border-top:1px solid rgba(71,67,65,0.18)">
-        <dt data-i18n="material.r4t" style="font-weight:700;font-size:1.02rem">Auténtico, no imitación</dt>
-        <dd data-i18n="material.r4d" style="margin:0;font-size:0.95rem;opacity:0.82;max-width:56ch;text-wrap:pretty">El chukum auténtico lleva resina real del árbol. Las imitaciones acrílicas copian el color, no el comportamiento: no envejecen igual, no respiran igual y no vienen de Yucatán.</dd>
+        <dt data-i18n="material.r4t" style="font-weight:700;font-size:var(--t-h3)">Auténtico, no imitación</dt>
+        <dd data-i18n="material.r4d" style="margin:0;font-size:var(--t-base);opacity:0.82;max-width:56ch;text-wrap:pretty">El chukum auténtico lleva resina real del árbol. Las imitaciones acrílicas copian el color, pero no respiran ni envejecen como la cal.</dd>
       </div>
       <div style="display:grid;gap:6px;padding-top:20px;border-top:1px solid rgba(71,67,65,0.18)">
-        <dt data-i18n="material.r5t" style="font-weight:700;font-size:1.02rem">Listo para exportar</dt>
-        <dd data-i18n="material.r5d" style="margin:0;font-size:0.95rem;opacity:0.82;max-width:56ch;text-wrap:pretty">Presentación en saco de 20 kg, elaborado en la Península de Yucatán, con ficha técnica y soporte para proyectos internacionales.</dd>
+        <dt data-i18n="material.r5t" style="font-weight:700;font-size:var(--t-h3)">Listo para exportar</dt>
+        <dd data-i18n="material.r5d" style="margin:0;font-size:var(--t-base);opacity:0.82;max-width:56ch;text-wrap:pretty">Presentación en saco de 20&nbsp;kg, elaborado en la Península de Yucatán, con ficha técnica y soporte para proyectos internacionales.</dd>
       </div>
     </dl>
   </div>
 </section>
 
-<section id="colores" data-reveal-desde="escala" data-screen-label="Acabados" style="position:relative;background:var(--negro);color:var(--crema);padding:clamp(72px,11vh,130px) clamp(20px,6vw,96px) clamp(80px,12vh,140px);overflow:hidden">
-  <div data-reveal style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,5vw,64px);align-items:end">
-    <div>
-      <p data-i18n="colors.kicker" style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;opacity:0.55;margin-bottom:18px">Acabados</p>
-      <h2 data-i18n="colors.title" style="font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.1;letter-spacing:-0.02em;font-weight:700;max-width:14ch;text-wrap:balance">Seis acabados, una misma tierra</h2>
-    </div>
-    <p data-i18n="colors.sub" style="font-size:clamp(1rem,1.5vw,1.12rem);opacity:0.7;max-width:48ch;text-wrap:pretty">Pigmentos minerales sobre la misma base de resina y cal. Sin pintura: el color es el material. Elige uno y mira la misma casa antes y después.</p>
+<section id="colores" data-tema="oscuro" data-reveal-desde="escala" data-screen-label="Acabados" style="position:relative;background:var(--negro);color:var(--crema);padding:clamp(72px,11vh,130px) clamp(20px,6vw,96px) 0">
+  <div data-reveal class="cabecera">
+    <h2 data-reveal data-reveal-desde="cortina" data-i18n="colors.title" style="font-size:var(--t-h2);line-height:1.05;letter-spacing:-0.01em;max-width:14ch;text-wrap:balance">Seis acabados, una misma tierra</h2>
+    <p data-i18n="colors.sub" style="font-size:var(--t-lead);opacity:0.7;max-width:48ch;text-wrap:pretty">Pigmentos minerales sobre la misma base de resina y cal. Sin pintura: el color es el material. Elige uno y mira la misma casa antes y después.</p>
   </div>
   <div data-swrow="compare" role="group" aria-label="Elegir acabado" data-i18n-arialabel="colors.group" class="estante" style="margin:clamp(34px,6vh,60px) auto clamp(26px,4vh,38px)">
     <button data-finish="arena" class="placa-btn" aria-pressed="false" style="font-family:inherit;display:grid;justify-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:0.06em;opacity:0.55;background:none;border:none;cursor:pointer;color:inherit;padding:8px 4px;scroll-snap-align:center;transition:opacity .3s" style-hover="opacity:1">
@@ -346,13 +482,14 @@ h1,h2,h3{text-wrap:balance}
     </button>
   </div>
   <div data-macro aria-hidden="true" class="macro"></div>
-  <div data-reveal data-ba data-mq-ba style="position:relative;max-width:1040px;margin:0 auto;border-radius:18px;aspect-ratio:4/5;overflow:hidden;touch-action:pan-y;user-select:none;WebkitUserSelect:none;background:#0f0d0c;box-shadow:0 30px 70px rgba(0,0,0,0.45)">
-    <img loading="lazy" decoding="async" data-ba-before src="img/casa-obra.webp" srcset="img/casa-obra-720.webp 720w, img/casa-obra-1200.webp 1200w, img/casa-obra.webp 1500w" sizes="(max-width:768px) 100vw, 50vw" alt="La casa en obra gris, sin acabado" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none">
-    <img loading="lazy" decoding="async" data-ba-after src="img/casa-terracota.webp" srcset="img/casa-terracota-720.webp 720w, img/casa-terracota-1200.webp 1200w, img/casa-terracota.webp 1500w" sizes="(max-width:768px) 100vw, 50vw" alt="La misma casa terminada con chukum SAURIUM" draggable="false" class="ba-capa" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none">
+  <div class="ba-marco">
+    <div data-reveal data-ba class="ba">
+    <img loading="lazy" decoding="async" data-ba-before src="img/casa-obra.webp" srcset="img/casa-obra-720.webp 720w, img/casa-obra-1200.webp 1200w, img/casa-obra.webp 1500w" sizes="(max-width:768px) 100vw, 50vw" alt="La casa en obra gris, sin acabado" data-i18n-alt="alt.antes" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none">
+    <img loading="lazy" decoding="async" data-ba-after src="img/casa-terracota.webp" srcset="img/casa-terracota-720.webp 720w, img/casa-terracota-1200.webp 1200w, img/casa-terracota.webp 1500w" sizes="(max-width:768px) 100vw, 50vw" alt="La misma casa terminada con chukum SAURIUM" data-i18n-alt="alt.despues" draggable="false" class="ba-capa" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none">
     <img data-ba-after2 alt="" aria-hidden="true" draggable="false" class="ba-capa" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;opacity:0">
     <div data-ba-brillo aria-hidden="true" class="ba-brillo"></div>
-    <span data-i18n="compare.before" style="position:absolute;top:clamp(14px,2.4vw,26px);left:clamp(14px,2.4vw,26px);z-index:2;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:9px 15px;border-radius:999px;background:rgba(20,17,15,0.55);color:var(--crema);backdrop-filter:blur(8px)">Obra gris</span>
-    <span data-ba-label-after style="position:absolute;top:clamp(14px,2.4vw,26px);right:clamp(14px,2.4vw,26px);z-index:2;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:9px 15px;border-radius:999px;background:rgba(20,17,15,0.55);color:var(--crema);backdrop-filter:blur(8px)">Terracota</span>
+    <span data-i18n="compare.before" style="position:absolute;top:clamp(14px,2.4vw,26px);left:clamp(14px,2.4vw,26px);z-index:2;font-size:12px;font-weight:600;letter-spacing:var(--track-caps);text-transform:uppercase;padding:9px 14px;border-radius:6px;background:rgba(20,17,15,0.82);color:var(--crema)">Obra gris</span>
+    <span data-ba-label-after style="position:absolute;top:clamp(14px,2.4vw,26px);right:clamp(14px,2.4vw,26px);z-index:2;font-size:12px;font-weight:600;letter-spacing:var(--track-caps);text-transform:uppercase;padding:9px 14px;border-radius:6px;background:rgba(20,17,15,0.82);color:var(--crema)">Terracota</span>
     <div aria-hidden="true" style="position:absolute;top:0;bottom:0;left:var(--pos,50%);width:0;pointer-events:none;z-index:3">
       <span class="ba-canto" aria-hidden="true"></span>
       <span data-ba-knob style="position:absolute;top:50%;left:0;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:var(--crema);box-shadow:0 8px 26px rgba(0,0,0,0.45);display:grid;place-items:center">
@@ -360,123 +497,119 @@ h1,h2,h3{text-wrap:balance}
         <span style="width:0;height:0;border:6px solid transparent;border-left-color:var(--marron);position:absolute;right:11px;top:50%;transform:translateY(-50%)"></span>
       </span>
     </div>
-    <input data-ba-range type="range" min="0" max="100" step="0.1" aria-label="Comparar antes y después" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:4;WebkitAppearance:none;appearance:none">
-  </div>
-  <p data-i18n="compare.hint" style="max-width:1040px;margin:18px auto 0;text-align:center;font-size:12px;letter-spacing:0.06em;opacity:0.5">Arrastra la barra para ver la misma casa antes y después.</p>
-</section>
-
-<section id="aplicaciones" data-reveal-desde="der" data-screen-label="Aplicaciones" style="padding:clamp(190px,30vh,340px) clamp(20px,6vw,96px) clamp(40px,6vh,70px);background-image:linear-gradient(180deg,rgb(29,27,26) 0%,rgba(29,27,26,0.985) 10%,rgba(29,27,26,0.94) 20%,rgba(29,27,26,0.845) 30%,rgba(29,27,26,0.71) 40%,rgba(29,27,26,0.55) 50%,rgba(29,27,26,0.39) 60%,rgba(29,27,26,0.245) 70%,rgba(29,27,26,0.13) 80%,rgba(29,27,26,0.045) 90%,rgba(29,27,26,0) 100%);background-size:100% 170px;background-position:0 0;background-repeat:no-repeat">
-  <div data-reveal style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,60px);align-items:end">
-    <h2 data-i18n="apps.title" style="font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.1;letter-spacing:-0.02em;font-weight:700;max-width:15ch;text-wrap:balance">Donde la historia se vuelve arquitectura</h2>
-    <p data-i18n="apps.sub" style="font-size:clamp(1rem,1.5vw,1.1rem);opacity:0.82;max-width:46ch;text-wrap:pretty">Muros y fachadas, albercas y cenotes, interiores, baños y mobiliario. Una sola pasta, aplicada capa sobre capa.</p>
-  </div>
-  <div data-mq-apps style="max-width:1180px;margin:clamp(38px,6vh,64px) auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.4vw,28px)">
-    <figure data-reveal style="margin:0;display:grid;gap:14px">
-      <button type="button" class="lb-abrir" data-lb="uso-exterior" aria-label="Ampliar: Muros de chukum en un patio con piscina" style="all:unset;display:block;cursor:zoom-in;border-radius:16px"><img src="img/uso-exterior.webp" srcset="img/uso-exterior-720.webp 720w, img/uso-exterior.webp 900w" sizes="(max-width:768px) 100vw, 50vw" alt="Muros de chukum en un patio con piscina" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:16px;background:var(--arena)"></button>
-      <figcaption style="display:grid;gap:4px">
-        <b data-i18n="apps.a1" style="font-size:15px;font-weight:600">Muros y fachadas</b>
-        <span data-i18n="apps.d1" style="font-size:13px;opacity:0.82">Casa privada, Yucatán</span>
-      </figcaption>
-    </figure>
-    <figure data-reveal style="margin:0;display:grid;gap:14px">
-      <button type="button" class="lb-abrir" data-lb="uso-interior" aria-label="Ampliar: Interior con muros de chukum" style="all:unset;display:block;cursor:zoom-in;border-radius:16px"><img src="img/uso-interior.webp" srcset="img/uso-interior-720.webp 720w, img/uso-interior.webp 900w" sizes="(max-width:768px) 100vw, 50vw" alt="Interior con muros de chukum" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:16px;background:var(--arena)"></button>
-      <figcaption style="display:grid;gap:4px">
-        <b data-i18n="apps.a3" style="font-size:15px;font-weight:600">Interiores</b>
-        <span data-i18n="apps.d3" style="font-size:13px;opacity:0.82">Sala con muros continuos</span>
-      </figcaption>
-    </figure>
-    <figure data-reveal style="margin:0;display:grid;gap:14px">
-      <button type="button" class="lb-abrir" data-lb="uso-piscina" aria-label="Ampliar: Alberca con borde y muros de acabado continuo en tono arena" style="all:unset;display:block;cursor:zoom-in;border-radius:16px"><img src="img/uso-piscina.webp" srcset="img/uso-piscina-720.webp 720w, img/uso-piscina.webp 900w" sizes="(max-width:768px) 100vw, 50vw" alt="Alberca con borde y muros de acabado continuo en tono arena" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:16px;background:var(--arena)"></button>
-      <figcaption style="display:grid;gap:4px">
-        <b data-i18n="apps.a2" style="font-size:15px;font-weight:600">Albercas y espejos de agua</b>
-        <span data-i18n="apps.d2" style="font-size:13px;opacity:0.82">Alberca con acabado continuo</span>
-      </figcaption>
-    </figure>
-    <figure data-reveal style="margin:0;display:grid;gap:14px">
-      <button type="button" class="lb-abrir" data-lb="uso-bano" aria-label="Ampliar: Ducha de bronce sobre muro continuo de estuco natural" style="all:unset;display:block;cursor:zoom-in;border-radius:16px"><img src="img/uso-bano.webp" srcset="img/uso-bano-720.webp 720w, img/uso-bano.webp 900w" sizes="(max-width:768px) 100vw, 50vw" alt="Ducha de bronce sobre muro continuo de estuco natural" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:16px;background:var(--arena)"></button>
-      <figcaption style="display:grid;gap:4px">
-        <b data-i18n="apps.a4" style="font-size:15px;font-weight:600">Baños y mobiliario</b>
-        <span data-i18n="apps.d4" style="font-size:13px;opacity:0.82">Ducha sobre muro continuo</span>
-      </figcaption>
-    </figure>
-  </div>
-</section>
-
-<section id="calculadora" data-reveal-desde="escala" data-screen-label="Calculadora" style="position:relative;padding:clamp(60px,9vh,110px) clamp(20px,6vw,96px) clamp(190px,30vh,340px);background-image:linear-gradient(0deg,rgb(29,27,26) 0%,rgba(29,27,26,0.985) 10%,rgba(29,27,26,0.94) 20%,rgba(29,27,26,0.845) 30%,rgba(29,27,26,0.71) 40%,rgba(29,27,26,0.55) 50%,rgba(29,27,26,0.39) 60%,rgba(29,27,26,0.245) 70%,rgba(29,27,26,0.13) 80%,rgba(29,27,26,0.045) 90%,rgba(29,27,26,0) 100%);background-size:100% 170px;background-position:0 100%;background-repeat:no-repeat">
-  <div data-reveal style="max-width:760px;margin:0 auto;text-align:center">
-    <h2 data-i18n="calc.title" style="font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.1;letter-spacing:-0.02em;font-weight:700;text-wrap:balance">¿Cuánto chukum necesita tu obra?</h2>
-    <p data-i18n="calc.sub" style="margin-top:18px;font-size:clamp(1rem,1.5vw,1.12rem);opacity:0.82">Ingresa los metros cuadrados y calculamos los sacos de 20 kg.</p>
-  </div>
-  <div data-reveal class="calc" style="max-width:820px;margin:clamp(40px,6vh,64px) auto 0;background:var(--crema);border-radius:28px;padding:clamp(26px,4.5vw,44px);box-shadow:var(--sombra-2);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,44px);align-items:center;text-align:left">
-    <div>
-      <label for="calc-m2" data-i18n="calc.label" style="display:block;font-weight:600;font-size:14px;letter-spacing:.02em;margin-bottom:14px">Superficie a cubrir (m²)</label>
-      <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
-        <input id="calc-m2" data-calc-m2 type="number" min="1" max="100000" inputmode="numeric" style="font-family:inherit;font-size:clamp(2rem,4vw,2.6rem);font-weight:800;letter-spacing:-.02em;padding:6px 0;border:0;border-bottom:2px solid rgba(71,67,65,0.25);background:transparent;color:var(--negro);width:5.2ch;font-variant-numeric:tabular-nums;transition:border-color .2s" style-focus="outline:none;border-color:var(--terracota-tinta)">
-        <span style="font-size:1.1rem;font-weight:600;opacity:.6">m²</span>
-      </div>
-      <input data-calc-rango type="range" min="10" max="1000" step="5" value="120" aria-label="Superficie" class="calc-rango">
-      <div style="display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.55;margin-top:8px"><span>10 m²</span><span>1000 m²</span></div>
+    <input data-ba-range type="range" min="0" max="100" step="0.1" aria-label="Comparar antes y después" data-i18n-arialabel="a11y.comparar" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:4;WebkitAppearance:none;appearance:none">
     </div>
-    <div class="calc-res" style="background:var(--negro);color:var(--crema);border-radius:18px;padding:clamp(22px,3vw,30px);display:grid;gap:8px">
-      <span data-i18n="calc.necesitas" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.6">Necesitas</span>
-      <p style="font-size:clamp(2.6rem,6vw,4rem);line-height:1;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--terracota)"><span data-calc-sacos>30</span></p>
-      <p style="font-size:15px;font-weight:600"><span data-i18n="calc.bags">sacos de 20 kg</span></p>
-      <p data-calc-equiv style="font-size:13px;opacity:.7;margin-top:2px"></p>
-      <a data-calc-cta href="https://wa.me/529993699488" target="_blank" rel="noopener" data-i18n="calc.cta" style="margin-top:14px;display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;background:var(--crema);color:var(--marron);transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),background .2s" style-hover="background:var(--blanco);transform:translateY(-2px)" style-active="transform:scale(0.96)">Cotizar esta cantidad</a>
+    <div class="ba-pie">
+      <p data-i18n="compare.hint">Arrastra la barra para ver la misma casa antes y después.</p>
+      <a data-muestra href="#contacto" class="ba-muestra cta-lleno"><span data-muestra-txt data-i18n="compare.muestra0">Pedir muestra de Terracota</span><span aria-hidden="true" class="raya" style="display:inline-block;width:14px;height:1px;background:currentColor"></span></a>
     </div>
-    <p data-i18n="calc.note" style="grid-column:1/-1;font-size:12.5px;opacity:0.72;line-height:1.5">Estimación con rendimiento promedio de <!--cms:rendimiento-->4<!--/cms:rendimiento--> m² por saco a dos manos. Confirmamos cantidades exactas según superficie y acabado.</p>
   </div>
 </section>
 
-<section data-screen-label="Mundo" style="position:relative;min-height:74svh;display:grid;place-items:center;text-align:center;overflow:hidden;color:var(--crema);background:var(--negro)">
-  <img data-kb src="img/story-costa.webp" srcset="img/story-costa-720.webp 720w, img/story-costa-1200.webp 1200w, img/story-costa.webp 1600w" sizes="100vw" alt="Costa de la Península de Yucatán desde el aire" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kenburns 32s ease-in-out infinite alternate">
-  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgb(29,27,26) 0%,rgba(29,27,26,0.55) 16%,rgba(29,27,26,0.35) 45%,rgba(29,27,26,0.72) 84%,rgb(29,27,26) 100%)"></div>
-  <div data-reveal style="position:relative;z-index:2;padding:clamp(80px,14vh,150px) clamp(20px,6vw,96px);max-width:820px">
-    <img loading="lazy" decoding="async" src="img/logo-light.webp" alt="Chukum Saurium" style="height:clamp(38px,5vw,54px);width:auto;margin:0 auto clamp(26px,4vh,40px);opacity:0.95">
-    <p data-i18n="world.line" style="font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.12;letter-spacing:-0.02em;font-weight:800;text-shadow:0 2px 28px rgba(0,0,0,0.5)">Desde Yucatán para el mundo.</p>
-    <p data-i18n="world.sub" style="margin:18px auto 0;opacity:0.82;max-width:520px;text-shadow:0 2px 18px rgba(0,0,0,0.5);text-wrap:pretty">Exportamos chukum auténtico a proyectos que buscan materiales con origen y verdad.</p>
+<section id="aplicaciones" data-tema="claro" data-reveal-desde="der" data-screen-label="Aplicaciones" style="position:relative;padding:calc(var(--solape) + clamp(60px,8vh,90px)) clamp(20px,6vw,96px) clamp(80px,12vh,140px);background:var(--crema)">
+  <div data-reveal class="cabecera">
+    <h2 data-reveal data-reveal-desde="cortina" data-i18n="apps.title" style="font-size:var(--t-h2);line-height:1.05;letter-spacing:-0.01em;max-width:15ch;text-wrap:balance">Donde la historia se vuelve arquitectura</h2>
+    <p data-i18n="apps.sub" style="font-size:var(--t-lead);opacity:0.82;max-width:46ch;text-wrap:pretty">Muros y fachadas, albercas y cenotes, interiores, baños y mobiliario. Una sola pasta, aplicada capa sobre capa.</p>
+  </div>
+  <div data-mq-apps class="apps-grid">
+    <figure data-reveal class="apps-1">
+      <button type="button" class="lb-abrir" data-lb="uso-exterior" aria-label="Ampliar: Muros de chukum en un patio con alberca" data-i18n-arialabel="a11y.zoom1" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><img src="img/uso-exterior.webp" srcset="img/uso-exterior-720.webp 720w, img/uso-exterior.webp 900w" sizes="(max-width:700px) 100vw, 58vw" alt="Muros de chukum en un patio con alberca" data-i18n-alt="uso.1" loading="lazy"></button>
+      <figcaption><b data-i18n="apps.a1" style="font-size:15px;font-weight:600">Muros y fachadas</b><span data-i18n="apps.d1" style="font-size:var(--t-sm);opacity:0.82">Casa privada, Yucatán</span></figcaption>
+    </figure>
+    <figure data-reveal class="apps-2">
+      <button type="button" class="lb-abrir" data-lb="uso-interior" aria-label="Ampliar: Interior con muros de chukum" data-i18n-arialabel="a11y.zoom2" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><img src="img/uso-interior.webp" srcset="img/uso-interior-720.webp 720w, img/uso-interior.webp 900w" sizes="(max-width:700px) 50vw, 42vw" alt="Interior con muros de chukum" data-i18n-alt="uso.2" loading="lazy"></button>
+      <figcaption><b data-i18n="apps.a3" style="font-size:15px;font-weight:600">Interiores</b><span data-i18n="apps.d3" style="font-size:var(--t-sm);opacity:0.82">Sala con muros de chukum</span></figcaption>
+    </figure>
+    <figure data-reveal class="apps-3">
+      <button type="button" class="lb-abrir" data-lb="uso-piscina" aria-label="Ampliar: Alberca con borde y muros de acabado continuo en tono arena" data-i18n-arialabel="a11y.zoom3" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><img src="img/uso-piscina.webp" srcset="img/uso-piscina-720.webp 720w, img/uso-piscina.webp 900w" sizes="(max-width:700px) 50vw, 42vw" alt="Alberca con borde y muros de acabado continuo en tono arena" data-i18n-alt="uso.3" loading="lazy"></button>
+      <figcaption><b data-i18n="apps.a2" style="font-size:15px;font-weight:600">Albercas y espejos de agua</b><span data-i18n="apps.d2" style="font-size:var(--t-sm);opacity:0.82">Alberca revestida de chukum</span></figcaption>
+    </figure>
+    <figure data-reveal class="apps-4">
+      <button type="button" class="lb-abrir" data-lb="uso-bano" aria-label="Ampliar: Regadera de bronce sobre muro continuo de estuco natural" data-i18n-arialabel="a11y.zoom4" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><img src="img/uso-bano.webp" srcset="img/uso-bano-720.webp 720w, img/uso-bano.webp 900w" sizes="(max-width:700px) 100vw, 58vw" alt="Regadera de bronce sobre muro continuo de estuco natural" data-i18n-alt="uso.4" loading="lazy"></button>
+      <figcaption><b data-i18n="apps.a4" style="font-size:15px;font-weight:600">Baños y mobiliario</b><span data-i18n="apps.d4" style="font-size:var(--t-sm);opacity:0.82">Baño con muro de chukum</span></figcaption>
+    </figure>
   </div>
 </section>
-
 
 <section id="obras" data-screen-label="Obras" hidden>
   <!--cms:obras--><!--/cms:obras-->
 </section>
 
-<section id="preguntas" data-screen-label="Preguntas" data-reveal-desde="izq" style="position:relative;padding:clamp(70px,10vh,120px) clamp(20px,6vw,96px);background:var(--crema)">
-  <div data-reveal style="max-width:760px;margin:0 auto;text-align:center">
-    <h2 data-i18n="faq.title" style="font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.1;letter-spacing:-0.02em;font-weight:700;text-wrap:balance">Preguntas frecuentes</h2>
-  </div>
-  <div data-reveal class="faq">
-    <details><summary data-i18n="faq.q1">¿Cuánto rinde un saco?</summary><div class="faq-cuerpo"><p data-i18n="faq.a1">Un saco de 20 kg cubre alrededor de 4 m² a dos manos sobre un muro liso. En superficies rugosas o muy absorbentes el rendimiento baja; por eso confirmamos la cantidad con las medidas de tu obra.</p></div></details>
+<section id="preguntas" data-tema="claro" data-screen-label="Preguntas" data-reveal-desde="izq" style="position:relative;padding:clamp(40px,6vh,70px) clamp(20px,6vw,96px) clamp(70px,10vh,120px);background:var(--crema)">
+  <div class="faq-grid">
+    <div data-reveal class="faq-cab">
+      <h2 data-reveal data-reveal-desde="cortina" data-i18n="faq.title" style="font-size:var(--t-h2);line-height:1.05;letter-spacing:-0.01em;max-width:12ch;text-wrap:balance">Preguntas frecuentes</h2>
+      <p data-i18n="faq.sub" style="margin-top:16px;font-size:var(--t-lead);opacity:0.82;max-width:30ch;text-wrap:pretty">Lo que arquitectos y aplicadores nos preguntan antes de pedir muestras.</p>
+    </div>
+    <div data-reveal class="faq">
+    <details><summary data-i18n="faq.q1">¿Cuánto rinde un saco?</summary><div class="faq-cuerpo"><p data-i18n="faq.a1">Un saco de 20&nbsp;kg cubre alrededor de 4&nbsp;m² a dos manos sobre un muro liso. En superficies rugosas o muy absorbentes el rendimiento baja; por eso confirmamos la cantidad con las medidas de tu obra.</p></div></details>
     <details><summary data-i18n="faq.q2">¿Sirve para exteriores con sol y lluvia?</summary><div class="faq-cuerpo"><p data-i18n="faq.a2">Sí. El chukum nació para el clima de Yucatán: repele el agua y deja respirar el muro, así que aguanta sol directo, humedad y salitre sin descascararse.</p></div></details>
     <details><summary data-i18n="faq.q3">¿Se puede usar en albercas y cenotes?</summary><div class="faq-cuerpo"><p data-i18n="faq.a3">Es uno de sus usos originales: los mayas impermeabilizaban cisternas con él. Hoy se aplica en albercas, espejos de agua y cenotes artificiales, con la preparación de base adecuada.</p></div></details>
     <details><summary data-i18n="faq.q4">¿En qué se diferencia de un acabado tipo chukum acrílico?</summary><div class="faq-cuerpo"><p data-i18n="faq.a4">El chukum auténtico lleva resina real del árbol y cal. Las imitaciones acrílicas copian el color, pero no respiran ni envejecen como la cal: con el tiempo se nota.</p></div></details>
     <details><summary data-i18n="faq.q5">¿Envían fuera de México?</summary><div class="faq-cuerpo"><p data-i18n="faq.a5">Sí. Elaboramos en la península y exportamos. Escríbenos con el destino y los metros cuadrados y te pasamos tiempos y costos de envío.</p></div></details>
     <details><summary data-i18n="faq.q6">¿Puedo pedir muestras antes de decidir?</summary><div class="faq-cuerpo"><p data-i18n="faq.a6">Sí. Te enviamos muestras físicas de los acabados que te interesen para que las veas con la luz de tu obra.</p></div></details>
-  </div>
-</section>
-
-<section id="contacto" data-screen-label="Contacto" style="position:relative;padding-inline:clamp(20px,6vw,96px);background-image:linear-gradient(180deg,rgb(29,27,26) 0%,rgba(29,27,26,0.985) 10%,rgba(29,27,26,0.94) 20%,rgba(29,27,26,0.845) 30%,rgba(29,27,26,0.71) 40%,rgba(29,27,26,0.55) 50%,rgba(29,27,26,0.39) 60%,rgba(29,27,26,0.245) 70%,rgba(29,27,26,0.13) 80%,rgba(29,27,26,0.045) 90%,rgba(29,27,26,0) 100%),linear-gradient(0deg,rgb(29,27,26) 0%,rgba(29,27,26,0.985) 10%,rgba(29,27,26,0.94) 20%,rgba(29,27,26,0.845) 30%,rgba(29,27,26,0.71) 40%,rgba(29,27,26,0.55) 50%,rgba(29,27,26,0.39) 60%,rgba(29,27,26,0.245) 70%,rgba(29,27,26,0.13) 80%,rgba(29,27,26,0.045) 90%,rgba(29,27,26,0) 100%);background-size:100% 170px,100% 170px;background-position:0 0,0 100%;background-repeat:no-repeat,no-repeat">
-  <div data-reveal style="max-width:760px;margin:0 auto;text-align:center;padding-block:clamp(190px,30vh,340px) clamp(200px,26vh,300px)">
-    <h2 data-i18n="contact.title" style="font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.1;letter-spacing:-0.02em;font-weight:700;text-wrap:balance">Lleva SAURIUM a tu próximo proyecto</h2>
-    <p data-i18n="contact.sub" style="margin-top:18px;font-size:clamp(1rem,1.5vw,1.12rem);opacity:0.82;text-wrap:pretty">Escríbenos y coordinamos muestras, fichas técnicas y logística de exportación.</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px">
-      <a data-wa-btn href="https://wa.me/529993699488" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:18px 34px;border-radius:999px;font-weight:600;font-size:16px;background:var(--marron);color:var(--crema);box-shadow:var(--sombra-2);transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),background 0.2s" style-hover="background:var(--negro);color:var(--crema);transform:translateY(-2px)" style-active="transform:scale(0.96)">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c0 .2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.4 2.6 1.6.3.1.5.1.7-.1l1.1-1.3c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.3 1.6Z"></path></svg>
-        <span data-i18n="contact.wa">Escribir por WhatsApp</span>
-      </a>
-      <!--cms:correo--><a href="mailto:david_taranto@outlook.es" data-i18n="contact.mail" style="display:inline-flex;align-items:center;padding:18px 34px;border-radius:999px;font-weight:600;font-size:16px;border:1.5px solid rgba(71,67,65,0.35);transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),border-color 0.2s" style-hover="border-color:var(--marron);transform:translateY(-2px)" style-active="transform:scale(0.96)">david_taranto@outlook.es</a><!--/cms:correo-->
     </div>
-    <p data-i18n="contact.agent" style="margin-top:28px;font-size:14px;opacity:0.82">Rodrigo López Alam — Ventas y exportación · +52 999 369 9488</p>
   </div>
 </section>
 
-<dialog data-lightbox class="lb" aria-label="Galería de aplicaciones">
-  <button type="button" class="lb-cerrar" data-lb-cerrar aria-label="Cerrar">&#x2715;</button>
-  <div class="lb-pista" data-lb-pista><figure class="lb-slide" data-lb-slide="uso-exterior"><img src="img/uso-exterior.webp" alt="Muros de chukum en un patio con piscina" loading="lazy" decoding="async"><figcaption>Muros de chukum en un patio con piscina</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-interior"><img src="img/uso-interior.webp" alt="Interior con muros de chukum" loading="lazy" decoding="async"><figcaption>Interior con muros de chukum</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-piscina"><img src="img/uso-piscina.webp" alt="Alberca con borde y muros de acabado continuo en tono arena" loading="lazy" decoding="async"><figcaption>Alberca con borde y muros de acabado continuo en tono arena</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-bano"><img src="img/uso-bano.webp" alt="Ducha de bronce sobre muro continuo de estuco natural" loading="lazy" decoding="async"><figcaption>Ducha de bronce sobre muro continuo de estuco natural</figcaption></figure></div>
-  <p class="lb-ayuda" data-i18n="lb.ayuda">Desliza para ver la siguiente · Esc para cerrar</p>
+<section id="calculadora" data-tema="claro" data-screen-label="Calculadora" data-reveal-desde="escala" style="position:relative;padding:clamp(40px,6vh,70px) clamp(20px,6vw,96px) clamp(90px,13vh,150px);background:var(--crema)">
+  <div class="calc-grid">
+    <div>
+      <div data-reveal>
+        <h2 data-reveal data-reveal-desde="cortina" data-i18n="calc.title" style="font-size:var(--t-h2);line-height:1.05;letter-spacing:-0.01em;max-width:14ch;text-wrap:balance">¿Cuánto chukum necesita tu obra?</h2>
+        <p data-i18n="calc.sub" style="margin-top:16px;font-size:var(--t-lead);opacity:0.82;max-width:40ch;text-wrap:pretty">Ingresa los metros cuadrados y calculamos los sacos de 20&nbsp;kg.</p>
+      </div>
+      <div data-reveal class="calc">
+        <label for="calc-m2" data-i18n="calc.label" style="display:block;font-weight:600;font-size:14px;letter-spacing:.02em;margin-bottom:14px">Superficie a cubrir (m²)</label>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
+          <input id="calc-m2" data-calc-m2 type="number" min="1" max="100000" inputmode="numeric" style="font-family:inherit;font-size:clamp(2.4rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em;padding:6px 0;border:0;border-bottom:2px solid rgba(71,67,65,0.25);background:transparent;color:var(--negro);width:6.5ch;font-variant-numeric:tabular-nums;transition:border-color .2s" style-focus="outline:none;border-color:var(--terracota-tinta)">
+          <span style="font-size:1.1rem;font-weight:600;opacity:.6">m²</span>
+          <span data-calc-sqft hidden style="font-size:13px;opacity:.6;font-variant-numeric:tabular-nums"></span>
+        </div>
+        <input data-calc-rango type="range" min="10" max="1000" step="5" value="120" aria-label="Superficie" data-i18n-arialabel="calc.label" class="calc-rango">
+        <div style="display:flex;justify-content:space-between;font-size:12px;letter-spacing:.04em;opacity:.85;margin-top:8px;font-variant-numeric:tabular-nums"><span>10&nbsp;m²</span><span>1000&nbsp;m²</span></div>
+        <p data-i18n="calc.note" class="calc-nota">Estimación con rendimiento promedio de <!--cms:rendimiento-->4<!--/cms:rendimiento-->&nbsp;m² por saco a dos manos. Confirmamos cantidades exactas según superficie y acabado.</p>
+      </div>
+    </div>
+    <div data-reveal class="calc-res">
+      <span data-i18n="calc.necesitas" style="font-size:12px;letter-spacing:var(--track-caps);text-transform:uppercase;opacity:.65">Necesitas</span>
+      <p style="font-size:clamp(2.8rem,6vw,4.4rem);line-height:1;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--terracota)"><span data-calc-sacos>30</span></p>
+      <p style="font-size:15px;font-weight:600"><span data-i18n="calc.bags">sacos de 20&nbsp;kg</span></p>
+      <p data-calc-equiv style="font-size:13px;opacity:.7;margin-top:2px"></p>
+      <a data-calc-cta href="https://wa.me/529993699488" target="_blank" rel="noopener" class="cta-claro" data-i18n="calc.cta" style="margin-top:14px;display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;background:var(--crema);color:var(--marron)">Cotizar esta cantidad</a>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" data-tema="oscuro" data-screen-label="Contacto" class="mundo">
+  <img data-kb src="img/story-costa.webp" srcset="img/story-costa-720.webp 720w, img/story-costa-1200.webp 1200w, img/story-costa.webp 1600w" sizes="100vw" alt="Costa de la Península de Yucatán desde el aire" data-i18n-alt="alt.costa" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0.55) 0%,rgba(20,17,15,0.15) 40%,rgba(20,17,15,0.74) 100%)"></div>
+  <div aria-hidden="true" class="grano-vineta"></div>
+  <div data-reveal class="mundo-grid">
+    <div>
+      <img loading="lazy" decoding="async" src="img/logo-light.webp" alt="Chukum Saurium" style="height:clamp(34px,4vw,46px);width:auto;margin-bottom:clamp(22px,4vh,36px);opacity:0.95">
+      <p data-i18n="world.line" style="font-family:var(--f-display);font-size:clamp(2.2rem,5.4vw,4rem);line-height:1.08;letter-spacing:-0.01em;font-weight:400;text-wrap:balance;max-width:12ch;text-shadow:0 2px 28px rgba(0,0,0,0.5)">Desde Yucatán para el mundo.</p>
+      <p data-i18n="contact.sub" style="margin-top:18px;font-size:var(--t-lead);opacity:0.85;max-width:44ch;text-wrap:pretty;text-shadow:0 2px 18px rgba(0,0,0,0.5)">Escríbenos y coordinamos muestras, ficha técnica y envío a tu obra, en México o afuera.</p>
+    </div>
+    <div class="mundo-cta">
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a data-wa-btn href="https://wa.me/529993699488" target="_blank" rel="noopener" class="cta-claro" style="display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;font-weight:600;font-size:15px;background:var(--crema);color:var(--marron);box-shadow:var(--sombra-2)">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c0 .2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.4 2.6 1.6.3.1.5.1.7-.1l1.1-1.3c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.3 1.6Z"></path></svg>
+          <span data-i18n="contact.wa">Escribir por WhatsApp</span>
+        </a>
+        <!--cms:correo--><a href="mailto:david_taranto@outlook.es" data-i18n="contact.mail" class="cta-linea cta-linea-claro" style="display:inline-flex;align-items:center;padding:16px 28px;border-radius:999px;font-weight:600;font-size:15px;border:1.5px solid rgba(243,235,222,0.45);color:var(--crema)">david_taranto@outlook.es</a><!--/cms:correo-->
+      </div>
+      <p class="mundo-agente" style="margin-top:22px;font-size:var(--t-sm);opacity:0.9;text-shadow:0 1px 12px rgba(0,0,0,0.5)"><span data-i18n="contact.agent">Rodrigo López Alam — Ventas y exportación</span> · <a data-tel href="tel:+529993699488" data-i18n="contact.tel">+52 999 369 9488</a> · <a data-vcard href="#" download="saurium-rodrigo-lopez.vcf" data-i18n="contact.vcard">Guardar contacto</a></p>
+    </div>
+  </div>
+</section>
+
+<dialog data-lightbox class="lb" aria-label="Galería de aplicaciones" data-i18n-arialabel="a11y.galeria">
+  <button type="button" class="lb-cerrar" data-lb-cerrar aria-label="Cerrar" data-i18n-arialabel="a11y.cerrar">&#x2715;</button>
+  <div class="lb-pista" data-lb-pista><figure class="lb-slide" data-lb-slide="uso-exterior"><img data-src="img/uso-exterior.webp" alt="Muros de chukum en un patio con alberca" data-i18n-alt="uso.1" decoding="async"><figcaption data-i18n="uso.1">Muros de chukum en un patio con alberca</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-interior"><img data-src="img/uso-interior.webp" alt="Interior con muros de chukum" data-i18n-alt="uso.2" decoding="async"><figcaption data-i18n="uso.2">Interior con muros de chukum</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-piscina"><img data-src="img/uso-piscina.webp" alt="Alberca con borde y muros de acabado continuo en tono arena" data-i18n-alt="uso.3" decoding="async"><figcaption data-i18n="uso.3">Alberca con borde y muros de acabado continuo en tono arena</figcaption></figure><figure class="lb-slide" data-lb-slide="uso-bano"><img data-src="img/uso-bano.webp" alt="Regadera de bronce sobre muro continuo de estuco natural" data-i18n-alt="uso.4" decoding="async"><figcaption data-i18n="uso.4">Regadera de bronce sobre muro continuo de estuco natural</figcaption></figure></div>
+  <p class="lb-ayuda" data-i18n="lb.ayuda">Desliza para ver la siguiente · Toca fuera para cerrar</p>
 </dialog>
+<a data-wa-flotante class="wa-flotante" href="https://wa.me/529993699488" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-i18n-arialabel="contact.wa"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c0 .2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.4 2.6 1.6.3.1.5.1.7-.1l1.1-1.3c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.3 1.6Z"></path></svg></a>
 </main>
 
 <footer data-screen-label="Footer" style="background:var(--negro);color:var(--crema);text-align:center;padding:60px 20px 44px;font-size:14px">
@@ -502,25 +635,30 @@ class Component extends DCLogic {
     const chosen = localStorage.getItem('saurium-lang-set') === '1' && (stored === 'es' || stored === 'en');
     this.lang = chosen ? stored : (document.documentElement.getAttribute('data-lang-default') || fallbackLang);
     this.m2 = 120;
+    this.IMG = document.documentElement.getAttribute('data-img-base') || 'img/';
+    this.ACABADOS = ['arena','crema','gris','carbon','oliva','terracota'];
+    try { const g = JSON.parse(sessionStorage.getItem('saurium-estado') || '{}'); if (this.ACABADOS.includes(g.finish)) { this.finish = g.finish; this.finishTocado = true; } if (Number(g.m2) > 0) { this.m2 = Math.min(100000, Math.round(Number(g.m2))); this.calcTocada = true; } } catch (e) {}
+    const qAcabado = new URLSearchParams(location.search).get('acabado');
+    if (this.ACABADOS.includes(qAcabado)) { this.finish = qAcabado; this.finishTocado = true; }
     this.I18N = {
       es: {
         'meta.title':'SAURIUM — Chukum auténtico de Yucatán. Desde el origen, diseñado para perdurar.','meta.desc':'Recubrimiento natural de chukum, elaborado en la Península de Yucatán. Seis acabados, comparador antes y después, y envíos a México y el exterior.',
-        'a11y.skip':'Saltar al contenido','colors.group':'Elegir acabado','material.bag3d':'Saco de chukum SAURIUM de 20 kg en tres dimensiones. Usa las flechas para girarlo.',
-        'nav.story':'Historia','nav.chukum':'El chukum','nav.colors':'Colores','nav.apps':'Aplicaciones','nav.contact':'Contacto','nav.cta':'Cotizar',
+        'a11y.skip':'Saltar al contenido','a11y.lang':'Cambiar a inglés','a11y.galeria':'Galería de aplicaciones','a11y.cerrar':'Cerrar','a11y.comparar':'Comparar antes y después','a11y.secciones':'Secciones','idx.inicio':'Inicio','idx.historia':'Historia','idx.material':'El chukum','idx.colores':'Acabados','idx.aplicaciones':'Aplicaciones','idx.preguntas':'Preguntas','idx.calculadora':'Calculadora','idx.contacto':'Contacto','alt.hero':'Costa y selva de la Península de Yucatán desde el aire','alt.t1':'Selva baja de Yucatán','alt.t2':'El impacto en la península','alt.t3':'Huella fósil en la caliza','alt.saco':'Saco de chukum SAURIUM de 20 kg','alt.antes':'La casa en obra gris, sin acabado','alt.despues':'La misma casa terminada con chukum SAURIUM','alt.costa':'Costa de la Península de Yucatán desde el aire','uso.1':'Muros de chukum en un patio con alberca','uso.2':'Interior con muros de chukum','uso.3':'Alberca con borde y muros de acabado continuo en tono arena','uso.4':'Regadera de bronce sobre muro continuo de estuco natural','colors.group':'Elegir acabado','material.bag3d':'Saco de chukum SAURIUM de 20\u00a0kg en tres dimensiones. Usa las flechas para girarlo.',
+        'nav.story':'Historia','nav.chukum':'El chukum','nav.colors':'Acabados','nav.apps':'Aplicaciones','nav.contact':'Contacto','nav.cta':'Cotizar',
         'hero.kicker':'Chukum auténtico de la Península de Yucatán',/*cms:hero-es*/'hero.l1':'Desde el origen.','hero.l2':'Diseñado para perdurar.',/*/cms:hero-es*/
-        'hero.sub':'Un recubrimiento natural con huella histórica. Nacido en Yucatán, listo para el mundo.',
-        'hero.cta1':'Descubrir el material','hero.cta2':'Hablar con ventas','hero.scroll':'Deslizar',
+        'hero.sub':'Un recubrimiento natural con huella histórica. Resina del árbol de chukum y cal de la península, aplicado capa sobre capa.',
+        'hero.cta1':'Ver el material','hero.cta2':'Hablar con ventas','hero.scroll':'Deslizar','hero.pie':'Costa de la Península de Yucatán',
         'tease.kicker':'La historia','tease.title':'Una tierra que guarda lo que pasa por ella.',
         'tease.sub':'Del impacto que marcó la península al material que hoy recubre sus muros. Sesenta y seis millones de años en tres capítulos.',
-        'tease.cta':'Recorrer la historia','tease.c1':'01 Origen','tease.c2':'02 Impacto','tease.c3':'03 Huella',
+        'tease.cta':'Recorrer la historia','tease.c1':'Origen','tease.c2':'Impacto','tease.c3':'Huella',
         'material.kicker':'El material','material.title':'Qué es el chukum',
         'material.sub':'Un estuco natural de origen maya: resina del árbol de chukum mezclada con cal de la península. Los mayas lo usaron en sus ciudades y hoy recubre buena parte de la arquitectura de Tulum y la Riviera Maya. Se adhiere fuerte, repele el agua y aguanta el clima tropical.',
-        'material.bag':'Saco de 20 kg','material.hint3d':'Arrastra para rotar',
-        'material.r1t':'El árbol','material.r1d':'Havardia albicans, un árbol espinoso de la selva baja de Yucatán. Los mayas lo llamaron chukum y durante siglos le sacaron la corteza sin talar el árbol.',
+        'material.bag':'Saco de 20\u00a0kg','material.hint3d':'Arrastra para rotar',
+        'material.r1t':'El árbol','material.r1d':', un árbol espinoso de la selva baja de Yucatán. Los mayas lo llamaron chukum y durante siglos le sacaron la corteza sin talar el árbol.',
         'material.r2t':'La técnica','material.r2d':'La corteza se hierve para liberar sus taninos y el extracto se mezcla con cal hidratada. El resultado es una pasta que se aplica como estuco fino, capa sobre capa, sin pintura ni selladores.',
         'material.r3t':'Hidrófugo natural','material.r3d':'Los mayas lo usaban para impermeabilizar cisternas y depósitos de agua. Por eso hoy recubre albercas, cenotes artificiales y baños: repele el agua y deja respirar el muro.',
         'material.r4t':'Auténtico, no imitación','material.r4d':'El chukum auténtico lleva resina real del árbol. Las imitaciones acrílicas copian el color, pero no respiran ni envejecen como la cal.',
-        'material.r5t':'Listo para exportar','material.r5d':'Presentación en saco de 20 kg, elaborado en la Península de Yucatán, con ficha técnica y soporte para proyectos internacionales.',
+        'material.r5t':'Listo para exportar','material.r5d':'Presentación en saco de 20\u00a0kg, elaborado en la Península de Yucatán, con ficha técnica y soporte para proyectos internacionales.',
         'compare.before':'Obra gris','compare.hint':'Arrastra la barra para ver la misma casa antes y después.',
         'colors.kicker':'Acabados','colors.title':'Seis acabados, una misma tierra',
         'colors.sub':'Pigmentos minerales sobre la misma base de resina y cal. Sin pintura: el color es el material. Elige uno y mira la misma casa antes y después.',
@@ -528,65 +666,64 @@ class Component extends DCLogic {
         'apps.title':'Donde la historia se vuelve arquitectura',
         'apps.sub':'Muros y fachadas, albercas y cenotes, interiores, baños y mobiliario. Una sola pasta, aplicada capa sobre capa.',
         'apps.a1':'Muros y fachadas','apps.a2':'Albercas y espejos de agua','apps.a3':'Interiores','apps.a4':'Baños y mobiliario',
-        'apps.d1':'Casa privada, Yucatán','apps.d2':'Alberca con acabado continuo','apps.d3':'Sala con muros continuos','apps.d4':'Ducha sobre muro continuo',
-        'faq.title':'Preguntas frecuentes','lb.ayuda':'Desliza para ver la siguiente · Esc para cerrar','faq.q1':"¿Cuánto rinde un saco?",'faq.a1':"Un saco de 20 kg cubre alrededor de 4 m² a dos manos sobre un muro liso. En superficies rugosas o muy absorbentes el rendimiento baja; por eso confirmamos la cantidad con las medidas de tu obra.",'faq.q2':"¿Sirve para exteriores con sol y lluvia?",'faq.a2':"Sí. El chukum nació para el clima de Yucatán: repele el agua y deja respirar el muro, así que aguanta sol directo, humedad y salitre sin descascararse.",'faq.q3':"¿Se puede usar en albercas y cenotes?",'faq.a3':"Es uno de sus usos originales: los mayas impermeabilizaban cisternas con él. Hoy se aplica en albercas, espejos de agua y cenotes artificiales, con la preparación de base adecuada.",'faq.q4':"¿En qué se diferencia de un acabado tipo chukum acrílico?",'faq.a4':"El chukum auténtico lleva resina real del árbol y cal. Las imitaciones acrílicas copian el color, pero no respiran ni envejecen como la cal: con el tiempo se nota.",'faq.q5':"¿Envían fuera de México?",'faq.a5':"Sí. Elaboramos en la península y exportamos. Escríbenos con el destino y los metros cuadrados y te pasamos tiempos y costos de envío.",'faq.q6':"¿Puedo pedir muestras antes de decidir?",'faq.a6':"Sí. Te enviamos muestras físicas de los acabados que te interesen para que las veas con la luz de tu obra.",
-        'calc.necesitas':'Necesitas',calcEquiv:(m)=>`Equivale a unos ${m} muros de 3 × 2,5 m`,
-        'calc.title':'¿Cuánto chukum necesita tu obra?','calc.sub':'Ingresa los metros cuadrados y calculamos los sacos de 20 kg.',
-        'calc.label':'Superficie a cubrir (m²)','calc.bags':'sacos de 20 kg',
-        'calc.note':'Estimación con rendimiento promedio de {r} m² por saco a dos manos. Confirmamos cantidades exactas según superficie y acabado.',
+        'apps.d1':'Casa privada, Yucatán','apps.d2':'Alberca revestida de chukum','apps.d3':'Sala con muros de chukum','apps.d4':'Baño con muro de chukum',
+        'faq.title':'Preguntas frecuentes','lb.ayuda':'Desliza para ver la siguiente · Toca fuera para cerrar','faq.q1':"¿Cuánto rinde un saco?",'faq.a1':"Un saco de 20\u00a0kg cubre alrededor de 4\u00a0m² a dos manos sobre un muro liso. En superficies rugosas o muy absorbentes el rendimiento baja; por eso confirmamos la cantidad con las medidas de tu obra.",'faq.q2':"¿Sirve para exteriores con sol y lluvia?",'faq.a2':"Sí. El chukum nació para el clima de Yucatán: repele el agua y deja respirar el muro, así que aguanta sol directo, humedad y salitre sin descascararse.",'faq.q3':"¿Se puede usar en albercas y cenotes?",'faq.a3':"Es uno de sus usos originales: los mayas impermeabilizaban cisternas con él. Hoy se aplica en albercas, espejos de agua y cenotes artificiales, con la preparación de base adecuada.",'faq.q4':"¿En qué se diferencia de un acabado tipo chukum acrílico?",'faq.a4':"El chukum auténtico lleva resina real del árbol y cal. Las imitaciones acrílicas copian el color, pero no respiran ni envejecen como la cal: con el tiempo se nota.",'faq.q5':"¿Envían fuera de México?",'faq.a5':"Sí. Elaboramos en la península y exportamos. Escríbenos con el destino y los metros cuadrados y te pasamos tiempos y costos de envío.",'faq.q6':"¿Puedo pedir muestras antes de decidir?",'faq.a6':"Sí. Te enviamos muestras físicas de los acabados que te interesen para que las veas con la luz de tu obra.",
+        'calc.necesitas':'Necesitas',calcEquiv:(m)=>`Equivale a unos ${m} muros de 3\u00a0×\u00a02,5\u00a0m`,
+        'calc.title':'¿Cuánto chukum necesita tu obra?','calc.sub':'Ingresa los metros cuadrados y calculamos los sacos de 20\u00a0kg.',
+        'calc.label':'Superficie a cubrir (m²)','calc.bags':'sacos de 20\u00a0kg','calc.bag1':'saco de 20\u00a0kg',
+        'calc.note':'Estimación con rendimiento promedio de {r}\u00a0m² por saco a dos manos. Confirmamos cantidades exactas según superficie y acabado.',
         'calc.cta':'Cotizar esta cantidad',
         'world.line':'Desde Yucatán para el mundo.','world.sub':'Elaboramos el chukum en la península y lo enviamos a obras de México y del exterior.',
-        'contact.title':'Lleva SAURIUM a tu próximo proyecto','contact.sub':'Escríbenos y coordinamos muestras, fichas técnicas y logística de exportación.',
-        'contact.wa':'Escribir por WhatsApp',
-        /*cms:contacto-es*/'contact.agent':'Rodrigo López Alam — Ventas y exportación · +52 999 369 9488','contact.mail':'david_taranto@outlook.es',/*/cms:contacto-es*/
+        'contact.title':'Lleva SAURIUM a tu próximo proyecto','contact.sub':'Escríbenos y coordinamos muestras, ficha técnica y envío a tu obra, en México o afuera.',
+        'contact.wa':'Escribir por WhatsApp','contact.vcard':'Guardar contacto','faq.sub':'Lo que arquitectos y aplicadores nos preguntan antes de pedir muestras.','a11y.zoom1':'Ampliar: Muros de chukum en un patio con alberca','a11y.zoom2':'Ampliar: Interior con muros de chukum','a11y.zoom3':'Ampliar: Alberca con borde y muros de acabado continuo en tono arena','a11y.zoom4':'Ampliar: Regadera de bronce sobre muro continuo de estuco natural','compare.muestra0':'Pedir muestra de Terracota',muestraTxt:(n)=>`Pedir muestra de ${n}`,
+        /*cms:contacto-es*/'contact.agent':'Rodrigo López Alam — Ventas y exportación','contact.tel':'+52 999 369 9488','contact.mail':'david_taranto@outlook.es',/*/cms:contacto-es*/
         'footer.line':'Elaborado en la Península de Yucatán, México.','footer.rights':'Todos los derechos reservados',
         waText:'Hola, quiero cotizar chukum SAURIUM.',
         waCalc:(n,m2)=>`Hola, quiero cotizar ${n} sacos de chukum SAURIUM (${m2} m²).`,
       },
       en: {
         'meta.title':'SAURIUM — Authentic chukum from Yucatán. From the origin, designed to endure.','meta.desc':'Natural chukum finish, made in the Yucatán Peninsula. Six finishes, a before-and-after comparator, and shipping to Mexico and abroad.',
-        'a11y.skip':'Skip to content','colors.group':'Choose a finish','material.bag3d':'SAURIUM 20 kg chukum bag in 3D. Use the arrow keys to rotate it.',
-        'nav.story':'Story','nav.chukum':'About chukum','nav.colors':'Colors','nav.apps':'Applications','nav.contact':'Contact','nav.cta':'Get a quote',
+        'a11y.skip':'Skip to content','a11y.lang':'Switch to Spanish','a11y.galeria':'Applications gallery','a11y.cerrar':'Close','a11y.comparar':'Compare before and after','a11y.secciones':'Sections','idx.inicio':'Home','idx.historia':'Story','idx.material':'About chukum','idx.colores':'Finishes','idx.aplicaciones':'Applications','idx.preguntas':'Questions','idx.calculadora':'Calculator','idx.contacto':'Contact','alt.hero':'Coast and jungle of the Yucatán Peninsula from the air','alt.t1':'Yucatán lowland forest','alt.t2':'The impact on the peninsula','alt.t3':'Fossil footprint in the limestone','alt.saco':'SAURIUM 20 kg chukum bag','alt.antes':'The house unfinished, bare render','alt.despues':'The same house finished with SAURIUM chukum','alt.costa':'Coast of the Yucatán Peninsula from the air','uso.1':'Chukum walls on a patio with a pool','uso.2':'Interior with chukum walls','uso.3':'Pool with coping and walls in a seamless sand-tone finish','uso.4':'Brass shower on a seamless natural-stucco wall','colors.group':'Choose a finish','material.bag3d':'SAURIUM 20\u00a0kg chukum bag in 3D. Use the arrow keys to rotate it.',
+        'nav.story':'Story','nav.chukum':'About chukum','nav.colors':'Finishes','nav.apps':'Applications','nav.contact':'Contact','nav.cta':'Get a quote',
         'hero.kicker':'Authentic chukum from the Yucatán Peninsula',/*cms:hero-en*/'hero.l1':'From the origin.','hero.l2':'Designed to endure.',/*/cms:hero-en*/
-        'hero.sub':'A natural finish with a historic footprint. Born in Yucatán, ready for the world.',
-        'hero.cta1':'Discover the material','hero.cta2':'Talk to sales','hero.scroll':'Scroll',
+        'hero.sub':'A natural finish with a historic footprint. Chukum tree resin and peninsula lime, applied layer over layer.',
+        'hero.cta1':'See the material','hero.cta2':'Talk to sales','hero.scroll':'Scroll','hero.pie':'Coast of the Yucatán Peninsula',
         'tease.kicker':'The story','tease.title':'A land that keeps whatever passes through it.',
         'tease.sub':'From the impact that marked the peninsula to the material that now covers its walls. Sixty-six million years in three chapters.',
-        'tease.cta':'Walk through the story','tease.c1':'01 Origin','tease.c2':'02 Impact','tease.c3':'03 Imprint',
+        'tease.cta':'Walk through the story','tease.c1':'Origin','tease.c2':'Impact','tease.c3':'Footprint',
         'material.kicker':'The material','material.title':'What is chukum',
-        'material.sub':'A natural stucco of Maya origin: resin from the chukum tree blended with lime from the peninsula. The Maya used it in their cities and today it covers much of the architecture of Tulum and the Riviera Maya. It grips hard, repels water and holds up in tropical weather.',
-        'material.bag':'20 kg bag','material.hint3d':'Drag to rotate',
-        'material.r1t':'The tree','material.r1d':'Havardia albicans, a thorny tree of the Yucatán lowland forest. The Maya named it chukum and took its bark for centuries without felling the tree.',
+        'material.sub':'A natural stucco of Maya origin: resin from the chukum tree blended with lime from the peninsula. The Maya used it in their cities and today it covers much of the architecture of Tulum and the Riviera Maya. It bonds firmly, repels water and holds up in tropical weather.',
+        'material.bag':'20\u00a0kg bag (44\u00a0lb)','material.hint3d':'Drag to rotate',
+        'material.r1t':'The tree','material.r1d':', a thorny tree of the Yucatán lowland forest. The Maya named it chukum and harvested its bark for centuries without felling the tree.',
         'material.r2t':'The technique','material.r2d':'The bark is boiled to release its tannins and the extract is blended with hydrated lime. The result is a paste applied as fine stucco, layer over layer, with no paint or sealers.',
         'material.r3t':'Naturally water-repellent','material.r3d':'The Maya used it to waterproof cisterns and reservoirs. That is why it now lines pools, artificial cenotes and bathrooms: it repels water and lets the wall breathe.',
         'material.r4t':'Authentic, not imitation','material.r4d':'Authentic chukum carries real tree resin. Acrylic imitations copy the color, but they never breathe or age the way lime does.',
-        'material.r5t':'Export ready','material.r5d':'20 kg bag format, made in the Yucatán Peninsula, with technical data sheets and support for international projects.',
-        'compare.before':'Gray shell','compare.hint':'Drag the bar to see the same house before and after.',
+        'material.r5t':'Export ready','material.r5d':'20\u00a0kg bag format, made in the Yucatán Peninsula, with technical data sheets and support for international projects.',
+        'compare.before':'Unfinished','compare.hint':'Drag the bar to see the same house before and after.',
         'colors.kicker':'Finishes','colors.title':'Six finishes, one land',
         'colors.sub':'Mineral pigments over the same resin-and-lime base. No paint: the color is the material. Pick one and see the same house before and after.',
         'colors.c1':'Sand','colors.c2':'Cream','colors.c3':'Gray','colors.c4':'Charcoal','colors.c5':'Olive','colors.c6':'Terracotta',
         'apps.title':'Where history becomes architecture',
         'apps.sub':'Walls and facades, pools and cenotes, interiors, bathrooms and furniture. One paste, applied layer over layer.',
         'apps.a1':'Walls and facades','apps.a2':'Pools and water features','apps.a3':'Interiors','apps.a4':'Bathrooms and furniture',
-        'apps.d1':'Private house, Yucatán','apps.d2':'Pool with a seamless finish','apps.d3':'Living room, seamless walls','apps.d4':'Shower on a seamless wall',
-        'faq.title':'Frequently asked questions','lb.ayuda':'Swipe for the next one · Esc to close','faq.q1':"How much does one bag cover?",'faq.a1':"A 20 kg bag covers about 4 m\u00b2 with two coats on a smooth wall. Rough or very absorbent surfaces lower the yield, so we confirm the quantity with your measurements.",'faq.q2':"Does it work outdoors, with sun and rain?",'faq.a2':"Yes. Chukum was born for the Yucat\u00e1n climate: it repels water and lets the wall breathe, so it withstands direct sun, humidity and salt air without peeling.",'faq.q3':"Can it be used in pools and cenotes?",'faq.a3':"That is one of its original uses: the Maya waterproofed cisterns with it. Today it is applied in pools, water features and artificial cenotes, with the right base preparation.",'faq.q4':"How is it different from an acrylic chukum-style finish?",'faq.a4':"Authentic chukum carries real tree resin and lime. Acrylic imitations copy the color, but they never breathe or age the way lime does: it shows over time.",'faq.q5':"Do you ship outside Mexico?",'faq.a5':"Yes. We make it in the peninsula and export. Write to us with the destination and the square meters and we will send lead times and shipping costs.",'faq.q6':"Can I order samples before deciding?",'faq.a6':"Yes. We send physical samples of the finishes you are interested in so you can see them in the light of your own project.",
-        'calc.necesitas':'You need',calcEquiv:(m)=>`About ${m} walls of 3 × 2.5 m`,
-        'calc.title':'How much chukum does your project need?','calc.sub':'Enter the square meters and we calculate the 20 kg bags.',
-        'calc.label':'Surface to cover (m²)','calc.bags':'20 kg bags',
-        'calc.note':'Estimate based on an average coverage of {r} m² per bag, two coats. Exact quantities confirmed per surface and finish.',
+        'apps.d1':'Private house, Yucatán','apps.d2':'Chukum-lined pool','apps.d3':'Living room with chukum walls','apps.d4':'Bathroom with a chukum wall',
+        'faq.title':'Frequently asked questions','lb.ayuda':'Swipe for the next one · Tap outside to close','faq.q1':"How much does one bag cover?",'faq.a1':"A 20\u00a0kg (44\u00a0lb) bag covers about 4\u00a0m\u00b2 (43\u00a0sq\u00a0ft) with two coats on a smooth wall. Rough or very absorbent surfaces lower the yield, so we confirm the quantity with your measurements.",'faq.q2':"Does it work outdoors, with sun and rain?",'faq.a2':"Yes. Chukum was born for the Yucat\u00e1n climate: it repels water and lets the wall breathe, so it withstands direct sun, humidity and salt air without peeling.",'faq.q3':"Can it be used in pools and cenotes?",'faq.a3':"That is one of its original uses: the Maya waterproofed cisterns with it. Today it is applied in pools, water features and artificial cenotes, with the right base preparation.",'faq.q4':"How is it different from an acrylic chukum-style finish?",'faq.a4':"Authentic chukum carries real tree resin and lime. Acrylic imitations copy the color, but they never breathe or age the way lime does: it shows over time.",'faq.q5':"Do you ship outside Mexico?",'faq.a5':"Yes. We make it in the peninsula and export. Write to us with the destination and the square meters and we will send lead times and shipping costs.",'faq.q6':"Can I order samples before deciding?",'faq.a6':"Yes. We send physical samples of the finishes you are interested in so you can see them in the light of your own project.",
+        'calc.necesitas':'You need',calcEquiv:(m)=>`About ${m} walls of 3\u00a0×\u00a02.5\u00a0m (10\u00a0×\u00a08\u00a0ft)`,
+        'calc.title':'How much chukum does your project need?','calc.sub':'Enter the square meters and we calculate the 20\u00a0kg bags.',
+        'calc.label':'Surface to cover (m²)','calc.bags':'20\u00a0kg bags','calc.bag1':'20\u00a0kg bag',
+        'calc.note':'Estimate based on an average coverage of {r}\u00a0m² (43\u00a0sq\u00a0ft) per bag, two coats. Exact quantities confirmed per surface and finish.',
         'calc.cta':'Quote this amount',
         'world.line':'From Yucatán to the world.','world.sub':'We make the chukum in the peninsula and ship it to projects in Mexico and abroad.',
-        'contact.title':'Bring SAURIUM to your next project','contact.sub':'Write to us and we will coordinate samples, technical sheets and export logistics.',
-        'contact.wa':'Chat on WhatsApp',
-        /*cms:contacto-en*/'contact.agent':'Rodrigo López Alam — Sales and export · +52 999 369 9488','contact.mail':'david_taranto@outlook.es',/*/cms:contacto-en*/
+        'contact.title':'Bring SAURIUM to your next project','contact.sub':'Write to us and we will sort out samples, the data sheet and delivery to your site, in Mexico or abroad.',
+        'contact.wa':'Chat on WhatsApp','contact.vcard':'Save contact','faq.sub':'What architects and applicators ask us before ordering samples.','a11y.zoom1':'Enlarge: Chukum walls in a courtyard with a pool','a11y.zoom2':'Enlarge: Interior with chukum walls','a11y.zoom3':'Enlarge: Pool with a seamless sand-tone finish on edge and walls','a11y.zoom4':'Enlarge: Bronze shower on a seamless natural stucco wall','compare.muestra0':'Request a Terracotta sample',muestraTxt:(n)=>`Request a ${n} sample`,
+        /*cms:contacto-en*/'contact.agent':'Rodrigo López Alam — Sales and export','contact.tel':'+52 999 369 9488','contact.mail':'david_taranto@outlook.es',/*/cms:contacto-en*/
         'footer.line':'Made in the Yucatán Peninsula, Mexico.','footer.rights':'All rights reserved',
         waText:'Hi, I would like a quote for SAURIUM chukum.',
         waCalc:(n,m2)=>`Hi, I would like a quote for ${n} bags of SAURIUM chukum (${m2} m²).`,
       },
     };
-    ['obra','arena','crema','gris','carbon','oliva','terracota'].forEach(f=>{ const im=new Image(); im.src=`img/casa-${f}.jpg`; });
     this.setupLang(); this.setupReveals(); this.setupScroll();
-    this.setupCompare(); this.setupCalc(); this.setupSaco3D(); this.setupLightbox();
+    this.setupCompare(); this.setupCalc(); this.setupSaco3D(); this.setupLightbox(); this.setupFlotante();
   }
   componentWillUnmount() {
     this.dead = true;
@@ -600,49 +737,90 @@ class Component extends DCLogic {
     if (this.posRaf) cancelAnimationFrame(this.posRaf);
     if (this.ro3d) this.ro3d.disconnect();
     if (this.renderer3d) this.renderer3d.dispose();
+    if (this.sweepIO) this.sweepIO.disconnect();
+    if (this.preIO) this.preIO.disconnect();
+    if (this.flIO) this.flIO.disconnect();
+    if (this.io3d) this.io3d.disconnect();
+    if (this.lazy3d) this.lazy3d.disconnect();
+    if (this.contRaf) cancelAnimationFrame(this.contRaf);
+    if (this.revRaf) cancelAnimationFrame(this.revRaf);
+    if (this.onVis) document.removeEventListener('visibilitychange', this.onVis);
+  }
+  guardar() { try { sessionStorage.setItem('saurium-estado', JSON.stringify({ finish: this.finishTocado ? this.finish : null, m2: this.calcTocada ? this.m2 : null })); } catch (e) {} }
+  nombreAcabado() { const d = this.I18N[this.lang]; return ({ arena:d['colors.c1'], crema:d['colors.c2'], gris:d['colors.c3'], carbon:d['colors.c4'], oliva:d['colors.c5'], terracota:d['colors.c6'] })[this.finish]; }
+  waTexto(origen) {
+    const d = this.I18N[this.lang], es = this.lang === 'es', nombre = this.nombreAcabado();
+    const n = Math.ceil(Math.max(0, this.m2) / this.CONT.rendimiento);
+    const conCalc = this.calcTocada && n > 0;
+    const calcTxt = es ? `Hola, quiero cotizar ${this.fmt(n)} ${n === 1 ? 'saco' : 'sacos'} de chukum SAURIUM (${this.fmt(this.m2)} m²), acabado ${nombre}.` : `Hi, I would like a quote for ${this.fmt(n)} ${n === 1 ? 'bag' : 'bags'} of SAURIUM chukum (${this.fmt(this.m2)} m²), ${nombre} finish.`;
+    const acabadoTxt = es ? `Hola, me interesa el acabado ${nombre} de SAURIUM. ¿Me pasan precio y muestras?` : `Hi, I am interested in the ${nombre} SAURIUM finish. Could you send pricing and samples?`;
+    if (origen === 'muestra') return es ? `Hola, quiero una muestra física del acabado ${nombre} de SAURIUM. Obra en: ` : `Hi, I would like a physical sample of the ${nombre} SAURIUM finish. Project location: `;
+    if (origen === 'calculadora') return calcTxt;
+    if (origen === 'hero') return d.waText;
+    if (conCalc) return calcTxt;
+    if (this.finishTocado) return acabadoTxt;
+    return d.waText;
+  }
+  waLink(origen) { return `https://wa.me/${this.WA}?text=${encodeURIComponent(this.waTexto(origen))}`; }
+  actualizarWA() {
+    this.qa('[data-wa-link]').forEach(a=>{ a.href = this.waLink(a.getAttribute('data-wa-link')); a.target = '_blank'; a.rel = 'noopener'; });
+    const wa = this.q('[data-wa-btn]'); if (wa) wa.href = this.waLink('contacto');
+    const cta = this.q('[data-calc-cta]'); if (cta) cta.href = this.waLink('calculadora');
+    const fl = this.q('[data-wa-flotante]'); if (fl) fl.href = this.waLink('flotante');
+    const mu = this.q('[data-muestra]');
+    if (mu) { mu.href = this.waLink('muestra'); mu.target = '_blank'; mu.rel = 'noopener'; const t = this.q('[data-muestra-txt]'); const d = this.I18N[this.lang]; if (t && d.muestraTxt) t.textContent = d.muestraTxt(this.nombreAcabado()); }
   }
   q(s){ return document.querySelector(s); }
   qa(s){ return Array.from(document.querySelectorAll(s)); }
   swapText(next) {
     this.lang = next;
     localStorage.setItem('saurium-lang', next);
-    document.documentElement.lang = next;
+    document.documentElement.lang = next === 'es' ? 'es-MX' : 'en';
     const d = this.I18N[next];
     this.qa('[data-i18n]').forEach(el=>{ const k=el.getAttribute('data-i18n'); if(d[k]) el.textContent=d[k].replace('{r}', this.CONT.rendimiento); });
     this.qa('[data-i18n-arialabel]').forEach(el=>{ const k=el.getAttribute('data-i18n-arialabel'); if(d[k]) el.setAttribute('aria-label', d[k]); });
+    this.qa('[data-i18n-alt]').forEach(el=>{ const k=el.getAttribute('data-i18n-alt'); if(d[k]) el.setAttribute('alt', d[k]); });
     if (d['meta.title']) document.title = d['meta.title'];
     const md = document.querySelector('meta[name="description"]'); if (md && d['meta.desc']) md.setAttribute('content', d['meta.desc']);
     this.qa('[data-lang-opt]').forEach(el=>{ el.style.opacity = el.getAttribute('data-lang-opt')===next ? '1':'0.4'; });
-    const wa = this.q('[data-wa-btn]');
-    if (wa) wa.href = `https://wa.me/${this.WA}?text=${encodeURIComponent(d.waText)}`;
+    const tel = this.q('[data-tel]'); if (tel) tel.href = 'tel:+' + this.WA;
+    const vc = this.q('[data-vcard]');
+    if (vc) { const correo = ((this.q('[data-i18n="contact.mail"]') || {}).textContent || '').trim(); const [nombre, cargo] = (d['contact.agent'] || '').split(' — '); vc.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(`BEGIN:VCARD\nVERSION:3.0\nFN:${nombre || ''}\nORG:SAURIUM\nTITLE:${cargo || ''}\nTEL;TYPE=CELL:+${this.WA}\nEMAIL:${correo}\nEND:VCARD`); }
     this.updateCalc(); this.updateFinishLabel();
   }
   applyLang(next, animate) {
-    if (!animate || this.reduce || this.langBusy) { this.swapText(next); return; }
+    if (!animate || this.reduce) { this.swapText(next); return; }
+    if (this.langBusy) { this.langNext = next; return; }
     this.langBusy = true;
-    const els = this.qa('[data-i18n]');
+    const vh = window.innerHeight;
+    const els = this.qa('[data-i18n]').filter(el=>{ const r = el.getBoundingClientRect(); return r.bottom > -vh && r.top < vh * 2; });
+    const fuerte = (el)=> /^(H1|H2)$/.test(el.tagName) || !!el.closest('h1,h2');
     els.forEach(el=>{
       if (el.dataset.op0 === undefined) el.dataset.op0 = el.style.opacity || '';
-      el.style.transition = 'opacity 0.24s ease, filter 0.24s ease, transform 0.24s ease';
-      el.style.opacity = '0';
-      el.style.filter = 'blur(7px)';
-      el.style.transform = 'translateY(4px)';
+      if (el.dataset.tr0 === undefined) el.dataset.tr0 = el.style.transition || '';
+      el.style.transition = 'opacity 0.18s ease, transform 0.18s ease, filter 0.18s ease';
+      el.style.opacity = '0'; el.style.transform = 'translateY(4px)';
+      if (fuerte(el)) el.style.filter = 'blur(6px)';
     });
     setTimeout(()=>{
       if (this.dead) return;
       this.swapText(next);
       els.forEach(el=>{
-        el.style.transition = 'opacity 0.45s cubic-bezier(0.22,1,0.36,1), filter 0.45s cubic-bezier(0.22,1,0.36,1), transform 0.45s cubic-bezier(0.22,1,0.36,1)';
-        el.style.opacity = el.dataset.op0;
-        el.style.filter = 'blur(0px)';
-        el.style.transform = 'none';
+        el.style.transition = 'opacity 0.4s cubic-bezier(0.22,1,0.36,1), transform 0.4s cubic-bezier(0.22,1,0.36,1), filter 0.4s cubic-bezier(0.22,1,0.36,1)';
+        el.style.opacity = el.dataset.op0; el.style.transform = 'none'; el.style.filter = 'blur(0px)';
       });
-      setTimeout(()=>{ this.langBusy = false; els.forEach(el=>{ el.style.filter=''; el.style.transform=''; }); }, 480);
-    }, 250);
+      setTimeout(()=>{
+        if (this.dead) return;
+        els.forEach(el=>{ el.style.filter = ''; el.style.transform = ''; el.style.transition = el.dataset.tr0; });
+        this.langBusy = false;
+        const pend = this.langNext; this.langNext = null;
+        if (pend && pend !== this.lang) this.applyLang(pend, true);
+      }, 440);
+    }, 190);
   }
   setupLang() {
     const t = this.q('[data-lang-toggle]');
-    if (t) t.addEventListener('click', ()=>{ localStorage.setItem('saurium-lang-set','1'); this.applyLang(this.lang==='es'?'en':'es', true); });
+    if (t) t.addEventListener('click', ()=>{ localStorage.setItem('saurium-lang-set','1'); this.applyLang((this.langNext || this.lang)==='es'?'en':'es', true); });
     this.applyLang(this.lang);
   }
   setupReveals() {
@@ -650,15 +828,16 @@ class Component extends DCLogic {
     const els = this.qa('[data-reveal]');
     if (!this.reduce) els.forEach(el=>{
       const desde = el.getAttribute('data-reveal-desde') || (el.closest('[data-reveal-desde]')||{getAttribute:()=>null}).getAttribute('data-reveal-desde');
-      const inicio = desde==='izq' ? 'translateX(-34px)' : desde==='der' ? 'translateX(34px)' : desde==='escala' ? 'scale(0.965)' : 'translateY(26px)';
-      el.style.opacity='0'; el.style.transform=inicio; el.style.transition=`opacity 0.9s ${eo}, transform 0.9s ${eo}`;
+      const inicio = desde==='izq' ? 'translateX(-34px)' : desde==='der' ? 'translateX(34px)' : desde==='escala' ? 'scale(0.965)' : desde==='cortina' ? 'translateY(28px)' : 'translateY(26px)';
+      el.style.opacity='0'; el.style.transform=inicio; el.style.transition=`opacity 0.9s ${eo}, transform 0.9s ${eo}, clip-path 0.9s ${eo}`;
+      if (desde==='cortina') el.style.clipPath='inset(100% 0 0 0)';
       const sibs = [...el.parentElement.children].filter(x=>x.hasAttribute('data-reveal'));
       if (sibs.length > 2) el.style.transitionDelay = (Math.min(sibs.indexOf(el), 7) * 70) + 'ms'; });
     this.io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if (!e.isIntersecting) return;
         const el = e.target;
-        el.style.opacity='1'; el.style.transform='none';
+        el.style.opacity='1'; el.style.transform='none'; if (el.style.clipPath) el.style.clipPath='inset(0 0 0 0)';
         this.io.unobserve(el);
         // si la transicion no llega a correr, cerrarla de una: nada se queda a medias
         setTimeout(()=>{ if (parseFloat(getComputedStyle(el).opacity) < 0.95) { el.style.transition='none'; el.style.transitionDelay='0ms'; el.style.opacity='1'; el.style.transform='none'; } }, 1400 + (parseFloat(el.style.transitionDelay)||0));
@@ -673,12 +852,12 @@ class Component extends DCLogic {
     // ahi el contenido tiene que aparecer igual, aunque sea sin animacion.
     const pend = new Set(els);
     const mostrar = (el)=>{
-      el.style.opacity='1'; el.style.transform='none';
+      el.style.opacity='1'; el.style.transform='none'; if (el.style.clipPath) el.style.clipPath='inset(0 0 0 0)';
       setTimeout(()=>{ if (parseFloat(getComputedStyle(el).opacity) < 0.95) { el.style.transition='none'; el.style.transitionDelay='0ms'; el.style.opacity='1'; el.style.transform='none'; } }, 1400 + (parseFloat(el.style.transitionDelay)||0));
     };
     const barrer = ()=>{
       if (!pend.size) return;
-      pend.forEach(el=>{ const r = el.getBoundingClientRect(); if (r.top < window.innerHeight * 0.95 && r.bottom > 0) { mostrar(el); pend.delete(el); } });
+      pend.forEach(el=>{ const r = el.getBoundingClientRect(); if (r.bottom < 0 || (r.top < window.innerHeight * 0.95 && r.bottom > 0)) { mostrar(el); pend.delete(el); } });
     };
     this.onReveal = ()=>{ if (this.revRaf) return; this.revRaf = requestAnimationFrame(()=>{ this.revRaf = null; barrer(); }); };
     window.addEventListener('scroll', this.onReveal, { passive:true });
@@ -695,19 +874,21 @@ class Component extends DCLogic {
   setupScroll() {
     const nav = this.q('[data-nav]');
     const par = this.qa('[data-parallax]');
+    const secciones = this.qa('section[id]').filter(sec=>!sec.hidden);
     this.onScroll = ()=>{
       if (this.scrollRaf) cancelAnimationFrame(this.scrollRaf);
       this.scrollRaf = requestAnimationFrame(()=>{
         this.scrollRaf = null;
         const y = window.scrollY, vh = window.innerHeight;
         if (nav) nav.style.boxShadow = y>8 ? '0 1px 0 rgba(71,67,65,0.1)' : 'none';
+        // seccion activa por posicion de layout (offsetTop ignora el sticky de la cortina)
+        const yIdx = y + vh*0.45, yNav = y + 36;
+        let act = this.lastAct || null, oscuroIdx = false, oscuroNav = false;
+        secciones.forEach(sec=>{ const t = sec.offsetTop, b = t + sec.offsetHeight; const osc = sec.getAttribute('data-tema') === 'oscuro'; if (yIdx >= t && yIdx < b) { act = sec.id; oscuroIdx = osc; } if (yNav >= t && yNav < b) oscuroNav = osc; });
+        this.lastAct = act;
         const idx = document.querySelector('.indice');
-        if (idx) {
-          let act = null, oscuro = false;
-          document.querySelectorAll('section[id]').forEach(sec=>{ const r = sec.getBoundingClientRect(); if (r.top <= vh*0.45 && r.bottom > vh*0.45) { act = sec.id; oscuro = /colores|historia|contacto/.test(sec.id) || getComputedStyle(sec).backgroundColor.startsWith('rgb(29'); } });
-          idx.querySelectorAll('a').forEach(a=>a.classList.toggle('activo', a.getAttribute('data-indice')===act));
-          idx.classList.toggle('sobre-oscuro', oscuro);
-        }
+        if (idx) { idx.querySelectorAll('a').forEach(a=>a.classList.toggle('activo', a.getAttribute('data-indice')===act)); idx.classList.toggle('sobre-oscuro', oscuroIdx); }
+        if (nav && oscuroNav !== this.navOscura) { this.navOscura = oscuroNav; nav.classList.toggle('nav-oscura', oscuroNav); const lg = nav.querySelector('[data-logo-nav]'); if (lg) lg.src = this.IMG + (oscuroNav ? lg.getAttribute('data-src-oscuro') : lg.getAttribute('data-src-claro')); }
         if (!this.reduce) {
           par.forEach(el=>{ el.style.transform = `translateY(${y*Number(el.dataset.parallax)}px)`; });
           const ba = this.q('[data-ba]');
@@ -727,10 +908,9 @@ class Component extends DCLogic {
     this.onScroll();
   }
   updateFinishLabel() {
-    const d = this.I18N[this.lang];
-    const names = { arena:d['colors.c1'], crema:d['colors.c2'], gris:d['colors.c3'], carbon:d['colors.c4'], oliva:d['colors.c5'], terracota:d['colors.c6'] };
     const lbl = this.q('[data-ba-label-after]');
-    if (lbl) lbl.textContent = names[this.finish];
+    if (lbl) lbl.textContent = this.nombreAcabado();
+    this.actualizarWA();
   }
   setupCompare() {
     const wrap = this.q('[data-ba]');
@@ -738,8 +918,9 @@ class Component extends DCLogic {
     const after = this.q('[data-ba-after]');
     if (!wrap || !range) return;
     const knob = this.q('[data-ba-knob]');
-    let target = 50, cur = 50, vel = 0, lastT = 0, lastX = null;
-    const apply = ()=>{ wrap.style.setProperty('--pos', `${cur}%`); range.value = cur; };
+    const fuentes = (f)=>({ src:`${this.IMG}casa-${f}.webp`, srcset:`${this.IMG}casa-${f}-720.webp 720w, ${this.IMG}casa-${f}-1200.webp 1200w, ${this.IMG}casa-${f}.webp 1500w` });
+    let target = 50, cur = 50, vel = 0, lastT = 0, lastX = null, presionado = false;
+    const apply = ()=>{ wrap.style.setProperty('--pos', `${cur}%`); range.value = cur; const d = this.I18N[this.lang]; range.setAttribute('aria-valuetext', `${Math.round(cur)} % · ${d['compare.before']} / ${this.nombreAcabado()}`); };
     // resorte criticamente amortiguado (sin rebote): sigue al objetivo y hereda la velocidad del dedo
     let prev = 0;
     const loop = (t)=>{
@@ -765,17 +946,21 @@ class Component extends DCLogic {
       const now = performance.now();
       if (lastX !== null && now > lastT) vel = (v - lastX) / ((now - lastT) / 1000) * 0.35;
       lastX = v; lastT = now;
-      this.setBaPos(v);
+      // mientras el dedo esta apoyado la barra lo sigue 1:1; el resorte queda para el soltar
+      this.setBaPos(v, presionado);
     });
     const soltar = ()=>{
-      if (this.reduce || Math.abs(vel) < 20) { lastX = null; return; }
+      presionado = false;
+      if (this.reduce || Math.abs(vel) < 20) { lastX = null; vel = 0; return; }
       // proyeccion del impulso (deceleracion 0.99) y freno con el resorte, sin rebote
       const proyectado = cur + (vel / 1000) * 0.99 / (1 - 0.99);
       target = Math.min(100, Math.max(0, proyectado)); lastX = null; start();
     };
+    wrap.addEventListener('pointerdown', ()=>{ presionado = true; lastX = null; vel = 0; });
     wrap.addEventListener('pointerup', soltar); wrap.addEventListener('pointercancel', soltar);
-    wrap.addEventListener('pointerenter', ()=>{ if (knob) knob.style.transform = 'translate(-50%,-50%) scale(1.12)'; });
-    wrap.addEventListener('pointerleave', ()=>{ if (knob) knob.style.transform = 'translate(-50%,-50%) scale(1)'; soltar(); setTimeout(()=>{ if (!this.dead && lastX === null) this.setBaPos(50); }, 900); });
+    wrap.addEventListener('pointerenter', (e)=>{ if (knob && e.pointerType === 'mouse') knob.style.transform = 'translate(-50%,-50%) scale(1.12)'; });
+    // la posicion elegida es del visitante: no se resetea nunca (en tactil pointerleave llega despues de cada toque)
+    wrap.addEventListener('pointerleave', (e)=>{ if (knob) knob.style.transform = 'translate(-50%,-50%) scale(1)'; if (e.pointerType === 'mouse') soltar(); });
     if (knob) knob.style.transition = 'transform 0.3s cubic-bezier(0.22,1,0.36,1)';
     range.addEventListener('input', ()=> this.setBaPos(Number(range.value), true));
     range.addEventListener('keydown', (e)=>{
@@ -795,6 +980,7 @@ class Component extends DCLogic {
         });
         b.addEventListener('pointerleave', ()=> macro.classList.remove('visible'));
       });
+      window.addEventListener('scroll', ()=> macro.classList.remove('visible'), { passive: true });
     }
     const setActive = ()=>{
       buttons.forEach(b=>{
@@ -804,74 +990,95 @@ class Component extends DCLogic {
         // el look de la placa activa lo lleva el CSS por aria-pressed
       });
     };
+    const estante = this.q('.estante');
+    const centrar = (b, instant)=>{ if (!estante || !b || estante.scrollWidth <= estante.clientWidth + 4) return; estante.scrollTo({ left: b.offsetLeft - (estante.clientWidth - b.offsetWidth) / 2, behavior: (instant || this.reduce) ? 'instant' : 'smooth' }); };
+    const poner = (img, f)=>{ const q = fuentes(f); img.sizes = after.sizes || img.sizes; img.srcset = q.srcset; img.src = q.src; };
     buttons.forEach(b=>{
       b.addEventListener('click', ()=>{
-        this.finish = b.getAttribute('data-finish');
+        this.finish = b.getAttribute('data-finish'); this.finishTocado = true; this.guardar();
+        try { history.replaceState(null, '', location.pathname + '?acabado=' + this.finish + location.hash); } catch (e) {}
         if (after) {
-          const src = `img/casa-${this.finish}.webp`;
           const capaB = this.q('[data-ba-after2]');
           const brillo = this.q('[data-ba-brillo]');
+          const id = ++this.baSeq; clearTimeout(this.baTimer);
           if (capaB) {
-            // la nueva entra fundida sobre la vieja: nunca hay un cuadro en negro
-            const im = new Image();
-            im.onload = ()=>{
-              capaB.src = src; capaB.style.opacity = '1';
+            // la nueva entra fundida sobre la vieja: nunca hay un cuadro en negro; con srcset, src solo no cambia nada
+            const q = fuentes(this.finish);
+            const im = new Image(); im.sizes = after.sizes; im.srcset = q.srcset; im.src = q.src;
+            const listo = ()=>{
+              if (id !== this.baSeq || this.dead) return;
+              poner(capaB, this.finish); capaB.style.opacity = '1';
               if (brillo && !this.reduce) { brillo.classList.remove('corre'); void brillo.offsetWidth; brillo.classList.add('corre'); }
-              setTimeout(()=>{ after.src = src; capaB.style.opacity = '0'; }, 420);
+              this.baTimer = setTimeout(()=>{ if (id !== this.baSeq) return; poner(after, this.finish); capaB.style.opacity = '0'; }, 420);
             };
-            im.src = src;
-          } else after.src = src;
+            if (im.complete) listo(); else { im.onload = listo; im.onerror = listo; }
+          } else poner(after, this.finish);
         }
-        setActive(); this.updateFinishLabel();
+        setActive(); this.updateFinishLabel(); centrar(b);
+        const rb = wrap.getBoundingClientRect(); if (rb.top > innerHeight * 0.6) wrap.scrollIntoView({ block: 'center', behavior: this.reduce ? 'instant' : 'smooth' });
       });
     });
-    if (after) after.src = `img/casa-${this.finish}.webp`;
+    this.baSeq = 0;
+    if (after) poner(after, this.finish);
     setActive(); this.updateFinishLabel();
-    if (!this.reduce) {
-      const sweepIO = new IntersectionObserver((es)=>{
+    centrar(buttons.find(b=>b.getAttribute('data-finish')===this.finish), true);
+    // precarga de los acabados en el formato y tamano reales, solo cuando la seccion se acerca
+    this.preIO = new IntersectionObserver((es)=>{
+      if (!es.some(e=>e.isIntersecting)) return;
+      this.preIO.disconnect();
+      this.ACABADOS.forEach(f=>{ if (f === this.finish) return; const q = fuentes(f); const im = new Image(); im.sizes = after ? after.sizes : ''; im.srcset = q.srcset; im.src = q.src; });
+    }, { rootMargin: '800px 0px' });
+    this.preIO.observe(wrap);
+    // barrido de bienvenida: destapa el acabado (no la obra gris) y descansa un poco a su favor
+    if (this.reduce) this.setBaPos(44, true);
+    else {
+      this.sweepIO = new IntersectionObserver((es)=>{
         es.forEach(e=>{
           if (!e.isIntersecting || this.sweepDone) return;
-          this.sweepDone = true; sweepIO.disconnect();
+          this.sweepDone = true; this.sweepIO.disconnect();
           const t0 = performance.now(), dur = 2200;
           const ease = (x)=>0.5-0.5*Math.cos(Math.PI*2*x);
           const step = (t)=>{
-            if (this.dead) return;
+            if (this.dead || presionado) return;
             const p = Math.min(1,(t-t0)/dur);
-            this.setBaPos(50 + ease(p)*28*(1-p*0.35), true);
-            if (p<1) requestAnimationFrame(step); else this.setBaPos(50, true);
+            this.setBaPos(50 - ease(p)*26*(1-p*0.35) - 6*p, true);
+            if (p<1) requestAnimationFrame(step); else this.setBaPos(44, true);
           };
           requestAnimationFrame(step);
         });
       }, { threshold: 0.4 });
-      sweepIO.observe(wrap);
+      this.sweepIO.observe(wrap);
     }
   }
+  fmt(n) { return Number(n).toLocaleString(this.lang === 'es' ? 'es-MX' : 'en-US'); }
   contar(el, fin) {
-    const ini = Number(el.textContent) || 0;
-    if (this.reduce || ini === fin) { el.textContent = String(fin); return; }
+    const ini = Number(el.dataset.valor) || 0;
+    const set = (n)=>{ el.dataset.valor = String(n); el.textContent = this.fmt(n); };
+    if (this.reduce || ini === fin) { set(fin); return; }
     if (this.contRaf) cancelAnimationFrame(this.contRaf);
     const t0 = performance.now(), dur = 220;
-    const paso = (t)=>{ const p = Math.min(1, (t - t0) / dur); const e = 1 - Math.pow(1 - p, 3); el.textContent = String(Math.round(ini + (fin - ini) * e)); if (p < 1) this.contRaf = requestAnimationFrame(paso); };
+    const paso = (t)=>{ const p = Math.min(1, (t - t0) / dur); const e = 1 - Math.pow(1 - p, 3); set(Math.round(ini + (fin - ini) * e)); if (p < 1) this.contRaf = requestAnimationFrame(paso); };
     this.contRaf = requestAnimationFrame(paso);
   }
   updateCalc() {
     const d = this.I18N[this.lang];
     const n = Math.ceil(Math.max(0, this.m2) / this.CONT.rendimiento);
     const out = this.q('[data-calc-sacos]');
-    if (out) this.contar(out, n);
+    if (out) { if (n === 0) { out.dataset.valor = '0'; out.textContent = '—'; } else this.contar(out, n); }
+    const bags = this.q('[data-i18n="calc.bags"]'); if (bags) bags.textContent = n === 1 ? (d['calc.bag1'] || d['calc.bags']) : d['calc.bags'];
     const eq = this.q('[data-calc-equiv]');
-    if (eq) { const muros = Math.max(1, Math.round(this.m2 / 7.5)); eq.textContent = (d.calcEquiv ? d.calcEquiv(muros) : ''); }
+    if (eq) { const muros = Math.round(this.m2 / 7.5); eq.textContent = (muros >= 2 && d.calcEquiv) ? d.calcEquiv(this.fmt(muros)) : ''; eq.hidden = muros < 2; }
+    const sq = this.q('[data-calc-sqft]'); if (sq) { sq.hidden = this.lang !== 'en' || !(this.m2 > 0); sq.textContent = `\u2248 ${this.fmt(Math.round(this.m2 * 10.764))} sq\u00a0ft`; }
     const rango = this.q('[data-calc-rango]');
     if (rango) { rango.value = Math.min(1000, Math.max(10, this.m2)); rango.style.setProperty('--p', ((rango.value - 10) / 990 * 100) + '%'); }
     if (this.sacoImpulso && !this.reduce) this.sacoImpulso();
-    const cta = this.q('[data-calc-cta]');
-    if (cta) cta.href = `https://wa.me/${this.WA}?text=${encodeURIComponent(d.waCalc(n, this.m2))}`;
+    this.actualizarWA();
   }
   setupLightbox() {
     const dlg = this.q('[data-lightbox]'); if (!dlg || !dlg.showModal) return;
     const pista = dlg.querySelector('[data-lb-pista]');
     const abrir = (k, origen)=>{
-      this.lbOrigen = origen; dlg.showModal();
+      this.lbOrigen = origen; dlg.querySelectorAll('img[data-src]').forEach(im=>{ im.src = im.getAttribute('data-src'); im.removeAttribute('data-src'); }); dlg.showModal();
       const slide = dlg.querySelector(`[data-lb-slide="${k}"]`);
       if (slide) slide.scrollIntoView({ block:'nearest', inline:'center', behavior:'instant' });
       dlg.querySelector('[data-lb-cerrar]').focus();
@@ -885,16 +1092,34 @@ class Component extends DCLogic {
       if (e.key === 'ArrowLeft') pista.scrollBy({ left: -pista.clientWidth, behavior: this.reduce ? 'instant' : 'smooth' });
     });
   }
+  setupFlotante() {
+    const fl = this.q('[data-wa-flotante]'); if (!fl) return;
+    const hero = this.q('#inicio'), fin = this.q('#contacto'), dlg = this.q('[data-lightbox]');
+    let heroVisto = true, finVisto = false;
+    const pintar = ()=> fl.classList.toggle('visible', !heroVisto && !finVisto && !(dlg && dlg.open));
+    this.flIO = new IntersectionObserver((es)=>{ es.forEach(e=>{ if (e.target === hero) heroVisto = e.isIntersecting; if (e.target === fin) finVisto = e.isIntersecting; }); pintar(); }, { threshold: 0.05 });
+    if (hero) this.flIO.observe(hero);
+    if (fin) this.flIO.observe(fin);
+    if (dlg) { dlg.addEventListener('close', pintar); this.qa('[data-lb]').forEach(b=> b.addEventListener('click', ()=> setTimeout(pintar, 0))); }
+  }
   setupCalc() {
     const inp = this.q('[data-calc-m2]');
     if (!inp) return;
     inp.value = this.m2;
-    inp.addEventListener('input', ()=>{ this.m2 = Math.max(0, Number(inp.value)||0); this.updateCalc(); });
+    inp.addEventListener('input', ()=>{ this.m2 = Math.min(100000, Math.max(0, Math.round(Number(inp.value)||0))); this.calcTocada = true; this.guardar(); this.updateCalc(); });
+    inp.addEventListener('change', ()=>{ if (Number(inp.value) !== this.m2) inp.value = this.m2; });
     const rango = this.q('[data-calc-rango]');
-    if (rango) rango.addEventListener('input', ()=>{ this.m2 = Number(rango.value); inp.value = this.m2; this.updateCalc(); });
+    if (rango) rango.addEventListener('input', ()=>{ this.m2 = Number(rango.value); inp.value = this.m2; this.calcTocada = true; this.guardar(); this.updateCalc(); });
     this.updateCalc();
   }
-  async setupSaco3D() {
+  setupSaco3D() {
+    const wrap = this.q('[data-saco3d]');
+    if (!wrap) return;
+    // three.js (650 KB) recien se pide cuando el saco se acerca a la pantalla
+    this.lazy3d = new IntersectionObserver((es)=>{ if (es.some(e=>e.isIntersecting)) { this.lazy3d.disconnect(); this.lazy3d = null; this.initSaco3D(); } }, { rootMargin: '400px 0px' });
+    this.lazy3d.observe(wrap);
+  }
+  async initSaco3D() {
     const wrap = this.q('[data-saco3d]');
     const fallback = this.q('[data-saco]');
     if (!wrap) return;
@@ -904,7 +1129,7 @@ class Component extends DCLogic {
       if (this.dead) return;
       const loader = new THREE.TextureLoader();
       const load = (u)=> new Promise((res,rej)=> loader.load(u, res, undefined, rej));
-      const [frontTex, sideTex] = await Promise.all([load('img/bag-front.webp'), load('img/bag-side.webp')]);
+      const [frontTex, sideTex] = await Promise.all([load(`${this.IMG}bag-front.webp`), load(`${this.IMG}bag-side.webp`)]);
       if (this.dead) return;
       [frontTex, sideTex].forEach(t=>{ t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; });
       const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
@@ -1017,9 +1242,11 @@ class Component extends DCLogic {
         else if (e.key === 'ArrowRight') { vy = 0.045; e.preventDefault(); }
       });
       const reduce = this.reduce;
-      let t0 = performance.now();
+      let t0 = performance.now(), dirty = true;
+      this.visible3d = true;
       const loop = (t)=>{
         if (this.dead) return;
+        if (!this.visible3d || document.hidden) { this.rafId3d = null; return; }
         const dt = Math.min(0.05,(t-t0)/1000); t0 = t;
         if (!dragging) {
           bag.rotation.y += vy; vy *= 0.945;
@@ -1028,10 +1255,18 @@ class Component extends DCLogic {
         }
         if (!reduce) { bag.position.y = Math.sin(t/1600)*0.026; bag.rotation.x = Math.sin(t/2400)*0.012;
           const alto = 1 - bag.position.y*1.6; sombra.material.opacity = 0.9*alto; sombra.scale.set(alto, alto, 1); }
-        renderer.render(scene, camera);
+        // con movimiento reducido solo se dibuja cuando algo cambio (arrastre, teclado o impulso)
+        if (!reduce || dragging || Math.abs(vy) > 0.0004 || dirty) { renderer.render(scene, camera); dirty = false; }
         this.rafId3d = requestAnimationFrame(loop);
       };
-      this.rafId3d = requestAnimationFrame(loop);
+      const arrancar = ()=>{ if (this.rafId3d || this.dead) return; t0 = performance.now(); dirty = true; this.rafId3d = requestAnimationFrame(loop); };
+      wrap.addEventListener('pointerdown', ()=>{ dirty = true; });
+      this.io3d = new IntersectionObserver((es)=>{ es.forEach(e=>{ this.visible3d = e.isIntersecting; if (e.isIntersecting) arrancar(); else if (this.rafId3d) { cancelAnimationFrame(this.rafId3d); this.rafId3d = null; } }); }, { rootMargin: '200px 0px' });
+      this.io3d.observe(wrap);
+      this.onVis = ()=>{ if (document.hidden) { if (this.rafId3d) { cancelAnimationFrame(this.rafId3d); this.rafId3d = null; } } else if (this.visible3d) arrancar(); };
+      document.addEventListener('visibilitychange', this.onVis);
+      const impulsoBase = this.sacoImpulso; this.sacoImpulso = ()=>{ impulsoBase(); dirty = true; arrancar(); };
+      arrancar();
     } catch (err) {
       console.warn('3D no disponible, se muestra la foto:', err);
     }

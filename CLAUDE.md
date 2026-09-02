@@ -12,22 +12,27 @@ Sitio estático (HTML/CSS/JS, sin build) para SAURIUM, marca de chukum de Yucat�
 ## Deploy
 GitHub Pages desde `main` (repo `saurium-web`). Iterar = commit + push.
 
-## Estado actual (2026-09-01, 3.0 en curso)
+## Estado actual (2026-09-02, 4.0 publicado)
 
 Presupuesto **aprobado**. Dominio elegido por el cliente: **sauriumchukum.com** (libre al 2026-09-01; lo registra David, USD 40 cotizados). Patrón del vault: `conectar-dominio-propio-a-github-pages`.
 
-### Rediseño 3.0 (menú de `subir-nivel`, 16/16 tildadas)
-- **Hero editorial**: texto a la izquierda en columna de lectura, foto contenida con margen (de Clou Architects); wordmark SAURIUM gigante recortado al pie (de Postevand); cinta marquee de acabados (reusa `cintaSpecs` de Aires); índice lateral fijo de secciones (de Stripe Press), visible desde 1180px.
-- **Comparador**: borde con feather de 14px y canto de llana texturizado (mask con feTurbulence en vez de clip-path); al soltar, la barra sigue con la velocidad del dedo y frena con resorte crítico; cambio de acabado con fundido cruzado sobre una segunda capa (`data-ba-after2`) más barrido de luz, sin cuadro en negro.
-- **Calculadora**: deslizador de m² sincronizado con el número, resultado grande en tarjeta oscura, equivalencia en muros de 3 × 2,5 m, cifra que cuenta (220ms, tabular) y el saco 3D recibe un impulso al cambiar (`this.sacoImpulso`).
-- **Estante de placas**: los seis acabados como placas con canto y sombra (textura real `swatch-*.webp`), activa por `aria-pressed`; macro de textura al 5x siguiendo el cursor (solo `hover:hover`).
-- **Lightbox** con scroll-snap nativo (patrón `galeria-con-swipe-nativo`), `<dialog>`, teclado y foco de vuelta al origen.
-- **FAQ** de seis preguntas con `<details>` animado por `grid-template-rows` y JSON-LD `FAQPage`.
-- **Obras**: sección `#obras` oculta con región `cms:obras`; se destapa cuando `contenido/sitio.json` tenga casos.
-- **Reveals** con dirección por sección (`data-reveal-desde="izq|der|escala"`).
-- **WebP** con variantes 720/1200/1600 y `srcset`; las dos imágenes OG quedan en JPG a propósito.
-- **SEO**: JSON-LD Organization/Product/WebSite/Article, hreflang es-MX/en/x-default, y páginas `/en/` generadas con `cd server && npm run en` (correr después de cada cambio).
-- **Bloqueante del auditor resuelto**: las 8 transiciones sobre width/height/top pasaron a transform.
+### Rediseño 4.0: cinematográfico, editorial, moderno (revisión multi-lente + dos rondas de QA en celular)
+- **Tipografía**: Newsreader (serif con tamaño óptico, 400/500) solo en display: h1, los seis h2, la frase de cierre "Desde Yucatán para el mundo", el h1 y las frases de historia. Sora en todo lo demás. Tokens en `:root` (`--f-display`, `--f-ui`, `--t-xs..--t-h1`, `--track-caps`, `--track-kicker`, `--ancho`, `--hair`). Ojo: los `clamp()` llevan espacios alrededor del `+` o el token se invalida (vault: `el-clamp-sin-espacios-invalida-el-token`).
+- **Ritmo**: se fueron los seis fundidos de 170 px con paddings de 30vh. Un solo gesto de transición: `#historia` es `position:sticky` (clase `cortina-fondo`) y `#material` sube por encima con esquinas redondeadas (`cortina-tapa`). Entre bloques crema, reglas finas (`--hair`). Grilla única de 1180 con un solo borde izquierdo de lectura en toda la página, Contacto incluido (texto abajo a la izquierda del cuadro, a la Dinesen).
+- **Orden nuevo**: hero → cinta → historia (teaser: texto a la derecha, huella grande + dos miniaturas a la izquierda) → material → acabados (el comparador cruza el corte hacia Aplicaciones con `--solape`) → aplicaciones (grilla asimétrica 7/5 + 5/7, pies con regla) → preguntas (4/8, h2 sticky, sin tarjetas) → calculadora (7/5, sin tarjeta exterior) → **contacto = Mundo + destino** (foto de la costa a 100svh, logo, frase serif, WhatsApp, correo, teléfono `tel:`, "Guardar contacto" con vCard en memoria) → pie.
+- **Hero**: coreografía con retardos (`.hero-ent`), la foto se abre por `clip-path` y la imagen entra con escala lenta 1.08→1; pie de foto con las seis muestras; wordmark a 19.4vw con parallax inverso; sin kickers uppercase por sección (solo el del hero, en caja baja).
+- **Comparador**: `srcset` en el cambio de acabado (con `src` solo no cambiaba nada), token de secuencia contra la carrera de clics, la barra sigue al dedo 1:1 y el resorte queda para el soltar, **no vuelve a 50 % nunca** (en táctil `pointerleave` llega tras cada toque), barrido inicial que destapa el acabado y descansa en 44 %, precarga de los WebP reales solo al acercarse (antes: 1,4 MB de JPG en cada visita), `?acabado=oliva` en la URL, botón "Pedir muestra de …", el estante centra la placa activa y se desvanece a la derecha en el teléfono.
+- **WhatsApp**: una sola función `waTexto(origen)` arma el mensaje con idioma, acabado elegido y m² calculados; botón flotante (`.wa-flotante`) que aparece al salir del hero y se esconde en Contacto y con el lightbox abierto; "Hablar con ventas" del hero abre WhatsApp. Estado en `sessionStorage` (`saurium-estado`) para volver de historia con el acabado y los m².
+- **Rendimiento**: three.js se importa recién cuando el saco se acerca (IO 400 px) y el loop se pausa fuera de pantalla y con la pestaña oculta; Ken Burns ligado al scroll (`animation-timeline: view()` con fallback); cambio de idioma anima solo lo visible y restaura las transiciones; `:hover` gateado por `(hover:hover)` con clases `.cta-lleno/.cta-linea/.cta-claro` (support.js generaba hovers pegajosos en táctil).
+- **Historia**: letterbox 2.39:1 en ≥1180 px con relación ≥3/2, capas con escala de salida, grano estático, brasas solo cuando se ven (18 en celular), texto de capítulos adentro del stage (`[data-textos]`) con salida palabra por palabra antes del corte, view transitions entre documentos (`@view-transition`, `view-transition-name: portada`).
+- **/en/**: `server/generar-en.js` ahora traduce el HTML estático (título, metas, `data-i18n`, JSON-LD FAQ) evaluando el diccionario de la página, pone `data-img-base="../img/"` (el JS lee esa base) y no reescribe enlaces internos. `npm test` regenera `/en/` y lo verifica.
+- **Índice lateral y nav**: sección activa por `offsetTop` (el sticky engañaba a `getBoundingClientRect`), tema por `data-tema="oscuro|claro"`, nav oscura con logo claro sobre las secciones oscuras, rótulo de sección al pasar el cursor.
 
 ### Cómo se trabaja ahora
-`cd server && npm test` (idempotencia) → `npm run en` (regenera /en/) → commit → push.
+`cd server && npm test` (idempotencia de regiones cms + regeneración y chequeos de /en/) → commit → push. Verificación en Chrome real con `agent-browser` (nunca `close --all` si hay otras sesiones corriendo).
+
+### Pendientes
+- Registrar sauriumchukum.com y conectarlo; correo del dominio (hoy apunta a la casilla de David).
+- Fotos de obra real → `#obras` (región `cms:obras`); reemplazar las de Unsplash en Aplicaciones.
+- Ficha técnica y brochure en PDF (el copy los promete; hoy no hay PDF en el repo).
+- Video de fondo para el hero si David lo genera en Flow (patrón `video-generado-como-hero`).

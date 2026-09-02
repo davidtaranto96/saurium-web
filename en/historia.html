@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-lang-default="en">
+<html lang="en" data-lang-default="en" data-img-base="../img/">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,13 +8,13 @@
 <body>
 <x-dc>
 <helmet>
-<title>SAURIUM — La historia del chukum</title>
-<meta name="description" content="Mucho antes de las ciudades. La historia del material que nació de la tierra de Yucatán.">
+<title>SAURIUM — The story of chukum</title>
+<meta name="description" content="Sixty-six million years between an impact and a wall. The origin of chukum in the Yucatán Peninsula.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SAURIUM">
 <meta property="og:url" content="https://davidtaranto96.github.io/saurium-web/en/historia.html">
-<meta property="og:title" content="La historia del chukum — SAURIUM">
-<meta property="og:description" content="Sesenta y seis millones de años entre un impacto y un muro. El origen del chukum en la Península de Yucatán.">
+<meta property="og:title" content="SAURIUM — The story of chukum">
+<meta property="og:description" content="Sixty-six million years between an impact and a wall. The origin of chukum in the Yucatán Peninsula.">
 <meta property="og:image" content="https://davidtaranto96.github.io/saurium-web/img/story-huella.jpg">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
@@ -22,9 +22,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_MX">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="La historia del chukum — SAURIUM">
-<meta name="twitter:description" content="Sesenta y seis millones de años entre un impacto y un muro. El origen del chukum en la Península de Yucatán.">
+<meta name="twitter:title" content="SAURIUM — The story of chukum">
+<meta name="twitter:description" content="Sixty-six million years between an impact and a wall. The origin of chukum in the Yucatán Peninsula.">
 <meta name="twitter:image" content="https://davidtaranto96.github.io/saurium-web/img/story-huella.jpg">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://davidtaranto96.github.io/saurium-web/en/historia.html">
 <link rel="alternate" hreflang="es-MX" href="https://davidtaranto96.github.io/saurium-web/historia.html">
 <link rel="alternate" hreflang="en" href="https://davidtaranto96.github.io/saurium-web/en/historia.html">
@@ -34,20 +35,23 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..500&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--crema:#f3ebde;--arena:#dccab2;--marron:#474341;--terracota:#c88166;--negro:#141110;}
+:root{--f-display:'Newsreader',Georgia,'Times New Roman',serif;--f-ui:'Sora','Sora Fallback',system-ui,sans-serif;--t-xs:.75rem;--t-sm:.875rem;--t-base:clamp(1rem, .95rem + .25vw, 1.0625rem);--t-lead:clamp(1.0625rem, 1rem + .4vw, 1.1875rem);--t-h3:1.0625rem;--t-h2:clamp(2rem, 1.4rem + 3vw, 3.4rem);--t-h1:clamp(2.75rem, 1.8rem + 4.6vw, 5.6rem);--t-display:clamp(1.7rem, 1.1rem + 2.8vw, 3.1rem);--track-caps:.12em;--track-kicker:.18em;--ancho:1180px;--hair:1px solid rgba(71,67,65,.18);--hair-claro:1px solid rgba(243,235,222,.2)}
+@font-face{font-family:'Sora Fallback';src:local('Arial');size-adjust:94%;ascent-override:96%;descent-override:24%;line-gap-override:0%}
+body{font-family:var(--f-ui);font-kerning:normal;font-feature-settings:"kern","liga";line-height:1.55}
 html{scroll-behavior:smooth;background:#141110}
-body{margin:0;padding:0;font-family:'Sora',system-ui,sans-serif;background:#141110;color:var(--crema);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;padding:0;background:#141110;color:var(--crema);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}a:hover{color:inherit}
 img{max-width:100%;display:block}
 h1,h2,p{margin:0}
 ::selection{background:var(--terracota);color:var(--crema)}
 @keyframes drift{0%{transform:translate3d(0,0,0) scale(1);opacity:0}10%{opacity:.7}46%{transform:translate3d(14px,-46vh,0) scale(.86)}100%{transform:translate3d(-10px,-104vh,0) scale(.6);opacity:0}}
 @keyframes breathe{0%{transform:scale(1.04)}100%{transform:scale(1.14)}}
-@media (max-width:520px){[data-railnav] b{display:none !important}[data-railnav]{left:9px !important;gap:16px !important}[data-railnav] span{grid-template-columns:7px !important;gap:0 !important}}
+@media (max-width:1023px){[data-railnav] b{display:none !important}[data-railnav]{left:9px !important;gap:16px !important}[data-railnav] span{grid-template-columns:7px !important;gap:0 !important}}
 @media (max-width:767px),(max-height:720px){[data-scrollhint-label],[data-scrollhint]{display:none !important}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-ember],[data-kb]{animation:none !important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-ember],[data-kb],[data-scrollhint]{animation:none !important}}
 
 /* ===== 2.0: pulido e interaccion ===== */
 :root{--crema:oklch(0.943 0.019 80.1);--arena:oklch(0.848 0.038 75.1);--marron:oklch(0.386 0.006 48.6);--terracota:oklch(0.671 0.097 41.6);--negro:oklch(0.224 0.004 48.6);--blanco:oklch(0.989 0.006 84.6);--terracota-tinta:#97543a;--terracota-tinta:oklch(0.52 0.097 41.6);--sombra-1:0 1px 2px oklch(0.224 0.004 48.6/.06),0 4px 12px oklch(0.224 0.004 48.6/.07);--sombra-2:0 2px 4px oklch(0.224 0.004 48.6/.08),0 12px 32px oklch(0.224 0.004 48.6/.14)}
@@ -60,17 +64,44 @@ html{scroll-padding-top:5.5rem}
 h1,h2,h3{text-wrap:balance}
 header.hd-s{background:rgba(20,17,16,.55)!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 [data-lang-toggle]{min-height:44px}
+
+/* ===== v4: cine y editorial ===== */
+[data-stage]{background:var(--negro)}
+[data-cine]{position:absolute;inset:0;margin:auto;width:100%;max-height:100%;overflow:hidden;isolation:isolate}
+@media (min-width:1180px) and (min-aspect-ratio:3/2){[data-cine]{aspect-ratio:2.39/1}}
+[data-layer]{transition:opacity 1.1s cubic-bezier(.2,0,0,1),transform 1.1s cubic-bezier(.2,0,0,1)}
+[data-grano]{position:absolute;inset:0;z-index:5;pointer-events:none;mix-blend-mode:overlay;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");background-size:180px 180px}
+[data-embers]:not(.viva) [data-ember]{animation-play-state:paused}
+@keyframes pista{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+[data-scrollhint]{animation:pista 2.4s cubic-bezier(.2,0,0,1) infinite}
+@media (max-width:768px){header.hd-s{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:240ms cubic-bezier(.2,0,0,1) both vt-out}
+::view-transition-new(root){animation:320ms cubic-bezier(.2,0,0,1) both vt-in}
+@keyframes vt-out{to{opacity:0}}
+@keyframes vt-in{from{opacity:0}}
+@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation-duration:0s}[data-layer]{transition:opacity 1.1s cubic-bezier(.2,0,0,1)}}
+
+/* ===== 4.0: lote 4 ===== */
+.cta-lleno{transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s}
+.cta-texto{display:inline-flex;align-items:center;gap:12px;padding:15px 4px;font-weight:600;font-size:15px;color:var(--marron);border-bottom:1px solid currentColor;line-height:1.3;min-height:44px;box-sizing:border-box}
+.cta-texto .raya{display:inline-block;width:16px;height:1px;background:currentColor;transition:transform .22s cubic-bezier(.22,1,.36,1)}
+@media(hover:hover) and (pointer:fine){.cta-lleno:hover{background:var(--negro) !important;transform:translateY(-2px)}.cta-texto:hover .raya{transform:translateX(6px)}}
+.cta-lleno:active{transform:scale(.96)}
+[data-vignette]{transition:opacity .9s ease}
+@media(max-width:767px){[data-beat="0"],[data-beat="2"]{height:130svh !important}[data-beat="1"]{height:150svh !important}}
+@media(max-height:520px){[data-beat]{height:240svh !important}[data-words]{font-size:clamp(1.15rem,4.6vh,1.7rem) !important}}
 </style>
 </helmet>
 
 <div data-progress style="position:fixed;top:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:var(--terracota);z-index:60;transition:transform 0.12s linear"></div>
 
 <header style="position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;height:70px;padding:0 clamp(16px,4vw,48px);background:linear-gradient(180deg,rgba(20,17,16,0.72),rgba(20,17,16,0))">
-  <a href="../index.html" style="display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:0.04em;opacity:0.85;transition:opacity 0.2s" style-hover="opacity:1">
+  <a href="index.html" style="display:flex;align-items:center;min-height:44px;gap:12px;font-size:13px;font-weight:600;letter-spacing:0.04em;opacity:0.85;transition:opacity 0.2s" style-hover="opacity:1">
     <span aria-hidden="true" style="display:inline-block;width:22px;height:1px;background:currentColor"></span>
-    <span data-i18n="nav.back">Volver al sitio</span>
+    <span data-i18n="nav.back">Back to the site</span>
   </a>
-  <button data-lang-toggle aria-label="Switch language" style="font-family:inherit;font-size:13px;font-weight:600;letter-spacing:0.04em;display:flex;gap:4px;padding:13px 12px;border-radius:999px;background:none;border:none;cursor:pointer;color:inherit;transition:background 0.2s" style-hover="background:rgba(243,235,222,0.1)">
+  <button data-lang-toggle aria-label="Switch to Spanish" data-i18n-arialabel="a11y.lang" style="font-family:inherit;font-size:13px;font-weight:600;letter-spacing:0.04em;display:flex;gap:4px;padding:13px 12px;border-radius:999px;background:none;border:none;cursor:pointer;color:inherit;transition:background 0.2s" style-hover="background:rgba(243,235,222,0.1)">
     <span data-lang-opt="es" style="opacity:1;transition:opacity 0.25s">ES</span>
     <span style="opacity:0.3">/</span>
     <span data-lang-opt="en" style="opacity:0.4;transition:opacity 0.25s">EN</span>
@@ -79,29 +110,27 @@ header.hd-s{background:rgba(20,17,16,.55)!important;backdrop-filter:blur(14px);-
 
 <main style="position:relative">
   <section data-screen-label="Portada" style="position:relative;height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden">
-    <img loading="eager" fetchpriority="high" decoding="async" data-kb src="../img/story-costa.webp" srcset="../img/story-costa-720.webp 720w, ../img/story-costa-1200.webp 1200w, ../img/story-costa.webp 1600w" sizes="100vw" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:breathe 22s ease-in-out infinite alternate">
+    <img loading="eager" fetchpriority="high" decoding="async" data-kb src="../img/story-costa.webp" srcset="../img/story-costa-720.webp 720w, ../img/story-costa-1200.webp 1200w, ../img/story-costa.webp 1600w" sizes="100vw" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;view-transition-name:portada;animation:breathe 22s ease-in-out infinite alternate">
     <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,rgba(20,17,16,0.06),rgba(20,17,16,0.58) 62%,rgba(20,17,16,0.86) 100%)"></div>
     <div style="position:relative;z-index:2;padding:0 clamp(20px,6vw,80px)">
-      <p data-i18n="cover.kicker" style="font-size:clamp(0.72rem,1.2vw,0.82rem);letter-spacing:0.4em;text-transform:uppercase;opacity:0.7;margin-bottom:26px">La historia del chukum</p>
-      <h1 data-i18n="cover.title" style="font-size:clamp(2.4rem,7vw,5.4rem);line-height:1.02;letter-spacing:-0.03em;font-weight:800;max-width:14ch;margin:0 auto;text-wrap:balance">Una tierra que guarda lo que pasa por ella.</h1>
-      <p data-i18n="cover.sub" style="margin:26px auto 0;max-width:44ch;font-size:clamp(0.98rem,1.6vw,1.15rem);opacity:0.78;text-wrap:pretty">Sesenta y seis millones de años entre un impacto y un muro. Desliza para recorrerlos.</p>
+      <p data-i18n="cover.kicker" style="font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;opacity:0.7;margin-bottom:26px">The story of chukum</p>
+      <h1 data-i18n="cover.title" style="font-family:var(--f-display);font-optical-sizing:auto;font-size:var(--t-h1);line-height:1;letter-spacing:-0.015em;font-weight:400;max-width:14ch;margin:0 auto;text-wrap:balance">A land that keeps whatever passes through it.</h1>
+      <p data-i18n="cover.sub" style="margin:26px auto 0;max-width:44ch;font-size:clamp(0.98rem,1.6vw,1.15rem);opacity:0.78;text-wrap:pretty">Sixty-six million years between an impact and a wall. Scroll to travel through them.</p>
     </div>
-    <div aria-hidden="true" style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;display:grid;justify-items:center;gap:12px;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;opacity:0.6">
-      <span data-i18n="cover.scroll" data-scrollhint-label>Deslizar</span>
-      <span data-scrollhint style="width:1px;height:46px;background:linear-gradient(180deg,currentColor,transparent);display:block"></span>
-    </div>
+    
   </section>
 
   <div style="position:relative">
-    <div style="position:sticky;top:0;height:100svh;overflow:hidden">
-      <div data-layer="0" style="position:absolute;inset:0;opacity:1;transition:opacity 1.1s ease">
-        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-selva-v.webp"><img data-img="0" fetchpriority="high" src="../img/story-selva.webp" alt="Selva baja de la península de Yucatán" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
+    <div data-stage style="position:sticky;top:0;height:100svh;overflow:hidden">
+      <div data-cine>
+      <div data-layer="0" style="position:absolute;inset:0;opacity:1;transform:scale(1)">
+        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-selva-v-720.webp 720w, ../img/story-selva-v-1200.webp 1200w, ../img/story-selva-v.webp 1240w" sizes="116vw"><img data-img="0" fetchpriority="high" src="../img/story-selva.webp" srcset="../img/story-selva-720.webp 720w, ../img/story-selva-1200.webp 1200w, ../img/story-selva.webp 1600w" sizes="116vw" alt="Selva baja de la península de Yucatán" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
       </div>
-      <div data-layer="1" style="position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease">
-        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-dino-v.webp"><img data-img="1" src="../img/story-dino.webp" alt="El meteorito sobre la península en el Cretácico" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
+      <div data-layer="1" style="position:absolute;inset:0;opacity:0;transform:scale(1.02)">
+        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-dino-v-720.webp 720w, ../img/story-dino-v-1200.webp 1200w, ../img/story-dino-v.webp 1240w" sizes="116vw"><img data-img="1" src="../img/story-dino.webp" srcset="../img/story-dino-720.webp 720w, ../img/story-dino-1200.webp 1200w, ../img/story-dino.webp 1600w" sizes="116vw" alt="El meteorito sobre la península en el Cretácico" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
       </div>
-      <div data-layer="2" style="position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease">
-        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-huella-v.webp"><img data-img="2" src="../img/story-huella.webp" alt="Huella fósil sobre la tierra caliza" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
+      <div data-layer="2" style="position:absolute;inset:0;opacity:0;transform:scale(1.02)">
+        <picture><source media="(max-aspect-ratio:4/5)" srcset="../img/story-huella-v-720.webp 720w, ../img/story-huella-v-1200.webp 1200w, ../img/story-huella-v.webp 1240w" sizes="116vw"><img data-img="2" src="../img/story-huella.webp" srcset="../img/story-huella-720.webp 720w, ../img/story-huella-1200.webp 1200w, ../img/story-huella.webp 1600w" sizes="116vw" alt="Huella fósil sobre la tierra caliza" style="position:absolute;inset:-8%;width:116%;max-width:none;height:116%;object-fit:cover;will-change:transform"></picture>
       </div>
 
       <div data-bloom aria-hidden="true" style="position:absolute;inset:0;z-index:3;opacity:0;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(circle at 62% 40%,rgba(255,206,140,0.9),rgba(255,140,60,0.26) 24%,transparent 56%)"></div>
@@ -117,78 +146,74 @@ header.hd-s{background:rgba(20,17,16,.55)!important;backdrop-filter:blur(14px);-
       <div data-sweep aria-hidden="true" style="position:absolute;inset:-20% -60%;z-index:2;opacity:0;pointer-events:none;mix-blend-mode:soft-light;background:linear-gradient(102deg,transparent 34%,rgba(255,242,220,0.9) 50%,transparent 66%);will-change:transform"></div>
       <div data-scrim aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,16,0.58) 0%,rgba(20,17,16,0.16) 32%,rgba(20,17,16,0.26) 58%,rgba(20,17,16,0.58) 100%)"></div>
       <div data-vignette aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 38%,rgba(12,10,9,0.62) 100%);opacity:0.5"></div>
+      <div data-grano aria-hidden="true"></div>
+      <div data-textos style="position:absolute;inset:0;z-index:6;pointer-events:none;display:grid;place-items:center;padding:0 clamp(20px,8vw,140px)">
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 62% 46% at 50% 50%,rgba(12,10,9,0.58),rgba(12,10,9,0.26) 56%,transparent 78%)"></div>
+        <div data-beat-texto="0" style="grid-area:1/1;position:relative;z-index:1;max-width:940px;text-align:center;opacity:0;transition:opacity .45s cubic-bezier(.2,0,0,1)">
+          <p data-kicker="0" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:clamp(20px,3vh,32px);color:rgba(243,235,222,0.94)">
+            <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
+            <span style="display:inline-block;overflow:hidden;padding-bottom:3px"><span data-kicker-in style="display:inline-block;transform:translateY(125%);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;white-space:nowrap">Antes de todo</span></span>
+            <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
+          </p>
+          <p data-words="0" data-i18n-src="story.s1" style="font-family:var(--f-display);font-optical-sizing:auto;font-size:var(--t-display);line-height:1.2;font-weight:400;letter-spacing:0;text-wrap:balance;max-width:22ch;margin:0 auto;text-shadow:0 4px 40px rgba(0,0,0,0.55)"></p>
+        </div>
+        <div data-beat-texto="1" style="grid-area:1/1;position:relative;z-index:1;max-width:940px;text-align:center;opacity:0;transition:opacity .45s cubic-bezier(.2,0,0,1)">
+          <p data-kicker="1" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:clamp(20px,3vh,32px);color:rgba(243,235,222,0.94)">
+            <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
+            <span style="display:inline-block;overflow:hidden;padding-bottom:3px"><span data-kicker-in style="display:inline-block;transform:translateY(125%);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;white-space:nowrap">El impacto</span></span>
+            <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
+          </p>
+          <p data-words="1" data-i18n-src="story.s2" style="font-family:var(--f-display);font-optical-sizing:auto;font-size:var(--t-display);line-height:1.2;font-weight:400;letter-spacing:0;text-wrap:balance;max-width:22ch;margin:0 auto;text-shadow:0 4px 40px rgba(0,0,0,0.55)"></p>
+        </div>
+        <div data-beat-texto="2" style="grid-area:1/1;position:relative;z-index:1;max-width:940px;text-align:center;opacity:0;transition:opacity .45s cubic-bezier(.2,0,0,1)">
+          <p data-kicker="2" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:clamp(20px,3vh,32px);color:rgba(243,235,222,0.94)">
+            <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
+            <span style="display:inline-block;overflow:hidden;padding-bottom:3px"><span data-kicker-in style="display:inline-block;transform:translateY(125%);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;white-space:nowrap">La huella</span></span>
+            <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
+          </p>
+          <p data-words="2" data-i18n-src="story.s3" style="font-family:var(--f-display);font-optical-sizing:auto;font-size:var(--t-display);line-height:1.2;font-weight:400;letter-spacing:0;text-wrap:balance;max-width:22ch;margin:0 auto;text-shadow:0 4px 40px rgba(0,0,0,0.55)"></p>
+        </div>
+      </div>
+      </div>
 
       <nav data-railnav aria-hidden="true" style="position:absolute;left:clamp(14px,3.2vw,42px);top:50%;transform:translateY(-50%);z-index:5;color:var(--crema);display:grid;gap:clamp(20px,3.4vh,30px)">
         <i aria-hidden="true" style="position:absolute;left:3px;top:5px;bottom:5px;width:1px;background:rgba(243,235,222,0.2);display:block"></i>
         <i data-railfill aria-hidden="true" style="position:absolute;left:3px;top:5px;width:1px;bottom:5px;transform:scaleY(0);transform-origin:top;background:rgba(243,235,222,0.9);display:block;transition:transform 0.6s cubic-bezier(0.22,1,0.36,1)"></i>
         <span data-rail="0" style="position:relative;display:grid;grid-template-columns:7px auto;align-items:center;gap:14px;opacity:1;transition:opacity 0.55s ease">
           <i data-raildot style="width:7px;height:7px;border-radius:50%;background:currentColor;display:block;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),box-shadow 0.5s ease"></i>
-          <b data-i18n="rail.1" style="font-size:9.5px;letter-spacing:0.26em;text-transform:uppercase;font-weight:600;white-space:nowrap">Origen</b>
+          <b data-i18n="rail.1" style="font-size:11px;letter-spacing:0.26em;text-transform:uppercase;font-weight:600;white-space:nowrap">Origin</b>
         </span>
-        <span data-rail="1" style="position:relative;display:grid;grid-template-columns:7px auto;align-items:center;gap:14px;opacity:0.34;transition:opacity 0.55s ease">
+        <span data-rail="1" style="position:relative;display:grid;grid-template-columns:7px auto;align-items:center;gap:14px;opacity:0.55;transition:opacity 0.55s ease">
           <i data-raildot style="width:7px;height:7px;border-radius:50%;background:currentColor;display:block;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),box-shadow 0.5s ease"></i>
-          <b data-i18n="rail.2" style="font-size:9.5px;letter-spacing:0.26em;text-transform:uppercase;font-weight:600;white-space:nowrap">Impacto</b>
+          <b data-i18n="rail.2" style="font-size:11px;letter-spacing:0.26em;text-transform:uppercase;font-weight:600;white-space:nowrap">Impact</b>
         </span>
-        <span data-rail="2" style="position:relative;display:grid;grid-template-columns:7px auto;align-items:center;gap:14px;opacity:0.34;transition:opacity 0.55s ease">
+        <span data-rail="2" style="position:relative;display:grid;grid-template-columns:7px auto;align-items:center;gap:14px;opacity:0.55;transition:opacity 0.55s ease">
           <i data-raildot style="width:7px;height:7px;border-radius:50%;background:currentColor;display:block;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),box-shadow 0.5s ease"></i>
-          <b data-i18n="rail.3" style="font-size:9.5px;letter-spacing:0.26em;text-transform:uppercase;font-weight:600;white-space:nowrap">Huella</b>
+          <b data-i18n="rail.3" style="font-size:11px;letter-spacing:0.26em;text-transform:uppercase;font-weight:600;white-space:nowrap">Footprint</b>
         </span>
       </nav>
     </div>
 
     <div style="position:relative;margin-top:-100svh">
-      <article data-beat="0" data-screen-label="Cap 1" style="height:170svh;position:relative">
-        <div style="position:sticky;top:0;height:100svh;display:grid;place-items:center;padding:0 clamp(20px,8vw,140px)">
-          <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 62% 46% at 50% 50%,rgba(12,10,9,0.58),rgba(12,10,9,0.26) 56%,transparent 78%)"></div>
-          <div style="position:relative;z-index:1;max-width:940px;text-align:center">
-            <p data-kicker="0" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:clamp(20px,3vh,32px);color:rgba(243,235,222,0.94)">
-              <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
-              <span style="display:inline-block;overflow:hidden;padding-bottom:3px"><span data-kicker-in style="display:inline-block;transform:translateY(125%);font-size:clamp(0.72rem,1.05vw,0.78rem);letter-spacing:0.36em;text-transform:uppercase;font-weight:600;white-space:nowrap">Antes de todo</span></span>
-              <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
-            </p>
-            <p data-words="0" data-i18n-src="story.s1" style="font-size:clamp(1.5rem,3.6vw,2.9rem);line-height:1.28;font-weight:300;letter-spacing:-0.015em;text-wrap:pretty;text-shadow:0 4px 40px rgba(0,0,0,0.55)"></p>
-          </div>
-        </div>
-      </article>
-      <article data-beat="1" data-screen-label="Cap 2" style="height:190svh;position:relative">
-        <div style="position:sticky;top:0;height:100svh;display:grid;place-items:center;padding:0 clamp(20px,8vw,140px)">
-          <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 62% 46% at 50% 50%,rgba(12,10,9,0.58),rgba(12,10,9,0.26) 56%,transparent 78%)"></div>
-          <div style="position:relative;z-index:1;max-width:940px;text-align:center">
-            <p data-kicker="1" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:clamp(20px,3vh,32px);color:rgba(243,235,222,0.94)">
-              <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
-              <span style="display:inline-block;overflow:hidden;padding-bottom:3px"><span data-kicker-in style="display:inline-block;transform:translateY(125%);font-size:clamp(0.72rem,1.05vw,0.78rem);letter-spacing:0.36em;text-transform:uppercase;font-weight:600;white-space:nowrap">El impacto</span></span>
-              <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
-            </p>
-            <p data-words="1" data-i18n-src="story.s2" style="font-size:clamp(1.5rem,3.6vw,2.9rem);line-height:1.28;font-weight:300;letter-spacing:-0.015em;text-wrap:pretty;text-shadow:0 4px 40px rgba(0,0,0,0.55)"></p>
-          </div>
-        </div>
-      </article>
-      <article data-beat="2" data-screen-label="Cap 3" style="height:170svh;position:relative">
-        <div style="position:sticky;top:0;height:100svh;display:grid;place-items:center;padding:0 clamp(20px,8vw,140px)">
-          <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 62% 46% at 50% 50%,rgba(12,10,9,0.58),rgba(12,10,9,0.26) 56%,transparent 78%)"></div>
-          <div style="position:relative;z-index:1;max-width:940px;text-align:center">
-            <p data-kicker="2" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:clamp(20px,3vh,32px);color:rgba(243,235,222,0.94)">
-              <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
-              <span style="display:inline-block;overflow:hidden;padding-bottom:3px"><span data-kicker-in style="display:inline-block;transform:translateY(125%);font-size:clamp(0.72rem,1.05vw,0.78rem);letter-spacing:0.36em;text-transform:uppercase;font-weight:600;white-space:nowrap">La huella</span></span>
-              <i data-krule aria-hidden="true" style="width:42px;height:1px;background:currentColor;opacity:0.5;display:block;transform:scaleX(0);transition:transform 0.85s cubic-bezier(0.22,1,0.36,1) 0.16s"></i>
-            </p>
-            <p data-words="2" data-i18n-src="story.s3" style="font-size:clamp(1.5rem,3.6vw,2.9rem);line-height:1.28;font-weight:300;letter-spacing:-0.015em;text-wrap:pretty;text-shadow:0 4px 40px rgba(0,0,0,0.55)"></p>
-          </div>
-        </div>
-      </article>
+      <article data-beat="0" data-screen-label="Cap 1" aria-hidden="true" style="height:170svh;position:relative"></article>
+      <article data-beat="1" data-screen-label="Cap 2" aria-hidden="true" style="height:190svh;position:relative"></article>
+      <article data-beat="2" data-screen-label="Cap 3" aria-hidden="true" style="height:170svh;position:relative"></article>
     </div>
   </div>
 
   <section data-screen-label="Cierre" style="position:relative;overflow:hidden;background:var(--arena);color:var(--marron)">
     <img loading="lazy" decoding="async" src="../img/textura.webp" srcset="../img/textura-720.webp 720w, ../img/textura-1200.webp 1200w, ../img/textura.webp 1400w" sizes="100vw" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,16,0.55) 0%,rgba(20,17,16,0) 26%)"></div>
-    <div data-reveal style="position:relative;max-width:900px;margin:0 auto;padding:clamp(110px,20vh,200px) clamp(20px,6vw,96px) clamp(90px,14vh,150px);text-align:center">
-      <p data-i18n="story.s4" style="font-size:clamp(1rem,1.8vw,1.24rem);line-height:1.5;opacity:0.72;max-width:52ch;margin:0 auto;text-wrap:pretty">La verdadera arquitectura no se mide por cómo luce el primer día. Se mide por cómo resiste el paso del tiempo.</p>
-      <p data-i18n="story.s5b" style="margin-top:22px;font-size:clamp(2rem,5.4vw,3.6rem);line-height:1.1;letter-spacing:-0.025em;font-weight:800">Se construyen para permanecer.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:clamp(34px,5vh,52px)">
-        <a href="../index.html#material" data-i18n="story.cta1" style="display:inline-flex;align-items:center;padding:15px 30px;border-radius:999px;font-weight:600;font-size:15px;background:var(--marron);color:var(--crema);box-shadow:0 12px 32px rgba(29,27,26,0.22);transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),background 0.2s" style-hover="background:var(--negro);color:var(--crema);transform:translateY(-2px)" style-active="transform:scale(0.96)">Conocer el material</a>
-        <a href="../index.html#colores" data-i18n="story.cta2" style="display:inline-flex;align-items:center;padding:15px 30px;border-radius:999px;font-weight:600;font-size:15px;border:1.5px solid rgba(71,67,65,0.35);transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),border-color 0.2s" style-hover="border-color:var(--marron);transform:translateY(-2px)" style-active="transform:scale(0.96)">Ver los acabados</a>
-        <!--cms:wa-historia--><a data-wa-historia-href href="https://wa.me/529993699488?text=Hola%2C%20quiero%20cotizar%20chukum%20SAURIUM." target="_blank" rel="noopener" data-wa-historia data-i18n="story.cta3" style="display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:999px;font-weight:600;font-size:15px;background:#25623f;color:#f3ebde;box-shadow:0 12px 32px rgba(29,27,26,0.2);transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),background 0.2s">Escribir por WhatsApp</a><!--/cms:wa-historia-->
+    <div data-reveal style="position:relative;max-width:var(--ancho);margin:0 auto;padding:clamp(110px,20vh,200px) clamp(20px,6vw,96px) clamp(90px,14vh,150px);text-align:left">
+      <div style="border-top:var(--hair);padding-top:clamp(30px,4.5vh,48px)">
+      <p data-i18n="story.s4" style="font-size:clamp(1rem,1.8vw,1.24rem);line-height:1.5;color:var(--marron);opacity:1;max-width:52ch;margin:0;text-wrap:pretty">True architecture is not measured by how it looks on day one. It is measured by how it withstands time.</p>
+      <p data-i18n="story.s5" style="margin-top:10px;font-size:clamp(1rem,1.8vw,1.24rem);line-height:1.5;color:var(--marron);max-width:52ch;text-wrap:pretty">The most important works are not built for the present.</p>
+      <p data-i18n="story.s5b" style="margin-top:22px;font-family:var(--f-display);font-optical-sizing:auto;font-size:clamp(2.2rem,5.4vw,3.6rem);line-height:1.1;letter-spacing:-0.01em;font-weight:400;text-wrap:balance;max-width:18ch">They are built to last.</p>
+      <div style="display:flex;gap:14px 28px;justify-content:flex-start;align-items:center;flex-wrap:wrap;margin-top:clamp(34px,5vh,52px)">
+        <!--cms:wa-historia--><a data-wa-historia-href href="https://wa.me/529993699488?text=Hola%2C%20quiero%20cotizar%20chukum%20SAURIUM." target="_blank" rel="noopener" data-wa-historia class="cta-lleno" style="display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:600;font-size:15px;background:var(--marron);color:var(--crema);box-shadow:var(--sombra-2)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c0 .2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.4 2.6 1.6.3.1.5.1.7-.1l1.1-1.3c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.3 1.6Z"></path></svg><span data-i18n="story.cta3">Chat on WhatsApp</span></a><!--/cms:wa-historia-->
+        <a href="index.html#colores" class="cta-texto"><span data-i18n="story.cta2">See the finishes</span><span aria-hidden="true" class="raya"></span></a>
+        <a href="index.html#material" class="cta-texto"><span data-i18n="story.cta1">See the material</span><span aria-hidden="true" class="raya"></span></a>
+      </div>
       </div>
     </div>
   </section>
@@ -200,13 +225,15 @@ class Component extends DCLogic {
   componentDidMount() {
     this.dead = false;
     this.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.mob = window.matchMedia('(max-width:768px)').matches;
+    this.blurIn = this.mob ? 3 : 6; this.blurOut = this.mob ? 2.5 : 5;
     const stored = localStorage.getItem('saurium-lang');
     const chosen = localStorage.getItem('saurium-lang-set') === '1' && (stored === 'es' || stored === 'en');
     this.lang = chosen ? stored : (document.documentElement.getAttribute('data-lang-default') || 'es');
     this.I18N = {
       es: {
         'meta.title':'SAURIUM — La historia del chukum','meta.desc':'Sesenta y seis millones de años entre un impacto y un muro. El origen del chukum en la Península de Yucatán.',
-        'nav.back':'Volver al sitio',
+        'nav.back':'Volver al sitio','a11y.lang':'Cambiar a inglés',
         'cover.kicker':'La historia del chukum','cover.title':'Una tierra que guarda lo que pasa por ella.',
         'cover.sub':'Sesenta y seis millones de años entre un impacto y un muro. Desliza para recorrerlos.','cover.scroll':'Deslizar',
         'rail.1':'Origen','rail.2':'Impacto','rail.3':'Huella',
@@ -215,29 +242,30 @@ class Component extends DCLogic {
         'story.s2':'La Tierra ya estaba escribiendo su historia, con un acontecimiento que cambió para siempre la del planeta.',
         'story.s3':'En el corazón de Yucatán quedó una marca imborrable. Millones de años después, esa misma tierra daría origen a un material que trasciende generaciones: el chukum.',
         'story.s4':'La verdadera arquitectura no se mide por cómo luce el primer día. Se mide por cómo resiste el paso del tiempo.',
-        'story.s5b':'Se construyen para permanecer.',
-        'story.cta3':'Escribir por WhatsApp','story.cta1':'Conocer el material','story.cta2':'Ver los acabados',
+        'story.s5':'Las obras más importantes no se construyen para el presente.','story.s5b':'Se construyen para permanecer.',
+        'story.cta3':'Escribir por WhatsApp','story.cta1':'Ver el material','story.cta2':'Ver los acabados',
+        'waText':'Hola, quiero cotizar chukum SAURIUM.',
       },
       en: {
         'meta.title':'SAURIUM — The story of chukum','meta.desc':'Sixty-six million years between an impact and a wall. The origin of chukum in the Yucatán Peninsula.',
-        'nav.back':'Back to the site',
+        'nav.back':'Back to the site','a11y.lang':'Switch to Spanish',
         'cover.kicker':'The story of chukum','cover.title':'A land that keeps whatever passes through it.',
-        'cover.sub':'Sixty-six million years between an impact and a wall. Scroll to cross them.','cover.scroll':'Scroll',
-        'rail.1':'Origin','rail.2':'Impact','rail.3':'Imprint',
-        'k.0':'Before everything','k.1':'The impact','k.2':'The imprint',
+        'cover.sub':'Sixty-six million years between an impact and a wall. Scroll to travel through them.','cover.scroll':'Scroll',
+        'rail.1':'Origin','rail.2':'Impact','rail.3':'Footprint',
+        'k.0':'Before everything','k.1':'The impact','k.2':'The footprint',
         'story.s1':'Long before cities. Long before architectural styles. Long before borders existed.',
         'story.s2':'The Earth was already writing its history, with an event that changed the story of the planet forever.',
         'story.s3':'In the heart of Yucatán an indelible mark remained. Millions of years later, that same land would give rise to a material that transcends generations: chukum.',
         'story.s4':'True architecture is not measured by how it looks on day one. It is measured by how it withstands time.',
-        'story.s5b':'They are built to last.',
+        'story.s5':'The most important works are not built for the present.','story.s5b':'They are built to last.',
         'story.cta3':'Chat on WhatsApp','story.cta1':'See the material','story.cta2':'See the finishes',
+        'waText':'Hi, I would like a quote for SAURIUM chukum.',
       },
     };
     this.applyLang(this.lang);
     const t = this.q('[data-lang-toggle]');
-    if (t) t.addEventListener('click', ()=>{ localStorage.setItem('saurium-lang-set','1'); this.applyLang(this.lang==='es'?'en':'es', true); });
+    if (t) t.addEventListener('click', ()=>{ if (this.langBusy) return; localStorage.setItem('saurium-lang-set','1'); this.applyLang(this.lang==='es'?'en':'es', true); });
     this.setupReveal();
-    this.buildEmbers();
     this.onScroll = this.tick.bind(this);
     window.addEventListener('scroll', this.onScroll, { passive:true });
     window.addEventListener('resize', this.onScroll);
@@ -262,9 +290,9 @@ class Component extends DCLogic {
       txt.split(/\s+/).forEach((w,i)=>{
         const s = document.createElement('span');
         s.textContent = w;
-        s.style.cssText = 'display:inline-block;white-space:pre;will-change:opacity,transform,filter';
+        s.style.cssText = 'display:inline-block;white-space:pre';
         if (this.reduce) { s.style.opacity='1'; }
-        else { s.style.opacity='0'; s.style.transform='translateY(16px)'; s.style.filter='blur(6px)'; s.style.transition='opacity 0.45s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1), filter 0.45s ease'; }
+        else { s.style.opacity='0'; s.style.transform='translateY(16px)'; s.style.filter='blur('+this.blurIn+'px)'; s.style.transition='opacity 0.45s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1), filter 0.45s ease'; }
         p.appendChild(s);
         p.appendChild(document.createTextNode(' '));
       });
@@ -273,12 +301,16 @@ class Component extends DCLogic {
   swapText(next) {
     this.lang = next;
     localStorage.setItem('saurium-lang', next);
-    document.documentElement.lang = next;
+    document.documentElement.lang = next === 'es' ? 'es-MX' : next;
     const d = this.I18N[next];
     this.qa('[data-i18n]').forEach(el=>{ const k=el.getAttribute('data-i18n'); if(d[k]) el.textContent=d[k]; });
+    this.qa('[data-i18n-arialabel]').forEach(el=>{ const k=el.getAttribute('data-i18n-arialabel'); if(d[k]) el.setAttribute('aria-label', d[k]); });
+    this.qa('[data-lang-opt]').forEach(el=>{ el.style.opacity = el.getAttribute('data-lang-opt')===next ? '1':'0.4'; });
     if (d['meta.title']) document.title = d['meta.title'];
     const md = document.querySelector('meta[name="description"]'); if (md && d['meta.desc']) md.setAttribute('content', d['meta.desc']);
     this.qa('[data-kicker]').forEach(el=>{ const i=el.getAttribute('data-kicker'); const inner=el.querySelector('[data-kicker-in]'); if(inner&&d['k.'+i]) inner.textContent=d['k.'+i]; });
+    const wa = this.q('[data-wa-historia]');
+    if (wa && d.waText) { const m = /wa\.me\/(\d+)/.exec(wa.getAttribute('href') || ''); if (m) wa.setAttribute('href', 'https://wa.me/' + m[1] + '?text=' + encodeURIComponent(d.waText)); }
     this.buildWords();
     if (this.tick) this.tick();
   }
@@ -304,9 +336,11 @@ class Component extends DCLogic {
   buildEmbers() {
     const box = this.q('[data-embers]');
     if (!box || this.reduce) return;
-    // campo de ceniza: 30 particulas con tamano, altura, ritmo y opacidad propios
+    // campo de ceniza: 30 particulas (18 en celular) con tamano, altura, ritmo y opacidad propios.
+    // Se construyen recien cuando el capitulo 2 entra en pantalla y se pausan cuando no se ven.
+    const n = this.mob ? 18 : 30;
     let html = '';
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < n; i++) {
       const x = (i * 37 + (i * i * 13) % 41) % 100;
       const sz = 1 + ((i * 7) % 5) * 0.7;
       const dur = 9 + ((i * 11) % 9);
@@ -371,20 +405,22 @@ class Component extends DCLogic {
         const i = Number(b.getAttribute('data-beat'));
         const r = b.getBoundingClientRect();
         const span = Math.max(1, r.height); // sobre el alto completo: si se descuenta una pantalla, el capitulo llega al 100% con una pantalla todavia por scrollear y queda un hueco sin texto
-        const p = Math.min(1, Math.max(0, -r.top / span));
-        if (r.top <= vh*0.5 && r.bottom > vh*0.5) { active = i; activeP = p; }
+        const raw = -r.top / span;
+        const p = Math.min(1, Math.max(0, raw));
+        // activo mientras recorre su propio alto: asi la capa, el riel y el bloque de texto cambian juntos en el limite del capitulo, despues de la salida de las palabras
+        if (raw >= 0 && raw < 1) { active = i; activeP = p; }
         // words
         const wp = this.qa(`[data-words="${i}"] span`);
         if (wp.length && !this.reduce) {
           const inP = Math.min(1, p/0.34);
-            const outP = Math.max(0, (p-0.93)/0.2);
+          const outP = Math.max(0, (p-0.82)/0.14);
           wp.forEach((s,k)=>{
             const at = k/(wp.length+1);
             const on = inP > at;
             const gone = outP > 0.02 + at*0.4;
-            if (gone) { s.style.opacity='0'; s.style.transform='translateY(-12px)'; s.style.filter='blur(5px)'; }
+            if (gone) { s.style.opacity='0'; s.style.transform='translateY(-12px)'; s.style.filter='blur('+this.blurOut+'px)'; }
             else if (on) { s.style.opacity='1'; s.style.transform='none'; s.style.filter='none'; }
-            else { s.style.opacity='0'; s.style.transform='translateY(16px)'; s.style.filter='blur(6px)'; }
+            else { s.style.opacity='0'; s.style.transform='translateY(16px)'; s.style.filter='blur('+this.blurIn+'px)'; }
           });
         }
         // kicker
@@ -406,16 +442,31 @@ class Component extends DCLogic {
         }
       });
       if (active < 0) active = this.lastActive ?? 0;
+      this.qa('[data-beat-texto]').forEach((b,k)=>{ b.style.opacity = k===active ? '1':'0'; });
       if (active !== this.lastActive) {
+        const prev = this.lastActive;
         this.lastActive = active;
-        this.qa('[data-layer]').forEach((l,k)=>{ l.style.opacity = k===active ? '1':'0'; });
+        // la capa que se apaga se aleja (1 -> 1.04); la que entra llega desde 1.02 a 1
+        this.qa('[data-layer]').forEach((l,k)=>{
+          if (k===active) {
+            if (!this.reduce) { l.style.transition='none'; l.style.transform='scale(1.02)'; void l.offsetWidth; l.style.transition=''; l.style.transform='scale(1)'; }
+            l.style.opacity='1';
+          } else {
+            if (!this.reduce && k===prev) l.style.transform='scale(1.04)';
+            l.style.opacity='0';
+          }
+        });
         this.qa('[data-rail]').forEach((r,k)=>{
-          r.style.opacity = k===active ? '1':'0.34';
+          r.style.opacity = k===active ? '1':'0.55';
           const dot = r.querySelector('[data-raildot]');
           if (dot) { dot.style.transform = k===active ? 'scale(1.5)' : 'scale(1)'; dot.style.boxShadow = k===active ? '0 0 0 4px rgba(243,235,222,0.15)' : '0 0 0 0 rgba(243,235,222,0)'; }
         });
         const emb = this.q('[data-embers]');
-        if (emb) emb.style.opacity = active >= 1 ? '1':'0';
+        if (emb) {
+          if (active >= 1 && !emb.firstChild) this.buildEmbers();
+          emb.classList.toggle('viva', active === 1);
+          emb.style.opacity = active >= 1 ? '1':'0';
+        }
       }
       const vig = this.q('[data-vignette]');
       if (vig) vig.style.opacity = String(0.42 + (active>=0 ? activeP*0.3 : 0));
