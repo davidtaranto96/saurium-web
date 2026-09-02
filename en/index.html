@@ -200,6 +200,44 @@ html,body{overflow-x:clip}
 @media(min-width:901px){.hero-ed-cuadro{height:calc(100svh - 300px);max-height:calc(100svh - 300px);aspect-ratio:auto}}
 @media(max-width:900px){.hero-ed-cuadro{aspect-ratio:4/3;max-height:46svh}}
 
+/* ===== Aplicaciones en apilado editorial (pedido de David, 2026-09-02) =====
+   Las laminas se pisan entre si al bajar y dejan el minimo de fondo crema a la
+   vista. El pie va DENTRO de la foto, y su color lo decide la luminancia medida
+   de la franja donde cae el texto (server/tono-fotos.py escribe data-tono). */
+#aplicaciones .apps-grid{display:block;max-width:var(--ancho);margin:clamp(34px,6vh,60px) auto 0;position:relative}
+#aplicaciones .apps-grid figure{position:relative;margin:0;grid-column:auto}
+#aplicaciones .apps-grid .apps-pila{box-shadow:0 24px 60px -20px oklch(0 0 0/.42),0 2px 10px oklch(0 0 0/.1)}
+@media(min-width:901px){
+  /* sangran hacia los bordes y se pisan: el fondo crema casi no se ve */
+  #aplicaciones .apps-grid .apps-1{width:84%;margin-left:-5%;z-index:1}
+  #aplicaciones .apps-grid .apps-2{width:56%;margin-left:auto;margin-right:-5%;margin-top:-14%;z-index:2}
+  #aplicaciones .apps-grid .apps-3{width:64%;margin-left:-4%;margin-top:-24%;z-index:3}
+  #aplicaciones .apps-grid .apps-4{width:74%;margin-left:auto;margin-right:-4%;margin-top:-19%;z-index:4}
+}
+@media(max-width:900px){
+  #aplicaciones .apps-grid .apps-1{width:100%;z-index:1}
+  #aplicaciones .apps-grid .apps-2{width:80%;margin-left:auto;margin-top:-7%;z-index:2}
+  #aplicaciones .apps-grid .apps-3{width:86%;margin-right:auto;margin-top:-7%;z-index:3}
+  /* la ultima entra por la derecha: el pie de la anterior vive a la izquierda */
+  #aplicaciones .apps-grid .apps-4{width:90%;margin-left:auto;margin-top:-7%;z-index:4}
+}
+/* el pie, adentro de la lamina */
+.apps-pie{position:absolute;left:0;right:0;bottom:0;max-width:min(100%,29rem);z-index:2;display:grid;gap:2px;border:0;padding:clamp(30px,4vw,52px) clamp(14px,2vw,24px) clamp(12px,1.6vw,18px);border-radius:0 0 6px 6px;pointer-events:none}
+.apps-pie::before{content:'';position:absolute;inset:0;border-radius:inherit;z-index:-1}
+#aplicaciones .apps-grid figure[data-tono="oscuro"] .apps-pie{color:var(--crema);text-shadow:0 1px 10px oklch(0 0 0/.45)}
+#aplicaciones .apps-grid figure[data-tono="oscuro"] .apps-pie::before{background:linear-gradient(to top,oklch(0.13 0.004 48.6/.86),oklch(0.13 0.004 48.6/.52) 46%,transparent)}
+#aplicaciones .apps-grid figure[data-tono="claro"] .apps-pie{color:var(--negro);text-shadow:0 1px 10px oklch(1 0 0/.5)}
+#aplicaciones .apps-grid figure[data-tono="claro"] .apps-pie::before{background:linear-gradient(to top,oklch(0.94 0.008 75/.9),oklch(0.94 0.008 75/.56) 46%,transparent)}
+.apps-pie b{font-size:clamp(15px,1.5vw,18px);font-weight:600}
+.apps-pie>span:not(.apps-puntos){font-size:var(--t-sm);opacity:.9}
+.apps-pie .apps-puntos{margin-top:8px;pointer-events:auto}
+@media(max-width:900px){.apps-pie{max-width:82%}}
+/* el pie va del lado que la lamina siguiente NO pisa: las de la derecha lo llevan
+   a la derecha, si no el bloque de abajo les tapa el texto al solaparse */
+@media(min-width:901px){
+  #aplicaciones .apps-2 .apps-pie,#aplicaciones .apps-4 .apps-pie{margin-left:auto;justify-items:end;text-align:right}
+}
+
 /* ===== pila de fotos por aplicacion: van pasando solas =====
    Cada figura muestra varias obras del mismo uso. La primera imagen se sirve
    normal y las demas quedan apiladas; el aspect-ratio pasa al contenedor. */
@@ -309,7 +347,7 @@ html,body{overflow-x:clip}
 .apps-grid{max-width:var(--ancho);margin:clamp(34px,6vh,60px) auto 0;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,2.4vw,28px)}
 .apps-grid figure{margin:0;display:grid;gap:12px;align-content:start}
 .apps-grid img{width:100%;object-fit:cover;border-radius:6px;background:var(--arena)}
-.apps-grid figcaption{border-top:var(--hair);padding-top:10px;display:grid;gap:3px}
+.apps-grid figcaption:not(.apps-pie){border-top:var(--hair);padding-top:10px;display:grid;gap:3px}
 .apps-1{grid-column:1/8}.apps-1 img{aspect-ratio:3/2}
 .apps-2{grid-column:8/13}.apps-2 img{aspect-ratio:4/5}
 .apps-3{grid-column:1/6}.apps-3 img{aspect-ratio:4/5}
@@ -607,20 +645,16 @@ html:has(dialog[open]){overflow:hidden}
   </div>
   <div data-mq-apps class="apps-grid">
     <figure data-reveal class="apps-1">
-      <button type="button" class="lb-abrir" data-lb="uso-exterior" aria-label="Enlarge: Chukum walls on a patio with a pool" data-i18n-arialabel="a11y.zoom1" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img src="../img/uso-exterior.webp" srcset="../img/uso-exterior-720.webp 720w, ../img/uso-exterior.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Chukum walls on a patio with a pool" data-i18n-alt="uso.1" data-lb-clave="uso-exterior" loading="lazy" decoding="async"><img src="../img/uso-exterior-b.webp" srcset="../img/uso-exterior-b-720.webp 720w, ../img/uso-exterior-b.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Terracotta façade with a sharp corner and eaves shadow" data-i18n-alt="uso.ext2" data-lb-clave="uso-exterior-b" loading="lazy" decoding="async"><img src="../img/uso-exterior-c.webp" srcset="../img/uso-exterior-c-720.webp 720w, ../img/uso-exterior-c.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Sand-toned wall with a bench in the same continuous finish" data-i18n-alt="uso.ext3" data-lb-clave="uso-exterior-c" loading="lazy" decoding="async"></span></button><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span>
-      <figcaption><b data-i18n="apps.a1" style="font-size:15px;font-weight:600">Walls and facades</b><span data-i18n="apps.d1" style="font-size:var(--t-sm);opacity:0.82">Private house, Yucatán</span></figcaption>
+      <button type="button" class="lb-abrir" data-lb="uso-exterior" aria-label="Enlarge: Chukum walls on a patio with a pool" data-i18n-arialabel="a11y.zoom1" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="../img/uso-exterior.webp" srcset="../img/uso-exterior-720.webp 720w, ../img/uso-exterior.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Chukum walls on a patio with a pool" data-i18n-alt="uso.1" data-lb-clave="uso-exterior" loading="lazy" decoding="async"><img data-tono="oscuro" src="../img/uso-exterior-b.webp" srcset="../img/uso-exterior-b-720.webp 720w, ../img/uso-exterior-b.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Terracotta façade with a sharp corner and eaves shadow" data-i18n-alt="uso.ext2" data-lb-clave="uso-exterior-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="../img/uso-exterior-c.webp" srcset="../img/uso-exterior-c-720.webp 720w, ../img/uso-exterior-c.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Sand-toned wall with a bench in the same continuous finish" data-i18n-alt="uso.ext3" data-lb-clave="uso-exterior-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a1" style="font-size:15px;font-weight:600">Walls and facades</b><span data-i18n="apps.d1" style="font-size:var(--t-sm);opacity:0.82">Private house, Yucatán</span><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span></figcaption>
     </figure>
     <figure data-reveal class="apps-2">
-      <button type="button" class="lb-abrir" data-lb="uso-interior" aria-label="Enlarge: Interior with chukum walls" data-i18n-arialabel="a11y.zoom2" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img src="../img/uso-interior.webp" srcset="../img/uso-interior-720.webp 720w, ../img/uso-interior.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Interior with chukum walls" data-i18n-alt="uso.2" data-lb-clave="uso-interior" loading="lazy" decoding="async"><img src="../img/uso-interior-b.webp" srcset="../img/uso-interior-b-720.webp 720w, ../img/uso-interior-b.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Stairs with walls, treads and threshold in one finish" data-i18n-alt="uso.int2" data-lb-clave="uso-interior-b" loading="lazy" decoding="async"><img src="../img/uso-interior-c.webp" srcset="../img/uso-interior-c-720.webp 720w, ../img/uso-interior-c.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Bedroom with continuous walls and ceiling, Riviera Maya" data-i18n-alt="uso.int3" data-lb-clave="uso-interior-c" loading="lazy" decoding="async"></span></button><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span>
-      <figcaption><b data-i18n="apps.a3" style="font-size:15px;font-weight:600">Interiors</b><span data-i18n="apps.d3" style="font-size:var(--t-sm);opacity:0.82">Living room with chukum walls</span></figcaption>
+      <button type="button" class="lb-abrir" data-lb="uso-interior" aria-label="Enlarge: Interior with chukum walls" data-i18n-arialabel="a11y.zoom2" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="../img/uso-interior.webp" srcset="../img/uso-interior-720.webp 720w, ../img/uso-interior.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Interior with chukum walls" data-i18n-alt="uso.2" data-lb-clave="uso-interior" loading="lazy" decoding="async"><img data-tono="claro" src="../img/uso-interior-b.webp" srcset="../img/uso-interior-b-720.webp 720w, ../img/uso-interior-b.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Stairs with walls, treads and threshold in one finish" data-i18n-alt="uso.int2" data-lb-clave="uso-interior-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="../img/uso-interior-c.webp" srcset="../img/uso-interior-c-720.webp 720w, ../img/uso-interior-c.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Bedroom with continuous walls and ceiling, Riviera Maya" data-i18n-alt="uso.int3" data-lb-clave="uso-interior-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a3" style="font-size:15px;font-weight:600">Interiors</b><span data-i18n="apps.d3" style="font-size:var(--t-sm);opacity:0.82">Living room with chukum walls</span><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span></figcaption>
     </figure>
     <figure data-reveal class="apps-3">
-      <button type="button" class="lb-abrir" data-lb="uso-piscina" aria-label="Enlarge: Pool with coping and walls in a seamless sand-tone finish" data-i18n-arialabel="a11y.zoom3" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img src="../img/uso-piscina.webp" srcset="../img/uso-piscina-720.webp 720w, ../img/uso-piscina.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Pool with coping and walls in a seamless sand-tone finish" data-i18n-alt="uso.3" data-lb-clave="uso-piscina" loading="lazy" decoding="async"><img src="../img/uso-piscina-b.webp" srcset="../img/uso-piscina-b-720.webp 720w, ../img/uso-piscina-b.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Courtyard pool: wall, coping and deck in a single finish" data-i18n-alt="uso.alb2" data-lb-clave="uso-piscina-b" loading="lazy" decoding="async"><img src="../img/uso-piscina-c.webp" srcset="../img/uso-piscina-c-720.webp 720w, ../img/uso-piscina-c.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Pool in a terracotta-walled courtyard, with agaves" data-i18n-alt="uso.alb3" data-lb-clave="uso-piscina-c" loading="lazy" decoding="async"></span></button><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span>
-      <figcaption><b data-i18n="apps.a2" style="font-size:15px;font-weight:600">Pools and water features</b><span data-i18n="apps.d2" style="font-size:var(--t-sm);opacity:0.82">Chukum-lined pool</span></figcaption>
+      <button type="button" class="lb-abrir" data-lb="uso-piscina" aria-label="Enlarge: Pool with coping and walls in a seamless sand-tone finish" data-i18n-arialabel="a11y.zoom3" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="../img/uso-piscina.webp" srcset="../img/uso-piscina-720.webp 720w, ../img/uso-piscina.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Pool with coping and walls in a seamless sand-tone finish" data-i18n-alt="uso.3" data-lb-clave="uso-piscina" loading="lazy" decoding="async"><img data-tono="oscuro" src="../img/uso-piscina-b.webp" srcset="../img/uso-piscina-b-720.webp 720w, ../img/uso-piscina-b.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Courtyard pool: wall, coping and deck in a single finish" data-i18n-alt="uso.alb2" data-lb-clave="uso-piscina-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="../img/uso-piscina-c.webp" srcset="../img/uso-piscina-c-720.webp 720w, ../img/uso-piscina-c.webp 1600w" sizes="(max-width:700px) 50vw, 42vw" alt="Pool in a terracotta-walled courtyard, with agaves" data-i18n-alt="uso.alb3" data-lb-clave="uso-piscina-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a2" style="font-size:15px;font-weight:600">Pools and water features</b><span data-i18n="apps.d2" style="font-size:var(--t-sm);opacity:0.82">Chukum-lined pool</span><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span></figcaption>
     </figure>
     <figure data-reveal class="apps-4">
-      <button type="button" class="lb-abrir" data-lb="uso-bano" aria-label="Enlarge: Brass shower on a seamless natural-stucco wall" data-i18n-arialabel="a11y.zoom4" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img src="../img/uso-bano-a.webp" srcset="../img/uso-bano-a-720.webp 720w, ../img/uso-bano-a.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Brass shower on a continuous cream wall" data-i18n-alt="uso.ban1" data-lb-clave="uso-bano-a" loading="lazy" decoding="async"><img src="../img/uso-bano-b.webp" srcset="../img/uso-bano-b-720.webp 720w, ../img/uso-bano-b.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Bathroom with a built-in bench and niche, not a single joint" data-i18n-alt="uso.ban2" data-lb-clave="uso-bano-b" loading="lazy" decoding="async"><img src="../img/uso-bano-c.webp" srcset="../img/uso-bano-c-720.webp 720w, ../img/uso-bano-c.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Curved-wall shower with natural light" data-i18n-alt="uso.ban3" data-lb-clave="uso-bano-c" loading="lazy" decoding="async"></span></button><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span>
-      <figcaption><b data-i18n="apps.a4" style="font-size:15px;font-weight:600">Bathrooms and furniture</b><span data-i18n="apps.d4" style="font-size:var(--t-sm);opacity:0.82">Bathroom with a chukum wall</span></figcaption>
+      <button type="button" class="lb-abrir" data-lb="uso-bano" aria-label="Enlarge: Brass shower on a seamless natural-stucco wall" data-i18n-arialabel="a11y.zoom4" style="all:unset;display:block;cursor:zoom-in;border-radius:6px"><span class="apps-pila" data-pila><img data-tono="oscuro" src="../img/uso-bano-a.webp" srcset="../img/uso-bano-a-720.webp 720w, ../img/uso-bano-a.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Brass shower on a continuous cream wall" data-i18n-alt="uso.ban1" data-lb-clave="uso-bano-a" loading="lazy" decoding="async"><img data-tono="oscuro" src="../img/uso-bano-b.webp" srcset="../img/uso-bano-b-720.webp 720w, ../img/uso-bano-b.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Bathroom with a built-in bench and niche, not a single joint" data-i18n-alt="uso.ban2" data-lb-clave="uso-bano-b" loading="lazy" decoding="async"><img data-tono="oscuro" src="../img/uso-bano-c.webp" srcset="../img/uso-bano-c-720.webp 720w, ../img/uso-bano-c.webp 1600w" sizes="(max-width:700px) 100vw, 58vw" alt="Curved-wall shower with natural light" data-i18n-alt="uso.ban3" data-lb-clave="uso-bano-c" loading="lazy" decoding="async"></span></button><figcaption class="apps-pie"><b data-i18n="apps.a4" style="font-size:15px;font-weight:600">Bathrooms and furniture</b><span data-i18n="apps.d4" style="font-size:var(--t-sm);opacity:0.82">Bathroom with a chukum wall</span><span class="apps-puntos" data-pila-puntos aria-hidden="true"><i></i><i></i><i></i></span></figcaption>
     </figure>
   </div>
 </section>
@@ -1359,6 +1393,7 @@ class Component extends DCLogic {
         if (boton) boton.setAttribute('data-lb', fotos[i].getAttribute('data-lb-clave') || boton.getAttribute('data-lb'));
         // el pie cuenta la foto que se ve; la clave i18n viaja con ella para que el
         // cambio de idioma la traduzca sin saber nada del carrusel
+        if (fig) fig.setAttribute('data-tono', fotos[i].getAttribute('data-tono') || 'oscuro');
         if (desc) {
           const k = fotos[i].getAttribute('data-i18n-alt');
           if (k) desc.setAttribute('data-i18n', k);
