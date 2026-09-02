@@ -4,11 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
-</head>
-<body>
-<a href="#material" class="saltar" data-i18n="a11y.skip">Saltar al contenido</a>
-<x-dc>
-<helmet>
 <title>SAURIUM — Chukum auténtico de Yucatán. Desde el origen, diseñado para perdurar.</title>
 <meta name="description" content="Recubrimiento natural de chukum, elaborado en la Península de Yucatán. Seis acabados, comparador antes y después, y envíos a México y el exterior.">
 <meta property="og:type" content="website">
@@ -452,7 +447,10 @@ html:has(dialog[open]){overflow:hidden}
 [data-saco3d] canvas{touch-action:pan-y}
 .indice a::before{inset:-13px 0}
 </style>
-</helmet>
+</head>
+<body>
+<a href="#material" class="saltar" data-i18n="a11y.skip">Saltar al contenido</a>
+<x-dc>
 
 <header data-nav data-screen-label="Nav" style="position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 clamp(16px,4vw,48px);background:rgba(243,235,222,0.72);backdrop-filter:blur(18px) saturate(160%);WebkitBackdropFilter:blur(18px) saturate(160%);transition:box-shadow 0.4s ease">
   <a href="#inicio" aria-label="SAURIUM" style="display:flex;align-items:center;min-height:44px"><img data-logo-nav loading="eager" fetchpriority="high" decoding="async" src="img/logo-dark.webp" data-src-claro="logo-dark.webp" data-src-oscuro="logo-light.webp" alt="Chukum Saurium" style="height:34px;width:auto"></a>
