@@ -200,6 +200,29 @@ html,body{overflow-x:clip}
 @media(min-width:901px){.hero-ed-cuadro{height:calc(100svh - 300px);max-height:calc(100svh - 300px);aspect-ratio:auto}}
 @media(max-width:900px){.hero-ed-cuadro{aspect-ratio:4/3;max-height:46svh}}
 
+/* ===== formulario de contacto sobre la foto ===== */
+.mundo-form{margin-top:clamp(20px,3vh,30px);max-width:520px;display:grid;gap:12px}
+.mundo-form .form-fila{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:620px){.mundo-form .form-fila{grid-template-columns:1fr}}
+.mundo-form label{display:grid;gap:6px;font-size:var(--t-xs);letter-spacing:var(--track-caps);text-transform:uppercase;opacity:.82}
+.mundo-form input,.mundo-form textarea{font:inherit;font-size:15px;text-transform:none;letter-spacing:0;color:var(--crema);background:oklch(1 0 0/.09);border:1px solid oklch(1 0 0/.22);border-radius:12px;padding:12px 14px;min-height:46px;width:100%;transition:border-color .2s,background .2s;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.mundo-form textarea{resize:vertical;min-height:76px;line-height:1.5}
+.mundo-form input::placeholder,.mundo-form textarea::placeholder{color:oklch(1 0 0/.45)}
+@media(hover:hover){.mundo-form input:hover,.mundo-form textarea:hover{border-color:oklch(1 0 0/.34)}}
+.mundo-form input:focus-visible,.mundo-form textarea:focus-visible{outline:2px solid var(--crema);outline-offset:2px;border-color:transparent;background:oklch(1 0 0/.14)}
+.form-resumen{font-size:var(--t-xs);letter-spacing:.02em;opacity:.9;background:oklch(1 0 0/.1);border:1px solid oklch(1 0 0/.2);border-radius:999px;padding:8px 14px;justify-self:start;min-height:32px}
+.form-resumen b{font-weight:600}
+.form-botones{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.form-enviar{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-weight:600;font-size:15px;background:var(--crema);color:var(--marron);border:0;cursor:pointer;box-shadow:var(--sombra-2);font-family:inherit;min-height:46px}
+.form-wa{font-size:14px;opacity:.85;text-decoration:underline;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+.form-estado{font-size:var(--t-sm);min-height:20px;opacity:.9}
+.form-estado[data-ok]{color:#bfe3c6}
+.form-estado[data-mal]{color:#f0b9a6}
+/* el cursor del tipeo del autocompletado */
+.form-tipeando{border-right:2px solid var(--crema);animation:cursorForm .9s step-end infinite}
+@keyframes cursorForm{50%{border-right-color:transparent}}
+@media(prefers-reduced-motion:reduce){.form-tipeando{animation:none;border-right-color:transparent}}
+
 /* ===== hero que crece al bajar (pedido de David, 2026-09-02) =====
    La foto vive en .hero-expande, hija del stage, y su recorte va del hueco que deja
    .hero-ed-cuadro hasta la pantalla completa. Como el stage es sticky y mide 100svh,
@@ -655,6 +678,19 @@ html:has(dialog[open]){overflow:hidden}
         </a>
         <!--cms:correo--><!--/cms:correo-->
       </div>
+      <form class="mundo-form" data-form novalidate>
+        <p class="form-resumen" data-form-resumen hidden></p>
+        <div class="form-fila">
+          <label><span data-i18n="form.nombre">Nombre</span><input name="nombre" type="text" required autocomplete="name" data-form-campo></label>
+          <label><span data-i18n="form.contacto">Correo o WhatsApp</span><input name="contacto" type="text" required autocomplete="email" data-form-campo></label>
+        </div>
+        <label class="form-ancho"><span data-i18n="form.mensaje">Tu proyecto</span><textarea name="mensaje" rows="3" data-form-msg data-form-campo></textarea></label>
+        <div class="form-botones">
+          <button type="submit" class="cta-lleno form-enviar" data-form-enviar><span data-i18n="form.enviar">Enviar</span></button>
+          <a href="#" class="form-wa" data-form-wa target="_blank" rel="noopener" data-i18n="form.wa">Mandarlo por WhatsApp</a>
+        </div>
+        <p class="form-estado" data-form-estado role="status" aria-live="polite"></p>
+      </form>
       <p class="mundo-agente" style="margin-top:18px;font-size:var(--t-sm);opacity:0.9;text-shadow:0 1px 12px rgba(0,0,0,0.5)"><span data-i18n="contact.agent" style="display:block;margin-bottom:4px">Rodrigo López Alam — Ventas y exportación</span><a data-tel href="tel:+529993699488" data-i18n="contact.tel">+52 999 369 9488</a><a data-vcard href="#" download="saurium-rodrigo-lopez.vcf" data-i18n="contact.vcard">Guardar contacto</a></p>
     </div>
   </div>
@@ -697,7 +733,7 @@ class Component extends DCLogic {
     this.dead = false;
     this.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     /*cms:datos*/
-    var CONTENIDO = { whatsapp: '529993699488', rendimiento: 4 };
+    var CONTENIDO = { whatsapp: '529993699488', rendimiento: 4, web3forms: '' };
     /*/cms:datos*/
     this.CONT = CONTENIDO;
     this.WA = this.props.whatsapp ?? CONTENIDO.whatsapp;
@@ -748,7 +784,7 @@ class Component extends DCLogic {
         'calc.cta':'Cotizar esta cantidad',
         'world.line':'Desde Yucatán para el mundo.','world.sub':'Elaboramos el chukum en la península y lo enviamos a obras de México y del exterior.',
         'contact.title':'Lleva SAURIUM a tu próximo proyecto','contact.sub':'Escríbenos y coordinamos muestras, ficha técnica y envío a tu obra, en México o afuera.',
-        'contact.wa':'Escribir por WhatsApp','contact.vcard':'Guardar contacto','faq.sub':'Lo que arquitectos y aplicadores nos preguntan antes de pedir muestras.','a11y.zoom1':'Ampliar: Muros de chukum en un patio con alberca','a11y.zoom2':'Ampliar: Interior con muros de chukum','a11y.zoom3':'Ampliar: Alberca con borde y muros de acabado continuo en tono arena','a11y.zoom4':'Ampliar: Regadera de bronce sobre muro continuo de estuco natural','compare.muestra0':'Pedir muestra de Terracota',muestraTxt:(n)=>`Pedir muestra de ${n}`,
+        'form.nombre':'Nombre','form.contacto':'Correo o WhatsApp','form.mensaje':'Tu proyecto','form.enviar':'Enviar','form.wa':'Mandarlo por WhatsApp',formResumen:'Tu selección:',formFaltan:'Falta tu nombre y un contacto.',formEnviando:'Enviando…',formOk:'Listo. Te respondemos a la brevedad.',formError:'No se pudo enviar. Escríbenos por WhatsApp.','contact.wa':'Escribir por WhatsApp','contact.vcard':'Guardar contacto','faq.sub':'Lo que arquitectos y aplicadores nos preguntan antes de pedir muestras.','a11y.zoom1':'Ampliar: Muros de chukum en un patio con alberca','a11y.zoom2':'Ampliar: Interior con muros de chukum','a11y.zoom3':'Ampliar: Alberca con borde y muros de acabado continuo en tono arena','a11y.zoom4':'Ampliar: Regadera de bronce sobre muro continuo de estuco natural','compare.muestra0':'Pedir muestra de Terracota',muestraTxt:(n)=>`Pedir muestra de ${n}`,
         /*cms:contacto-es*/'contact.agent':'Rodrigo López Alam — Ventas y exportación','contact.tel':'+52 999 369 9488','contact.mail':'',/*/cms:contacto-es*/
         'footer.line':'Elaborado en la Península de Yucatán, México.','footer.rights':'Todos los derechos reservados',
         waText:'Hola, quiero cotizar chukum SAURIUM.',
@@ -788,7 +824,7 @@ class Component extends DCLogic {
         'calc.cta':'Request a quote for this amount',
         'world.line':'From Yucatán to the world.','world.sub':'We make the chukum in the peninsula and ship it to projects in Mexico and abroad.',
         'contact.title':'Bring SAURIUM to your next project','contact.sub':'Send us a message and we\u2019ll arrange samples, the data sheet and delivery to your site, in Mexico or abroad.',
-        'contact.wa':'Chat on WhatsApp','contact.vcard':'Save contact','faq.sub':'What architects and installers ask us before ordering samples.','a11y.zoom1':'Enlarge: Chukum walls on a patio with a pool','a11y.zoom2':'Enlarge: Interior with chukum walls','a11y.zoom3':'Enlarge: Pool with coping and walls in a seamless sand-tone finish','a11y.zoom4':'Enlarge: Brass shower on a seamless natural-stucco wall','compare.muestra0':'Request a Terracotta sample',muestraTxt:(n)=>`Request ${/^[aeiou]/i.test(n) ? 'an' : 'a'} ${n} sample`,
+        'form.nombre':'Name','form.contacto':'Email or WhatsApp','form.mensaje':'Your project','form.enviar':'Send','form.wa':'Send it on WhatsApp',formResumen:'Your selection:',formFaltan:'We need your name and a way to reach you.',formEnviando:'Sending…',formOk:'Done. We will get back to you shortly.',formError:'It could not be sent. Reach us on WhatsApp.','contact.wa':'Chat on WhatsApp','contact.vcard':'Save contact','faq.sub':'What architects and installers ask us before ordering samples.','a11y.zoom1':'Enlarge: Chukum walls on a patio with a pool','a11y.zoom2':'Enlarge: Interior with chukum walls','a11y.zoom3':'Enlarge: Pool with coping and walls in a seamless sand-tone finish','a11y.zoom4':'Enlarge: Brass shower on a seamless natural-stucco wall','compare.muestra0':'Request a Terracotta sample',muestraTxt:(n)=>`Request ${/^[aeiou]/i.test(n) ? 'an' : 'a'} ${n} sample`,
         /*cms:contacto-en*/'contact.agent':'Rodrigo López Alam — Sales and export','contact.tel':'+52 999 369 9488','contact.mail':'',/*/cms:contacto-en*/
         'footer.line':'Made in the Yucatán Peninsula, Mexico.','footer.rights':'All rights reserved',
         waText:'Hi, I would like a quote for SAURIUM chukum.',
@@ -812,7 +848,7 @@ class Component extends DCLogic {
     this.qa('a[href^="historia.html"]').forEach(a=> a.addEventListener('click', ()=>{
       try { sessionStorage.setItem('saurium-scroll', JSON.stringify({ p: location.pathname, y: Math.round(scrollY) })); } catch (e) {}
     }));
-    this.setupCompare(); this.setupCalc(); this.setupSaco3D(); this.setupLightbox(); this.setupFlotante(); this.setupMenu();
+    this.setupCompare(); this.setupCalc(); this.setupSaco3D(); this.setupLightbox(); this.setupFlotante(); this.setupMenu(); this.setupForm();
   }
   componentWillUnmount() {
     this.dead = true;
@@ -1289,6 +1325,103 @@ class Component extends DCLogic {
     dlg.addEventListener('keydown', (e)=>{
       if (e.key === 'ArrowRight') pista.scrollBy({ left: pista.clientWidth, behavior: this.reduce ? 'instant' : 'smooth' });
       if (e.key === 'ArrowLeft') pista.scrollBy({ left: -pista.clientWidth, behavior: this.reduce ? 'instant' : 'smooth' });
+    });
+  }
+  setupForm() {
+    const form = this.q('[data-form]'); if (!form) return;
+    const resumen = this.q('[data-form-resumen]'), msg = this.q('[data-form-msg]');
+    const estado = this.q('[data-form-estado]'), waBtn = this.q('[data-form-wa]');
+    const enviar = this.q('[data-form-enviar]');
+    let tocado = false, yaEscrito = false;
+    form.querySelectorAll('[data-form-campo]').forEach(c=> c.addEventListener('input', ()=>{ tocado = true; if (c === msg) yaEscrito = true; }));
+
+    // escribe un texto letra por letra; sin animacion con movimiento reducido
+    const tipear = (el, texto, ms, esHTML)=>{
+      if (this.reduce) { if (esHTML) el.innerHTML = texto; else el.value = texto; return Promise.resolve(); }
+      return new Promise(res=>{
+        el.classList.add('form-tipeando');
+        let i = 0;
+        const paso = ()=>{
+          i += Math.max(1, Math.round(texto.length / 90));
+          const trozo = texto.slice(0, i);
+          if (esHTML) el.innerHTML = trozo; else el.value = trozo;
+          if (i < texto.length) this.formTipeo = setTimeout(paso, ms);
+          else { el.classList.remove('form-tipeando'); res(); }
+        };
+        paso();
+      });
+    };
+
+    // Lo que la pagina ya sabe se escribe solo: acabado elegido y metros calculados.
+    const contexto = ()=>{
+      const es = this.lang === 'es', n = Math.ceil(Math.max(0, this.m2) / this.CONT.rendimiento);
+      const partes = [];
+      if (this.finishTocado) partes.push(`<b>${this.nombreAcabado()}</b>`);
+      if (this.calcTocada && n > 0) partes.push(`<b>${this.fmt(this.m2)} m²</b>`, `<b>${this.fmt(n)}</b> ${es ? (n === 1 ? 'saco' : 'sacos') : (n === 1 ? 'bag' : 'bags')}`);
+      return partes;
+    };
+    let llenado = false;
+    const autocompletar = ()=>{
+      if (llenado) return; llenado = true;
+      const partes = contexto();
+      if (partes.length && resumen) {
+        resumen.hidden = false;
+        const d = this.I18N[this.lang];
+        tipear(resumen, (d.formResumen || 'Tu selección:') + ' ' + partes.join(' · '), 16, true)
+          .then(()=>{ if (msg && !yaEscrito && !msg.value) tipear(msg, this.waTexto('contacto'), 12, false); });
+      } else if (msg && !yaEscrito && !msg.value) {
+        tipear(msg, this.waTexto('contacto'), 12, false);
+      }
+    };
+    // se dispara al entrar la seccion en pantalla, no antes: el efecto se tiene que ver
+    const sec = this.q('#contacto');
+    if (sec && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((e)=>{ if (e[0].isIntersecting) { io.disconnect(); setTimeout(autocompletar, 320); } }, { threshold: 0.35 });
+      io.observe(sec);
+    } else { autocompletar(); }
+
+    const armarTexto = ()=>{
+      const d = new FormData(form), es = this.lang === 'es';
+      const l = [];
+      if (d.get('nombre')) l.push(`${es ? 'Nombre' : 'Name'}: ${d.get('nombre')}`);
+      if (d.get('contacto')) l.push(`${es ? 'Contacto' : 'Contact'}: ${d.get('contacto')}`);
+      if (d.get('mensaje')) l.push(String(d.get('mensaje')));
+      const c = contexto().map(t=> t.replace(/<[^>]+>/g, ''));
+      if (c.length) l.push(`${es ? 'Selección' : 'Selection'}: ${c.join(' · ')}`);
+      return l.join('\n') || this.waTexto('contacto');
+    };
+    const refrescarWA = ()=>{ if (waBtn) waBtn.href = `https://wa.me/${this.WA}?text=${encodeURIComponent(armarTexto())}`; };
+    refrescarWA(); form.addEventListener('input', refrescarWA);
+
+    // Sin clave de Web3Forms no hay a donde mandar el correo: queda solo WhatsApp.
+    const clave = (this.CONT.web3forms || '').trim();
+    if (!clave && enviar) enviar.hidden = true;
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const d = this.I18N[this.lang];
+      if (!clave) { if (waBtn) waBtn.click(); return; }
+      if (!form.nombre.value.trim() || !form.contacto.value.trim()) {
+        estado.textContent = d.formFaltan || 'Falta tu nombre y un contacto.';
+        estado.removeAttribute('data-ok'); estado.setAttribute('data-mal', '');
+        (form.nombre.value.trim() ? form.contacto : form.nombre).focus();
+        return;
+      }
+      enviar.disabled = true; estado.removeAttribute('data-mal'); estado.removeAttribute('data-ok');
+      estado.textContent = d.formEnviando || 'Enviando…';
+      try {
+        const r = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ access_key: clave, subject: 'SAURIUM — consulta desde la web',
+            from_name: 'Web SAURIUM', nombre: form.nombre.value, contacto: form.contacto.value,
+            mensaje: armarTexto(), idioma: this.lang })
+        });
+        if (!r.ok) throw new Error(r.status);
+        estado.textContent = d.formOk || 'Listo, te respondemos a la brevedad.';
+        estado.setAttribute('data-ok', ''); form.reset(); refrescarWA();
+      } catch (_) {
+        estado.textContent = d.formError || 'No se pudo enviar. Escribinos por WhatsApp.';
+        estado.setAttribute('data-mal', '');
+      } finally { enviar.disabled = false; }
     });
   }
   setupFlotante() {

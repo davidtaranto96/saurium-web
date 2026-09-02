@@ -27,7 +27,7 @@ const j = (t) => String(t == null ? '' : t).replace(/\\/g, '\\\\').replace(/'/g,
 /* Cada generador tiene que producir EXACTAMENTE lo que hoy esta escrito a
    mano: la prueba de idempotencia (prueba-contenido.js) existe para eso. */
 const generadores = {
-  'datos': (c) => `\n    var CONTENIDO = { whatsapp: '${j(c.whatsapp)}', rendimiento: ${Number(c.rendimiento_m2_por_saco)} };\n    `,
+  'datos': (c) => `\n    var CONTENIDO = { whatsapp: '${j(c.whatsapp)}', rendimiento: ${Number(c.rendimiento_m2_por_saco)}, web3forms: '${j(c.web3forms_key || '')}' };\n    `,
   'contacto-es': (c) => `'contact.agent':'${j(c.vendedor)} — ${j(c.cargo_es)}','contact.tel':'${j(c.telefono_legible)}','contact.mail':'${j(c.correo)}',`,
   'contacto-en': (c) => `'contact.agent':'${j(c.vendedor)} — ${j(c.cargo_en)}','contact.tel':'${j(c.telefono_legible)}','contact.mail':'${j(c.correo)}',`,
   'hero-es': (c) => `'hero.l1':'${j(c.hero_es.linea1)}','hero.l2':'${j(c.hero_es.linea2)}',`,
