@@ -10,7 +10,7 @@
  *  Correr despues de cada cambio: npm run en (desde server/). */
 const fs = require('fs'), path = require('path');
 const raiz = path.join(__dirname, '..');
-const BASE = 'https://davidtaranto96.github.io/saurium-web/';
+const BASE = 'https://sauriumchukum.com/';
 const PAGINAS = ['index.html', 'historia.html'];
 
 const escTexto = (t) => String(t).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
