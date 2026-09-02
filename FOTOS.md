@@ -49,3 +49,5 @@ Candidatas verificadas que quedaron afuera, por si hacen falta:
 | `placas.jpg`, `swatch-*.jpg` | Muestras de acabado | Brochure p.23 |
 | `story-selva.jpg`, `story-dino.jpg`, `story-huella.jpg`, `story-costa.jpg` | Capítulos de `historia.html` | Brochure p.2 a p.5 |
 | `textura.jpg`, `textura-muro.jpg` | Fondos de sección | Brochure |
+
+**Pendiente de foto (2026-09-02):** la costa (`story-costa`) es 16:9 y en el celular cubre una pantalla 9:16 estirada casi 5×; en el cierre de la home se ve blanda. Hace falta un render vertical (`story-costa-v`, 1240×2222 como las otras `-v`) o pedirle al cliente una foto vertical de la península. El mismo tratamiento sirve para el fondo del teaser de la historia, que ya usa `story-dino-v`.
