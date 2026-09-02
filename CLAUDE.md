@@ -94,8 +94,10 @@ nada de esto se arma en táctil (`hover:none`) ni con movimiento reducido.
   que es lo que permite subir el solape a 26 % y 32 % sin tapar nada. En celular no hay solape
   vertical: el pie mide ~60 px y cualquier montaje se lo come; el escalonado queda por los anchos
   y los lados alternados.
-  `server/tono-fotos.py` quedó **fuera de uso** al salir el texto de la foto: el contraste ahora
-  lo da el fondo crema de la página. Se conserva por si el texto vuelve adentro.
+  **Los puntos del carrusel sí van dentro de la foto**, arriba y del mismo lado que el texto.
+  Su color lo decide `server/tono-fotos.py`, que mide la luminancia relativa (WCAG) de la franja
+  **superior** de cada imagen —donde caen— y escribe `data-tono`. Las 12 dan entre 5,4:1 y 12,9:1.
+  **Correr ese script cada vez que se cambie una foto de Aplicaciones.**
 - **Pila de fotos por aplicación** (`setupApps`): cada figura rota varias obras del mismo uso con
   cross-fade de 900 ms cada 4,8 s, se para al pasar el cursor y fuera de pantalla, y el lightbox
   abre la foto que se está viendo (el carrusel reescribe `data-lb`).

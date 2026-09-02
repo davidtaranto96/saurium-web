@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Decide, para cada foto de Aplicaciones, si su pie va claro u oscuro.
+"""Decide, para cada foto de Aplicaciones, si sus puntos van claros u oscuros.
 
-El pie de foto vive DENTRO de la imagen, asi que el contraste depende de lo que
-haya justo ahi. En vez de estimarlo, se mide: se toma la franja inferior (donde
+Los puntos del carrusel viven DENTRO de la imagen, arriba, asi que el contraste
+depende de lo que haya justo ahi. En vez de estimarlo, se mide: se toma la franja inferior (donde
 cae el texto), se calcula su luminancia media y se elige el tratamiento.
 
 Escribe data-tono="claro|oscuro" en cada <img> de las pilas de index.html.
@@ -18,14 +18,14 @@ import numpy as np
 from PIL import Image
 
 RAIZ = Path(__file__).resolve().parent.parent
-FRANJA = 0.34          # porcion inferior de la foto que ocupa el pie
+FRANJA = 0.16          # franja SUPERIOR de la foto, que es donde van los puntos
 UMBRAL = 0.52          # luminancia relativa por encima de la cual la franja es "clara"
 
 
 def tono(archivo):
     im = Image.open(RAIZ / 'img' / archivo).convert('RGB')
     alto = max(1, int(im.height * FRANJA))
-    franja = np.asarray(im.crop((0, im.height - alto, im.width, im.height)), dtype=np.float32) / 255.0
+    franja = np.asarray(im.crop((0, 0, im.width, alto)), dtype=np.float32) / 255.0
     # luminancia relativa (WCAG): el ojo pesa mucho mas el verde
     lin = np.where(franja <= 0.03928, franja / 12.92, ((franja + 0.055) / 1.055) ** 2.4)
     L = 0.2126 * lin[..., 0] + 0.7152 * lin[..., 1] + 0.0722 * lin[..., 2]
