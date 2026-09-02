@@ -73,7 +73,7 @@ nada de esto se arma en táctil (`hover:none`) ni con movimiento reducido.
 - **El hero crece al bajar.** `#inicio` mide 180svh; el contenido va en `.hero-stage` (sticky,
   `height:100svh`, `box-sizing:border-box`) y la foto de la costa (`.hero-expande`) pasa por
   `clip-path` del hueco que deja `.hero-ed-cuadro` a la pantalla completa, con la imagen
-  escalando 1 → 1,16 y el titular retirándose. Smoothstep, y `p` llega a 1 al 82 % del recorrido
+  escalando 1 → 1,16 y el titular retirándose. Smoothstep **más un lerp de 0,16 por cuadro**, para que el efecto acompañe al scroll en vez de estar clavado a él (clavado se siente duro con rueda de mouse). Recorrido de 215svh, y `p` llega a 1 al 82 % del recorrido
   para que quede un tramo con la foto entera antes de que el sticky se despegue. **El sticky solo
   existe con `.hero-crece`** (≥901 px y sin movimiento reducido): en celular el contenido mide más
   que la pantalla y un sticky más alto que el viewport esconde la mitad de abajo.

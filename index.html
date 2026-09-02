@@ -288,12 +288,12 @@ html,body{overflow-x:clip}
 .hero-stage{box-sizing:border-box;--pt:112px;--px:clamp(20px,6vw,96px);--pb:clamp(120px,16vh,180px);position:relative;min-height:100svh;display:grid;align-items:center;overflow:hidden;padding:var(--pt) var(--px) var(--pb)}
 .hero-ed-cuadro{background:none;box-shadow:none}
 .hero-expande{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden;border-radius:22px;box-shadow:var(--sombra-2);clip-path:inset(19% 6% 23% 55% round 22px)}
-.hero-expande img{width:100%;height:100%;max-width:none;object-fit:cover;display:block;transform-origin:62% 58%;will-change:transform}
+.hero-expande img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:36% 62%;display:block;transform-origin:50% 62%;will-change:transform}
 .hero-ed{min-height:100svh}
 /* el stage solo se pega donde el efecto corre: en celular el contenido mide mas que
    la pantalla y un sticky mas alto que el viewport esconde la mitad de abajo */
 .hero-ed.hero-crece .hero-stage{position:sticky;top:0;height:100svh;min-height:0}
-.hero-ed.hero-crece{min-height:180svh}
+.hero-ed.hero-crece{min-height:215svh}
 @media(max-width:900px){.hero-stage{--pt:100px}.hero-expande{clip-path:inset(52% 0 8% 0 round 22px)}}
 @media(prefers-reduced-motion:reduce){.hero-ed.hero-crece{min-height:100svh}}
 .hero-ent{opacity:0;animation:heroIn .7s cubic-bezier(.22,1,.36,1) forwards}
@@ -1083,7 +1083,7 @@ class Component extends DCLogic {
       hero.classList.toggle('hero-crece', heroAncho() && !this.reduce);
       this.pintarHero && this.pintarHero();
     };
-    this.pintarHero = ()=>{
+    this.pintarHero = (encadenado)=>{
       if (!hero || !stage || !hueco || !foto) return;
       const rh = hueco.getBoundingClientRect(), rs = stage.getBoundingClientRect();
       // p=0 la foto ocupa el hueco; p=1 ocupa el stage entero (que es la pantalla)
@@ -1093,15 +1093,22 @@ class Component extends DCLogic {
       // llega a pantalla completa al 82% del recorrido: deja un tramo con la foto
       // entera antes de que el sticky se despegue, y absorbe cualquier desfase
       const p = Math.min(1, Math.max(0, bruto / 0.82));
-      const e = p * p * (3 - 2 * p);                           // smoothstep: el crecimiento se reparte parejo
-                                                              // (easeOutCubic dejaba la foto casi expandida al tercio)
+      const objetivo = p * p * (3 - 2 * p);                    // smoothstep: el crecimiento se reparte parejo
+      // y encima un lerp, para que el efecto ACOMPANE al scroll en vez de estar
+      // clavado a el: clavado se siente duro, sobre todo con rueda de mouse
+      if (this.heroE == null || this.reduce) this.heroE = objetivo;
+      else this.heroE += (objetivo - this.heroE) * 0.16;
+      const e = this.heroE;
+      if (!this.reduce && Math.abs(objetivo - e) > 0.0008 && !this.heroRaf) {
+        this.heroRaf = requestAnimationFrame(()=>{ this.heroRaf = null; this.pintarHero(true); });
+      }
       const k = 1 - e;
       const t = Math.max(0, rh.top - rs.top) * k, l = Math.max(0, rh.left - rs.left) * k;
       const d = Math.max(0, rs.right - rh.right) * k, b = Math.max(0, rs.bottom - rh.bottom) * k;
       foto.style.clipPath = `inset(${t.toFixed(1)}px ${d.toFixed(1)}px ${b.toFixed(1)}px ${l.toFixed(1)}px round ${(22 * k).toFixed(1)}px)`;
       foto.style.boxShadow = k < 0.05 ? 'none' : 'var(--sombra-2)';
       const img = foto.querySelector('img');
-      if (img) img.style.transform = `scale(${(1 + 0.16 * e).toFixed(4)})`;
+      if (img) img.style.transform = `scale(${(1 + 0.08 * e).toFixed(4)})`;
       // el texto se retira para que la foto quede sola, y deja de ser clickeable
       if (heroTxt) {
         const o = Math.max(0, 1 - e * 2.8);

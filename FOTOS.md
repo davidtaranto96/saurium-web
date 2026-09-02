@@ -21,6 +21,21 @@ Renders generados con IA a partir de un prompt de arquitectura yucateca. Las sie
 
 **Para la versión final**: lo ideal es una obra real de SAURIUM fotografiada antes y después, o la misma fachada terminada en cada acabado. Si el cliente manda una foto de obra, hay que generar las siete variantes desde esa foto para que sigan alineadas entre sí.
 
+## El hero, ahora que ocupa la pantalla entera (2026-09-02)
+
+`hero-luminoso` estaba comprimido a **0,416 bits por píxel** y en el agua se veía el banding de
+WebP. Se regeneró desde el JPG a calidad 90: **0,712 bpp**, 288 KB la variante de 1800. Es el LCP
+de la página, así que ese peso es deliberado.
+
+> **El techo está en la fuente, no en la compresión.** El JPG original es **1800×1840**. Cuando la
+> foto se expande a pantalla completa, en un monitor Retina de 1440 el navegador pide **2880×1800**:
+> son **1,6× de ampliación** que ninguna calidad de WebP puede inventar. Por eso el zoom del efecto
+> se bajó de 1,16 a 1,08. **Para que el hero se vea nítido del todo hace falta el original a 2880 px
+> de ancho o más** — pedírselo al cliente junto con los renders del comparador.
+
+El encuadre lleva `object-position: 36% 62%`: con `cover` en un cuadro alto y angosto, el centro
+de esta foto es agua sola y se perdían la costa y la pirámide.
+
 ## Aplicaciones: tres fotos por uso, y de dónde salen (2026-09-02)
 
 Cada figura de Aplicaciones es una **pila** de tres fotos que van pasando solas. Todas las nuevas
