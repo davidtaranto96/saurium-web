@@ -74,7 +74,7 @@ html{scroll-padding-top:5.5rem}
 :where(button):active{scale:.96}
 :where(figure)>img{outline:1px solid oklch(0 0 0/.08);outline-offset:-1px}
 h1,h2,h3{text-wrap:balance}
-.saltar{position:fixed;top:0;left:16px;transform:translateY(-110%);z-index:99;background:var(--marron);color:var(--crema);padding:10px 18px;border-radius:0 0 10px 10px;font-size:13px;font-weight:600;transition:transform .15s}
+.saltar{position:fixed;top:0;left:16px;transform:translateY(-110%);z-index:99;background:var(--marron);color:var(--crema);padding:13px 18px;border-radius:0 0 10px 10px;font-size:13px;font-weight:600;transition:transform .15s}
 .saltar:focus-visible{transform:none}
 
 /* pulido fino 2.0 */
@@ -104,7 +104,7 @@ h1,h2,h3{text-wrap:balance}
 
 /* calculadora 3.0 */
 @media(max-width:760px){.calc{grid-template-columns:1fr !important}}
-.calc-rango{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:none;outline:none;margin:0;cursor:pointer}
+.calc-rango{-webkit-appearance:none;appearance:none;width:100%;height:44px;min-height:44px;box-sizing:content-box;background:none;outline:none;margin:0;cursor:pointer}
 .calc-rango::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--terracota-tinta) var(--p,11%),rgba(71,67,65,.18) var(--p,11%))}
 .calc-rango::-moz-range-track{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--terracota-tinta) var(--p,11%),rgba(71,67,65,.18) var(--p,11%))}
 .calc-rango::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-11px;border-radius:50%;background:var(--crema);border:2px solid var(--terracota-tinta);box-shadow:var(--sombra-1);cursor:grab;transition:transform .12s cubic-bezier(.2,0,0,1)}
@@ -628,7 +628,7 @@ html:has(dialog[open]){overflow:hidden}
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c0 .2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.4 2.6 1.6.3.1.5.1.7-.1l1.1-1.3c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.3 1.6Z"></path></svg>
           <span data-i18n="contact.wa">Chat on WhatsApp</span>
         </a>
-        <!--cms:correo--><a href="mailto:david_taranto@outlook.es" data-i18n="contact.mail" class="cta-linea cta-linea-claro" style="display:inline-flex;align-items:center;padding:16px 28px;border-radius:999px;font-weight:600;font-size:15px;border:1.5px solid rgba(243,235,222,0.45);color:var(--crema)">david_taranto@outlook.es</a><!--/cms:correo-->
+        <!--cms:correo--><!--/cms:correo-->
       </div>
       <p class="mundo-agente" style="margin-top:18px;font-size:var(--t-sm);opacity:0.9;text-shadow:0 1px 12px rgba(0,0,0,0.5)"><span data-i18n="contact.agent" style="display:block;margin-bottom:4px">Rodrigo López Alam — Sales and export</span><a data-tel href="tel:+529993699488" data-i18n="contact.tel">+52 999 369 9488</a><a data-vcard href="#" download="saurium-rodrigo-lopez.vcf" data-i18n="contact.vcard">Save contact</a></p>
     </div>
@@ -724,7 +724,7 @@ class Component extends DCLogic {
         'world.line':'Desde Yucatán para el mundo.','world.sub':'Elaboramos el chukum en la península y lo enviamos a obras de México y del exterior.',
         'contact.title':'Lleva SAURIUM a tu próximo proyecto','contact.sub':'Escríbenos y coordinamos muestras, ficha técnica y envío a tu obra, en México o afuera.',
         'contact.wa':'Escribir por WhatsApp','contact.vcard':'Guardar contacto','faq.sub':'Lo que arquitectos y aplicadores nos preguntan antes de pedir muestras.','a11y.zoom1':'Ampliar: Muros de chukum en un patio con alberca','a11y.zoom2':'Ampliar: Interior con muros de chukum','a11y.zoom3':'Ampliar: Alberca con borde y muros de acabado continuo en tono arena','a11y.zoom4':'Ampliar: Regadera de bronce sobre muro continuo de estuco natural','compare.muestra0':'Pedir muestra de Terracota',muestraTxt:(n)=>`Pedir muestra de ${n}`,
-        /*cms:contacto-es*/'contact.agent':'Rodrigo López Alam — Ventas y exportación','contact.tel':'+52 999 369 9488','contact.mail':'david_taranto@outlook.es',/*/cms:contacto-es*/
+        /*cms:contacto-es*/'contact.agent':'Rodrigo López Alam — Ventas y exportación','contact.tel':'+52 999 369 9488','contact.mail':'',/*/cms:contacto-es*/
         'footer.line':'Elaborado en la Península de Yucatán, México.','footer.rights':'Todos los derechos reservados',
         waText:'Hola, quiero cotizar chukum SAURIUM.',
         waCalc:(n,m2)=>`Hola, quiero cotizar ${n} sacos de chukum SAURIUM (${m2} m²).`,
@@ -764,7 +764,7 @@ class Component extends DCLogic {
         'world.line':'From Yucatán to the world.','world.sub':'We make the chukum in the peninsula and ship it to projects in Mexico and abroad.',
         'contact.title':'Bring SAURIUM to your next project','contact.sub':'Send us a message and we\u2019ll arrange samples, the data sheet and delivery to your site, in Mexico or abroad.',
         'contact.wa':'Chat on WhatsApp','contact.vcard':'Save contact','faq.sub':'What architects and installers ask us before ordering samples.','a11y.zoom1':'Enlarge: Chukum walls on a patio with a pool','a11y.zoom2':'Enlarge: Interior with chukum walls','a11y.zoom3':'Enlarge: Pool with coping and walls in a seamless sand-tone finish','a11y.zoom4':'Enlarge: Brass shower on a seamless natural-stucco wall','compare.muestra0':'Request a Terracotta sample',muestraTxt:(n)=>`Request ${/^[aeiou]/i.test(n) ? 'an' : 'a'} ${n} sample`,
-        /*cms:contacto-en*/'contact.agent':'Rodrigo López Alam — Sales and export','contact.tel':'+52 999 369 9488','contact.mail':'david_taranto@outlook.es',/*/cms:contacto-en*/
+        /*cms:contacto-en*/'contact.agent':'Rodrigo López Alam — Sales and export','contact.tel':'+52 999 369 9488','contact.mail':'',/*/cms:contacto-en*/
         'footer.line':'Made in the Yucatán Peninsula, Mexico.','footer.rights':'All rights reserved',
         waText:'Hi, I would like a quote for SAURIUM chukum.',
         waCalc:(n,m2)=>`Hi, I would like a quote for ${n} bags of SAURIUM chukum (${m2} m²).`,
