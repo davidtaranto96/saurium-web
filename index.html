@@ -1031,29 +1031,26 @@ class Component extends DCLogic {
     this.setBaPos = (v, instant)=>{ target = Math.min(100, Math.max(0, v)); if (instant) { cur = target; apply(); } else start(); };
     apply();
     const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+    // La barra se agarra y se queda donde la dejan. Antes seguia al cursor con solo
+    // pasar por encima (pedido de David, 2026-09-02): un comparador que se mueve solo
+    // no deja mirar el antes ni el despues.
+    const posDe = (e)=>{ const r = wrap.getBoundingClientRect(); return ((e.clientX - r.left) / r.width) * 100; };
     wrap.addEventListener('pointermove', (e)=>{
-      const r = wrap.getBoundingClientRect();
-      const v = ((e.clientX - r.left) / r.width) * 100;
+      if (!presionado) return;
       if (e.pointerType === 'mouse' && !fine) return;
-      // velocidad del dedo, para que al soltar la barra siga con inercia
-      const now = performance.now();
-      if (lastX !== null && now > lastT) vel = (v - lastX) / ((now - lastT) / 1000) * 0.35;
-      lastX = v; lastT = now;
-      // mientras el dedo esta apoyado la barra lo sigue 1:1; el resorte queda para el soltar
-      this.setBaPos(v, presionado);
+      this.setBaPos(posDe(e), true);      // pegada al dedo mientras esta apoyado
     });
-    const soltar = ()=>{
-      presionado = false;
-      if (this.reduce || Math.abs(vel) < 20) { lastX = null; vel = 0; return; }
-      // proyeccion del impulso (deceleracion 0.99) y freno con el resorte, sin rebote
-      const proyectado = cur + (vel / 1000) * 0.99 / (1 - 0.99);
-      target = Math.min(100, Math.max(0, proyectado)); lastX = null; start();
-    };
-    wrap.addEventListener('pointerdown', ()=>{ presionado = true; lastX = null; vel = 0; });
+    const soltar = ()=>{ presionado = false; lastX = null; vel = 0; };
+    wrap.addEventListener('pointerdown', (e)=>{
+      presionado = true; lastX = null; vel = 0;
+      try { wrap.setPointerCapture(e.pointerId); } catch (_) {}
+      this.setBaPos(posDe(e), true);      // el clic tambien posiciona, sin arrastrar
+    });
     wrap.addEventListener('pointerup', soltar); wrap.addEventListener('pointercancel', soltar);
     wrap.addEventListener('pointerenter', (e)=>{ if (knob && e.pointerType === 'mouse') knob.style.transform = 'translate(-50%,-50%) scale(1.12)'; });
-    // la posicion elegida es del visitante: no se resetea nunca (en tactil pointerleave llega despues de cada toque)
-    wrap.addEventListener('pointerleave', (e)=>{ if (knob) knob.style.transform = 'translate(-50%,-50%) scale(1)'; if (e.pointerType === 'mouse') soltar(); });
+    // solo el gesto visual: soltar lo maneja pointerup, que con la captura llega
+    // aunque el cursor se vaya del cuadro a mitad de arrastre
+    wrap.addEventListener('pointerleave', ()=>{ if (knob) knob.style.transform = 'translate(-50%,-50%) scale(1)'; });
     if (knob) knob.style.transition = 'transform 0.3s cubic-bezier(0.22,1,0.36,1)';
     range.addEventListener('input', ()=> this.setBaPos(Number(range.value), true));
     range.addEventListener('keydown', (e)=>{
