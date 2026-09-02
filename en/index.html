@@ -57,14 +57,9 @@ img{max-width:100%;display:block}
 h1,h2,h3,p,dl,dt,dd,figure{margin:0}
 ::selection{background:var(--terracota);color:var(--crema)}
 @keyframes rise{to{transform:none}}
-@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(0);transform-origin:bottom}}
 @keyframes kenburns{0%{transform:scale(1.06) translate3d(0,0,0)}100%{transform:scale(1.22) translate3d(-2.5%,-2%,0)}}
-@media (max-width:767px),(max-height:720px){[data-mq-scroll],[data-scrollhint-wrap]{display:none !important}}
 @media (max-width:860px){[data-mq-navlinks]{display:none !important}}
 @media (max-width:600px){[data-mq-navcta]{display:none !important}}
-@media (min-width:768px){
- [data-mq-scroll]{transform:none !important}
-}
 @media (min-width:1180px){
  [data-mq-sticky]{position:sticky !important;top:104px}
 }
@@ -184,7 +179,6 @@ h1,h2{font-family:var(--f-display);font-optical-sizing:auto;font-weight:400}
 p{text-wrap:pretty}
 .cinta b{font-weight:inherit}
 .faq summary{text-wrap:balance}
-@media(prefers-reduced-motion:reduce){[data-mq-scroll] i{animation:none !important}}
 
 /* ===== 4.0: hero coreografiado, teaser, nav sobre oscuro, CTAs ===== */
 html,body{overflow-x:clip}
@@ -202,7 +196,6 @@ html,body{overflow-x:clip}
 .hero-ed-img{transform:scale(1.08);animation:heroFoto 1.6s cubic-bezier(.16,1,.3,1) .2s forwards}
 @keyframes heroFoto{to{transform:scale(1)}}
 .hero-ed-marca{font-size:clamp(5.5rem,19.4vw,22rem);left:0;right:0;transform:none;text-align:center}
-[data-mq-scroll]{left:auto !important;right:clamp(20px,6vw,96px) !important}
 @media(prefers-reduced-motion:reduce){.hero-ent{animation:none;opacity:1}.hero-ed-cuadro{clip-path:none;animation:none}.hero-ed-img{transform:none;animation:none}}
 /* teaser: visual a la izquierda con jerarquía, texto a la derecha */
 .tease-grid{position:relative;z-index:2;max-width:var(--ancho);margin:0 auto;padding:clamp(76px,13vh,130px) clamp(20px,6vw,96px);display:grid;grid-template-columns:1fr;gap:clamp(32px,5vw,72px);align-items:center}
