@@ -51,3 +51,16 @@ Candidatas verificadas que quedaron afuera, por si hacen falta:
 | `textura.jpg`, `textura-muro.jpg` | Fondos de sección | Brochure |
 
 **Pendiente de foto (2026-09-02):** la costa (`story-costa`) es 16:9 y en el celular cubre una pantalla 9:16 estirada casi 5×; en el cierre de la home se ve blanda. Hace falta un render vertical (`story-costa-v`, 1240×2222 como las otras `-v`) o pedirle al cliente una foto vertical de la península. El mismo tratamiento sirve para el fondo del teaser de la historia, que ya usa `story-dino-v`.
+
+**Pendiente de foto (2026-09-02, ronda 2 de QA):** los renders de la casa del comparador
+(`casa-obra` y los seis `casa-<acabado>`) llegan hasta 1500×1006. En el teléfono el cuadro es
+4/5 (390×488 CSS = 1170×1464 px reales en una pantalla Retina), así que la altura manda y la
+foto se amplía 1,45× incluso sirviendo la variante más grande: los bordes y la textura del
+chukum —que es justo lo que se vende— se ven blandos. No se arregla desde el código: hacen
+falta los renders a 2250×1509 o más, o fotos de obra real. Mientras tanto queda así, porque
+achatar el cuadro para que entre la foto rompe el encuadre vertical del comparador en celular.
+
+**Pendiente de contenido (2026-09-02):** `contenido/sitio.json` → `correo` sigue apuntando a la
+casilla de David (`david_taranto@outlook.es`). Sale publicado en el bloque de contacto y dentro
+de la vCard, al lado del nombre de Rodrigo. Se cambia en un solo lugar cuando exista el correo
+de `sauriumchukum.com`.
