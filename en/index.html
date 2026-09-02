@@ -200,6 +200,21 @@ html,body{overflow-x:clip}
 @media(min-width:901px){.hero-ed-cuadro{height:calc(100svh - 300px);max-height:calc(100svh - 300px);aspect-ratio:auto}}
 @media(max-width:900px){.hero-ed-cuadro{aspect-ratio:4/3;max-height:46svh}}
 
+/* ===== pila de fotos por aplicacion: van pasando solas =====
+   Cada figura muestra varias obras del mismo uso. La primera imagen se sirve
+   normal y las demas quedan apiladas; el aspect-ratio pasa al contenedor. */
+.apps-pila{position:relative;display:block;border-radius:6px;overflow:hidden;background:var(--arena)}
+.apps-pila img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;opacity:0;transition:opacity .9s ease}
+.apps-pila img.on{opacity:1}
+.apps-1 .apps-pila{aspect-ratio:3/2}
+.apps-2 .apps-pila,.apps-3 .apps-pila{aspect-ratio:4/5}
+.apps-4 .apps-pila{aspect-ratio:16/9}
+@media(max-width:700px){.apps-1 .apps-pila{aspect-ratio:4/3}.apps-2 .apps-pila,.apps-3 .apps-pila{aspect-ratio:4/5}.apps-4 .apps-pila{aspect-ratio:16/9}}
+.apps-puntos{display:flex;gap:6px;margin-top:2px}
+.apps-puntos i{width:18px;height:2px;border-radius:2px;background:currentColor;opacity:.2;transition:opacity .35s}
+.apps-puntos i.on{opacity:.7}
+@media(prefers-reduced-motion:reduce){.apps-pila img{transition:none}}
+
 /* ===== formulario de contacto sobre la foto ===== */
 .mundo-form{margin-top:clamp(20px,3vh,30px);max-width:520px;display:grid;gap:12px}
 .mundo-form .form-fila{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -848,7 +863,7 @@ class Component extends DCLogic {
     this.qa('a[href^="historia.html"]').forEach(a=> a.addEventListener('click', ()=>{
       try { sessionStorage.setItem('saurium-scroll', JSON.stringify({ p: location.pathname, y: Math.round(scrollY) })); } catch (e) {}
     }));
-    this.setupCompare(); this.setupCalc(); this.setupSaco3D(); this.setupLightbox(); this.setupFlotante(); this.setupMenu(); this.setupForm();
+    this.setupCompare(); this.setupCalc(); this.setupSaco3D(); this.setupLightbox(); this.setupFlotante(); this.setupMenu(); this.setupForm(); this.setupApps();
   }
   componentWillUnmount() {
     this.dead = true;
@@ -1325,6 +1340,36 @@ class Component extends DCLogic {
     dlg.addEventListener('keydown', (e)=>{
       if (e.key === 'ArrowRight') pista.scrollBy({ left: pista.clientWidth, behavior: this.reduce ? 'instant' : 'smooth' });
       if (e.key === 'ArrowLeft') pista.scrollBy({ left: -pista.clientWidth, behavior: this.reduce ? 'instant' : 'smooth' });
+    });
+  }
+  setupApps() {
+    const pilas = this.qa('[data-pila]');
+    pilas.forEach(pila=>{
+      const fotos = [...pila.querySelectorAll('img')];
+      if (fotos.length < 2) { if (fotos[0]) fotos[0].classList.add('on'); return; }
+      const boton = pila.closest('[data-lb]');
+      const puntos = pila.parentElement.querySelector('[data-pila-puntos]');
+      let i = 0, timer = null, visible = false, quieto = false;
+      const pintar = ()=>{
+        fotos.forEach((f, n)=> f.classList.toggle('on', n === i));
+        if (puntos) [...puntos.children].forEach((p, n)=> p.classList.toggle('on', n === i));
+        // el lightbox abre la foto que se esta viendo, no siempre la primera
+        if (boton) boton.setAttribute('data-lb', fotos[i].getAttribute('data-lb-clave') || boton.getAttribute('data-lb'));
+      };
+      const parar = ()=>{ if (timer) { clearInterval(timer); timer = null; } };
+      const arrancar = ()=>{
+        if (timer || this.reduce || !visible || quieto) return;
+        timer = setInterval(()=>{ i = (i + 1) % fotos.length; pintar(); }, 4800);
+      };
+      // solo rota lo que se esta viendo: fuera de pantalla no gasta nada
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((e)=>{ visible = e[0].isIntersecting; visible ? arrancar() : parar(); }, { threshold: 0.25 }).observe(pila);
+      } else { visible = true; arrancar(); }
+      // al pasar el cursor se queda quieta: si alguien la esta mirando, no se la cambiamos
+      pila.addEventListener('pointerenter', ()=>{ quieto = true; parar(); });
+      pila.addEventListener('pointerleave', ()=>{ quieto = false; arrancar(); });
+      if (puntos) [...puntos.children].forEach((p, n)=> p.addEventListener('click', (ev)=>{ ev.preventDefault(); ev.stopPropagation(); i = n; pintar(); }));
+      pintar();
     });
   }
   setupForm() {

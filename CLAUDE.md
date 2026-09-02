@@ -68,6 +68,29 @@ interior y brillo especular bajo a propósito: a `.2` aclaraba el acabado 8 punt
 carbón se leía gris medio. Las texturas se precargan con un IO de 400 px sobre el estante, y
 nada de esto se arma en táctil (`hover:none`) ni con movimiento reducido.
 
+### Ronda de pedidos del 2026-09-02 (segunda tanda)
+
+- **El hero crece al bajar.** `#inicio` mide 180svh; el contenido va en `.hero-stage` (sticky,
+  `height:100svh`, `box-sizing:border-box`) y la foto de la costa (`.hero-expande`) pasa por
+  `clip-path` del hueco que deja `.hero-ed-cuadro` a la pantalla completa, con la imagen
+  escalando 1 → 1,16 y el titular retirándose. Smoothstep, y `p` llega a 1 al 82 % del recorrido
+  para que quede un tramo con la foto entera antes de que el sticky se despegue. **El sticky solo
+  existe con `.hero-crece`** (≥901 px y sin movimiento reducido): en celular el contenido mide más
+  que la pantalla y un sticky más alto que el viewport esconde la mitad de abajo.
+- **El comparador ya no persigue al cursor.** `pointermove` movía la barra estuviera presionado o
+  no. Ahora: se agarra, se arrastra con `setPointerCapture` y se queda donde la dejan. El clic
+  también posiciona. Se sacó la proyección de inercia al soltar.
+- **Formulario en Contacto** (`setupForm`), sobre la foto de la costa, con dos salidas: correo por
+  Web3Forms y el mismo texto por WhatsApp. **Se autocompleta solo**: al entrar la sección, escribe
+  letra por letra el resumen (acabado, m², sacos) y después el mensaje. Si el visitante ya escribió,
+  no se pisa. La clave va en `contenido/sitio.json` → `web3forms_key`; vacía, el botón de correo no
+  se dibuja y todo sale por WhatsApp.
+- **Las placas de acabados usan la textura HD** (`--sw`), así que se fue el canto de la placa que
+  se veía en cinco de las seis.
+- **Pila de fotos por aplicación** (`setupApps`): cada figura rota varias obras del mismo uso con
+  cross-fade de 900 ms cada 4,8 s, se para al pasar el cursor y fuera de pantalla, y el lightbox
+  abre la foto que se está viendo (el carrusel reescribe `data-lb`).
+
 ### Pendientes
 - Registrar sauriumchukum.com y conectarlo; cargar el correo del dominio en `contenido/sitio.json`
   (hoy vacío a propósito: el bloque de contacto va sin botón de mail).
