@@ -212,46 +212,38 @@ html,body{overflow-x:clip}
 @media(min-width:901px){
   /* sangran hacia los bordes y se pisan: el fondo crema casi no se ve */
   #aplicaciones .apps-grid .apps-1{width:84%;margin-left:-5%;z-index:1}
-  #aplicaciones .apps-grid .apps-2{width:56%;margin-left:auto;margin-right:-5%;margin-top:-14%;z-index:2}
-  #aplicaciones .apps-grid .apps-3{width:64%;margin-left:-4%;margin-top:-24%;z-index:3}
+  #aplicaciones .apps-grid .apps-2{width:56%;margin-left:auto;margin-right:-5%;margin-top:-26%;z-index:2}
+  #aplicaciones .apps-grid .apps-3{width:64%;margin-left:-4%;margin-top:-32%;z-index:3}
   #aplicaciones .apps-grid .apps-4{width:70%;margin-left:auto;margin-right:-4%;margin-top:-11%;z-index:4}
 }
 @media(max-width:900px){
   #aplicaciones .apps-grid .apps-1{width:100%;z-index:1}
-  #aplicaciones .apps-grid .apps-2{width:80%;margin-left:auto;margin-top:-7%;z-index:2}
-  #aplicaciones .apps-grid .apps-3{width:86%;margin-right:auto;margin-top:-7%;z-index:3}
+  #aplicaciones .apps-grid .apps-2{width:80%;margin-left:auto;margin-top:14px;z-index:2}
+  #aplicaciones .apps-grid .apps-3{width:86%;margin-right:auto;margin-top:14px;z-index:3}
   /* la ultima entra por la derecha: el pie de la anterior vive a la izquierda */
-  #aplicaciones .apps-grid .apps-4{width:90%;margin-left:auto;margin-top:-7%;z-index:4}
+  #aplicaciones .apps-grid .apps-4{width:90%;margin-left:auto;margin-top:14px;z-index:4}
 }
 /* el pie, adentro de la lamina */
-.apps-pie{box-sizing:border-box;position:absolute;left:0;right:0;bottom:0;max-width:min(100%,420px);z-index:2;display:grid;gap:2px;border:0;padding:clamp(30px,4vw,52px) clamp(14px,2vw,24px) clamp(12px,1.6vw,18px);border-radius:0 0 6px 6px;pointer-events:none}
-.apps-pie::before{content:'';position:absolute;inset:0;border-radius:inherit;z-index:-1}
-#aplicaciones .apps-grid figure[data-tono="oscuro"] .apps-pie{color:var(--crema);text-shadow:0 1px 10px oklch(0 0 0/.45)}
-#aplicaciones .apps-grid figure[data-tono="oscuro"] .apps-pie::before{background:linear-gradient(to top,oklch(0.13 0.004 48.6/.86),oklch(0.13 0.004 48.6/.52) 46%,transparent)}
-#aplicaciones .apps-grid figure[data-tono="claro"] .apps-pie{color:var(--negro);text-shadow:0 1px 10px oklch(1 0 0/.5)}
-#aplicaciones .apps-grid figure[data-tono="claro"] .apps-pie::before{background:linear-gradient(to top,oklch(0.94 0.008 75/.9),oklch(0.94 0.008 75/.56) 46%,transparent)}
-.apps-pie b{font-size:clamp(15px,1.5vw,18px);font-weight:600}
-.apps-pie>span:not(.apps-puntos){font-size:var(--t-sm);opacity:.9}
-.apps-pie .apps-puntos{margin-top:2px;margin-left:-4px;pointer-events:auto}
-/* en celular las laminas son casi de ancho completo: el pie va ARRIBA, que es el
-   lado que la lamina siguiente no pisa (se monta siempre por abajo) */
-@media(max-width:900px){
-  .apps-pie{max-width:86%;top:0;bottom:auto;border-radius:6px 6px 0 0;padding:clamp(12px,3vw,18px) clamp(14px,4vw,20px) clamp(30px,8vw,46px)}
-  #aplicaciones .apps-grid figure[data-tono="oscuro"] .apps-pie::before{background:linear-gradient(to bottom,oklch(0.13 0.004 48.6/.88),oklch(0.13 0.004 48.6/.54) 48%,transparent)}
-  #aplicaciones .apps-grid figure[data-tono="claro"] .apps-pie::before{background:linear-gradient(to bottom,oklch(0.94 0.008 75/.92),oklch(0.94 0.008 75/.58) 48%,transparent)}
-}
+/* El pie ya no vive adentro de la foto: se apoya debajo, del lado que deja libre el
+   apilado. Se va el velo oscuro (marcaba demasiado el rectangulo) y el texto queda
+   sobre el crema del fondo, legible sin trucos. */
+.apps-pie{box-sizing:border-box;display:grid;gap:3px;padding:14px 0 0;max-width:min(100%,34ch);color:var(--marron)}
+.apps-pie b{font-size:clamp(15px,1.5vw,18px);font-weight:600;letter-spacing:-.005em}
+.apps-pie>span:not(.apps-puntos){font-size:var(--t-sm);opacity:.72;text-wrap:pretty}
+.apps-pie .apps-puntos{margin-top:6px;margin-left:-4px}
+@media(max-width:900px){.apps-pie{max-width:min(100%,30ch)}}
 /* el pie va del lado que la lamina siguiente NO pisa: las de la derecha lo llevan
    a la derecha, si no el bloque de abajo les tapa el texto al solaparse */
-@media(min-width:901px){
-  #aplicaciones .apps-2 .apps-pie,#aplicaciones .apps-4 .apps-pie{margin-left:auto;justify-items:end;text-align:right}
-}
+#aplicaciones .apps-2 .apps-pie,#aplicaciones .apps-4 .apps-pie{margin-left:auto;justify-items:end;text-align:right}
+#aplicaciones .apps-2 .apps-puntos,#aplicaciones .apps-4 .apps-puntos{margin-left:0;margin-right:-4px}
 
 /* ===== pila de fotos por aplicacion: van pasando solas =====
    Cada figura muestra varias obras del mismo uso. La primera imagen se sirve
    normal y las demas quedan apiladas; el aspect-ratio pasa al contenedor. */
 .apps-pila{position:relative;display:block;border-radius:6px;overflow:hidden;background:var(--arena)}
-.apps-pila img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;opacity:0;transition:opacity .9s ease}
-.apps-pila img.on{opacity:1}
+.apps-pila img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;opacity:0;transform:scale(1.035);transition:opacity 1.5s cubic-bezier(.4,0,.2,1),transform 2.6s cubic-bezier(.22,1,.36,1)}
+.apps-pila img.on{opacity:1;transform:scale(1)}
+@media(prefers-reduced-motion:reduce){.apps-pila img{transform:none;transition:none}}
 .apps-1 .apps-pila{aspect-ratio:3/2}
 .apps-2 .apps-pila,.apps-3 .apps-pila{aspect-ratio:4/5}
 .apps-4 .apps-pila{aspect-ratio:16/9}
@@ -1431,7 +1423,7 @@ class Component extends DCLogic {
       const parar = ()=>{ if (timer) { clearInterval(timer); timer = null; } };
       const arrancar = ()=>{
         if (timer || this.reduce || !visible || quieto) return;
-        timer = setInterval(()=>{ i = (i + 1) % fotos.length; pintar(); }, 4800);
+        timer = setInterval(()=>{ i = (i + 1) % fotos.length; pintar(); }, 6200);
       };
       // solo rota lo que se esta viendo: fuera de pantalla no gasta nada
       if ('IntersectionObserver' in window) {

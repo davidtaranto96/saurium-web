@@ -88,13 +88,14 @@ nada de esto se arma en táctil (`hover:none`) ni con movimiento reducido.
 - **Las placas de acabados usan la textura HD** (`--sw`), así que se fue el canto de la placa que
   se veía en cinco de las seis.
 - **Aplicaciones en apilado editorial**: las cuatro láminas se pisan entre sí y sangran hacia
-  los bordes, así queda a la vista el mínimo de fondo crema. El pie va **dentro** de la foto, y
-  su color no se estima: `server/tono-fotos.py` mide la luminancia relativa (WCAG) de la franja
-  inferior de cada imagen y escribe `data-tono="claro|oscuro"`; el JS lo pasa a la figura según la
-  foto activa. Las 12 fotos dan entre 4,8:1 y 16,4:1 de contraste. **Correr ese script cada vez
-  que se cambie una foto de Aplicaciones.** El pie de las láminas de la derecha va alineado a la
-  derecha: es el lado que la lámina siguiente no pisa. En celular el solape baja a 7 % porque el
-  pie mide ~18 % del ancho y con más se lo come.
+  los bordes. **El pie va debajo de la foto, no adentro** (David, 2026-09-02: el velo oscuro
+  marcaba demasiado el rectángulo). Se apoya del lado que deja libre el apilado — izquierda en
+  las láminas de la izquierda, derecha en las de la derecha— y así aprovecha el hueco lateral,
+  que es lo que permite subir el solape a 26 % y 32 % sin tapar nada. En celular no hay solape
+  vertical: el pie mide ~60 px y cualquier montaje se lo come; el escalonado queda por los anchos
+  y los lados alternados.
+  `server/tono-fotos.py` quedó **fuera de uso** al salir el texto de la foto: el contraste ahora
+  lo da el fondo crema de la página. Se conserva por si el texto vuelve adentro.
 - **Pila de fotos por aplicación** (`setupApps`): cada figura rota varias obras del mismo uso con
   cross-fade de 900 ms cada 4,8 s, se para al pasar el cursor y fuera de pantalla, y el lightbox
   abre la foto que se está viendo (el carrusel reescribe `data-lb`).
