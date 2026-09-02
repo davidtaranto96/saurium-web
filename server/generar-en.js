@@ -143,7 +143,7 @@ function relocalizar(html, p) {
   html = html.replace(/(<meta property="og:locale" content=")es_MX(")/, '$1en_US$2').replace(/(og:locale:alternate" content=")en_US/, '$1es_MX');
   // assets: la pagina vive un nivel mas abajo. Los .html NO se prefijan (dentro de /en/ ya resuelven a /en/).
   return html
-    .replace(/(src|href|srcset)="(img\/|\.\/support|\.\/image-slot|favicon)/g, (m, a, b) => `${a}="../${b}`)
+    .replace(/(src|href|srcset)="(img\/|\.\/support|\.\/image-slot|favicon|apple-touch-icon|icon-512)/g, (m, a, b) => `${a}="../${b}`)
     .replace(/srcset="([^"]*)"/g, (m, v) => 'srcset="' + v.replace(/(^|,\s*)img\//g, '$1../img/') + '"')
     .replace(/url\((['"]?)img\//g, (m, q) => `url(${q}../img/`)
     .replace(/data-tex="img\//g, 'data-tex="../img/');
