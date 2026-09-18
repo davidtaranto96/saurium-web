@@ -1143,6 +1143,12 @@ class Component extends DCLogic {
       if (this.heroE == null || this.reduce) this.heroE = objetivo;
       else this.heroE += (objetivo - this.heroE) * 0.16;
       const e = this.heroE;
+      const pieTexto = heroPie && heroPie.querySelector('[data-i18n]');
+      if (pieTexto) {
+        const clave = !heroAncho() && video && video.dataset.ready && !this.reduce ? 'hero.demo' : 'hero.pie';
+        pieTexto.setAttribute('data-i18n', clave);
+        pieTexto.textContent = this.I18N[this.lang][clave];
+      }
       foto.style.setProperty('--video-visible', video && video.dataset.ready && !this.reduce ? (heroAncho() ? Math.min(1, Math.max(0, (e - 0.25) / 0.45)) : 1) : 0);
       if (!this.reduce && Math.abs(objetivo - e) > 0.0008 && !this.heroRaf) {
         this.heroRaf = requestAnimationFrame(()=>{ this.heroRaf = null; this.pintarHero(true); });
