@@ -473,6 +473,9 @@ html:has(dialog[open]){overflow:hidden}
 #contacto .mundo-grid{align-items:center}
 #contacto>div[aria-hidden="true"]:not(.grano-vineta){background:linear-gradient(100deg,color-mix(in oklch,var(--negro) 76%,transparent),color-mix(in oklch,var(--negro) 58%,transparent))!important}
 @media(min-width:901px){.historia-breve-enlace{grid-template-columns:96px 1fr auto;gap:28px}.historia-breve-enlace>img{width:96px;height:96px;grid-row:auto}.historia-breve-cta{grid-column:3;white-space:nowrap}}
+.hero-expande video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:var(--video-visible,0);transition:opacity .7s ease;pointer-events:none}
+.hero-demo{position:absolute;right:24px;bottom:24px;z-index:2;padding:6px 10px;border-radius:6px;background:var(--negro);color:var(--crema);font-size:12px;opacity:var(--video-visible,0);transition:opacity .7s ease}
+@media(prefers-reduced-motion:reduce){.hero-expande video,.hero-demo{display:none}}
 </style>
 </head>
 <body>
@@ -524,6 +527,8 @@ html:has(dialog[open]){overflow:hidden}
     </figure>
   </div>
   <div class="hero-expande" data-hero-foto>
+    <video data-hero-video data-src="/video/aplicacion-demo.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+    <span class="hero-demo" data-hero-demo data-i18n="hero.demo">Escena de referencia</span>
     <img class="hero-ed-img" src="img/hero-luminoso.webp" srcset="img/hero-luminoso-720.webp 720w, img/hero-luminoso-1200.webp 1200w, img/hero-luminoso-1600.webp 1600w, img/hero-luminoso.webp 1800w" sizes="(max-width:900px) 100vw, 100vw" loading="eager" fetchpriority="high" decoding="async" alt="Costa y selva de la Península de Yucatán desde el aire" data-i18n-alt="alt.hero">
   </div>
   <div class="hero-ed-marca" data-parallax="-0.06" aria-hidden="true">SAURIUM</div>
@@ -823,7 +828,7 @@ class Component extends DCLogic {
         'meta.title':'SAURIUM — Chukum auténtico de Yucatán. Desde el origen, diseñado para perdurar.','meta.desc':'Recubrimiento natural de chukum, elaborado en la Península de Yucatán. Seis acabados, comparador antes y después, y envíos a México y el exterior.',
         'a11y.skip':'Saltar al contenido','a11y.lang':'Cambiar a inglés','a11y.menu':'Menú','a11y.galeria':'Galería de aplicaciones','a11y.cerrar':'Cerrar','a11y.anterior':'Anterior','a11y.siguiente':'Siguiente','a11y.comparar':'Comparar antes y después','a11y.secciones':'Secciones','idx.inicio':'Inicio','idx.historia':'Historia','idx.material':'El chukum','idx.colores':'Acabados','idx.aplicaciones':'Aplicaciones','idx.preguntas':'Preguntas','idx.calculadora':'Calculadora','idx.contacto':'Contacto','alt.hero':'Costa y selva de la Península de Yucatán desde el aire','alt.t1':'Selva baja de Yucatán','alt.t2':'El impacto en la península','alt.t3':'Huella fósil en la caliza','alt.saco':'Saco de chukum SAURIUM de 20 kg','alt.antes':'La casa en obra gris, sin acabado','alt.despues':'La misma casa terminada con chukum SAURIUM','alt.costa':'Costa de la Península de Yucatán desde el aire','uso.1':'Muros de chukum en un patio con alberca','uso.2':'Interior con muros de chukum','uso.3':'Alberca con borde y muros de acabado continuo en tono arena','uso.4':'Regadera de bronce sobre muro continuo de estuco natural','colors.group':'Elegir acabado','material.bag3d':'Saco de chukum SAURIUM de 20\u00a0kg en tres dimensiones. Arrástralo o usa las flechas para girarlo.',
         'nav.story':'Historia','nav.chukum':'El chukum','nav.colors':'Acabados','nav.apps':'Aplicaciones','nav.contact':'Contacto','nav.cta':'Cotizar',
-        'hero.kicker':'Chukum auténtico de la Península de Yucatán',/*cms:hero-es*/'hero.l1':'Desde el origen.','hero.l2':'Diseñado para perdurar.',/*/cms:hero-es*/
+        'hero.demo':'Escena de referencia','hero.kicker':'Chukum auténtico de la Península de Yucatán',/*cms:hero-es*/'hero.l1':'Desde el origen.','hero.l2':'Diseñado para perdurar.',/*/cms:hero-es*/
         'hero.sub':'Un recubrimiento natural con huella histórica. Resina del árbol de chukum y cal de la península, aplicado capa sobre capa.',
         'hero.cta1':'Ver el material','hero.cta2':'Hablar con ventas','hero.scroll':'Deslizar','hero.pie':'Costa de la Península de Yucatán',
         'tease.kicker':'La historia','tease.title':'Cada material tiene un origen. Este tiene una historia.',
@@ -866,7 +871,7 @@ class Component extends DCLogic {
         'hero.kicker':'Authentic chukum from the Yucatán Peninsula',/*cms:hero-en*/'hero.l1':'From the origin.','hero.l2':'Designed to endure.',/*/cms:hero-en*/
         'hero.sub':'A natural finish with a historic footprint. Chukum tree resin and lime from the peninsula, applied layer over layer.',
         'hero.cta1':'See the material','hero.cta2':'Talk to sales','hero.scroll':'Scroll','hero.pie':'Coast of the Yucatán Peninsula',
-        'tease.kicker':'The story','tease.title':'Every material has an origin. This one has a story.',
+        'hero.demo':'Reference scene','tease.kicker':'The story','tease.title':'Every material has an origin. This one has a story.',
         'tease.sub':'A journey through the land of Yucatán and the imprint that inspires SAURIUM.',
         'tease.cta':'Walk through the story','tease.c1':'Origin','tease.c2':'Impact','tease.c3':'Footprint',
         'material.kicker':'The material','material.title':'What is chukum',
@@ -921,6 +926,9 @@ class Component extends DCLogic {
   }
   componentWillUnmount() {
     this.dead = true;
+    if (this.heroVideoIO) this.heroVideoIO.disconnect();
+    if (this.heroVideoVis) document.removeEventListener('visibilitychange', this.heroVideoVis);
+    const heroVideo = this.q('[data-hero-video]'); if (heroVideo) heroVideo.pause();
     if (this.onCalcHash) window.removeEventListener('hashchange', this.onCalcHash);
     if (this.io) this.io.disconnect();
     if (this.onReveal) { window.removeEventListener('scroll', this.onReveal); window.removeEventListener('resize', this.onReveal); }
@@ -1093,6 +1101,25 @@ class Component extends DCLogic {
     const hero = this.q('#inicio'), stage = this.q('[data-hero-stage]');
     const hueco = this.q('[data-hero-hueco]'), foto = this.q('[data-hero-foto]');
     const heroTxt = this.q('[data-hero-texto]'), heroPie = this.q('.hero-ed-pie');
+    const video = this.q('[data-hero-video]');
+    let videoVisible = false;
+    const actualizarVideo = ()=>{
+      if (!video) return;
+      const activo = videoVisible && !document.hidden && !this.reduce;
+      if (activo && !video.getAttribute('src')) { video.src = video.dataset.src; video.load(); }
+      if (activo && video.paused) video.play().catch(()=>{});
+      else if (!activo) video.pause();
+    };
+    if (video) {
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.addEventListener('playing', ()=>{ video.dataset.ready = 'true'; this.pintarHero && this.pintarHero(); });
+      this.heroVideoIO = new IntersectionObserver(entries=>{ videoVisible = entries[0].isIntersecting; actualizarVideo(); }, {threshold:0.05});
+      this.heroVideoIO.observe(stage);
+      this.heroVideoVis = actualizarVideo;
+      document.addEventListener('visibilitychange', actualizarVideo);
+    }
     const heroAncho = ()=> window.matchMedia('(min-width:901px)').matches;
     // el recorrido extra solo existe donde el efecto corre; si no, el hero es de 100svh
     const armarHero = ()=>{
@@ -1116,6 +1143,7 @@ class Component extends DCLogic {
       if (this.heroE == null || this.reduce) this.heroE = objetivo;
       else this.heroE += (objetivo - this.heroE) * 0.16;
       const e = this.heroE;
+      foto.style.setProperty('--video-visible', video && video.dataset.ready && !this.reduce ? (heroAncho() ? Math.min(1, Math.max(0, (e - 0.25) / 0.45)) : 1) : 0);
       if (!this.reduce && Math.abs(objetivo - e) > 0.0008 && !this.heroRaf) {
         this.heroRaf = requestAnimationFrame(()=>{ this.heroRaf = null; this.pintarHero(true); });
       }
